@@ -91,8 +91,8 @@
 <li class="toctree-l3"><a class="reference internal" href="#automatic-updates">Automatic Updates</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#complete-support-for-python-version-3-10">Complete Support for Python Version (3.10)</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#traceback-encryption-commercial">Traceback Encryption (commercial)</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#features-to-be-added-for-1-0">Features to be added for 1.0</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#features-to-be-added-for-1-1">Features to be added for 1.1</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#features-to-be-added-for-1-2">Features to be added for 1.2</a></li>
 </ul>
 </li>
 </ul>
@@ -129,9 +129,9 @@ files now.</p>
 <p>In this way, it is easy to extend by third parties. We could imagine
 even supporting packages that provide their own configuration for
 compilation with Nuitka through such files.</p>
-<p>The next step is to document these file formats, potentially define a
-schema for them and check it. We might have to change the format to
-make this possible.</p>
+<p>A schema was created and helps editing in Visual Code, user files can
+be provided.</p>
+<p>The next step is to document these file formats.</p>
 <p>Changes are under way and nearly complete now.</p>
 </li>
 </ul>
@@ -157,11 +157,11 @@ directory that is shared.</p>
 <p>&#26368;&#37325;&#35201;&#30340;&#26159;&#65292;&#8221;multidist&#8221; &#30340;&#32982;&#20108;&#36827;&#21046;&#21487;&#20197;&#26159;&#29420;&#31435;&#30340;&#25110;&#21333;&#25991;&#20214;&#27169;&#24335;&#65292;&#30001;&#20320;&#36873;&#25321;&#12290;&#20854;&#32570;&#28857;&#26159;&#65292;&#21333;&#25991;&#20214;&#30340;&#35299;&#21387;&#36895;&#24230;&#20250;&#27604;&#36739;&#22823;&#30340;&#20108;&#36827;&#21046;&#25991;&#20214;&#35201;&#24930;&#12290;</p>
 </li>
 <li><p>&#8220;Sharedist&#8221; &#25903;&#25345; &#65288;&#26410;&#23450;&#65289;</p>
-<p>&#22312;&#36825;&#19968;&#28857;&#19978;&#65292;&#31243;&#24207;&#27809;&#26377;&#34987;&#21512;&#24182;&#65292;&#32780;&#26159;&#24674;&#22797;&#20102;&#29420;&#31435;&#30340;&#32534;&#35793;&#65292;&#20135;&#29983;&#20102;&#22810;&#20010;&#20998;&#24067;&#30340;&#20849;&#20139;&#21644;&#38750;&#20849;&#20139;&#37096;&#20998;&#12290;</p>
+<p>In this the programs are not combined, rather separate standalone
+compilations are combined, produced shared and non-shared parts of
+multiple distributions.</p>
 <p>The plugins in Nuitka are cleaned up entirely, when comes to copying
-DLLs and data files now. The main confusion right now is the
-different handling of extension modules, and DLLs, that should be
-unified in order to make the code that deals with it less repetitive.</p>
+DLLs and data files now.</p>
 </li>
 <li><p>Dejong Stacks: &#26356;&#24378;&#22823;&#30340;&#35299;&#26512;&#22120;&#65292;&#20801;&#35768;&#22312;&#21516;&#19968;&#25991;&#20214;&#20013;&#30340; stdout &#21644; stderr &#28151;&#21512;&#36755;&#20986;&#12290;</p></li>
 </ul>
@@ -262,28 +262,27 @@ client name, etc. could be output in plain text, while the variable
 names and values would not be, depending on your choice!</p></li>
 </ul>
 </section>
-<section id="features-to-be-added-for-1-0">
-<h2>Features to be added for 1.0<a class="headerlink" href="#features-to-be-added-for-1-0" title="&#27492;&#26631;&#39064;&#30340;&#27704;&#20037;&#38142;&#25509;">&#61633;</a></h2>
-<dl class="simple">
-<dt>[x] Onefile should support keeping cached binaries and then not requires</dt><dd><p>to overwrite. Then we can drop <code class="docutils literal notranslate"><span class="pre">AppImage</span></code> usage on Linux.</p>
-</dd>
-<dt>[ ] Add support for <code class="docutils literal notranslate"><span class="pre">list</span></code> methods, things like <code class="docutils literal notranslate"><span class="pre">append</span></code> really</dt><dd><p>should be optimized as well in the mostly existing operation nodes.</p>
-</dd>
-<dt>[ ] Tuple unpacking for values that support indexing should be</dt><dd><p>optimized.</p>
-</dd>
-</dl>
+<section id="features-to-be-added-for-1-1">
+<h2>Features to be added for 1.1<a class="headerlink" href="#features-to-be-added-for-1-1" title="&#27492;&#26631;&#39064;&#30340;&#27704;&#20037;&#38142;&#25509;">&#61633;</a></h2>
 <p>[x] Get complex flask standalone examples to work.</p>
 <p>[ ] Add download updating for onefile on at least Windows.</p>
 <p>[ ] Document commercial file embedding publicly with examples.</p>
 <p>[ ] Document commercial Windows Service usage with examples.</p>
 <dl class="simple">
-<dt>[ ] Add support for executables in the onefile binary. Right now outside of</dt><dd><p>Windows, the x-bit is lost.</p>
+<dt>[x] Add support for executables in the onefile binary. Right now outside of</dt><dd><p>Windows, the x-bit is lost.</p>
 </dd>
 </dl>
 </section>
-<section id="features-to-be-added-for-1-1">
-<h2>Features to be added for 1.1<a class="headerlink" href="#features-to-be-added-for-1-1" title="&#27492;&#26631;&#39064;&#30340;&#27704;&#20037;&#38142;&#25509;">&#61633;</a></h2>
+<section id="features-to-be-added-for-1-2">
+<h2>Features to be added for 1.2<a class="headerlink" href="#features-to-be-added-for-1-2" title="&#27492;&#26631;&#39064;&#30340;&#27704;&#20037;&#38142;&#25509;">&#61633;</a></h2>
 <p>[ ] Initial support for ctypes based direct calls of C code.</p>
+<dl class="simple">
+<dt>[ ] Add support for <code class="docutils literal notranslate"><span class="pre">list</span></code> methods, things like <code class="docutils literal notranslate"><span class="pre">append</span></code> really</dt><dd><p>should be optimized as well in the mostly existing operation nodes.</p>
+</dd>
+<dt>[ ] Tuple unpacking for values that support indexing should be</dt><dd><p>optimized.</p>
+</dd>
+</dl>
+<p>[ ] Document Yaml format with a series of postings with examples.</p>
 </section>
 </section>
 

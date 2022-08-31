@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en">
   <id>https://nuitka.net</id>
   <title>Nuitka Blog - Posts by Kay Hayen</title>
-  <updated>2022-08-16T07:21:49.829167+00:00</updated>
+  <updated>2022-08-31T15:59:56.989003+00:00</updated>
   <link href="https://nuitka.net"/>
   <link href="https://nuitka.net/blog/author/kay-hayen/atom.xml" rel="self"/>
   <generator uri="https://ablog.readthedocs.org/" version="0.10.29">ABlog</generator>
@@ -25321,7 +25321,7 @@ with care, removing DLLs will lead to very hard to recognize errors.&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;&lt;p&gt;Anaconda: Use &lt;code class="docutils literal notranslate"&gt;&lt;span class="pre"&gt;CondaCC&lt;/span&gt;&lt;/code&gt; from environment variables for Linux and
 macOS, in case it is installed. This can be done with e.g. &lt;code class="docutils literal notranslate"&gt;&lt;span class="pre"&gt;conda&lt;/span&gt;
-&lt;span class="pre"&gt;install&lt;/span&gt; &lt;span class="pre"&gt;gcc-linux-64&lt;/span&gt;&lt;/code&gt; on Linux or &lt;code class="docutils literal notranslate"&gt;&lt;span class="pre"&gt;conda&lt;/span&gt; &lt;span class="pre"&gt;install&lt;/span&gt; &lt;span class="pre"&gt;clang_osx-64&lt;/span&gt;&lt;/code&gt; on
+&lt;span class="pre"&gt;install&lt;/span&gt; &lt;span class="pre"&gt;gcc_linux-64&lt;/span&gt;&lt;/code&gt; on Linux or &lt;code class="docutils literal notranslate"&gt;&lt;span class="pre"&gt;conda&lt;/span&gt; &lt;span class="pre"&gt;install&lt;/span&gt; &lt;span class="pre"&gt;clang_osx-64&lt;/span&gt;&lt;/code&gt; on
 macOS.&lt;/p&gt;&lt;/li&gt;
 &lt;li&gt;&lt;p&gt;Added new option &lt;code class="docutils literal notranslate"&gt;&lt;span class="pre"&gt;--nowarn-mnemonic&lt;/span&gt;&lt;/code&gt; to disable warnings that use
 mnemonics, there is currently not that many yet, but it’s going to

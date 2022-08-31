@@ -101,8 +101,8 @@
 <li class="toctree-l2"><a class="reference internal" href="#automatic-updates">Automatic Updates</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#complete-support-for-python-version-3-10">Complete Support for Python Version (3.10)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#traceback-encryption-commercial">Traceback Encryption (commercial)</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#features-to-be-added-for-1-0">Features to be added for 1.0</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#features-to-be-added-for-1-1">Features to be added for 1.1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#features-to-be-added-for-1-2">Features to be added for 1.2</a></li>
 </ul>
 </li>
 </ul>
@@ -155,9 +155,9 @@ files now.</p>
 <p>In this way, it is easy to extend by third parties. We could imagine
 even supporting packages that provide their own configuration for
 compilation with Nuitka through such files.</p>
-<p>The next step is to document these file formats, potentially define a
-schema for them and check it. We might have to change the format to
-make this possible.</p>
+<p>A schema was created and helps editing in Visual Code, user files can
+be provided.</p>
+<p>The next step is to document these file formats.</p>
 <p>Changes are under way and nearly complete now.</p>
 </li>
 </ul>
@@ -188,13 +188,11 @@ or onefile mode, at your choice. The disadvantage there being, that
 onefile will be slower to unpack with a larger binary.</p>
 </li>
 <li><p>&#8220;Sharedist&#8221; support (undecided)</p>
-<p>In this the programs are not combined, rather standalone compilations
-are resumed, produced shared and non-shared parts of multiple
-distributions.</p>
+<p>In this the programs are not combined, rather separate standalone
+compilations are combined, produced shared and non-shared parts of
+multiple distributions.</p>
 <p>The plugins in Nuitka are cleaned up entirely, when comes to copying
-DLLs and data files now. The main confusion right now is the
-different handling of extension modules, and DLLs, that should be
-unified in order to make the code that deals with it less repetitive.</p>
+DLLs and data files now.</p>
 </li>
 <li><p>Dejong Stacks: More robust parser that allows stdout and stderr in
 same file with mixed outputs.</p></li>
@@ -296,28 +294,27 @@ client name, etc. could be output in plain text, while the variable
 names and values would not be, depending on your choice!</p></li>
 </ul>
 </section>
-<section id="features-to-be-added-for-1-0">
-<h2>Features to be added for 1.0<a class="headerlink" href="#features-to-be-added-for-1-0" title="Permalink to this heading">&#61633;</a></h2>
-<dl class="simple">
-<dt>[x] Onefile should support keeping cached binaries and then not requires</dt><dd><p>to overwrite. Then we can drop <code class="docutils literal notranslate"><span class="pre">AppImage</span></code> usage on Linux.</p>
-</dd>
-<dt>[ ] Add support for <code class="docutils literal notranslate"><span class="pre">list</span></code> methods, things like <code class="docutils literal notranslate"><span class="pre">append</span></code> really</dt><dd><p>should be optimized as well in the mostly existing operation nodes.</p>
-</dd>
-<dt>[ ] Tuple unpacking for values that support indexing should be</dt><dd><p>optimized.</p>
-</dd>
-</dl>
+<section id="features-to-be-added-for-1-1">
+<h2>Features to be added for 1.1<a class="headerlink" href="#features-to-be-added-for-1-1" title="Permalink to this heading">&#61633;</a></h2>
 <p>[x] Get complex flask standalone examples to work.</p>
 <p>[ ] Add download updating for onefile on at least Windows.</p>
 <p>[ ] Document commercial file embedding publicly with examples.</p>
 <p>[ ] Document commercial Windows Service usage with examples.</p>
 <dl class="simple">
-<dt>[ ] Add support for executables in the onefile binary. Right now outside of</dt><dd><p>Windows, the x-bit is lost.</p>
+<dt>[x] Add support for executables in the onefile binary. Right now outside of</dt><dd><p>Windows, the x-bit is lost.</p>
 </dd>
 </dl>
 </section>
-<section id="features-to-be-added-for-1-1">
-<h2>Features to be added for 1.1<a class="headerlink" href="#features-to-be-added-for-1-1" title="Permalink to this heading">&#61633;</a></h2>
+<section id="features-to-be-added-for-1-2">
+<h2>Features to be added for 1.2<a class="headerlink" href="#features-to-be-added-for-1-2" title="Permalink to this heading">&#61633;</a></h2>
 <p>[ ] Initial support for ctypes based direct calls of C code.</p>
+<dl class="simple">
+<dt>[ ] Add support for <code class="docutils literal notranslate"><span class="pre">list</span></code> methods, things like <code class="docutils literal notranslate"><span class="pre">append</span></code> really</dt><dd><p>should be optimized as well in the mostly existing operation nodes.</p>
+</dd>
+<dt>[ ] Tuple unpacking for values that support indexing should be</dt><dd><p>optimized.</p>
+</dd>
+</dl>
+<p>[ ] Document Yaml format with a series of postings with examples.</p>
 </section>
 </section>
 
