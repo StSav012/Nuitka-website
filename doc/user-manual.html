@@ -138,7 +138,10 @@
 <li class="toctree-l3"><a class="reference internal" href="#missing-data-files-in-standalone">Missing data files in standalone</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#missing-dlls-in-standalone">Missing DLLs in standalone</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#dependency-creep-in-standalone">Dependency creep in standalone</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#onefile-finding-files">Onefile: Finding files</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#onefile-finding-files">Onefile: Finding files</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#standalone-finding-files">Standalone: Finding files</a></li>
+</ul>
+</li>
 <li class="toctree-l3"><a class="reference internal" href="#windows-programs-without-console-give-no-errors">Windows Programs without console give no errors</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#deep-copying-uncompiled-functions">Deep copying uncompiled functions</a></li>
 </ul>
@@ -199,12 +202,13 @@
 <p class="caption" role="heading"><span class="caption-text">Commercial Users</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="commercial.html">Nuitka Commercial</a></li>
+<li class="toctree-l1"><a class="reference internal" href="bundles.html">Nuitka Bundles</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Release Information</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="Changelog.html">Nuitka Release 1.1 (Draft)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Changelog.html">Nuitka Release 1.2 (Draft)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Changelog.html#nuitka-release-1-1">Nuitka Release 1.1</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Changelog.html#nuitka-release-1-0">Nuitka Release 1.0</a></li>
-<li class="toctree-l1"><a class="reference internal" href="Changelog.html#nuitka-release-0-9">Nuitka Release 0.9</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Changelog.html#older-releases">Older Releases</a></li>
 <li class="toctree-l1"><a class="reference internal" href="roadmap.html">Roadmap</a></li>
 </ul>
@@ -1043,12 +1047,26 @@ location, your original environment files will be in the former
 location.</p>
 <p>Given 2 files, one which you expect to be near your executable, and one
 which you expect to be inside the onefile binary, access them like this.</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># This will find a file near your onefile.exe</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># This will find a file *near* your onefile.exe</span>
 <span class="nb">open</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">dirname</span><span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">[</span><span class="mi">0</span><span class="p">]),</span> <span class="s2">"user-provided-file.txt"</span><span class="p">))</span>
-<span class="c1"># This will find a file inside your onefile.exe</span>
+<span class="c1"># This will find a file *inside* your onefile.exe</span>
 <span class="nb">open</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">dirname</span><span class="p">(</span><span class="vm">__file__</span><span class="p">),</span> <span class="s2">"user-provided-file.txt"</span><span class="p">))</span>
 </pre></div>
 </div>
+<section id="standalone-finding-files">
+<h4>Standalone: Finding files<a class="headerlink" href="#standalone-finding-files" title="Permalink to this heading">&#61633;</a></h4>
+<p>The standard code that normally works, also works, you should refer to
+<code class="docutils literal notranslate"><span class="pre">os.path.dirname(__file__)</span></code> or use all the packages like <code class="docutils literal notranslate"><span class="pre">pkgutil</span></code>,
+<code class="docutils literal notranslate"><span class="pre">pkg_resources</span></code>, <code class="docutils literal notranslate"><span class="pre">importlib.resources</span></code> to locate data files near the
+standalone binary.</p>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p>What you should <strong>not</strong> do, is use the current directory
+<code class="docutils literal notranslate"><span class="pre">os.getcwd</span></code>, assuming that this is the script directory, that is
+not generally true, and was never good code. Links, to a program,
+etc. will all fail in bad ways.</p>
+</div>
+</section>
 </section>
 <section id="windows-programs-without-console-give-no-errors">
 <h3>Windows Programs without console give no errors<a class="headerlink" href="#windows-programs-without-console-give-no-errors" title="Permalink to this heading">&#61633;</a></h3>
@@ -1153,6 +1171,13 @@ for a pre-defined set of variables:</p>
 </tr>
 </tbody>
 </table>
+<p>The use of <code class="docutils literal notranslate"><span class="pre">{MAIN_DIRECTORY}</span></code> is recommended when you want to specify
+a filename relative to the main script, e.g. for use in data file
+options or user package configuration yaml files,</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># nuitka-project: --include-data-files={MAIN_DIRECTORY}/my_icon.png=my_icon.png</span>
+<span class="c1"># nuitka-project: --user-package-configuration-file={MAIN_DIRECTORY}/user.nuitka-package.config.yml</span>
+</pre></div>
+</div>
 </section>
 <section id="python-command-line-flags">
 <h3>Python command line flags<a class="headerlink" href="#python-command-line-flags" title="Permalink to this heading">&#61633;</a></h3>
@@ -1915,8 +1940,8 @@ readable to human, but easily used to generate PDF or HTML documents.</p>
             <div class="sd-summary-content sd-card-body switcher-body docutils">
                 <blockquote>
                     <div>
-                        <div><div class="line"><a class="reference external" href="/de_DE/doc/user-manual.html">DE</a></div>
-                            <div class="line"><a class="reference external" href="/zh_CN/doc/user-manual.html">CN</a></div>
+                        <div><div class="line"><a class="reference external" href="/zh_CN/doc/user-manual.html">CN</a></div>
+                            <div class="line"><a class="reference external" href="/de_DE/doc/user-manual.html">DE</a></div>
                             </div></div>
                 </blockquote>
             </div>

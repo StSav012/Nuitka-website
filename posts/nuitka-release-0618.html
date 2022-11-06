@@ -84,12 +84,13 @@
 <p class="caption" role="heading"><span class="caption-text">Commercial Users</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../doc/commercial.html">Nuitka Commercial</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../doc/bundles.html">Nuitka Bundles</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Release Information</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../doc/Changelog.html">Nuitka Release 1.1 (Draft)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../doc/Changelog.html">Nuitka Release 1.2 (Draft)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../doc/Changelog.html#nuitka-release-1-1">Nuitka Release 1.1</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../doc/Changelog.html#nuitka-release-1-0">Nuitka Release 1.0</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../doc/Changelog.html#nuitka-release-0-9">Nuitka Release 0.9</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../doc/Changelog.html#older-releases">Older Releases</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../doc/roadmap.html">Roadmap</a></li>
 </ul>
@@ -156,9 +157,9 @@ Fixed in 0.6.17.2 already.</p></li>
 <li><p>Fix, <code class="docutils literal notranslate"><span class="pre">pkg-resources</span></code> exiting with error at compile time for
 unresolved requirements in compiled code, but these can of course
 still be optional, i.e. that code would never run. Instead give only
-a warning, and runtime fail on these. Fixed in 0.6.17.2 already.</p></li>
+a warning, and run time fail on these. Fixed in 0.6.17.2 already.</p></li>
 <li><p>Standalone: Prevent the inclusion of <code class="docutils literal notranslate"><span class="pre">drm</span></code> libraries on Linux, they
-have to come from the target OS at runtime. Fixed in 0.6.17.2
+have to come from the target OS at run time. Fixed in 0.6.17.2
 already.</p></li>
 <li><p>Standalone: Added missing implicit dependency for <code class="docutils literal notranslate"><span class="pre">ipcqueue</span></code>
 module. Fixed in 0.6.17.3 already.</p></li>
@@ -374,8 +375,8 @@ could only occur when working with dictionary overloads, which we
 know to not be the case.</p></li>
 <li><p>For nodes, have dedicated child mixin classes for nodes with a single
 child value and for nodes with a tuple of children, so that these
-common kind of nodes operate faster and don&#8217;t have to check at
-runtime what type they are during access.</p></li>
+common kind of nodes operate faster and don&#8217;t have to check at run
+time what type they are during access.</p></li>
 <li><p>Actually make use of the egg cache. Nuitka was unpacking eggs in
 every compilation, but in wheel installs, these can be quite common
 and should be faster.</p></li>
@@ -658,8 +659,8 @@ usable at least, for now please stay on 3.9 if you can.</p>
             <div class="sd-summary-content sd-card-body switcher-body docutils">
                 <blockquote>
                     <div>
-                        <div><div class="line"><a class="reference external" href="/zh_CN/posts/nuitka-release-0618.html">CN</a></div>
-                            <div class="line"><a class="reference external" href="/de_DE/posts/nuitka-release-0618.html">DE</a></div>
+                        <div><div class="line"><a class="reference external" href="/de_DE/posts/nuitka-release-0618.html">DE</a></div>
+                            <div class="line"><a class="reference external" href="/zh_CN/posts/nuitka-release-0618.html">CN</a></div>
                             </div></div>
                 </blockquote>
             </div>

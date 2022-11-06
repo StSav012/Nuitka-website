@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en">
+<head>
+  <meta charset="utf-8"><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/">
+<meta content="Protect your IP with Nuitka and Themida combined with VM technology" name="description">
+<meta content="python,protection,reverse engineering,vm,Themida,WinLicense" name="keywords">
+    <link rel="icon" href="../_static/favicon.svg" type="image/svg+xml">
+    <link rel="icon" href="../_static/favicon.png" sizes="32x32" type="image/png">
+    <link rel="icon" href="../_static/favicon.ico" sizes="32x32" type="image/x-icon">
+    <link rel="icon" href="../_static/apple-touch-icon-iphone.png" sizes="57x57" type="image/png">
+    <link rel="icon" href="../_static/apple-touch-icon-ipad.png" sizes="72x72" type="image/png">
+    <link rel="icon" href="../_static/apple-touch-icon-iphone4.png" sizes="114x114" type="image/png">
+    <link rel="icon" href="../_static/apple-touch-icon-ipad3.png" sizes="144x144" type="image/png">
+    <link rel="apple-touch-icon" href="../_static/apple-touch-icon-180x180.png" sizes="180x180" type="image/png">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Nuitka Bundles &#8212; Nuitka the Python Compiler  documentation</title>
+      <link rel="stylesheet" href="/_static/css/combined_e6840a1efaf0bb3afd9a2fd6b30cc2e9.css" type="text/css">
+      <link rel="canonical" href="https://nuitka.net/doc/bundles.html">
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script>var DOCUMENTATION_OPTIONS = {
+    URL_ROOT: '../',
+    VERSION: '',
+    LANGUAGE: 'en',
+    COLLAPSE_INDEX: false,
+    BUILDER: 'html',
+    FILE_SUFFIX: '.html',
+    LINK_SUFFIX: '.html',
+    HAS_SOURCE: false,
+    SOURCELINK_SUFFIX: '.txt',
+    NAVIGATION_WITH_KEYS: false,
+    SHOW_SEARCH_SUMMARY: true,
+    ENABLE_SEARCH_SHORTCUTS: true,
+};</script>
+        <script src="/_static/combined_1f3d291568f0d25fd5e0e83c3075a3a3.js" async=""></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js" async=""></script>
+        <script src="../_static/clipboard.min.js" async=""></script>
+        <script src="../_static/copybutton.js" async=""></script>
+        <link rel="index" title="Index" href="../genindex.html">
+    <link rel="next" title="Nuitka Release 1.2 (Draft)" href="Changelog.html">
+    <link rel="prev" title="Nuitka Commercial" href="commercial.html">   
+<link rel="alternate" type="application/atom+xml" href="../blog/atom.xml" title="Nuitka Blog">
+ 
+<style type="text/css">
+  ul.ablog-archive {
+    list-style: none;
+    overflow: auto;
+    margin-left: 0px;
+  }
+  ul.ablog-archive li {
+    float: left;
+    margin-right: 5px;
+    font-size: 80%;
+  }
+  ul.postlist a {
+    font-style: italic;
+  }
+  ul.postlist-style-disc {
+    list-style-type: disc;
+  }
+  ul.postlist-style-none {
+    list-style-type: none;
+  }
+  ul.postlist-style-circle {
+    list-style-type: circle;
+  }
+</style>
+
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+            <a href="../index.html" class="icon icon-home"> Nuitka the Python Compiler
+            <div class="logo_container"><img src="../_static/Nuitka-Logo-Symbol.svg" class="logo" alt="Logo" width="208" height="209">
+          </div></a><!-- Empty override file take the place of searchbox.html, which generates search box. -->
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="download.html">Download</a></li>
+<li class="toctree-l1"><a class="reference internal" href="user-manual.html">User Manual</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pages/support.html">Support</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Commercial Users</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="commercial.html">Nuitka Commercial</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Nuitka Bundles</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#what-is-themida">What is Themida?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#features">Features</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#file-embedding">File Embedding</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#enhanced-anti-debugger">Enhanced anti-debugger</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#c-macros-contained-in-python-code">C Macros contained in Python code</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#all-the-power-of-themida-and-winlicense">All the Power of Themida and WinLicense</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#pricing">Pricing</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Release Information</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="Changelog.html">Nuitka Release 1.2 (Draft)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Changelog.html#nuitka-release-1-1">Nuitka Release 1.1</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Changelog.html#nuitka-release-1-0">Nuitka Release 1.0</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Changelog.html#older-releases">Older Releases</a></li>
+<li class="toctree-l1"><a class="reference internal" href="roadmap.html">Roadmap</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">More documentation</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="developer-manual.html">Developer Manual</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api-doc.html">API doc</a></li>
+<li class="toctree-l1"><a class="reference internal" href="factory.html">Factory Instructions</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Media</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../pages/Presentations.html">Presentations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pages/Streaming.html">Streaming</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Other</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="Credits.html">Credits</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pages/impressum.html">Impressum</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Under construction</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="welcome.html">Welcome</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pages/pyside2.html">Nuitka PySide2 support</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pages/donations.html">Donations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pages/gsoc2019.html">Google Summer of Code 2019</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Nuitka the Python Compiler</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <!-- Empty override file take the place of sphinx_rtd_theme/breadcrumbs.html, which generates the top nav breadcrumbs. -->
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+              <section id="nuitka-bundles">
+<h1>Nuitka Bundles<a class="headerlink" href="#nuitka-bundles" title="Permalink to this heading">&#61633;</a></h1>
+<p>Nuitka can be purchased together as a bundle with other software.</p>
+<p>Right now, the offer available is Themida and WinLicense. Both of these
+are Oreans products, for which Nuitka Services acts as both a reseller,
+and as a integrator, i.e. there is a Nuitka plugin that allows
+additional features in Python code.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>WinLicense combines the same protection-level as Themida with the
+power of advanced license control, offering the most powerful and
+flexible technology that allows developers to securely distribute
+trial and registered versions of their applications.</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The limitations right now are.</p>
+<ul class="simple">
+<li><p>Only works in Windows, for other platforms we are preparing
+alternative bundles.</p></li>
+<li><p>Requires Visual Studio 2015 installation.</p></li>
+<li><p>Only works in Nuitka commercial, in fact Nuitka Themida is a
+superset of Nuitka commercial.</p></li>
+</ul>
+</div>
+<section id="what-is-themida">
+<h2>What is Themida?<a class="headerlink" href="#what-is-themida" title="Permalink to this heading">&#61633;</a></h2>
+<p>Themida is an SDK, where you modify the C code with macros, that when
+compiled, end up as DLL usages for a special DLL. In a next step, it
+then modifies the created binary and applies VM protection according to
+settings and those macros, can be using multiple VMs for different code,
+checks for running debugger, etc.</p>
+<p>Nuitka Themida adds the ability, to do this directly in the Python code.
+Is it not practical to do this manually with Nuitka, as it doesn&#8217;t
+respect things in protection.</p>
+</section>
+<section id="features">
+<h2>Features<a class="headerlink" href="#features" title="Permalink to this heading">&#61633;</a></h2>
+<section id="file-embedding">
+<h3>File Embedding<a class="headerlink" href="#file-embedding" title="Permalink to this heading">&#61633;</a></h3>
+<p>While Nuitka commercial allows embedding of data files, with Nuitka
+Themida it is also possible to embed the CPython DLL, extension modules,
+and DLLs used by it into one single binary. This on its own making it
+much harder to attack with file replacements, editing.</p>
+<p>With Nuitka Themida your binary is one file, without Nuitka
+<code class="docutils literal notranslate"><span class="pre">--onefile</span></code> mode which does not protect these files. But Nuitka
+Themida makes it impossible to access these files.</p>
+</section>
+<section id="enhanced-anti-debugger">
+<h3>Enhanced anti-debugger<a class="headerlink" href="#enhanced-anti-debugger" title="Permalink to this heading">&#61633;</a></h3>
+<p>Nuitka commercial has its own <code class="docutils literal notranslate"><span class="pre">anti-debugger</span></code> plugin, currently not
+listed as an official feature. But Themida has a more advanced
+protection at this time.</p>
+</section>
+<section id="c-macros-contained-in-python-code">
+<h3>C Macros contained in Python code<a class="headerlink" href="#c-macros-contained-in-python-code" title="Permalink to this heading">&#61633;</a></h3>
+<p>This code example using the VM Tiger Red, there is a large variety of
+VMs available, with different properties, they all work in the same way
+to be activated for a piece of code.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">sensitiveCode</span><span class="p">():</span>
+
+  <span class="n">something_that_prepares_but_is_not_critical</span>
+  <span class="o">...</span>
+
+  <span class="c1"># This unused variable is harmless in Python, when compiled with Nuitka it is</span>
+  <span class="c1"># inserted as C code in the correct spot.</span>
+  <span class="n">_inject_c_code</span> <span class="o">=</span> <span class="s2">"""</span>
+<span class="s2">     VM_TIGER_RED_START;</span>
+<span class="s2">     int my_value = 0;</span>
+<span class="s2">     // Check for effective protection.</span>
+<span class="s2">     CHECK_PROTECTION(my_value, 1);</span>
+<span class="s2">     if (my_value != 1) {</span>
+<span class="s2">        exit(1);</span>
+<span class="s2">     }</span>
+
+<span class="s2">     // Check for debugger.</span>
+<span class="s2">     CHECK_DEBUGGER(my_value, 2);</span>
+<span class="s2">     if (my_value != 2) {</span>
+<span class="s2">        exit(2);</span>
+<span class="s2">     }</span>
+<span class="s2">  """</span>
+
+  <span class="n">secret_calculation</span> <span class="o">=</span> <span class="o">...</span>
+
+  <span class="n">_inject_c_code</span> <span class="o">=</span> <span class="s2">"""</span>
+<span class="s2">     VM_TIGER_RED_END;</span>
+<span class="s2">  """</span>
+</pre></div>
+</div>
+</section>
+</section>
+<section id="all-the-power-of-themida-and-winlicense">
+<h2>All the Power of Themida and WinLicense<a class="headerlink" href="#all-the-power-of-themida-and-winlicense" title="Permalink to this heading">&#61633;</a></h2>
+<p>Contained in Nuitka Themida is a default configuration, that is used for
+building your Python program. The defaults are considered to be good,
+but you can choose to edit this by simply executing e.g.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>themida.exe .<span class="se">\n</span>uitka<span class="se">\p</span>lugins<span class="se">\c</span>ommercial<span class="se">\T</span>hemidaPlugin<span class="se">\c</span>onfig.tmd
+</pre></div>
+</div>
+<p>You can then provide your own options. You do not have to configure
+anything in terms of includes files, used VMs, etc. Nuitka handles that
+all automatically for you, and this for curious and advanced users only.</p>
+</section>
+<section id="pricing">
+<h2>Pricing<a class="headerlink" href="#pricing" title="Permalink to this heading">&#61633;</a></h2>
+<p>Oreans charges differently for single develop and team licenses. Also
+with WinLicense, you get to use their C API to check license status at a
+higher price. When bundled with Nuitka commercial, we can give you both
+at a discount.</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 31%">
+<col style="width: 22%">
+<col style="width: 22%">
+<col style="width: 14%">
+<col style="width: 11%">
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Product</p></th>
+<th class="head"><p>Original Price</p></th>
+<th class="head"><p>Nuitka Themida</p></th>
+<th class="head"><p>Combined</p></th>
+<th class="head"><p>Bundle</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Themida Developer</p></td>
+<td><p>199</p></td>
+<td><p>401</p></td>
+<td><p>600</p></td>
+<td><p>550</p></td>
+</tr>
+<tr class="row-odd"><td><p>Themida Company</p></td>
+<td><p>399</p></td>
+<td><p>401</p></td>
+<td><p>800</p></td>
+<td><p>700</p></td>
+</tr>
+<tr class="row-even"><td><p>WinLicense Developer</p></td>
+<td><p>399</p></td>
+<td><p>401</p></td>
+<td><p>800</p></td>
+<td><p>700</p></td>
+</tr>
+<tr class="row-odd"><td><p>WinLicense Company</p></td>
+<td><p>799</p></td>
+<td><p>401</p></td>
+<td><p>1200</p></td>
+<td><p>1100</p></td>
+</tr>
+</tbody>
+</table>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>At the price, Nuitka Services cannot handle trial versions.</p>
+</div>
+</section>
+</section>
+
+<div class="section">
+   
+</div>
+
+           </div>
+          </div>
+          <footer>
+
+  <hr>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2022, Kay Hayen and Nuitka Contributors.</p>
+  </div>
+
+  
+<div class="share-button-container">
+    <div class="socialbutton-wrapper">
+
+        <a href="https://twitter.com/share?url=https://nuitka.net/doc/bundles.html&amp;hashtags=nuitka" target="_blank">
+            <div class="socialbutton twitter">
+                <p class="icon">
+                    <img src="/_static/icon-twitter.png" width="24" height="24">
+                </p>
+
+                <p class="shares">share...</p>
+            </div>
+        </a>
+
+        <a href="https://www.facebook.com/sharer.php?u=https://nuitka.net/doc/bundles.html&amp;hashtag=%23nuitka" target="_blank">
+            <div class="socialbutton facebook">
+                <p class="icon">
+                    <img src="/_static/icon-facebook.png" width="24" height="24">
+                </p>
+
+                <p class="shares">share...</p>
+            </div>
+        </a>
+
+        <a href="http://www.reddit.com/submit?url=https://nuitka.net/doc/bundles.html" target="_blank">
+            <div class="socialbutton reddit">
+                <p class="icon">
+                    <img src="/_static/icon-reddit.png" width="24" height="24">
+                </p>
+
+                <p class="shares">share...</p>
+            </div>
+        </a>
+
+        <details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3 switcher-container">
+            <summary class="sd-summary-title sd-card-header switcher-title">EN<div class="sd-summary-down docutils">
+                    <svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-down" viewbox="0 0 24 24" aria-hidden="true">
+                        <path fill-rule="evenodd" d="M5.22 8.72a.75.75 0 000 1.06l6.25 6.25a.75.75 0 001.06 0l6.25-6.25a.75.75 0 00-1.06-1.06L12 14.44 6.28 8.72a.75.75 0 00-1.06 0z">
+                        </path>
+                    </svg>
+                </div>
+                <div class="sd-summary-up docutils">
+                    <svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-up" viewbox="0 0 24 24" aria-hidden="true">
+                        <path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z">
+                        </path>
+                    </svg>
+                </div>
+            </summary>
+            <div class="sd-summary-content sd-card-body switcher-body docutils">
+                <blockquote>
+                    <div>
+                        <div><div class="line"><a class="reference external" href="/de_DE/doc/bundles.html">DE</a></div>
+                            <div class="line"><a class="reference external" href="/zh_CN/doc/bundles.html">CN</a></div>
+                            </div></div>
+                </blockquote>
+            </div>
+        </details>
+    </div>
+</div>
+
+
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  </body>
+</html>

@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en">
   <id>https://nuitka.net</id>
   <title>Nuitka Blog - Posted in 2021</title>
-  <updated>2022-08-31T15:59:58.974320+00:00</updated>
+  <updated>2022-11-06T09:17:46.917407+00:00</updated>
   <link href="https://nuitka.net"/>
   <link href="https://nuitka.net/blog/2021/atom.xml" rel="self"/>
   <generator uri="https://ablog.readthedocs.org/" version="0.10.29">ABlog</generator>
@@ -550,10 +550,11 @@ feature is limited to Windows, where the need arose first, but it
 will be ported to other supported OSes eventually. These are most
 useful for programs run as &lt;code class="docutils literal notranslate"&gt;&lt;span class="pre"&gt;--windows-disable-console&lt;/span&gt;&lt;/code&gt; or with
 &lt;code class="docutils literal notranslate"&gt;&lt;span class="pre"&gt;--enable-plugin=windows-service&lt;/span&gt;&lt;/code&gt;.&lt;/p&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;Windows: Added option &lt;code class="docutils literal notranslate"&gt;&lt;span class="pre"&gt;--windows-onefile-tempdir-spec&lt;/span&gt;&lt;/code&gt; to provide
-the temporary directory used with &lt;code class="docutils literal notranslate"&gt;&lt;span class="pre"&gt;--windows-onefile-tempdir&lt;/span&gt;&lt;/code&gt; in
-onefile mode, you can now select your own pattern, and e.g. hardcode
-a base directory of your choice rather than &lt;code class="docutils literal notranslate"&gt;&lt;span class="pre"&gt;%TEMP&lt;/span&gt;&lt;/code&gt;.&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Windows: Added option &lt;code class="docutils literal notranslate"&gt;&lt;span class="pre"&gt;--windows-onefile-tempdir-spec&lt;/span&gt;&lt;/code&gt; (since
+renamed to &lt;code class="docutils literal notranslate"&gt;&lt;span class="pre"&gt;--onefile-tempdir-spec&lt;/span&gt;&lt;/code&gt;) to provide the temporary
+directory used with &lt;code class="docutils literal notranslate"&gt;&lt;span class="pre"&gt;--windows-onefile-tempdir&lt;/span&gt;&lt;/code&gt; in onefile mode,
+you can now select your own pattern, and e.g. hardcode a base
+directory of your choice rather than &lt;code class="docutils literal notranslate"&gt;&lt;span class="pre"&gt;%TEMP&lt;/span&gt;&lt;/code&gt;.&lt;/p&gt;&lt;/li&gt;
 &lt;li&gt;&lt;p&gt;Added experimental support for &lt;code class="docutils literal notranslate"&gt;&lt;span class="pre"&gt;PySide2&lt;/span&gt;&lt;/code&gt; with workarounds for
 compiled methods not being accepted by its core. There are known
 issues with &lt;code class="docutils literal notranslate"&gt;&lt;span class="pre"&gt;PySide2&lt;/span&gt;&lt;/code&gt; still, but it’s working fine for some people
@@ -589,9 +590,9 @@ benefits from the optimization of &lt;code class="docutils literal notranslate"&
 well, but of course its use is relatively rare.&lt;/p&gt;&lt;/li&gt;
 &lt;li&gt;&lt;p&gt;Improved &lt;code class="docutils literal notranslate"&gt;&lt;span class="pre"&gt;__future__&lt;/span&gt;&lt;/code&gt; imports to become hard imports, so more
 efficient code is generated for them.&lt;/p&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;Counting of instances had a runtime impact by providing a &lt;code class="docutils literal notranslate"&gt;&lt;span class="pre"&gt;__del__&lt;/span&gt;&lt;/code&gt;
-that was still needed to be executed and limits garbage collection on
-types with older Python versions.&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Counting of instances had a run time impact by providing a
+&lt;code class="docutils literal notranslate"&gt;&lt;span class="pre"&gt;__del__&lt;/span&gt;&lt;/code&gt; that was still needed to be executed and limits garbage
+collection on types with older Python versions.&lt;/p&gt;&lt;/li&gt;
 &lt;li&gt;&lt;p&gt;UI: Avoid loading &lt;code class="docutils literal notranslate"&gt;&lt;span class="pre"&gt;tqdm&lt;/span&gt;&lt;/code&gt; module before it’s actually used if at all
 (it may get disabled by the user), speeding up the start of Nuitka.&lt;/p&gt;&lt;/li&gt;
 &lt;li&gt;&lt;p&gt;Make sure to optimize internal helpers only once and immediately,
@@ -1343,8 +1344,8 @@ already.&lt;/p&gt;&lt;/li&gt;
 This now works.&lt;/p&gt;&lt;/li&gt;
 &lt;li&gt;&lt;p&gt;Standalone: Added missing implicit dependency for &lt;code class="docutils literal notranslate"&gt;&lt;span class="pre"&gt;sklearn&lt;/span&gt;&lt;/code&gt;.&lt;/p&gt;&lt;/li&gt;
 &lt;li&gt;&lt;p&gt;Compatibility: Modules giving &lt;code class="docutils literal notranslate"&gt;&lt;span class="pre"&gt;SyntaxError&lt;/span&gt;&lt;/code&gt; from source were not
-properly handled, giving runtime &lt;code class="docutils literal notranslate"&gt;&lt;span class="pre"&gt;ImportError&lt;/span&gt;&lt;/code&gt;. Now they are giving
-&lt;code class="docutils literal notranslate"&gt;&lt;span class="pre"&gt;SyntaxError&lt;/span&gt;&lt;/code&gt;.&lt;/p&gt;&lt;/li&gt;
+properly handled, giving run time &lt;code class="docutils literal notranslate"&gt;&lt;span class="pre"&gt;ImportError&lt;/span&gt;&lt;/code&gt;. Now they are
+giving &lt;code class="docutils literal notranslate"&gt;&lt;span class="pre"&gt;SyntaxError&lt;/span&gt;&lt;/code&gt;.&lt;/p&gt;&lt;/li&gt;
 &lt;li&gt;&lt;p&gt;Fix, the LTO mode has issues with &lt;code class="docutils literal notranslate"&gt;&lt;span class="pre"&gt;incbin&lt;/span&gt;&lt;/code&gt; usage on older gcc, so
 use &lt;code class="docutils literal notranslate"&gt;&lt;span class="pre"&gt;linker&lt;/span&gt;&lt;/code&gt; mode when it is enabled.&lt;/p&gt;&lt;/li&gt;
 &lt;li&gt;&lt;p&gt;Python3: Fix, locals dict codes were not properly checking errors
@@ -1376,7 +1377,7 @@ plugins to include by default, otherwise file dialogs on non-Windows
 would be inferior.&lt;/p&gt;&lt;/li&gt;
 &lt;li&gt;&lt;p&gt;Fix, created &lt;code class="docutils literal notranslate"&gt;&lt;span class="pre"&gt;.pyi&lt;/span&gt;&lt;/code&gt; files were not ordered deterministically.&lt;/p&gt;&lt;/li&gt;
 &lt;li&gt;&lt;p&gt;Standalone: Added support for &lt;code class="docutils literal notranslate"&gt;&lt;span class="pre"&gt;win32file&lt;/span&gt;&lt;/code&gt;.&lt;/p&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;Fix, namespace packages were not using runtime values for their
+&lt;li&gt;&lt;p&gt;Fix, namespace packages were not using run time values for their
 &lt;code class="docutils literal notranslate"&gt;&lt;span class="pre"&gt;__path__&lt;/span&gt;&lt;/code&gt; value.&lt;/p&gt;&lt;/li&gt;
 &lt;li&gt;&lt;p&gt;Python3.7+: Fix, was leaking &lt;code class="docutils literal notranslate"&gt;&lt;span class="pre"&gt;AttributeError&lt;/span&gt;&lt;/code&gt; exceptions during
 name imports.&lt;/p&gt;&lt;/li&gt;
@@ -1396,7 +1397,7 @@ For these, icons can be specified and console can be disabled. But at
 this time, onefile and accelerated mode are not yet usable with it,
 only standalone mode works.&lt;/p&gt;&lt;/li&gt;
 &lt;li&gt;&lt;p&gt;Plugins: Add support for &lt;code class="docutils literal notranslate"&gt;&lt;span class="pre"&gt;pkg_resources.require&lt;/span&gt;&lt;/code&gt; calls to be
-resolved at compile time. These are not working at runtime, but this
+resolved at compile time. These are not working at run time, but this
 avoids the issue very nicely.&lt;/p&gt;&lt;/li&gt;
 &lt;li&gt;&lt;p&gt;Plugins: Massive improvements to the &lt;code class="docutils literal notranslate"&gt;&lt;span class="pre"&gt;anti-bloat&lt;/span&gt;&lt;/code&gt; plugin, it can
 now make &lt;code class="docutils literal notranslate"&gt;&lt;span class="pre"&gt;numpy&lt;/span&gt;&lt;/code&gt;, &lt;code class="docutils literal notranslate"&gt;&lt;span class="pre"&gt;scipy&lt;/span&gt;&lt;/code&gt;, &lt;code class="docutils literal notranslate"&gt;&lt;span class="pre"&gt;skimage&lt;/span&gt;&lt;/code&gt;, &lt;code class="docutils literal notranslate"&gt;&lt;span class="pre"&gt;pywt&lt;/span&gt;&lt;/code&gt;, and
@@ -1532,10 +1533,10 @@ optimization when a plugin is asking to &lt;code class="docutils literal notrans
 &lt;section id="cleanups"&gt;
 &lt;h2&gt;Cleanups&lt;/h2&gt;
 &lt;ul class="simple"&gt;
-&lt;li&gt;&lt;p&gt;Encoding names for UTF8 in calls to &lt;code class="docutils literal notranslate"&gt;&lt;span class="pre"&gt;.encode()&lt;/span&gt;&lt;/code&gt; were used
+&lt;li&gt;&lt;p&gt;Encoding names for UTF-8 in calls to &lt;code class="docutils literal notranslate"&gt;&lt;span class="pre"&gt;.encode()&lt;/span&gt;&lt;/code&gt; were used
 inconsistent with and without dashes in the source code, added
 cleanup to auto-format that picks the one blessed.&lt;/p&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;Cleanup taking of runtime traces of DLLs used in preparation for
+&lt;li&gt;&lt;p&gt;Cleanup taking of run time traces of DLLs used in preparation for
 using it in main code eventually, moving it to a dedicated module.&lt;/p&gt;&lt;/li&gt;
 &lt;li&gt;&lt;p&gt;Avoid special names for Nuitka options in test runner, this only adds
 a level of confusion. Needs more work in future release.&lt;/p&gt;&lt;/li&gt;
@@ -1641,9 +1642,9 @@ Fixed in 0.6.17.2 already.&lt;/p&gt;&lt;/li&gt;
 &lt;li&gt;&lt;p&gt;Fix, &lt;code class="docutils literal notranslate"&gt;&lt;span class="pre"&gt;pkg-resources&lt;/span&gt;&lt;/code&gt; exiting with error at compile time for
 unresolved requirements in compiled code, but these can of course
 still be optional, i.e. that code would never run. Instead give only
-a warning, and runtime fail on these. Fixed in 0.6.17.2 already.&lt;/p&gt;&lt;/li&gt;
+a warning, and run time fail on these. Fixed in 0.6.17.2 already.&lt;/p&gt;&lt;/li&gt;
 &lt;li&gt;&lt;p&gt;Standalone: Prevent the inclusion of &lt;code class="docutils literal notranslate"&gt;&lt;span class="pre"&gt;drm&lt;/span&gt;&lt;/code&gt; libraries on Linux, they
-have to come from the target OS at runtime. Fixed in 0.6.17.2
+have to come from the target OS at run time. Fixed in 0.6.17.2
 already.&lt;/p&gt;&lt;/li&gt;
 &lt;li&gt;&lt;p&gt;Standalone: Added missing implicit dependency for &lt;code class="docutils literal notranslate"&gt;&lt;span class="pre"&gt;ipcqueue&lt;/span&gt;&lt;/code&gt;
 module. Fixed in 0.6.17.3 already.&lt;/p&gt;&lt;/li&gt;
@@ -1859,8 +1860,8 @@ could only occur when working with dictionary overloads, which we
 know to not be the case.&lt;/p&gt;&lt;/li&gt;
 &lt;li&gt;&lt;p&gt;For nodes, have dedicated child mixin classes for nodes with a single
 child value and for nodes with a tuple of children, so that these
-common kind of nodes operate faster and don’t have to check at
-runtime what type they are during access.&lt;/p&gt;&lt;/li&gt;
+common kind of nodes operate faster and don’t have to check at run
+time what type they are during access.&lt;/p&gt;&lt;/li&gt;
 &lt;li&gt;&lt;p&gt;Actually make use of the egg cache. Nuitka was unpacking eggs in
 every compilation, but in wheel installs, these can be quite common
 and should be faster.&lt;/p&gt;&lt;/li&gt;

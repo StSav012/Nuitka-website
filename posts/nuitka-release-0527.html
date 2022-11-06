@@ -82,12 +82,13 @@
 <p class="caption" role="heading"><span class="caption-text">Commercial Users</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../doc/commercial.html">Nuitka Commercial</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../doc/bundles.html">Nuitka Bundles</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Release Information</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../doc/Changelog.html">Nuitka Release 1.1 (Draft)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../doc/Changelog.html">Nuitka Release 1.2 (Draft)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../doc/Changelog.html#nuitka-release-1-1">Nuitka Release 1.1</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../doc/Changelog.html#nuitka-release-1-0">Nuitka Release 1.0</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../doc/Changelog.html#nuitka-release-0-9">Nuitka Release 0.9</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../doc/Changelog.html#older-releases">Older Releases</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../doc/roadmap.html">Roadmap</a></li>
 </ul>
@@ -265,7 +266,7 @@ that. This gives more efficient code for Python2 classes, and
 <code class="docutils literal notranslate"><span class="pre">exec</span></code> using functions in Python2.</p></li>
 <li><p>Build all constant values without use of the <code class="docutils literal notranslate"><span class="pre">pickle</span></code> module which
 has a lot more overhead than <code class="docutils literal notranslate"><span class="pre">marshal</span></code>, instead use that for too
-large <code class="docutils literal notranslate"><span class="pre">long</span></code> values, non-UTF8 <code class="docutils literal notranslate"><span class="pre">unicode</span></code> values, <code class="docutils literal notranslate"><span class="pre">nan</span></code> float,
+large <code class="docutils literal notranslate"><span class="pre">long</span></code> values, non-UTF-8 <code class="docutils literal notranslate"><span class="pre">unicode</span></code> values, <code class="docutils literal notranslate"><span class="pre">nan</span></code> float,
 etc.</p></li>
 <li><p>Detect the linker arch for all Linux platforms using <code class="docutils literal notranslate"><span class="pre">objdump</span></code>
 instead of only a hand few hard coded ones.</p></li>

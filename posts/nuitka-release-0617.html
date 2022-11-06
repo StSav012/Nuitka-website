@@ -84,12 +84,13 @@
 <p class="caption" role="heading"><span class="caption-text">Commercial Users</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../doc/commercial.html">Nuitka Commercial</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../doc/bundles.html">Nuitka Bundles</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Release Information</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../doc/Changelog.html">Nuitka Release 1.1 (Draft)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../doc/Changelog.html">Nuitka Release 1.2 (Draft)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../doc/Changelog.html#nuitka-release-1-1">Nuitka Release 1.1</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../doc/Changelog.html#nuitka-release-1-0">Nuitka Release 1.0</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../doc/Changelog.html#nuitka-release-0-9">Nuitka Release 0.9</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../doc/Changelog.html#older-releases">Older Releases</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../doc/roadmap.html">Roadmap</a></li>
 </ul>
@@ -177,8 +178,8 @@ already.</p></li>
 This now works.</p></li>
 <li><p>Standalone: Added missing implicit dependency for <code class="docutils literal notranslate"><span class="pre">sklearn</span></code>.</p></li>
 <li><p>Compatibility: Modules giving <code class="docutils literal notranslate"><span class="pre">SyntaxError</span></code> from source were not
-properly handled, giving runtime <code class="docutils literal notranslate"><span class="pre">ImportError</span></code>. Now they are giving
-<code class="docutils literal notranslate"><span class="pre">SyntaxError</span></code>.</p></li>
+properly handled, giving run time <code class="docutils literal notranslate"><span class="pre">ImportError</span></code>. Now they are
+giving <code class="docutils literal notranslate"><span class="pre">SyntaxError</span></code>.</p></li>
 <li><p>Fix, the LTO mode has issues with <code class="docutils literal notranslate"><span class="pre">incbin</span></code> usage on older gcc, so
 use <code class="docutils literal notranslate"><span class="pre">linker</span></code> mode when it is enabled.</p></li>
 <li><p>Python3: Fix, locals dict codes were not properly checking errors
@@ -210,7 +211,7 @@ plugins to include by default, otherwise file dialogs on non-Windows
 would be inferior.</p></li>
 <li><p>Fix, created <code class="docutils literal notranslate"><span class="pre">.pyi</span></code> files were not ordered deterministically.</p></li>
 <li><p>Standalone: Added support for <code class="docutils literal notranslate"><span class="pre">win32file</span></code>.</p></li>
-<li><p>Fix, namespace packages were not using runtime values for their
+<li><p>Fix, namespace packages were not using run time values for their
 <code class="docutils literal notranslate"><span class="pre">__path__</span></code> value.</p></li>
 <li><p>Python3.7+: Fix, was leaking <code class="docutils literal notranslate"><span class="pre">AttributeError</span></code> exceptions during
 name imports.</p></li>
@@ -230,7 +231,7 @@ For these, icons can be specified and console can be disabled. But at
 this time, onefile and accelerated mode are not yet usable with it,
 only standalone mode works.</p></li>
 <li><p>Plugins: Add support for <code class="docutils literal notranslate"><span class="pre">pkg_resources.require</span></code> calls to be
-resolved at compile time. These are not working at runtime, but this
+resolved at compile time. These are not working at run time, but this
 avoids the issue very nicely.</p></li>
 <li><p>Plugins: Massive improvements to the <code class="docutils literal notranslate"><span class="pre">anti-bloat</span></code> plugin, it can
 now make <code class="docutils literal notranslate"><span class="pre">numpy</span></code>, <code class="docutils literal notranslate"><span class="pre">scipy</span></code>, <code class="docutils literal notranslate"><span class="pre">skimage</span></code>, <code class="docutils literal notranslate"><span class="pre">pywt</span></code>, and
@@ -366,10 +367,10 @@ optimization when a plugin is asking to <code class="docutils literal notranslat
 <section id="cleanups">
 <h2>Cleanups<a class="headerlink" href="#cleanups" title="Permalink to this heading">&#61633;</a></h2>
 <ul class="simple">
-<li><p>Encoding names for UTF8 in calls to <code class="docutils literal notranslate"><span class="pre">.encode()</span></code> were used
+<li><p>Encoding names for UTF-8 in calls to <code class="docutils literal notranslate"><span class="pre">.encode()</span></code> were used
 inconsistent with and without dashes in the source code, added
 cleanup to auto-format that picks the one blessed.</p></li>
-<li><p>Cleanup taking of runtime traces of DLLs used in preparation for
+<li><p>Cleanup taking of run time traces of DLLs used in preparation for
 using it in main code eventually, moving it to a dedicated module.</p></li>
 <li><p>Avoid special names for Nuitka options in test runner, this only adds
 a level of confusion. Needs more work in future release.</p></li>

@@ -84,12 +84,13 @@
 <p class="caption" role="heading"><span class="caption-text">Commercial Users</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../doc/commercial.html">Nuitka Commercial</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../doc/bundles.html">Nuitka Bundles</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Release Information</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../doc/Changelog.html">Nuitka Release 1.1 (Draft)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../doc/Changelog.html">Nuitka Release 1.2 (Draft)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../doc/Changelog.html#nuitka-release-1-1">Nuitka Release 1.1</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../doc/Changelog.html#nuitka-release-1-0">Nuitka Release 1.0</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../doc/Changelog.html#nuitka-release-0-9">Nuitka Release 0.9</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../doc/Changelog.html#older-releases">Older Releases</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../doc/roadmap.html">Roadmap</a></li>
 </ul>
@@ -173,7 +174,7 @@ already.</p></li>
 <code class="docutils literal notranslate"><span class="pre">http.client</span></code> from standard library parts no longer included by
 default. Fixed in 0.7.3 already. Later <code class="docutils literal notranslate"><span class="pre">http.cookiejar</span></code> was added
 too.</p></li>
-<li><p>Standalone: Do not compress MSVC runtime library when using <code class="docutils literal notranslate"><span class="pre">upx</span></code>
+<li><p>Standalone: Do not compress MSVC run time library when using <code class="docutils literal notranslate"><span class="pre">upx</span></code>
 plugin, that is not going to work. Fixed in 0.7.4 already.</p></li>
 <li><p>Standalone: Fix, on Windows more files should be included for TkInter
 to work with all software. Fixed in 0.7.5 already.</p></li>
@@ -307,7 +308,7 @@ only keyword matching was working.</p></li>
 <code class="docutils literal notranslate"><span class="pre">%PRODUCT%</span></code>, <code class="docutils literal notranslate"><span class="pre">%VERSION%</span></code>, and <code class="docutils literal notranslate"><span class="pre">%HOME</span></code> in preparation of onefile
 once again being able to be cached and not unpacked repeatedly for
 each execution.</p></li>
-<li><p>Standalone: Detect missing <code class="docutils literal notranslate"><span class="pre">tk-inter</span></code> plugin at runtime. When TCL
+<li><p>Standalone: Detect missing <code class="docutils literal notranslate"><span class="pre">tk-inter</span></code> plugin at run time. When TCL
 fails to load, it then outputs a more helpful error. This ought to be
 done for all plugins, where it&#8217;s not clear if they are needed.</p></li>
 <li><p>Anti-bloat: Added support for plain replacements in the
@@ -417,7 +418,7 @@ finding a problem, present the script to reproduce it immediately.</p></li>
 arguments.</p></li>
 <li><p>Added automatic execution of <code class="docutils literal notranslate"><span class="pre">pyproject.toml</span></code> driven test case.</p></li>
 <li><p>Enhanced output in case of <code class="docutils literal notranslate"><span class="pre">optimization</span></code> test failures, dumping
-what value is there that has not become compile-time not constant.</p></li>
+what value is there that has not become a compile time constant.</p></li>
 </ul>
 </section>
 <section id="summary">

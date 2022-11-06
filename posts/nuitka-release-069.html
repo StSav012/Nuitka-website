@@ -82,12 +82,13 @@
 <p class="caption" role="heading"><span class="caption-text">Commercial Users</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../doc/commercial.html">Nuitka Commercial</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../doc/bundles.html">Nuitka Bundles</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Release Information</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../doc/Changelog.html">Nuitka Release 1.1 (Draft)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../doc/Changelog.html">Nuitka Release 1.2 (Draft)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../doc/Changelog.html#nuitka-release-1-1">Nuitka Release 1.1</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../doc/Changelog.html#nuitka-release-1-0">Nuitka Release 1.0</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../doc/Changelog.html#nuitka-release-0-9">Nuitka Release 0.9</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../doc/Changelog.html#older-releases">Older Releases</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../doc/roadmap.html">Roadmap</a></li>
 </ul>
@@ -158,11 +159,11 @@ in 0.6.8.1 already.</p></li>
 values that were changed in CPython, leading to errors.</p></li>
 <li><p>Windows: Avoid encoding issues for Python3 on more systems, by going
 from wide characters to unicode strings more directly, avoiding an
-encoding as UTF8 in the middle. Fixed in 0.6.8.2 already.</p></li>
+encoding as UTF-8 in the middle. Fixed in 0.6.8.2 already.</p></li>
 <li><p>Windows: Do not crash when warning about uninstalled MSVC using
 Python3. This is a Scons bug that we fixed. Fixed in 0.6.8.3 already.</p></li>
 <li><p>Standalone: The output of dependency walker should be considered as
-&#8220;latin1&#8221; rather than UTF8. Fixed in 0.6.8.3 already.</p></li>
+&#8220;latin1&#8221; rather than UTF-8. Fixed in 0.6.8.3 already.</p></li>
 <li><p>Standalone: Added missing hidden dependencies for <code class="docutils literal notranslate"><span class="pre">flask</span></code>. Fixed in
 0.6.8.1 already.</p></li>
 <li><p>Standalone: Fixed <code class="docutils literal notranslate"><span class="pre">win32com.client</span></code> on Windows. Fixed in 0.6.8.1
@@ -177,8 +178,8 @@ didn&#8217;t allow for arguments to the passed, causing problems. Fixed in
 modules using it and not only some.</p></li>
 <li><p>Standalone: The bytecode for the standard library had filenames
 pointing to the original installation attached. While these were not
-used, but replaced at runtime, they increased the size of the binary,
-and leaked information.</p></li>
+used, but replaced at run time, they increased the size of the
+binary, and leaked information.</p></li>
 <li><p>Standalone: The path of <code class="docutils literal notranslate"><span class="pre">sys.executable</span></code> was not None, but pointing
 to the original executable, which could also point to some temporary
 virtualenv directory and therefore not exist, also it was leaking

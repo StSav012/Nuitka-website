@@ -37,7 +37,7 @@
         <script src="../_static/_sphinx_javascript_frameworks_compat.js" async=""></script>
         <link rel="index" title="Index" href="../genindex.html">
     <link rel="next" title="Nuitka Developer Manual" href="developer-manual.html">
-    <link rel="prev" title="Nuitka Release 1.1 (Draft)" href="Changelog.html">   
+    <link rel="prev" title="Nuitka Release 1.2 (Draft)" href="Changelog.html">   
 <link rel="alternate" type="application/atom+xml" href="../blog/atom.xml" title="Nuitka Blog">
  
 <style type="text/css">
@@ -84,12 +84,13 @@
 <p class="caption" role="heading"><span class="caption-text">Commercial Users</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="commercial.html">Nuitka Commercial</a></li>
+<li class="toctree-l1"><a class="reference internal" href="bundles.html">Nuitka Bundles</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Release Information</span></p>
 <ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="Changelog.html">Nuitka Release 1.1 (Draft)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Changelog.html">Nuitka Release 1.2 (Draft)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Changelog.html#nuitka-release-1-1">Nuitka Release 1.1</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Changelog.html#nuitka-release-1-0">Nuitka Release 1.0</a></li>
-<li class="toctree-l1"><a class="reference internal" href="Changelog.html#nuitka-release-0-9">Nuitka Release 0.9</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Changelog.html#older-releases">Older Releases</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Roadmap</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#user-extensibility">User Extensibility</a></li>
@@ -101,8 +102,8 @@
 <li class="toctree-l2"><a class="reference internal" href="#automatic-updates">Automatic Updates</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#complete-support-for-python-version-3-10">Complete Support for Python Version (3.10)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#traceback-encryption-commercial">Traceback Encryption (commercial)</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#features-to-be-added-for-1-1">Features to be added for 1.1</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#features-to-be-added-for-1-2">Features to be added for 1.2</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#features-to-be-added-for-1-3">Features to be added for 1.3</a></li>
 </ul>
 </li>
 </ul>
@@ -158,7 +159,6 @@ compilation with Nuitka through such files.</p>
 <p>A schema was created and helps editing in Visual Code, user files can
 be provided.</p>
 <p>The next step is to document these file formats.</p>
-<p>Changes are under way and nearly complete now.</p>
 </li>
 </ul>
 </section>
@@ -250,8 +250,6 @@ code.</p>
 <p>So far we use macOS tools to split binaries that are universal, and
 in this case we need to merge binaries into one with the same tools.</p>
 </li>
-<li><p>Duplicate DLLs are a unresolved issue. We need to identify, is DLLs
-in different paths should be considered colliding at all.</p></li>
 </ul>
 </section>
 <section id="container-builds-commercial">
@@ -294,27 +292,25 @@ client name, etc. could be output in plain text, while the variable
 names and values would not be, depending on your choice!</p></li>
 </ul>
 </section>
-<section id="features-to-be-added-for-1-1">
-<h2>Features to be added for 1.1<a class="headerlink" href="#features-to-be-added-for-1-1" title="Permalink to this heading">&#61633;</a></h2>
-<p>[x] Get complex flask standalone examples to work.</p>
-<p>[ ] Add download updating for onefile on at least Windows.</p>
+<section id="features-to-be-added-for-1-2">
+<h2>Features to be added for 1.2<a class="headerlink" href="#features-to-be-added-for-1-2" title="Permalink to this heading">&#61633;</a></h2>
+<p>[ ] Add download updating for standalone as well, onefile for windows works.</p>
 <p>[ ] Document commercial file embedding publicly with examples.</p>
 <p>[ ] Document commercial Windows Service usage with examples.</p>
+<p>[ ] Document Yaml format with a series of postings with examples.</p>
 <dl class="simple">
-<dt>[x] Add support for executables in the onefile binary. Right now outside of</dt><dd><p>Windows, the x-bit is lost.</p>
+<dt>[ ] Tuple unpacking for values that support indexing should be</dt><dd><p>optimized.</p>
 </dd>
 </dl>
 </section>
-<section id="features-to-be-added-for-1-2">
-<h2>Features to be added for 1.2<a class="headerlink" href="#features-to-be-added-for-1-2" title="Permalink to this heading">&#61633;</a></h2>
+<section id="features-to-be-added-for-1-3">
+<h2>Features to be added for 1.3<a class="headerlink" href="#features-to-be-added-for-1-3" title="Permalink to this heading">&#61633;</a></h2>
+<p>[ ] Update for MinGW64 on Windows to use gcc 12.x based on.</p>
 <p>[ ] Initial support for ctypes based direct calls of C code.</p>
 <dl class="simple">
 <dt>[ ] Add support for <code class="docutils literal notranslate"><span class="pre">list</span></code> methods, things like <code class="docutils literal notranslate"><span class="pre">append</span></code> really</dt><dd><p>should be optimized as well in the mostly existing operation nodes.</p>
 </dd>
-<dt>[ ] Tuple unpacking for values that support indexing should be</dt><dd><p>optimized.</p>
-</dd>
 </dl>
-<p>[ ] Document Yaml format with a series of postings with examples.</p>
 </section>
 </section>
 

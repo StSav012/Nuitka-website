@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en">
   <id>https://nuitka.net</id>
   <title>Nuitka Blog - Posted in 2019</title>
-  <updated>2022-08-31T15:59:59.162258+00:00</updated>
+  <updated>2022-11-06T09:17:47.093449+00:00</updated>
   <link href="https://nuitka.net"/>
   <link href="https://nuitka.net/blog/2019/atom.xml" rel="self"/>
   <generator uri="https://ablog.readthedocs.org/" version="0.10.29">ABlog</generator>
@@ -470,7 +470,7 @@ elements.&lt;/p&gt;&lt;/li&gt;
 &lt;section id="optimization"&gt;
 &lt;h2&gt;Optimization&lt;/h2&gt;
 &lt;ul class="simple"&gt;
-&lt;li&gt;&lt;p&gt;Avoid static C++ runtime library when using MinGW64.&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Avoid using static C++ runtime library when using MinGW64.&lt;/p&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/section&gt;
 &lt;section id="new-features"&gt;

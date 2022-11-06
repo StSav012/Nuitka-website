@@ -82,12 +82,13 @@
 <p class="caption" role="heading"><span class="caption-text">Commercial Users</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../doc/commercial.html">Nuitka Commercial</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../doc/bundles.html">Nuitka Bundles</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Release Information</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../doc/Changelog.html">Nuitka Release 1.1 (Draft)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../doc/Changelog.html">Nuitka Release 1.2 (Draft)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../doc/Changelog.html#nuitka-release-1-1">Nuitka Release 1.1</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../doc/Changelog.html#nuitka-release-1-0">Nuitka Release 1.0</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../doc/Changelog.html#nuitka-release-0-9">Nuitka Release 0.9</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../doc/Changelog.html#older-releases">Older Releases</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../doc/roadmap.html">Roadmap</a></li>
 </ul>
@@ -206,10 +207,11 @@ feature is limited to Windows, where the need arose first, but it
 will be ported to other supported OSes eventually. These are most
 useful for programs run as <code class="docutils literal notranslate"><span class="pre">--windows-disable-console</span></code> or with
 <code class="docutils literal notranslate"><span class="pre">--enable-plugin=windows-service</span></code>.</p></li>
-<li><p>Windows: Added option <code class="docutils literal notranslate"><span class="pre">--windows-onefile-tempdir-spec</span></code> to provide
-the temporary directory used with <code class="docutils literal notranslate"><span class="pre">--windows-onefile-tempdir</span></code> in
-onefile mode, you can now select your own pattern, and e.g. hardcode
-a base directory of your choice rather than <code class="docutils literal notranslate"><span class="pre">%TEMP</span></code>.</p></li>
+<li><p>Windows: Added option <code class="docutils literal notranslate"><span class="pre">--windows-onefile-tempdir-spec</span></code> (since
+renamed to <code class="docutils literal notranslate"><span class="pre">--onefile-tempdir-spec</span></code>) to provide the temporary
+directory used with <code class="docutils literal notranslate"><span class="pre">--windows-onefile-tempdir</span></code> in onefile mode,
+you can now select your own pattern, and e.g. hardcode a base
+directory of your choice rather than <code class="docutils literal notranslate"><span class="pre">%TEMP</span></code>.</p></li>
 <li><p>Added experimental support for <code class="docutils literal notranslate"><span class="pre">PySide2</span></code> with workarounds for
 compiled methods not being accepted by its core. There are known
 issues with <code class="docutils literal notranslate"><span class="pre">PySide2</span></code> still, but it&#8217;s working fine for some people
@@ -245,9 +247,9 @@ benefits from the optimization of <code class="docutils literal notranslate"><sp
 well, but of course its use is relatively rare.</p></li>
 <li><p>Improved <code class="docutils literal notranslate"><span class="pre">__future__</span></code> imports to become hard imports, so more
 efficient code is generated for them.</p></li>
-<li><p>Counting of instances had a runtime impact by providing a <code class="docutils literal notranslate"><span class="pre">__del__</span></code>
-that was still needed to be executed and limits garbage collection on
-types with older Python versions.</p></li>
+<li><p>Counting of instances had a run time impact by providing a
+<code class="docutils literal notranslate"><span class="pre">__del__</span></code> that was still needed to be executed and limits garbage
+collection on types with older Python versions.</p></li>
 <li><p>UI: Avoid loading <code class="docutils literal notranslate"><span class="pre">tqdm</span></code> module before it&#8217;s actually used if at all
 (it may get disabled by the user), speeding up the start of Nuitka.</p></li>
 <li><p>Make sure to optimize internal helpers only once and immediately,

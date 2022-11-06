@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en">
   <id>https://nuitka.net</id>
   <title>Nuitka Blog - Posted in 2022</title>
-  <updated>2022-08-31T15:59:58.841311+00:00</updated>
+  <updated>2022-11-06T09:17:46.771805+00:00</updated>
   <link href="https://nuitka.net"/>
   <link href="https://nuitka.net/blog/2022/atom.xml" rel="self"/>
   <generator uri="https://ablog.readthedocs.org/" version="0.10.29">ABlog</generator>
@@ -34,7 +34,7 @@ already.&lt;/p&gt;&lt;/li&gt;
 least newer OpenSUSE. Fixed in 0.6.18.1 already.&lt;/p&gt;&lt;/li&gt;
 &lt;li&gt;&lt;p&gt;Fix, need to avoid computing large values out of &lt;code class="docutils literal notranslate"&gt;&lt;span class="pre"&gt;&amp;lt;&amp;lt;&lt;/span&gt;&lt;/code&gt; operation as
 well. Fixed in 0.6.18.2 already.&lt;/p&gt;
-&lt;div class="highlight-python notranslate"&gt;&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="c1"&gt;# This large value was computed at runtime and then if used, also&lt;/span&gt;
+&lt;div class="highlight-python notranslate"&gt;&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="c1"&gt;# This large value was computed at run time and then if used, also&lt;/span&gt;
 &lt;span class="c1"&gt;# converted to a string and potentially hashed, taking a long time.&lt;/span&gt;
 &lt;span class="mi"&gt;1&lt;/span&gt; &lt;span class="o"&gt;&amp;lt;&amp;lt;&lt;/span&gt; &lt;span class="n"&gt;sys&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;maxint&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
@@ -980,7 +980,7 @@ already.&lt;/p&gt;&lt;/li&gt;
 &lt;code class="docutils literal notranslate"&gt;&lt;span class="pre"&gt;http.client&lt;/span&gt;&lt;/code&gt; from standard library parts no longer included by
 default. Fixed in 0.7.3 already. Later &lt;code class="docutils literal notranslate"&gt;&lt;span class="pre"&gt;http.cookiejar&lt;/span&gt;&lt;/code&gt; was added
 too.&lt;/p&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;Standalone: Do not compress MSVC runtime library when using &lt;code class="docutils literal notranslate"&gt;&lt;span class="pre"&gt;upx&lt;/span&gt;&lt;/code&gt;
+&lt;li&gt;&lt;p&gt;Standalone: Do not compress MSVC run time library when using &lt;code class="docutils literal notranslate"&gt;&lt;span class="pre"&gt;upx&lt;/span&gt;&lt;/code&gt;
 plugin, that is not going to work. Fixed in 0.7.4 already.&lt;/p&gt;&lt;/li&gt;
 &lt;li&gt;&lt;p&gt;Standalone: Fix, on Windows more files should be included for TkInter
 to work with all software. Fixed in 0.7.5 already.&lt;/p&gt;&lt;/li&gt;
@@ -1114,7 +1114,7 @@ only keyword matching was working.&lt;/p&gt;&lt;/li&gt;
 &lt;code class="docutils literal notranslate"&gt;&lt;span class="pre"&gt;%PRODUCT%&lt;/span&gt;&lt;/code&gt;, &lt;code class="docutils literal notranslate"&gt;&lt;span class="pre"&gt;%VERSION%&lt;/span&gt;&lt;/code&gt;, and &lt;code class="docutils literal notranslate"&gt;&lt;span class="pre"&gt;%HOME&lt;/span&gt;&lt;/code&gt; in preparation of onefile
 once again being able to be cached and not unpacked repeatedly for
 each execution.&lt;/p&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;Standalone: Detect missing &lt;code class="docutils literal notranslate"&gt;&lt;span class="pre"&gt;tk-inter&lt;/span&gt;&lt;/code&gt; plugin at runtime. When TCL
+&lt;li&gt;&lt;p&gt;Standalone: Detect missing &lt;code class="docutils literal notranslate"&gt;&lt;span class="pre"&gt;tk-inter&lt;/span&gt;&lt;/code&gt; plugin at run time. When TCL
 fails to load, it then outputs a more helpful error. This ought to be
 done for all plugins, where it’s not clear if they are needed.&lt;/p&gt;&lt;/li&gt;
 &lt;li&gt;&lt;p&gt;Anti-bloat: Added support for plain replacements in the
@@ -1224,7 +1224,7 @@ finding a problem, present the script to reproduce it immediately.&lt;/p&gt;&lt;
 arguments.&lt;/p&gt;&lt;/li&gt;
 &lt;li&gt;&lt;p&gt;Added automatic execution of &lt;code class="docutils literal notranslate"&gt;&lt;span class="pre"&gt;pyproject.toml&lt;/span&gt;&lt;/code&gt; driven test case.&lt;/p&gt;&lt;/li&gt;
 &lt;li&gt;&lt;p&gt;Enhanced output in case of &lt;code class="docutils literal notranslate"&gt;&lt;span class="pre"&gt;optimization&lt;/span&gt;&lt;/code&gt; test failures, dumping
-what value is there that has not become compile-time not constant.&lt;/p&gt;&lt;/li&gt;
+what value is there that has not become a compile time constant.&lt;/p&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/section&gt;
 &lt;section id="summary"&gt;
@@ -1366,7 +1366,7 @@ Python3, but they nee to be &lt;code class="docutils literal notranslate"&gt;&lt
 &lt;li&gt;&lt;p&gt;Fix, didn’t allow zero spaces in Nuitka project options, which is not
 expected.&lt;/p&gt;&lt;/li&gt;
 &lt;li&gt;&lt;p&gt;Modules: Fix, the &lt;code class="docutils literal notranslate"&gt;&lt;span class="pre"&gt;del&lt;/span&gt; &lt;span class="pre"&gt;__file__&lt;/span&gt;&lt;/code&gt; in the top level module in module
-mode caused crashes at runtime, when trying to restore the original
+mode caused crashes at run time, when trying to restore the original
 &lt;code class="docutils literal notranslate"&gt;&lt;span class="pre"&gt;__file__&lt;/span&gt;&lt;/code&gt; value, after the loading CPython corrupted it.&lt;/p&gt;&lt;/li&gt;
 &lt;li&gt;&lt;p&gt;Python2.6: Fixes for installations without &lt;code class="docutils literal notranslate"&gt;&lt;span class="pre"&gt;pkg_resources&lt;/span&gt;&lt;/code&gt;.&lt;/p&gt;&lt;/li&gt;
 &lt;li&gt;&lt;p&gt;Windows: Fix for very old Python 2.6 versions, these didn’t have a
@@ -1843,7 +1843,7 @@ unlocking optimization of such calls, where it is assigned to a local
 variable.&lt;/p&gt;&lt;/li&gt;
 &lt;li&gt;&lt;p&gt;For generated attribute nodes, avoid local doing import statements on
 the function level. While these were easier to generate, they can
-only be slow at runtime.&lt;/p&gt;&lt;/li&gt;
+only be slow at run time.&lt;/p&gt;&lt;/li&gt;
 &lt;li&gt;&lt;p&gt;For the &lt;code class="docutils literal notranslate"&gt;&lt;span class="pre"&gt;str&lt;/span&gt;&lt;/code&gt; built-in annotate its value as derived from &lt;code class="docutils literal notranslate"&gt;&lt;span class="pre"&gt;str&lt;/span&gt;&lt;/code&gt;,
 which unfortunately does not allow much optimization, since that can
 still change many things, but it was still a missing attribute.&lt;/p&gt;&lt;/li&gt;
@@ -2043,5 +2043,349 @@ analysis of the compilation result.&lt;/p&gt;
     <category term="Python" label="Python"/>
     <category term="compiler" label="compiler"/>
     <published>2022-08-16T13:45:00+00:00</published>
+  </entry>
+  <entry>
+    <id>https://nuitka.net/posts/nuitka-release-11.html</id>
+    <title>Nuitka Release 1.1</title>
+    <updated>2022-10-16T10:56:00+00:00</updated>
+    <author>
+      <name>Kay Hayen</name>
+    </author>
+    <content type="html">&lt;section id="nuitka-release-1-1"&gt;
+
+&lt;p&gt;This is to inform you about the new stable release of &lt;a class="reference external" href="https://nuitka.net"&gt;Nuitka&lt;/a&gt;. It is the extremely compatible Python compiler,
+&lt;a class="reference external" href="/doc/download.html"&gt;“download now”&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;This release contains a large amount of new compatibility features,
+while consolidating what we have. Scalability should be better in some
+cases.&lt;/p&gt;
+&lt;section id="bug-fixes"&gt;
+&lt;h2&gt;Bug Fixes&lt;/h2&gt;
+&lt;ul class="simple"&gt;
+&lt;li&gt;&lt;p&gt;Standalone: Enhanced dependency scan of dependent DLLs to forward the
+containing package, so it can be searched in as well. This fixed at
+least PySide on macOS. Fixed in 1.0.1 already.&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;macOS: Enhanced dependency detection to use normalized paths and
+therefore to be more stable. Fixed in 1.0.1 already.&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Standalone: Added support for the &lt;code class="docutils literal notranslate"&gt;&lt;span class="pre"&gt;networkx&lt;/span&gt;&lt;/code&gt; package which uses new
+support for a function decorator trying to copy function default
+values. Fixed in 1.0.1 already.&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Standalone: Include data files for &lt;code class="docutils literal notranslate"&gt;&lt;span class="pre"&gt;pandas.io.format&lt;/span&gt;&lt;/code&gt; package. This
+one has Jinja2 template files that will be needed when using this
+package.&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Python3.10: Fix, could crash in case a class was not giving &lt;code class="docutils literal notranslate"&gt;&lt;span class="pre"&gt;match&lt;/span&gt;&lt;/code&gt;
+arguments, but the user did attempt to match them. This happened e.g.
+with &lt;code class="docutils literal notranslate"&gt;&lt;span class="pre"&gt;range&lt;/span&gt;&lt;/code&gt; objects. Fixed in 1.0.2 already.&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Standalone: Added data files needed for &lt;code class="docutils literal notranslate"&gt;&lt;span class="pre"&gt;pyenchant&lt;/span&gt;&lt;/code&gt; package. Fixed
+in 1.0.2 already.&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Python3.10: Fix, matching sequence with &lt;code class="docutils literal notranslate"&gt;&lt;span class="pre"&gt;as&lt;/span&gt;&lt;/code&gt; assignments in them
+didn’t check for sub-pattern given. Fixed in 1.0.2 already.&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Standalone: Fix, do not attempt to list non-existent &lt;code class="docutils literal notranslate"&gt;&lt;span class="pre"&gt;PATH&lt;/span&gt;&lt;/code&gt; entries
+on Windows, these can crash the dependency detection otherwise. Fixed
+in 1.0.2 already.&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Standalone: Fix, on newer Linux, &lt;code class="docutils literal notranslate"&gt;&lt;span class="pre"&gt;linux-vdso.so.1&lt;/span&gt;&lt;/code&gt; appears in
+output of &lt;code class="docutils literal notranslate"&gt;&lt;span class="pre"&gt;ldd&lt;/span&gt;&lt;/code&gt; in a way that suggests it may exist, which of
+course it does not, this is a kernel virtual DLL. Fixed in 1.0.3
+already.&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Fix, comparison expressions could give wrong results as a regression
+of the new release. Fixed in 1.0.3 already.&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Fix, on older Python (before 3.6), it could crash on data files
+defined in the Yaml config. Fixed in 1.0.4 already.&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Fix, binary operations could give wrong results as a regression of
+the new release. Fixed in 1.0.4 already.&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Standalone: Added support for &lt;code class="docutils literal notranslate"&gt;&lt;span class="pre"&gt;pyzbar&lt;/span&gt;&lt;/code&gt; package. Fixed in 1.0.5
+already.&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Standalone: Fix, empty directory structures were not working anymore
+due to a regression in the last release. Fixed in 1.0.5 already.&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Windows: Fix, detected Pythons from Windows registry may of course
+fail to execute, because they were e.g. manually deleted. This would
+show e.g. in onefile compression. Fixed in 1.0.5 already.&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Onefile: Fix, using a too old &lt;code class="docutils literal notranslate"&gt;&lt;span class="pre"&gt;zstandard&lt;/span&gt;&lt;/code&gt; without finding another
+Python with a suitable one, lead to run time unpacking errors. Fixed
+in 1.0.6 already.&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Fix, the inline copy of Jinja2 imported &lt;code class="docutils literal notranslate"&gt;&lt;span class="pre"&gt;logging&lt;/span&gt;&lt;/code&gt; for no good
+reason, which lead to errors for users who have a module of the same
+name, that it was then using instead. Fixed in 1.0.6 already.&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Fix, disable LTO mode for Anaconda Python, it is known to not work.
+Fixed in 1.0.6 already.&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Linux: Fix, no need to insist on icon path for onefile anymore. Fixed
+in 1.0.6 already.&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Standalone: Fix, the new version &lt;code class="docutils literal notranslate"&gt;&lt;span class="pre"&gt;certifi&lt;/span&gt;&lt;/code&gt; was not working on
+Windows and 3.10 anymore. Fixed in 1.0.7 already.&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Standalone: Added support for more &lt;code class="docutils literal notranslate"&gt;&lt;span class="pre"&gt;rapidfuzz&lt;/span&gt;&lt;/code&gt; implicit
+dependencies. Fixed in 1.0.8 already.&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Standalone: Added support for &lt;code class="docutils literal notranslate"&gt;&lt;span class="pre"&gt;vibora&lt;/span&gt;&lt;/code&gt;. Fixed in 1.0.8 already.&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Fix, must not expose module name objects to Python import hooks.
+Fixed in 1.0.8 already.&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Fix, calls to bound methods of string values generated incorrect
+calls. Fixed in 1.0.8 already.&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Fix, do not crash in version detection on &lt;code class="docutils literal notranslate"&gt;&lt;span class="pre"&gt;gcc&lt;/span&gt;&lt;/code&gt; error exit querying
+of its version.&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Standalone: Added back support for older versions of the &lt;code class="docutils literal notranslate"&gt;&lt;span class="pre"&gt;pyzmq&lt;/span&gt;&lt;/code&gt;
+package.&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Standalone: Ignore &lt;code class="docutils literal notranslate"&gt;&lt;span class="pre"&gt;PATH&lt;/span&gt;&lt;/code&gt; elements that fail to be listed as a
+directory. It appears e.g. on Windows, folders can exist, despite
+being unusable in fact. These can then cause errors in DLL dependency
+scan. Also avoid having &lt;code class="docutils literal notranslate"&gt;&lt;span class="pre"&gt;PATH&lt;/span&gt;&lt;/code&gt; set when executing dependency
+walker, it appears to use it even if not asked to.&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Standalone: Added support for &lt;code class="docutils literal notranslate"&gt;&lt;span class="pre"&gt;tzlocal&lt;/span&gt;&lt;/code&gt; package.&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Python3.10: Fix, &lt;code class="docutils literal notranslate"&gt;&lt;span class="pre"&gt;complex&lt;/span&gt;&lt;/code&gt; literals were not working for mappings
+in &lt;code class="docutils literal notranslate"&gt;&lt;span class="pre"&gt;match&lt;/span&gt;&lt;/code&gt; statements.&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Fix, &lt;code class="docutils literal notranslate"&gt;&lt;span class="pre"&gt;bool&lt;/span&gt;&lt;/code&gt; built-in expressions were not properly annotating
+exception raises, where the value cannot raise on truth check.&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Standalone: Added support for the &lt;code class="docutils literal notranslate"&gt;&lt;span class="pre"&gt;agscheduler&lt;/span&gt;&lt;/code&gt; package. Plugins
+must be done manually still with explicit &lt;code class="docutils literal notranslate"&gt;&lt;span class="pre"&gt;--include-module&lt;/span&gt;&lt;/code&gt; calls.&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Standalone: Added support for using &lt;code class="docutils literal notranslate"&gt;&lt;span class="pre"&gt;shapely&lt;/span&gt;&lt;/code&gt; in Anaconda as well.&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Debian: Fix, versioned dependency for &lt;code class="docutils literal notranslate"&gt;&lt;span class="pre"&gt;libzstd&lt;/span&gt;&lt;/code&gt; should also be in
+package, this should restore Nuitka package builds for Debian Jessie.&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Standalone: Added support for &lt;code class="docutils literal notranslate"&gt;&lt;span class="pre"&gt;vtk&lt;/span&gt;&lt;/code&gt; package.&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Windows: Fix, avoid using &lt;code class="docutils literal notranslate"&gt;&lt;span class="pre"&gt;pywin32&lt;/span&gt;&lt;/code&gt; in our appdirs usage, it might
+be a broken installation and is optional to &lt;code class="docutils literal notranslate"&gt;&lt;span class="pre"&gt;appdirs&lt;/span&gt;&lt;/code&gt; anyway, which
+then will fallback to using &lt;code class="docutils literal notranslate"&gt;&lt;span class="pre"&gt;ctypes&lt;/span&gt;&lt;/code&gt; to make the lookups.&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Standalone: Added support for more &lt;code class="docutils literal notranslate"&gt;&lt;span class="pre"&gt;pandas&lt;/span&gt;&lt;/code&gt; versions.&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Standalone: Adding support for &lt;code class="docutils literal notranslate"&gt;&lt;span class="pre"&gt;mkl&lt;/span&gt;&lt;/code&gt; implicit DLL usage in
+Anaconda.&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Standalone: Added support for &lt;code class="docutils literal notranslate"&gt;&lt;span class="pre"&gt;jsonschema&lt;/span&gt;&lt;/code&gt; with Python 3.10.&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Standalone: Added support for &lt;code class="docutils literal notranslate"&gt;&lt;span class="pre"&gt;pyfiglet&lt;/span&gt;&lt;/code&gt; fonts data files.&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Scons: Avoid gcc linker command line length limits for module mode
+too.&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Standalone: Added data file of &lt;code class="docutils literal notranslate"&gt;&lt;span class="pre"&gt;distributed.config&lt;/span&gt;&lt;/code&gt;.&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Standalone: Add support for &lt;code class="docutils literal notranslate"&gt;&lt;span class="pre"&gt;cv2&lt;/span&gt;&lt;/code&gt; GUI on Linux, the Qt platform
+plugin is now included.&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Fix, the anti-bloat configuration for &lt;code class="docutils literal notranslate"&gt;&lt;span class="pre"&gt;numpy.testing&lt;/span&gt;&lt;/code&gt; tools exposed
+an incomplete &lt;code class="docutils literal notranslate"&gt;&lt;span class="pre"&gt;suppress_warnings&lt;/span&gt;&lt;/code&gt; replacement that could lead to
+errors in some functions of &lt;code class="docutils literal notranslate"&gt;&lt;span class="pre"&gt;numpy&lt;/span&gt;&lt;/code&gt;.&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Standalone: Fix DLL dependency caching on Windows, need to consider
+DLL content of course too.&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Standalone: Added missing dependency for &lt;code class="docutils literal notranslate"&gt;&lt;span class="pre"&gt;torchvision&lt;/span&gt;&lt;/code&gt;.&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Standalone: Added support for &lt;code class="docutils literal notranslate"&gt;&lt;span class="pre"&gt;torchvision&lt;/span&gt;&lt;/code&gt; on Anaconda as well.&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Standalone: Added support for &lt;code class="docutils literal notranslate"&gt;&lt;span class="pre"&gt;panda3d&lt;/span&gt;&lt;/code&gt;.&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Windows: Fix, need to make sure to use UTF-8 encoding for define
+values like company name. Otherwise the local system encoding is
+used, but the C compiler expects UTF-8 in wide literals. This may
+crash of give wrong results.&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Standalone: Added &lt;code class="docutils literal notranslate"&gt;&lt;span class="pre"&gt;facenet_torch&lt;/span&gt;&lt;/code&gt; data files.&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Anaconda: Include &lt;code class="docutils literal notranslate"&gt;&lt;span class="pre"&gt;libstdc++.so&lt;/span&gt;&lt;/code&gt; on Linux or else e.g. &lt;code class="docutils literal notranslate"&gt;&lt;span class="pre"&gt;cv2&lt;/span&gt;&lt;/code&gt; will
+not work with system library.&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Windows: Fix, can have file version without a company name.&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/section&gt;
+&lt;section id="new-features"&gt;
+&lt;h2&gt;New Features&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;Python3.10: Added support for assignments in &lt;code class="docutils literal notranslate"&gt;&lt;span class="pre"&gt;match&lt;/span&gt;&lt;/code&gt; alternatives
+&lt;code class="docutils literal notranslate"&gt;&lt;span class="pre"&gt;|&lt;/span&gt;&lt;/code&gt; syntax.&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Compatibility: Register Nuitka meta path based loader with
+&lt;code class="docutils literal notranslate"&gt;&lt;span class="pre"&gt;pkg_resources&lt;/span&gt;&lt;/code&gt; such that checking resource presence with
+&lt;code class="docutils literal notranslate"&gt;&lt;span class="pre"&gt;has_resource&lt;/span&gt;&lt;/code&gt; works too. This should also add support for using
+&lt;code class="docutils literal notranslate"&gt;&lt;span class="pre"&gt;jinja2.PackageLoader&lt;/span&gt;&lt;/code&gt;, previously only &lt;code class="docutils literal notranslate"&gt;&lt;span class="pre"&gt;jinja2.FileSystemLoader&lt;/span&gt;&lt;/code&gt;
+worked. Fixed in 1.0.1 already.&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Compatibility: Make function &lt;code class="docutils literal notranslate"&gt;&lt;span class="pre"&gt;__defaults__&lt;/span&gt;&lt;/code&gt; attribute size
+changeable. For a long time, this was a relatively big issue for some
+packages, but now this is supported as well.&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Compatibility: Added support for &lt;code class="docutils literal notranslate"&gt;&lt;span class="pre"&gt;importlib.metadata.distribution&lt;/span&gt;&lt;/code&gt;
+and &lt;code class="docutils literal notranslate"&gt;&lt;span class="pre"&gt;importlib_metadata.distribution&lt;/span&gt;&lt;/code&gt; functions as well
+&lt;code class="docutils literal notranslate"&gt;&lt;span class="pre"&gt;importlib.metadata.metadata&lt;/span&gt;&lt;/code&gt; and &lt;code class="docutils literal notranslate"&gt;&lt;span class="pre"&gt;importlib_metadata.metadata&lt;/span&gt;&lt;/code&gt;
+functions.&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Onefile: Added support for including other binaries than the main
+executable in the payload. So far on non-Windows, we only made the
+main binary executable, hard coded, and nothing else. But Some
+things, e.g. Qt web engine, do require binaries to be used, and these
+no longer have the issue of missing x-bit on macOS and Linux now.&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Standalone: Resolve executable path when called through symbolic
+link, which makes file resolutions work properly for it, for this
+type of installing it in &lt;code class="docutils literal notranslate"&gt;&lt;span class="pre"&gt;%PATH%&lt;/span&gt;&lt;/code&gt;.&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Python3.9+: Added support for &lt;code class="docutils literal notranslate"&gt;&lt;span class="pre"&gt;importlib.resources.files&lt;/span&gt;&lt;/code&gt; with
+compiled modules.&lt;/p&gt;
+&lt;p&gt;It returns traversable objects, which can be used to opens files,
+checks them, etc. and this e.g. allows &lt;code class="docutils literal notranslate"&gt;&lt;span class="pre"&gt;jsonschema&lt;/span&gt;&lt;/code&gt; to work with
+Python 3.10, despite bugs in CPython’s compatibility layer.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;UI: Added interface method to specify filename patterns with package
+data inclusion option, making &lt;code class="docutils literal notranslate"&gt;&lt;span class="pre"&gt;--include-package-data&lt;/span&gt;&lt;/code&gt; usable in
+many more cases, picking the only files or file types you want. You
+can now use &lt;code class="docutils literal notranslate"&gt;&lt;span class="pre"&gt;--include-package-data=package_name=*.txt&lt;/span&gt;&lt;/code&gt; and select
+only a subset of package data files in this way. Before this, it
+included everything and &lt;code class="docutils literal notranslate"&gt;&lt;span class="pre"&gt;--noinclude-data-files&lt;/span&gt;&lt;/code&gt; would have to be
+used.&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;macOS: Make &lt;code class="docutils literal notranslate"&gt;&lt;span class="pre"&gt;runtime&lt;/span&gt;&lt;/code&gt; signing an experimental option.&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Consistently allow &lt;code class="docutils literal notranslate"&gt;&lt;span class="pre"&gt;when&lt;/span&gt;&lt;/code&gt; conditions for all package configuration
+elements, e.g. also DLLs.&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Plugins: Added method to overload to work on standalone binary
+specifically. This makes it easier to only modify that specific
+binary.&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Plugins: Added support for regular expressions in anti-bloat
+replacements, with new &lt;code class="docutils literal notranslate"&gt;&lt;span class="pre"&gt;replacements_re&lt;/span&gt;&lt;/code&gt; code.&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/section&gt;
+&lt;section id="optimization"&gt;
+&lt;h2&gt;Optimization&lt;/h2&gt;
+&lt;ul class="simple"&gt;
+&lt;li&gt;&lt;p&gt;Add support for &lt;code class="docutils literal notranslate"&gt;&lt;span class="pre"&gt;os.path&lt;/span&gt;&lt;/code&gt; hard module imports along with
+specialized nodes for file tests &lt;code class="docutils literal notranslate"&gt;&lt;span class="pre"&gt;os.path.exists&lt;/span&gt;&lt;/code&gt;,
+&lt;code class="docutils literal notranslate"&gt;&lt;span class="pre"&gt;os.path.isfile&lt;/span&gt;&lt;/code&gt;, and &lt;code class="docutils literal notranslate"&gt;&lt;span class="pre"&gt;os.path.isdir&lt;/span&gt;&lt;/code&gt; aiming at tracking used
+files, producing warnings about missing files in the future.&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Standalone: Do not include &lt;code class="docutils literal notranslate"&gt;&lt;span class="pre"&gt;concurrent&lt;/span&gt;&lt;/code&gt; standard library package
+automatically. This avoids the inclusion of &lt;code class="docutils literal notranslate"&gt;&lt;span class="pre"&gt;multiprocessing&lt;/span&gt;&lt;/code&gt; which
+we essentially had reverted during last release cycle.&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Standalone: Do not include &lt;code class="docutils literal notranslate"&gt;&lt;span class="pre"&gt;zoneinfo&lt;/span&gt;&lt;/code&gt; standard library package
+automatically. It has many data files and is often not used (yet).&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Standalone: Do not include &lt;code class="docutils literal notranslate"&gt;&lt;span class="pre"&gt;asyncio&lt;/span&gt;&lt;/code&gt; standard library package
+automatically anymore.&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Avoid compilation of large generated codes in the &lt;code class="docutils literal notranslate"&gt;&lt;span class="pre"&gt;asyncua&lt;/span&gt;&lt;/code&gt;
+package.&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Compile time optimize &lt;code class="docutils literal notranslate"&gt;&lt;span class="pre"&gt;pkg_resources.iter_entry_points&lt;/span&gt;&lt;/code&gt; too, such
+that these can be used to resolve plugin modules, which helps with
+adding support for &lt;code class="docutils literal notranslate"&gt;&lt;span class="pre"&gt;agscheduler&lt;/span&gt;&lt;/code&gt; package plugins. Note that these
+still need to be manually included with &lt;code class="docutils literal notranslate"&gt;&lt;span class="pre"&gt;--include-module&lt;/span&gt;&lt;/code&gt; but now
+that works.&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;For known truth values of the right hand side of &lt;code class="docutils literal notranslate"&gt;&lt;span class="pre"&gt;and&lt;/span&gt;&lt;/code&gt; or &lt;code class="docutils literal notranslate"&gt;&lt;span class="pre"&gt;or&lt;/span&gt;&lt;/code&gt;
+conditions, reduce the expression as far as possible.&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Added dedicated assignment node for hard imports, which then are
+propagated in classes as well, allowing for more static optimization
+for code on the class level.&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Added linker options to make static &lt;code class="docutils literal notranslate"&gt;&lt;span class="pre"&gt;--static-libpython&lt;/span&gt;&lt;/code&gt; work with
+clang on Linux as well.&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;macOS: Make sure &lt;code class="docutils literal notranslate"&gt;&lt;span class="pre"&gt;libpython&lt;/span&gt;&lt;/code&gt; is loaded relative to the executable.
+This is needed for at least Anaconda Python.&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;macOS: Fix, need to search environment specific DLL paths and only
+then global paths, otherwise mixed Python versions will not work
+correctly.&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Anti-Bloat: Remove IPython usage in &lt;code class="docutils literal notranslate"&gt;&lt;span class="pre"&gt;rich&lt;/span&gt;&lt;/code&gt; package.&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Anti-Bloat: Avoid &lt;code class="docutils literal notranslate"&gt;&lt;span class="pre"&gt;doctest&lt;/span&gt;&lt;/code&gt; dependency when using &lt;code class="docutils literal notranslate"&gt;&lt;span class="pre"&gt;pyrect&lt;/span&gt;&lt;/code&gt;.&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Anti-Bloat: Some &lt;code class="docutils literal notranslate"&gt;&lt;span class="pre"&gt;unittest&lt;/span&gt;&lt;/code&gt; removals from &lt;code class="docutils literal notranslate"&gt;&lt;span class="pre"&gt;pytorch&lt;/span&gt;&lt;/code&gt; using
+libraries.&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Keep the Scons report items sorted, or else it varies for the hashing
+of dependencies with Python versions before 3.6, causing cache misses
+without need.&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/section&gt;
+&lt;section id="organisational"&gt;
+&lt;h2&gt;Organisational&lt;/h2&gt;
+&lt;ul class="simple"&gt;
+&lt;li&gt;&lt;p&gt;UI: Output the &lt;code class="docutils literal notranslate"&gt;&lt;span class="pre"&gt;.cmd&lt;/span&gt;&lt;/code&gt; file created (if any) on Windows, e.g. when
+run in a virtualenv or for uninstalled Python versions, it will
+otherwise not run in accelerated mode, but previously the output
+suggested to run the executable directly.&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;UI: Enhanced command line option description of
+&lt;code class="docutils literal notranslate"&gt;&lt;span class="pre"&gt;--include-plugin-directory&lt;/span&gt;&lt;/code&gt; which is frequently misunderstood.
+That option barely does what people want it to do. Point them to
+using the other options that are easy to use and will work.&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;UI: Specified needed Python version for use in &lt;code class="docutils literal notranslate"&gt;&lt;span class="pre"&gt;--python-for-scons&lt;/span&gt;&lt;/code&gt;
+so users can know ahead of time what versions are suitable.&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Reports: Added information about data files including, optimization
+times per module, active plugins.&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Debugging: Repaired offline DLL dependency listing tool, such that it
+can be used during Windows DLL analysis.&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Make &lt;code class="docutils literal notranslate"&gt;&lt;span class="pre"&gt;--xml&lt;/span&gt;&lt;/code&gt; accept a filename for the node tree dump, and change
+it so it can be executed in addition to actual compilation. This way
+we need not be super-robust about keeping stdout clean, to not break
+XML parsing.&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Plugins: Avoid useless warning about PySide2 plugin usage if another
+Qt plugin is actually selected.&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;UI: Catch error of directories being used as data files where plain
+files are expected and point out that other options must be used.&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;User Manual: Added section about accessing files in standalone mode
+too, so people can make sure it works properly.&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Onefile: Using &lt;code class="docutils literal notranslate"&gt;&lt;span class="pre"&gt;%TEMP%&lt;/span&gt;&lt;/code&gt; folder should not by itself prevent cached
+onefile mode, only really variable paths should. People may want to
+have this as some kind of temporary cache still.&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;UI: Catch user error of using elements, that resolve to absolute
+values in the middle of path specs, so using e.g.
+&lt;code class="docutils literal notranslate"&gt;&lt;span class="pre"&gt;something/%PROGRAM%&lt;/span&gt;&lt;/code&gt; is now a mistake caught at compile time.
+These values can only be at the start of spec values naturally.&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Quality: Updated to newer version of &lt;code class="docutils literal notranslate"&gt;&lt;span class="pre"&gt;rstfmt&lt;/span&gt;&lt;/code&gt;.&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;UI: Nicer error message when a forbidden import is requested as an
+implicit import by a plugin.&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Python3.11: Adapted to allocator and exception state changes, but
+more will be needed to compile at all.&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Visual Code: Find &lt;code class="docutils literal notranslate"&gt;&lt;span class="pre"&gt;clang-format&lt;/span&gt;&lt;/code&gt; from the recommended C++ extension
+of Visual Code, which makes it finally available on macOS easily too.&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;UI: Quote command line argument values as necessary when stating them
+in the logging. Otherwise they are not directly usable on the shell
+and also less readable.&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Debian: Do not list fake modules as used debian packages codes, which
+could e.g. happen with the pre-load code of &lt;code class="docutils literal notranslate"&gt;&lt;span class="pre"&gt;pkg_resources&lt;/span&gt;&lt;/code&gt; if that
+is from a Debian package. Fake packages should not be mentioned for
+these lists though.&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Nuitka-Python: Added support to set link time flags coming from
+statically included packages.&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;For our &lt;code class="docutils literal notranslate"&gt;&lt;span class="pre"&gt;isort&lt;/span&gt;&lt;/code&gt; trick of splitting files in two parts (mostly to
+setup import paths for &lt;code class="docutils literal notranslate"&gt;&lt;span class="pre"&gt;nuitka&lt;/span&gt;&lt;/code&gt; package), make sure the second
+parts starts with a new line.&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Added more usable form &lt;code class="docutils literal notranslate"&gt;&lt;span class="pre"&gt;--output-filename&lt;/span&gt;&lt;/code&gt; to specify the output
+filename, the short form has become barely usable after we switched
+to enforcing no space separation for command line arguments.&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;UI: Check if output filename’s directory exists ahead of time, and
+error exit if not, otherwise compilation crashed only in the very
+end, trying to create the final result.&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;UI: When exiting with no error code, do not use red color or
+&lt;code class="docutils literal notranslate"&gt;&lt;span class="pre"&gt;FATAL&lt;/span&gt;&lt;/code&gt; error annotation, that is not justified.&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Quality: Make sure the Yaml auto-format does not change effective
+contents.&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Quality: Added ability to limit autoformat by file type, which can be
+handy when e.g. only the yaml files should be scanned.&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;UI: Removed &lt;code class="docutils literal notranslate"&gt;&lt;span class="pre"&gt;--windows-onefile-tempdir-spec&lt;/span&gt;&lt;/code&gt; alias of
+&lt;code class="docutils literal notranslate"&gt;&lt;span class="pre"&gt;--onefile-tempdir-spec&lt;/span&gt;&lt;/code&gt; option, it is no longer Windows specific.&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/section&gt;
+&lt;section id="cleanups"&gt;
+&lt;h2&gt;Cleanups&lt;/h2&gt;
+&lt;ul class="simple"&gt;
+&lt;li&gt;&lt;p&gt;Prefer single quotes rather than double quotes in our package
+configuration Yaml files, otherwise esp. regular expressions with
+escapes become very confusing.&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Move import hacks to general mechanism in Yaml package configuration
+files. This is for extra paths from package names or from directory
+paths relative to the package. This removes special purpose code from
+core code paths and allows their re-use.&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Again more spelling cleanups have been done, to make the code cleaner
+to read and search.&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Unified how plugins treat iteration over their value list, and how
+the &lt;code class="docutils literal notranslate"&gt;&lt;span class="pre"&gt;when&lt;/span&gt;&lt;/code&gt; condition is applied for the various kinds of sections.&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Output compilation command that failed during coverage taking, which
+makes it unnecessary to attempt to reconstruct what happened from
+test modes.&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/section&gt;
+&lt;section id="tests"&gt;
+&lt;h2&gt;Tests&lt;/h2&gt;
+&lt;ul class="simple"&gt;
+&lt;li&gt;&lt;p&gt;Added coverage for comparisons that need argument swaps.&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Allow more time in onefile keyboard signal test, otherwise it can be
+a race on slow machines, e.g. emulated machines.&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Tests: Added support for running a local web server.&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/section&gt;
+&lt;section id="summary"&gt;
+&lt;h2&gt;Summary&lt;/h2&gt;
+&lt;p&gt;This release is mainly a consolidation of previous release. Optimization
+added in previous release did in fact introduce regressions, that needed
+to be addressed and were cause for relatively many hotfixes.&lt;/p&gt;
+&lt;p&gt;The Yaml nuitka package configuration feature is getting ever more
+powerful, but is not one bit more documented, such that the community as
+a whole is not yet capable of adding missing dependencies, data files,
+DLLs, and even anti-bloat patches.&lt;/p&gt;
+&lt;p&gt;New optimization was focused around compatibility with very few
+exceptions, where the non-automatic standard library work is standing
+out, and allows for smaller binaries in many cases.&lt;/p&gt;
+&lt;p&gt;Scalability has seen improvements through a few optimization, but mainly
+again with anti-bloat work being done. This is owed to the fact that
+consolidation was the name of the game.&lt;/p&gt;
+&lt;p&gt;For Anaconda specifically, a lot more software is covered, and
+generally, &lt;code class="docutils literal notranslate"&gt;&lt;span class="pre"&gt;cv2&lt;/span&gt;&lt;/code&gt; and &lt;code class="docutils literal notranslate"&gt;&lt;span class="pre"&gt;torch&lt;/span&gt;&lt;/code&gt; related tools are now working better,
+but it seems DLL handling will remain problematic in many instances.&lt;/p&gt;
+&lt;p&gt;The compilation report contains much more information and is getting
+there is terms of completeness. At some point, we should ask for it in
+bug reports.&lt;/p&gt;
+&lt;/section&gt;
+&lt;/section&gt;
+</content>
+    <link href="https://nuitka.net/posts/nuitka-release-11.html" rel="alternate"/>
+    <summary>This is to inform you about the new stable release of Nuitka. It is the extremely compatible Python compiler,
+“download now”.</summary>
+    <category term="Nuitka" label="Nuitka"/>
+    <category term="Python" label="Python"/>
+    <category term="compiler" label="compiler"/>
+    <published>2022-10-16T10:56:00+00:00</published>
   </entry>
 </feed>

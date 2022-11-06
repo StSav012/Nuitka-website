@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en">
   <id>https://nuitka.net</id>
   <title>Nuitka Blog - Posted in 2020</title>
-  <updated>2022-08-31T15:59:59.100600+00:00</updated>
+  <updated>2022-11-06T09:17:47.035489+00:00</updated>
   <link href="https://nuitka.net"/>
   <link href="https://nuitka.net/blog/2020/atom.xml" rel="self"/>
   <generator uri="https://ablog.readthedocs.org/" version="0.10.29">ABlog</generator>
@@ -339,8 +339,8 @@ solving a few warnings during the build.&lt;/p&gt;&lt;/li&gt;
 all of Linux, macOS and Windows, covering the later publicly for the
 first time. We use Anaconda on macOS for the tests now, rather than
 Homebrew.&lt;/p&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;Enable IO encoding to make sure we use UTF8 for more test suites that
-actually need it in case of problems.&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Enable IO encoding to make sure we use UTF-8 for more test suites
+that actually need it in case of problems.&lt;/p&gt;&lt;/li&gt;
 &lt;li&gt;&lt;p&gt;Comparing module outputs now handles segfaults by running in the
 debugger too.&lt;/p&gt;&lt;/li&gt;
 &lt;/ul&gt;
@@ -610,11 +610,11 @@ in 0.6.8.1 already.&lt;/p&gt;&lt;/li&gt;
 values that were changed in CPython, leading to errors.&lt;/p&gt;&lt;/li&gt;
 &lt;li&gt;&lt;p&gt;Windows: Avoid encoding issues for Python3 on more systems, by going
 from wide characters to unicode strings more directly, avoiding an
-encoding as UTF8 in the middle. Fixed in 0.6.8.2 already.&lt;/p&gt;&lt;/li&gt;
+encoding as UTF-8 in the middle. Fixed in 0.6.8.2 already.&lt;/p&gt;&lt;/li&gt;
 &lt;li&gt;&lt;p&gt;Windows: Do not crash when warning about uninstalled MSVC using
 Python3. This is a Scons bug that we fixed. Fixed in 0.6.8.3 already.&lt;/p&gt;&lt;/li&gt;
 &lt;li&gt;&lt;p&gt;Standalone: The output of dependency walker should be considered as
-“latin1” rather than UTF8. Fixed in 0.6.8.3 already.&lt;/p&gt;&lt;/li&gt;
+“latin1” rather than UTF-8. Fixed in 0.6.8.3 already.&lt;/p&gt;&lt;/li&gt;
 &lt;li&gt;&lt;p&gt;Standalone: Added missing hidden dependencies for &lt;code class="docutils literal notranslate"&gt;&lt;span class="pre"&gt;flask&lt;/span&gt;&lt;/code&gt;. Fixed in
 0.6.8.1 already.&lt;/p&gt;&lt;/li&gt;
 &lt;li&gt;&lt;p&gt;Standalone: Fixed &lt;code class="docutils literal notranslate"&gt;&lt;span class="pre"&gt;win32com.client&lt;/span&gt;&lt;/code&gt; on Windows. Fixed in 0.6.8.1
@@ -629,8 +629,8 @@ didn’t allow for arguments to the passed, causing problems. Fixed in
 modules using it and not only some.&lt;/p&gt;&lt;/li&gt;
 &lt;li&gt;&lt;p&gt;Standalone: The bytecode for the standard library had filenames
 pointing to the original installation attached. While these were not
-used, but replaced at runtime, they increased the size of the binary,
-and leaked information.&lt;/p&gt;&lt;/li&gt;
+used, but replaced at run time, they increased the size of the
+binary, and leaked information.&lt;/p&gt;&lt;/li&gt;
 &lt;li&gt;&lt;p&gt;Standalone: The path of &lt;code class="docutils literal notranslate"&gt;&lt;span class="pre"&gt;sys.executable&lt;/span&gt;&lt;/code&gt; was not None, but pointing
 to the original executable, which could also point to some temporary
 virtualenv directory and therefore not exist, also it was leaking

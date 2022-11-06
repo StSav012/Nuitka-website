@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en">
   <id>https://nuitka.net</id>
   <title>Nuitka Blog - Posted in 2011</title>
-  <updated>2022-08-31T16:00:00.168041+00:00</updated>
+  <updated>2022-11-06T09:17:48.059872+00:00</updated>
   <link href="https://nuitka.net"/>
   <link href="https://nuitka.net/blog/2011/atom.xml" rel="self"/>
   <generator uri="https://ablog.readthedocs.org/" version="0.10.29">ABlog</generator>
@@ -1428,9 +1428,8 @@ do that automatically.&lt;/p&gt;&lt;/li&gt;
 &lt;li&gt;&lt;p&gt;The handling of options for g++ got improved, so it’s the same for
 g++ and MinGW compilers, plus adequate errors messages are given, if
 the compiler version is too low.&lt;/p&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;There is now a &lt;code class="docutils literal notranslate"&gt;&lt;span class="pre"&gt;--unstripped&lt;/span&gt;&lt;/code&gt; (since renamed to &lt;code class="docutils literal notranslate"&gt;&lt;span class="pre"&gt;--unstriped&lt;/span&gt;&lt;/code&gt;)
-option that just keeps the debug information in the file, but doesn’t
-keep the assertions.&lt;/p&gt;
+&lt;li&gt;&lt;p&gt;There is now a &lt;code class="docutils literal notranslate"&gt;&lt;span class="pre"&gt;--unstripped&lt;/span&gt;&lt;/code&gt; option that just keeps the debug
+information in the file, but doesn’t keep the assertions.&lt;/p&gt;
 &lt;p&gt;This will be helpful when looking at generated assembler code from
 Nuitka to not have the distortions that &lt;code class="docutils literal notranslate"&gt;&lt;span class="pre"&gt;--debug&lt;/span&gt;&lt;/code&gt; causes (reduced
 optimization level, assertions, etc.) and instead a clear view.&lt;/p&gt;

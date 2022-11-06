@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en">
   <id>https://nuitka.net</id>
   <title>Nuitka Blog - Posted in 2015</title>
-  <updated>2022-08-31T15:59:59.603567+00:00</updated>
+  <updated>2022-11-06T09:17:47.518063+00:00</updated>
   <link href="https://nuitka.net"/>
   <link href="https://nuitka.net/blog/2015/atom.xml" rel="self"/>
   <generator uri="https://ablog.readthedocs.org/" version="0.10.29">ABlog</generator>
@@ -976,7 +976,7 @@ ahead.&lt;/p&gt;
 &lt;p&gt;This release contains massive amounts of corrections for long standing
 issues in the import recursion mechanism, as well as for standalone
 issues now visible after the &lt;code class="docutils literal notranslate"&gt;&lt;span class="pre"&gt;__file__&lt;/span&gt;&lt;/code&gt; and &lt;code class="docutils literal notranslate"&gt;&lt;span class="pre"&gt;__path__&lt;/span&gt;&lt;/code&gt; values have
-changed to become runtime dependent values.&lt;/p&gt;
+changed to become run time dependent values.&lt;/p&gt;
 &lt;section id="bug-fixes"&gt;
 &lt;h2&gt;Bug Fixes&lt;/h2&gt;
 &lt;ul&gt;

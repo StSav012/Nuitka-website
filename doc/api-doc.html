@@ -84,12 +84,13 @@
 <p class="caption" role="heading"><span class="caption-text">Commercial Users</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="commercial.html">Nuitka Commercial</a></li>
+<li class="toctree-l1"><a class="reference internal" href="bundles.html">Nuitka Bundles</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Release Information</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="Changelog.html">Nuitka Release 1.1 (Draft)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Changelog.html">Nuitka Release 1.2 (Draft)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Changelog.html#nuitka-release-1-1">Nuitka Release 1.1</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Changelog.html#nuitka-release-1-0">Nuitka Release 1.0</a></li>
-<li class="toctree-l1"><a class="reference internal" href="Changelog.html#nuitka-release-0-9">Nuitka Release 0.9</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Changelog.html#older-releases">Older Releases</a></li>
 <li class="toctree-l1"><a class="reference internal" href="roadmap.html">Roadmap</a></li>
 </ul>
@@ -318,7 +319,8 @@ otherwise original is kept.</p>
 <dl class="py function">
 <dt class="sig sig-object py" id="nuitka.Options.getShallIncludePackageData">
 <span class="sig-prename descclassname"><span class="pre">nuitka.Options.</span></span><span class="sig-name descname"><span class="pre">getShallIncludePackageData</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#nuitka.Options.getShallIncludePackageData" title="Permalink to this definition">&#61633;</a></dt>
-<dd><p><em>list</em>, items of <code class="docutils literal notranslate"><span class="pre">--include-package-data=</span></code></p>
+<dd><p><em>iterable of (module pattern, filename pattern)</em>, derived from <code class="docutils literal notranslate"><span class="pre">--include-package-data=</span></code></p>
+<p>The filename pattern can be None if not given. Empty values give None too.</p>
 </dd></dl>
 
 <dl class="py function">
@@ -390,17 +392,17 @@ asserts of Python will happen in this mode.</p>
 </dd></dl>
 
 <dl class="py function">
-<dt class="sig sig-object py" id="nuitka.Options.isUnstriped">
-<span class="sig-prename descclassname"><span class="pre">nuitka.Options.</span></span><span class="sig-name descname"><span class="pre">isUnstriped</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#nuitka.Options.isUnstriped" title="Permalink to this definition">&#61633;</a></dt>
+<dt class="sig sig-object py" id="nuitka.Options.isUnstripped">
+<span class="sig-prename descclassname"><span class="pre">nuitka.Options.</span></span><span class="sig-name descname"><span class="pre">isUnstripped</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#nuitka.Options.isUnstripped" title="Permalink to this definition">&#61633;</a></dt>
 <dd><dl class="field-list simple">
 <dt class="field-odd">Returns</dt>
-<dd class="field-odd"><p>bool derived from <code class="docutils literal notranslate"><span class="pre">--unstriped</span></code> or <code class="docutils literal notranslate"><span class="pre">--profile</span></code></p>
+<dd class="field-odd"><p>bool derived from <code class="docutils literal notranslate"><span class="pre">--unstripped</span></code> or <code class="docutils literal notranslate"><span class="pre">--profile</span></code></p>
 </dd>
 </dl>
 <p>A binary is called stripped when debug information is not present, an
-unstriped when it is present. For profiling and debugging it will be
+unstripped when it is present. For profiling and debugging it will be
 necessary, but it doesn&#8217;t enable debug checks like <code class="docutils literal notranslate"><span class="pre">--debug</span></code> does.</p>
-<p>Passed to Scons as <code class="docutils literal notranslate"><span class="pre">unstriped_mode</span></code> to it can ask the linker to
+<p>Passed to Scons as <code class="docutils literal notranslate"><span class="pre">unstripped_mode</span></code> to it can ask the linker to
 include symbol information.</p>
 </dd></dl>
 
@@ -763,12 +765,6 @@ volatile things.</p>
 <dl class="py function">
 <dt class="sig sig-object py" id="nuitka.Options.getOnefileTempDirSpec">
 <span class="sig-prename descclassname"><span class="pre">nuitka.Options.</span></span><span class="sig-name descname"><span class="pre">getOnefileTempDirSpec</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#nuitka.Options.getOnefileTempDirSpec" title="Permalink to this definition">&#61633;</a></dt>
-<dd><p><em>str</em> = <code class="docutils literal notranslate"><span class="pre">--onefile-tempdir-spec</span></code></p>
-</dd></dl>
-
-<dl class="py function">
-<dt class="sig sig-object py" id="nuitka.Options.getAutoUpdateUrlSpec">
-<span class="sig-prename descclassname"><span class="pre">nuitka.Options.</span></span><span class="sig-name descname"><span class="pre">getAutoUpdateUrlSpec</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#nuitka.Options.getAutoUpdateUrlSpec" title="Permalink to this definition">&#61633;</a></dt>
 <dd><p><em>str</em> = <code class="docutils literal notranslate"><span class="pre">--onefile-tempdir-spec</span></code></p>
 </dd></dl>
 

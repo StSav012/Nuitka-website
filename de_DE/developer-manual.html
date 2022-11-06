@@ -171,7 +171,7 @@
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="#adding-dependencies-to-nuitka">Adding dependencies to Nuitka</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#adding-a-runtime-dependency">Adding a Runtime Dependency</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#adding-a-run-time-dependency">Adding a Run Time Dependency</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#adding-a-development-dependency">Adding a Development Dependency</a></li>
 </ul>
 </li>
@@ -1082,8 +1082,8 @@ to make major differences.</p>
 <li><p><code class="docutils literal notranslate"><span class="pre">disable_console</span></code></p>
 <p>Windows subsystem mode: Disable console for windows builds.</p>
 </li>
-<li><p><code class="docutils literal notranslate"><span class="pre">unstriped_mode</span></code></p>
-<p>Unstriped mode: Do not remove debug symbols.</p>
+<li><p><code class="docutils literal notranslate"><span class="pre">unstripped_mode</span></code></p>
+<p>Unstripped mode: Do not remove debug symbols.</p>
 </li>
 <li><p><code class="docutils literal notranslate"><span class="pre">clang_mode</span></code></p>
 <p>Clang compiler mode, default on macOS X and FreeBSD, optional on
@@ -3885,11 +3885,11 @@ of the code.</p>
 </section>
 <section id="adding-dependencies-to-nuitka">
 <h2>Adding dependencies to Nuitka<a class="headerlink" href="#adding-dependencies-to-nuitka" title="Permalink to this heading">&#61633;</a></h2>
-<p>First of all, there is an important distinction to make, runtime or
+<p>First of all, there is an important distinction to make, run time or
 development time. The first kind of dependency is used when Nuitka is
 executing.</p>
-<section id="adding-a-runtime-dependency">
-<h3>Adding a Runtime Dependency<a class="headerlink" href="#adding-a-runtime-dependency" title="Permalink to this heading">&#61633;</a></h3>
+<section id="adding-a-run-time-dependency">
+<h3>Adding a Run Time Dependency<a class="headerlink" href="#adding-a-run-time-dependency" title="Permalink to this heading">&#61633;</a></h3>
 <p>This is the kind of dependency that is the most scrutinized. As we want
 Nuitka to run on latest greatest Python as well as relatively old ones,
 we have to be very careful with these ones.</p>
@@ -3898,7 +3898,7 @@ we have to be very careful with these ones.</p>
 being installed, because e.g. on some platforms it will not be easy to
 do so. That bar has lifted somewhat, but it means e.g. that XML based
 optimization tests are not run with all Python versions.</p>
-<p>The list of runtime dependencies is in <code class="docutils literal notranslate"><span class="pre">requirements.txt</span></code> and it is
+<p>The list of run time dependencies is in <code class="docutils literal notranslate"><span class="pre">requirements.txt</span></code> and it is
 for those the case, that they are not really required to be installed by
 the user, consider this snippet:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Folders to use for cache files.</span>

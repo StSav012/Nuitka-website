@@ -993,12 +993,26 @@ location, your original environment files will be in the former
 location.</p>
 <p>Given 2 files, one which you expect to be near your executable, and one
 which you expect to be inside the onefile binary, access them like this.</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># This will find a file near your onefile.exe</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># This will find a file *near* your onefile.exe</span>
 <span class="nb">open</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">dirname</span><span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">[</span><span class="mi">0</span><span class="p">]),</span> <span class="s2">"user-provided-file.txt"</span><span class="p">))</span>
-<span class="c1"># This will find a file inside your onefile.exe</span>
+<span class="c1"># This will find a file *inside* your onefile.exe</span>
 <span class="nb">open</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">dirname</span><span class="p">(</span><span class="vm">__file__</span><span class="p">),</span> <span class="s2">"user-provided-file.txt"</span><span class="p">))</span>
 </pre></div>
 </div>
+<section id="standalone-finding-files">
+<h4>Standalone: Finding files<a class="headerlink" href="#standalone-finding-files" title="Permalink to this heading">&#61633;</a></h4>
+<p>The standard code that normally works, also works, you should refer to
+<code class="docutils literal notranslate"><span class="pre">os.path.dirname(__file__)</span></code> or use all the packages like <code class="docutils literal notranslate"><span class="pre">pkgutil</span></code>,
+<code class="docutils literal notranslate"><span class="pre">pkg_resources</span></code>, <code class="docutils literal notranslate"><span class="pre">importlib.resources</span></code> to locate data files near the
+standalone binary.</p>
+<div class="admonition important">
+<p class="admonition-title">Wichtig</p>
+<p>What you should <strong>not</strong> do, is use the current directory
+<code class="docutils literal notranslate"><span class="pre">os.getcwd</span></code>, assuming that this is the script directory, that is
+not generally true, and was never good code. Links, to a program,
+etc. will all fail in bad ways.</p>
+</div>
+</section>
 </section>
 <section id="windows-programs-without-console-give-no-errors">
 <h3>Windows Programs without console give no errors<a class="headerlink" href="#windows-programs-without-console-give-no-errors" title="Permalink to this heading">&#61633;</a></h3>
@@ -1103,6 +1117,13 @@ for a pre-defined set of variables:</p>
 </tr>
 </tbody>
 </table>
+<p>The use of <code class="docutils literal notranslate"><span class="pre">{MAIN_DIRECTORY}</span></code> is recommended when you want to specify
+a filename relative to the main script, e.g. for use in data file
+options or user package configuration yaml files,</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># nuitka-project: --include-data-files={MAIN_DIRECTORY}/my_icon.png=my_icon.png</span>
+<span class="c1"># nuitka-project: --user-package-configuration-file={MAIN_DIRECTORY}/user.nuitka-package.config.yml</span>
+</pre></div>
+</div>
 </section>
 <section id="python-command-line-flags">
 <h3>Python command line flags<a class="headerlink" href="#python-command-line-flags" title="Permalink to this heading">&#61633;</a></h3>

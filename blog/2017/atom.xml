@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en">
   <id>https://nuitka.net</id>
   <title>Nuitka Blog - Posted in 2017</title>
-  <updated>2022-08-31T15:59:59.496851+00:00</updated>
+  <updated>2022-11-06T09:17:47.414441+00:00</updated>
   <link href="https://nuitka.net"/>
   <link href="https://nuitka.net/blog/2017/atom.xml" rel="self"/>
   <generator uri="https://ablog.readthedocs.org/" version="0.10.29">ABlog</generator>
@@ -586,7 +586,7 @@ that. This gives more efficient code for Python2 classes, and
 &lt;code class="docutils literal notranslate"&gt;&lt;span class="pre"&gt;exec&lt;/span&gt;&lt;/code&gt; using functions in Python2.&lt;/p&gt;&lt;/li&gt;
 &lt;li&gt;&lt;p&gt;Build all constant values without use of the &lt;code class="docutils literal notranslate"&gt;&lt;span class="pre"&gt;pickle&lt;/span&gt;&lt;/code&gt; module which
 has a lot more overhead than &lt;code class="docutils literal notranslate"&gt;&lt;span class="pre"&gt;marshal&lt;/span&gt;&lt;/code&gt;, instead use that for too
-large &lt;code class="docutils literal notranslate"&gt;&lt;span class="pre"&gt;long&lt;/span&gt;&lt;/code&gt; values, non-UTF8 &lt;code class="docutils literal notranslate"&gt;&lt;span class="pre"&gt;unicode&lt;/span&gt;&lt;/code&gt; values, &lt;code class="docutils literal notranslate"&gt;&lt;span class="pre"&gt;nan&lt;/span&gt;&lt;/code&gt; float,
+large &lt;code class="docutils literal notranslate"&gt;&lt;span class="pre"&gt;long&lt;/span&gt;&lt;/code&gt; values, non-UTF-8 &lt;code class="docutils literal notranslate"&gt;&lt;span class="pre"&gt;unicode&lt;/span&gt;&lt;/code&gt; values, &lt;code class="docutils literal notranslate"&gt;&lt;span class="pre"&gt;nan&lt;/span&gt;&lt;/code&gt; float,
 etc.&lt;/p&gt;&lt;/li&gt;
 &lt;li&gt;&lt;p&gt;Detect the linker arch for all Linux platforms using &lt;code class="docutils literal notranslate"&gt;&lt;span class="pre"&gt;objdump&lt;/span&gt;&lt;/code&gt;
 instead of only a hand few hard coded ones.&lt;/p&gt;&lt;/li&gt;
