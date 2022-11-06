@@ -1156,11 +1156,27 @@ even if already present from user code. Also it did not handle errors
 to detect its value during compile time. Fixed in 1.1.7 already.</p></li>
 <li><p>Standalone: Added missing dependencies for <code class="docutils literal notranslate"><span class="pre">sqlalchemy</span></code> to have all
 SQL backends working. Fixed in 1.1.7 already.</p></li>
+<li><p>Added support Nixpkgs&#8217;s default non-writable <code class="docutils literal notranslate"><span class="pre">HOME</span></code> directory.
+Fixed in 1.1.8 already.</p></li>
+<li><p>Fix, distribution metadata name and package name need not align, need
+to preserve the original looked up name from
+<code class="docutils literal notranslate"><span class="pre">importlib.metadata.distribution</span></code> call. Fixed in 1.1.8 already.</p></li>
+<li><p>Windows: Fix, catch usage of unsupported <code class="docutils literal notranslate"><span class="pre">CLCACHE_MEMCACHED</span></code> mode
+with MSVC compilation. It is just unsupported.</p></li>
 </ul>
 </section>
 <section id="new-features">
 <h2>New Features<a class="headerlink" href="#new-features" title="Permalink to this heading">&#61633;</a></h2>
 <ul>
+<li><p>Python3.11: For now prevent the execution with 3.11 and give a
+warning to the user for a not yet supported version. This can be
+overridden with <code class="docutils literal notranslate"><span class="pre">--experimental=python311</span></code> but at this times will
+not compile anything yet due to required and at this time missing
+core changes.</p></li>
+<li><p>macOS: Added option <code class="docutils literal notranslate"><span class="pre">--macos-sign-notarization</span></code> that signs with
+runtime signature, but requires a developer certificate from Apple.
+As its name implies, this is for use with notarization for their App
+store.</p></li>
 <li><p>DLLs used via <code class="docutils literal notranslate"><span class="pre">delvewheel</span></code> were so far only handled in the <code class="docutils literal notranslate"><span class="pre">zmq</span></code>
 plugin, but this has been generalized to cover any package using it.
 With that, e.g. <code class="docutils literal notranslate"><span class="pre">shapely</span></code> just works. This probably helps many
@@ -1176,6 +1192,10 @@ constant value returning functions.</p>
 <section id="optimization">
 <h2>Optimization<a class="headerlink" href="#optimization" title="Permalink to this heading">&#61633;</a></h2>
 <ul class="simple">
+<li><p>macOS: Use sections for main binary constants binary blob rather than
+C source code (which we started in a recent hotfix due to LTO issues
+with incbin) and onefile payload. The latter enables notarization of
+the onefile binary as well and makes it faster to unpack as well.</p></li>
 <li><p>Trust <code class="docutils literal notranslate"><span class="pre">importlib.metadata.PackageNotFoundError</span></code> to exist, with this
 some more metadata usages are statically optimized. Added in 1.1.4
 already.</p></li>
@@ -1196,6 +1216,12 @@ active, avoiding cryptic errors on macOS when they are not found.</p></li>
 <section id="organisational">
 <h2>Organisational<a class="headerlink" href="#organisational" title="Permalink to this heading">&#61633;</a></h2>
 <ul class="simple">
+<li><p>User Manual: Explain how to create 64/32 bits binaries on Windows,
+with there being no option to control it, this can otherwise be a bit
+unobvious that you have to just use the matching Python binary.</p></li>
+<li><p>UI: Quote command line options with space in value better, no need to
+quote an affected command line option in its entirety, and it looks
+strange.</p></li>
 <li><p>macOS: Catch user error of disabling the console without using the
 bundle mode, as it otherwise it has no effect.</p></li>
 <li><p>macOS: Warn about not providing an icon with disabled console,
@@ -1211,6 +1237,8 @@ environment variables are only present to some usages.</p></li>
 <li><p>Installations with pip did not include all license, README files,
 etc. which however was intended. Also the attempt to disable bytecode
 compilation for some inline copies was not effective yet.</p></li>
+<li><p>Renamed <code class="docutils literal notranslate"><span class="pre">pyzmq</span></code> plugin to <code class="docutils literal notranslate"><span class="pre">delvewheel</span></code> as it is now absolutely
+generic and covers all uses of said packaging technique.</p></li>
 </ul>
 <p>This release is not done yet.</p>
 </section>
