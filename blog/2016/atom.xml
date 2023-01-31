@@ -2,10 +2,10 @@
 <feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en">
   <id>https://nuitka.net</id>
   <title>Nuitka Blog - Posted in 2016</title>
-  <updated>2022-11-06T13:36:31.571288+00:00</updated>
+  <updated>2023-01-31T17:56:57.391285+00:00</updated>
   <link href="https://nuitka.net"/>
   <link href="https://nuitka.net/blog/2016/atom.xml" rel="self"/>
-  <generator uri="https://ablog.readthedocs.org/" version="0.10.29">ABlog</generator>
+  <generator uri="https://ablog.readthedocs.io/" version="0.11.0rc2">ABlog</generator>
   <entry>
     <id>https://nuitka.net/posts/nuitka-release-0518.html</id>
     <title>Nuitka Release 0.5.18</title>

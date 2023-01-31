@@ -2,10 +2,10 @@
 <feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en">
   <id>https://nuitka.net</id>
   <title>Nuitka Blog - Posted in 2015</title>
-  <updated>2022-11-06T13:36:31.635583+00:00</updated>
+  <updated>2023-01-31T17:56:57.453077+00:00</updated>
   <link href="https://nuitka.net"/>
   <link href="https://nuitka.net/blog/2015/atom.xml" rel="self"/>
-  <generator uri="https://ablog.readthedocs.org/" version="0.10.29">ABlog</generator>
+  <generator uri="https://ablog.readthedocs.io/" version="0.11.0rc2">ABlog</generator>
   <entry>
     <id>https://nuitka.net/posts/nuitka-release-057.html</id>
     <title>Nuitka Release 0.5.7</title>
@@ -2128,7 +2128,7 @@ forward propagates values.&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;&lt;p&gt;Windows: Fix, when installing Python2 only for the user, the
 detection of it via registry failed as it was only searching system
-key. This was &lt;a class="reference external" href="https://github.com/kayhayen/Nuitka/pull/8"&gt;a github pull request&lt;/a&gt;. Fixed in 0.5.14.3
+key. This was &lt;a class="reference external" href="https://github.com/Nuitka/Nuitka/pull/8"&gt;a github pull request&lt;/a&gt;. Fixed in 0.5.14.3
 already.&lt;/p&gt;&lt;/li&gt;
 &lt;li&gt;&lt;p&gt;Some modules have extremely complex expressions requiring too deep
 recursion to work on all platforms. These modules are now included

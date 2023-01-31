@@ -2,10 +2,10 @@
 <feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en">
   <id>https://nuitka.net</id>
   <title>Nuitka Blog - Posts tagged git</title>
-  <updated>2022-11-06T13:36:38.924765+00:00</updated>
+  <updated>2023-01-31T17:57:04.433709+00:00</updated>
   <link href="https://nuitka.net"/>
   <link href="https://nuitka.net/blog/tag/git/atom.xml" rel="self"/>
-  <generator uri="https://ablog.readthedocs.org/" version="0.10.29">ABlog</generator>
+  <generator uri="https://ablog.readthedocs.io/" version="0.11.0rc2">ABlog</generator>
   <entry>
     <id>https://nuitka.net/posts/new-git-repository-to-sync-with-nuitka-releases.html</id>
     <title>New git repository to sync with Nuitka releases</title>

@@ -1,0 +1,418 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en">
+  <id>https://nuitka.net</id>
+  <title>Nuitka Blog - Posted in 2023</title>
+  <updated>2023-01-31T17:56:56.171455+00:00</updated>
+  <link href="https://nuitka.net"/>
+  <link href="https://nuitka.net/blog/2023/atom.xml" rel="self"/>
+  <generator uri="https://ablog.readthedocs.io/" version="0.11.0rc2">ABlog</generator>
+  <entry>
+    <id>https://nuitka.net/posts/nuitka-package-config-kickoff.html</id>
+    <title>Nuitka Package Configuration Kickoff</title>
+    <updated>2023-01-20T07:51:00+00:00</updated>
+    <author>
+      <name>Kay Hayen</name>
+    </author>
+    <content type="html">&lt;section id="nuitka-package-configuration-kickoff"&gt;
+
+&lt;p&gt;The term “kickoff” refers to a series of posts about the Nuitka package
+configuration. The details are here on a dedicate page on the web site
+only. &lt;a class="reference external" href="https://nuitka.net/doc/nuitka-package-config.html"&gt;Nuitka Package Configuration&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;This documentation is still very rough and bare of examples, but the
+goal is to make it more complete as package of this series of posts.
+When we have an instructive example, we will make a post.&lt;/p&gt;
+&lt;p&gt;This is an area of Nuitka, where help will be very easy and a wide
+variety of people will have the skills and desire to help, but the lack
+of documentation, makes it hard or impossible to channel the common
+knowledge.&lt;/p&gt;
+&lt;/section&gt;
+&lt;section id="problem-package"&gt;
+&lt;h1&gt;Problem Package&lt;/h1&gt;
+&lt;p&gt;Each post will feature one package that caused a particular problem. In
+this case, we are talking about the package &lt;code class="docutils literal notranslate"&gt;&lt;span class="pre"&gt;tkinterweb&lt;/span&gt;&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;Problems are typically encountered in standalone mode only. Missing data
+files and DLLs are usually only and issue there, but this one actually
+also had a problem with accelerated mode.&lt;/p&gt;
+&lt;/section&gt;
+&lt;section id="initial-symptom"&gt;
+&lt;h1&gt;Initial Symptom&lt;/h1&gt;
+&lt;p&gt;The compiled program gave the following error:&lt;/p&gt;
+&lt;div class="highlight-default notranslate"&gt;&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="ne"&gt;ModuleNotFoundError&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="n"&gt;The&lt;/span&gt; &lt;span class="n"&gt;files&lt;/span&gt; &lt;span class="n"&gt;required&lt;/span&gt; &lt;span class="n"&gt;to&lt;/span&gt; &lt;span class="n"&gt;run&lt;/span&gt; &lt;span class="n"&gt;TkinterWeb&lt;/span&gt; &lt;span class="n"&gt;could&lt;/span&gt; &lt;span class="ow"&gt;not&lt;/span&gt; &lt;span class="n"&gt;be&lt;/span&gt; &lt;span class="n"&gt;found&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt; &lt;span class="n"&gt;This&lt;/span&gt; &lt;span class="n"&gt;usually&lt;/span&gt; &lt;span class="n"&gt;occurs&lt;/span&gt; &lt;span class="n"&gt;when&lt;/span&gt; &lt;span class="n"&gt;bundling&lt;/span&gt; &lt;span class="n"&gt;TkinterWeb&lt;/span&gt; &lt;span class="n"&gt;into&lt;/span&gt; &lt;span class="n"&gt;an&lt;/span&gt; &lt;span class="n"&gt;app&lt;/span&gt; &lt;span class="n"&gt;without&lt;/span&gt; &lt;span class="n"&gt;forcing&lt;/span&gt; &lt;span class="n"&gt;the&lt;/span&gt; &lt;span class="n"&gt;application&lt;/span&gt; &lt;span class="n"&gt;maker&lt;/span&gt; &lt;span class="n"&gt;to&lt;/span&gt; &lt;span class="n"&gt;include&lt;/span&gt; &lt;span class="nb"&gt;all&lt;/span&gt; &lt;span class="n"&gt;nessessary&lt;/span&gt; &lt;span class="n"&gt;files&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt; &lt;span class="n"&gt;See&lt;/span&gt; &lt;span class="n"&gt;https&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="o"&gt;//&lt;/span&gt;&lt;span class="n"&gt;github&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;com&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;Andereoo&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;TkinterWeb&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;blob&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;main&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;tkinterweb&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;docs&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;FAQ&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;md&lt;/span&gt; &lt;span class="k"&gt;for&lt;/span&gt; &lt;span class="n"&gt;more&lt;/span&gt; &lt;span class="n"&gt;information&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;
+
+&lt;span class="n"&gt;Error&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="n"&gt;Traceback&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;most&lt;/span&gt; &lt;span class="n"&gt;recent&lt;/span&gt; &lt;span class="n"&gt;call&lt;/span&gt; &lt;span class="n"&gt;last&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
+    &lt;span class="n"&gt;File&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;C:\...&lt;/span&gt;&lt;span class="se"&gt;\200&lt;/span&gt;&lt;span class="s2"&gt;~1.0&lt;/span&gt;&lt;span class="se"&gt;\t&lt;/span&gt;&lt;span class="s2"&gt;kinterweb\__init__.py&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;line&lt;/span&gt; &lt;span class="mi"&gt;32&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="ow"&gt;in&lt;/span&gt; &lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="n"&gt;module&lt;/span&gt; &lt;span class="n"&gt;tkinterweb&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;
+&lt;span class="ne"&gt;ModuleNotFoundError&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="n"&gt;No&lt;/span&gt; &lt;span class="n"&gt;module&lt;/span&gt; &lt;span class="n"&gt;named&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;bindings&amp;#39;&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="admonition note"&gt;
+&lt;p class="admonition-title"&gt;Note&lt;/p&gt;
+&lt;p&gt;The traceback has been redacted, removing user specific part and
+replacing it with &lt;code class="docutils literal notranslate"&gt;&lt;span class="pre"&gt;...&lt;/span&gt;&lt;/code&gt;.&lt;/p&gt;
+&lt;/div&gt;
+&lt;p&gt;The strange looking part of the filename &lt;code class="docutils literal notranslate"&gt;&lt;span class="pre"&gt;200~1.0&lt;/span&gt;&lt;/code&gt; in the traceback is
+because Nuitka on Windows is convincing the program that it runs in a
+short path. So the errors you get, are not pointing to the name of the
+binary inside the dist folder, but to a shorter path, that is however
+exactly the same folder. You wouldn’t believe how many parts of Python
+still don’t have long filenames handled properly. Actually Tcl and
+TkInter are among them.&lt;/p&gt;
+&lt;/section&gt;
+&lt;section id="step-1-data-files"&gt;
+&lt;h1&gt;Step 1 - data files&lt;/h1&gt;
+&lt;p&gt;So, whenever a Python module fails to import, this can be caused by
+missing data files. In Nuitka land, these are not extension modules,
+DLLs, bytecode, etc. but everything else, and it has been seen that
+these can cause issues. So what to do here. This is easy, Nuitka has
+recently gained a command dedicated to this operation, making use of its
+internal code to list data files for a package.&lt;/p&gt;
+&lt;p&gt;Here we go&lt;/p&gt;
+&lt;div class="highlight-shell notranslate"&gt;&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;python3.10&lt;span class="w"&gt; &lt;/span&gt;-m&lt;span class="w"&gt; &lt;/span&gt;nuitka&lt;span class="w"&gt; &lt;/span&gt;--list-package-data&lt;span class="o"&gt;=&lt;/span&gt;tkinterweb
+&lt;/pre&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;p&gt;Gives output:&lt;/p&gt;
+&lt;div class="highlight-default notranslate"&gt;&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="n"&gt;Nuitka&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;Tools&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="n"&gt;INFO&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="n"&gt;Checking&lt;/span&gt; &lt;span class="n"&gt;package&lt;/span&gt; &lt;span class="n"&gt;directory&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;C:\Python310\lib\site-packages&lt;/span&gt;&lt;span class="se"&gt;\t&lt;/span&gt;&lt;span class="s1"&gt;kinterweb&amp;#39;&lt;/span&gt; &lt;span class="o"&gt;..&lt;/span&gt;
+&lt;span class="n"&gt;C&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;\&lt;span class="n"&gt;Python310&lt;/span&gt;\&lt;span class="n"&gt;lib&lt;/span&gt;\&lt;span class="n"&gt;site&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;packages&lt;/span&gt;\&lt;span class="n"&gt;tkinterweb&lt;/span&gt;
+&lt;span class="n"&gt;C&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;\&lt;span class="n"&gt;Python310&lt;/span&gt;\&lt;span class="n"&gt;lib&lt;/span&gt;\&lt;span class="n"&gt;site&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;packages&lt;/span&gt;\&lt;span class="n"&gt;tkinterweb&lt;/span&gt;\&lt;span class="n"&gt;tkhtml&lt;/span&gt;\&lt;span class="n"&gt;combobox&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="mf"&gt;2.3&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;tm&lt;/span&gt;
+&lt;span class="n"&gt;C&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;\&lt;span class="n"&gt;Python310&lt;/span&gt;\&lt;span class="n"&gt;lib&lt;/span&gt;\&lt;span class="n"&gt;site&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;packages&lt;/span&gt;\&lt;span class="n"&gt;tkinterweb&lt;/span&gt;\&lt;span class="n"&gt;tkhtml&lt;/span&gt;\&lt;span class="n"&gt;pkgIndex&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;tcl&lt;/span&gt;
+&lt;span class="n"&gt;C&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;\&lt;span class="n"&gt;Python310&lt;/span&gt;\&lt;span class="n"&gt;lib&lt;/span&gt;\&lt;span class="n"&gt;site&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;packages&lt;/span&gt;\&lt;span class="n"&gt;tkinterweb&lt;/span&gt;\&lt;span class="n"&gt;tkhtml&lt;/span&gt;\&lt;span class="n"&gt;Darwin&lt;/span&gt;\&lt;span class="mi"&gt;64&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;bit&lt;/span&gt;\&lt;span class="n"&gt;pkgIndex&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;tcl&lt;/span&gt;
+&lt;span class="n"&gt;C&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;\&lt;span class="n"&gt;Python310&lt;/span&gt;\&lt;span class="n"&gt;lib&lt;/span&gt;\&lt;span class="n"&gt;site&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;packages&lt;/span&gt;\&lt;span class="n"&gt;tkinterweb&lt;/span&gt;\&lt;span class="n"&gt;tkhtml&lt;/span&gt;\&lt;span class="n"&gt;Linux&lt;/span&gt;\&lt;span class="mi"&gt;32&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;bit&lt;/span&gt;\&lt;span class="n"&gt;pkgIndex&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;tcl&lt;/span&gt;
+&lt;span class="n"&gt;C&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;\&lt;span class="n"&gt;Python310&lt;/span&gt;\&lt;span class="n"&gt;lib&lt;/span&gt;\&lt;span class="n"&gt;site&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;packages&lt;/span&gt;\&lt;span class="n"&gt;tkinterweb&lt;/span&gt;\&lt;span class="n"&gt;tkhtml&lt;/span&gt;\&lt;span class="n"&gt;Linux&lt;/span&gt;\&lt;span class="mi"&gt;64&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;bit&lt;/span&gt;\&lt;span class="n"&gt;pkgIndex&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;tcl&lt;/span&gt;
+&lt;span class="n"&gt;C&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;\&lt;span class="n"&gt;Python310&lt;/span&gt;\&lt;span class="n"&gt;lib&lt;/span&gt;\&lt;span class="n"&gt;site&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;packages&lt;/span&gt;\&lt;span class="n"&gt;tkinterweb&lt;/span&gt;\&lt;span class="n"&gt;tkhtml&lt;/span&gt;\&lt;span class="n"&gt;Windows&lt;/span&gt;\&lt;span class="mi"&gt;32&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;bit&lt;/span&gt;\&lt;span class="n"&gt;pkgIndex&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;tcl&lt;/span&gt;
+&lt;span class="n"&gt;C&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;\&lt;span class="n"&gt;Python310&lt;/span&gt;\&lt;span class="n"&gt;lib&lt;/span&gt;\&lt;span class="n"&gt;site&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;packages&lt;/span&gt;\&lt;span class="n"&gt;tkinterweb&lt;/span&gt;\&lt;span class="n"&gt;tkhtml&lt;/span&gt;\&lt;span class="n"&gt;Windows&lt;/span&gt;\&lt;span class="mi"&gt;64&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;bit&lt;/span&gt;\&lt;span class="n"&gt;pkgIndex&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;tcl&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;p&gt;So there are data files, great. Lets just include them, and retry. There
+appears to be need for that anyway. Now we could use
+&lt;code class="docutils literal notranslate"&gt;&lt;span class="pre"&gt;--include-package-data=tkinterweb&lt;/span&gt;&lt;/code&gt; for quickly trying it out, but
+since we are in here to make it generally useful, we will start
+modification of the Yaml file right away.&lt;/p&gt;
+&lt;div class="highlight-yaml notranslate"&gt;&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="p p-Indicator"&gt;-&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nt"&gt;module-name&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="s"&gt;&amp;#39;tkinterweb&amp;#39;&lt;/span&gt;
+&lt;span class="w"&gt;  &lt;/span&gt;&lt;span class="nt"&gt;data-files&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+&lt;span class="w"&gt;    &lt;/span&gt;&lt;span class="nt"&gt;dirs&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+&lt;span class="w"&gt;      &lt;/span&gt;&lt;span class="p p-Indicator"&gt;-&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="s"&gt;&amp;#39;tkhtml&amp;#39;&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;p&gt;So, we retry, and nothing changes. Not enough, but on the other hand, it
+was obviously necessary anyway.&lt;/p&gt;
+&lt;/section&gt;
+&lt;section id="step-2-dll-files"&gt;
+&lt;h1&gt;Step 2 - DLL files&lt;/h1&gt;
+&lt;p&gt;The other big trouble maker, and easy to check nowadays, is missing
+DLLs. Extension modules can depend on DLLs. When they are linked
+against, this not usually and issue, and Nuitka and its plugins
+typically resolve all of those perfectly, but often DLLs are loading
+manually. Maybe this is what is going on here.&lt;/p&gt;
+&lt;p&gt;Also recently, Nuitka gained a command to check for DLLs.&lt;/p&gt;
+&lt;p&gt;Here we go&lt;/p&gt;
+&lt;div class="highlight-shell notranslate"&gt;&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;python3.10&lt;span class="w"&gt; &lt;/span&gt;bin/nuitka&lt;span class="w"&gt; &lt;/span&gt;--list-package-dlls&lt;span class="o"&gt;=&lt;/span&gt;tkinterweb
+&lt;/pre&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;p&gt;Gives output:&lt;/p&gt;
+&lt;div class="highlight-default notranslate"&gt;&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="n"&gt;Nuitka&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;Tools&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="n"&gt;INFO&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="n"&gt;Checking&lt;/span&gt; &lt;span class="n"&gt;package&lt;/span&gt; &lt;span class="n"&gt;directory&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;C:\Python310\lib\site-packages&lt;/span&gt;&lt;span class="se"&gt;\t&lt;/span&gt;&lt;span class="s1"&gt;kinterweb&amp;#39;&lt;/span&gt; &lt;span class="o"&gt;..&lt;/span&gt;
+&lt;span class="n"&gt;C&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;\&lt;span class="n"&gt;Python310&lt;/span&gt;\&lt;span class="n"&gt;lib&lt;/span&gt;\&lt;span class="n"&gt;site&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;packages&lt;/span&gt;\&lt;span class="n"&gt;tkinterweb&lt;/span&gt;
+&lt;span class="n"&gt;C&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;\&lt;span class="n"&gt;Python310&lt;/span&gt;\&lt;span class="n"&gt;lib&lt;/span&gt;\&lt;span class="n"&gt;site&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;packages&lt;/span&gt;\&lt;span class="n"&gt;tkinterweb&lt;/span&gt;\&lt;span class="n"&gt;tkhtml&lt;/span&gt;
+&lt;span class="n"&gt;C&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;\&lt;span class="n"&gt;Python310&lt;/span&gt;\&lt;span class="n"&gt;lib&lt;/span&gt;\&lt;span class="n"&gt;site&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;packages&lt;/span&gt;\&lt;span class="n"&gt;tkinterweb&lt;/span&gt;\&lt;span class="n"&gt;tkhtml&lt;/span&gt;\&lt;span class="n"&gt;Darwin&lt;/span&gt;
+&lt;span class="n"&gt;C&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;\&lt;span class="n"&gt;Python310&lt;/span&gt;\&lt;span class="n"&gt;lib&lt;/span&gt;\&lt;span class="n"&gt;site&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;packages&lt;/span&gt;\&lt;span class="n"&gt;tkinterweb&lt;/span&gt;\&lt;span class="n"&gt;tkhtml&lt;/span&gt;\&lt;span class="n"&gt;Darwin&lt;/span&gt;\&lt;span class="mi"&gt;64&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;bit&lt;/span&gt;
+&lt;span class="n"&gt;tkhtml&lt;/span&gt;\&lt;span class="n"&gt;Darwin&lt;/span&gt;\&lt;span class="mi"&gt;64&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;bit&lt;/span&gt;\&lt;span class="n"&gt;Tkhtml30&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;dylib&lt;/span&gt;
+&lt;span class="n"&gt;C&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;\&lt;span class="n"&gt;Python310&lt;/span&gt;\&lt;span class="n"&gt;lib&lt;/span&gt;\&lt;span class="n"&gt;site&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;packages&lt;/span&gt;\&lt;span class="n"&gt;tkinterweb&lt;/span&gt;\&lt;span class="n"&gt;tkhtml&lt;/span&gt;\&lt;span class="n"&gt;Linux&lt;/span&gt;
+&lt;span class="n"&gt;C&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;\&lt;span class="n"&gt;Python310&lt;/span&gt;\&lt;span class="n"&gt;lib&lt;/span&gt;\&lt;span class="n"&gt;site&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;packages&lt;/span&gt;\&lt;span class="n"&gt;tkinterweb&lt;/span&gt;\&lt;span class="n"&gt;tkhtml&lt;/span&gt;\&lt;span class="n"&gt;Linux&lt;/span&gt;\&lt;span class="mi"&gt;32&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;bit&lt;/span&gt;
+&lt;span class="n"&gt;tkhtml&lt;/span&gt;\&lt;span class="n"&gt;Linux&lt;/span&gt;\&lt;span class="mi"&gt;32&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;bit&lt;/span&gt;\&lt;span class="n"&gt;Tkhtml30&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;so&lt;/span&gt;
+&lt;span class="n"&gt;C&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;\&lt;span class="n"&gt;Python310&lt;/span&gt;\&lt;span class="n"&gt;lib&lt;/span&gt;\&lt;span class="n"&gt;site&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;packages&lt;/span&gt;\&lt;span class="n"&gt;tkinterweb&lt;/span&gt;\&lt;span class="n"&gt;tkhtml&lt;/span&gt;\&lt;span class="n"&gt;Linux&lt;/span&gt;\&lt;span class="mi"&gt;64&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;bit&lt;/span&gt;
+&lt;span class="n"&gt;tkhtml&lt;/span&gt;\&lt;span class="n"&gt;Linux&lt;/span&gt;\&lt;span class="mi"&gt;64&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;bit&lt;/span&gt;\&lt;span class="n"&gt;Tkhtml30&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;so&lt;/span&gt;
+&lt;span class="n"&gt;C&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;\&lt;span class="n"&gt;Python310&lt;/span&gt;\&lt;span class="n"&gt;lib&lt;/span&gt;\&lt;span class="n"&gt;site&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;packages&lt;/span&gt;\&lt;span class="n"&gt;tkinterweb&lt;/span&gt;\&lt;span class="n"&gt;tkhtml&lt;/span&gt;\&lt;span class="n"&gt;Windows&lt;/span&gt;
+&lt;span class="n"&gt;C&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;\&lt;span class="n"&gt;Python310&lt;/span&gt;\&lt;span class="n"&gt;lib&lt;/span&gt;\&lt;span class="n"&gt;site&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;packages&lt;/span&gt;\&lt;span class="n"&gt;tkinterweb&lt;/span&gt;\&lt;span class="n"&gt;tkhtml&lt;/span&gt;\&lt;span class="n"&gt;Windows&lt;/span&gt;\&lt;span class="mi"&gt;32&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;bit&lt;/span&gt;
+&lt;span class="n"&gt;tkhtml&lt;/span&gt;\&lt;span class="n"&gt;Windows&lt;/span&gt;\&lt;span class="mi"&gt;32&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;bit&lt;/span&gt;\&lt;span class="n"&gt;Tkhtml30&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;dll&lt;/span&gt;
+&lt;span class="n"&gt;C&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;\&lt;span class="n"&gt;Python310&lt;/span&gt;\&lt;span class="n"&gt;lib&lt;/span&gt;\&lt;span class="n"&gt;site&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;packages&lt;/span&gt;\&lt;span class="n"&gt;tkinterweb&lt;/span&gt;\&lt;span class="n"&gt;tkhtml&lt;/span&gt;\&lt;span class="n"&gt;Windows&lt;/span&gt;\&lt;span class="mi"&gt;64&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;bit&lt;/span&gt;
+&lt;span class="n"&gt;tkhtml&lt;/span&gt;\&lt;span class="n"&gt;Windows&lt;/span&gt;\&lt;span class="mi"&gt;64&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;bit&lt;/span&gt;\&lt;span class="n"&gt;Tkhtml30&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;dll&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="admonition note"&gt;
+&lt;p class="admonition-title"&gt;Note&lt;/p&gt;
+&lt;p&gt;The output could be not containing folders that have no DLLs
+themselves, but well, such is life, we are going to improve that
+another time.&lt;/p&gt;
+&lt;/div&gt;
+&lt;p&gt;What this tells us, that in fact there are DLLs, and from the looks of
+it, there is no automatic anything in this. This also appears to be one
+of those PyPI packages that contain binaries for everything. Rather than
+building a wheel per architecture this contains some things, on all
+platforms. For a Python installation that is cool, but surely we do not
+want to deploy both the 32 and 64 bit DLLs where the compiled binary is
+only one of these. Do not even think of different OS, like including
+Linux DLLs on Windows.&lt;/p&gt;
+&lt;p&gt;So, luckily this is easy to handle. We can select for OS and
+architecture on Windows for a while already.&lt;/p&gt;
+&lt;div class="highlight-yaml notranslate"&gt;&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="p p-Indicator"&gt;-&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nt"&gt;module-name&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="s"&gt;&amp;#39;tkinterweb&amp;#39;&lt;/span&gt;
+&lt;span class="w"&gt;  &lt;/span&gt;&lt;span class="nt"&gt;dlls&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+&lt;span class="w"&gt;    &lt;/span&gt;&lt;span class="p p-Indicator"&gt;-&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nt"&gt;from_filenames&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+&lt;span class="w"&gt;        &lt;/span&gt;&lt;span class="nt"&gt;relative_path&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="s"&gt;&amp;#39;tkhtml/Windows/32-bit&amp;#39;&lt;/span&gt;
+&lt;span class="w"&gt;        &lt;/span&gt;&lt;span class="nt"&gt;prefixes&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+&lt;span class="w"&gt;          &lt;/span&gt;&lt;span class="p p-Indicator"&gt;-&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="s"&gt;&amp;#39;Tkhtml&amp;#39;&lt;/span&gt;
+&lt;span class="w"&gt;      &lt;/span&gt;&lt;span class="nt"&gt;when&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="s"&gt;&amp;#39;win32&lt;/span&gt;&lt;span class="nv"&gt; &lt;/span&gt;&lt;span class="s"&gt;and&lt;/span&gt;&lt;span class="nv"&gt; &lt;/span&gt;&lt;span class="s"&gt;arch_x86&amp;#39;&lt;/span&gt;
+&lt;span class="w"&gt;    &lt;/span&gt;&lt;span class="p p-Indicator"&gt;-&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nt"&gt;from_filenames&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+&lt;span class="w"&gt;        &lt;/span&gt;&lt;span class="nt"&gt;relative_path&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="s"&gt;&amp;#39;tkhtml/Windows/64-bit&amp;#39;&lt;/span&gt;
+&lt;span class="w"&gt;        &lt;/span&gt;&lt;span class="nt"&gt;prefixes&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+&lt;span class="w"&gt;          &lt;/span&gt;&lt;span class="p p-Indicator"&gt;-&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="s"&gt;&amp;#39;Tkhtml&amp;#39;&lt;/span&gt;
+&lt;span class="w"&gt;      &lt;/span&gt;&lt;span class="nt"&gt;when&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="s"&gt;&amp;#39;win32&lt;/span&gt;&lt;span class="nv"&gt; &lt;/span&gt;&lt;span class="s"&gt;and&lt;/span&gt;&lt;span class="nv"&gt; &lt;/span&gt;&lt;span class="s"&gt;arch_amd64&amp;#39;&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="admonition note"&gt;
+&lt;p class="admonition-title"&gt;Note&lt;/p&gt;
+&lt;p&gt;Showing this here without the data files section for clarity,
+obviously the DLLs just get added, and Nuitka prevents you from
+having two blocks referencing the same module.&lt;/p&gt;
+&lt;/div&gt;
+&lt;p&gt;So, including DLLs is fairly easy. If the package directory is not where
+the DLL lives, you specify &lt;code class="docutils literal notranslate"&gt;&lt;span class="pre"&gt;relative_path&lt;/span&gt;&lt;/code&gt; which is otherwise
+optional. This also influences where it is put in the distribution
+folder. Then when specifying the DLL, we do only give the prefix of the
+DLL. Choosing here to leave out the &lt;code class="docutils literal notranslate"&gt;&lt;span class="pre"&gt;30&lt;/span&gt;&lt;/code&gt; part of &lt;code class="docutils literal notranslate"&gt;&lt;span class="pre"&gt;Tkhtml30.dll&lt;/span&gt;&lt;/code&gt; just
+because it’s probably going to make our life easier down the road,
+should they update that version number, it would still automatically
+work.&lt;/p&gt;
+&lt;p&gt;Obviously for other platforms than Windows, the DLLs are not included
+now, but lets see if this works. And actually at the time of writing,
+this is a first. As you can see, on macOS (recognized from “Darwin”)
+only the &lt;code class="docutils literal notranslate"&gt;&lt;span class="pre"&gt;x86_64&lt;/span&gt;&lt;/code&gt; will work, and maybe we should check that out. For
+Linux and 32 bit, this shows what an old package this is.&lt;/p&gt;
+&lt;p&gt;So far, outside of Windows, we do not provide tags for arches.&lt;/p&gt;
+&lt;div class="admonition note"&gt;
+&lt;p class="admonition-title"&gt;Note&lt;/p&gt;
+&lt;p&gt;This is probably going to change now. At least on macOS this seems
+very much needed. Maybe also time to cleanup &lt;code class="docutils literal notranslate"&gt;&lt;span class="pre"&gt;amd64&lt;/span&gt;&lt;/code&gt; vs &lt;code class="docutils literal notranslate"&gt;&lt;span class="pre"&gt;x86_64&lt;/span&gt;&lt;/code&gt;
+which kind of is an inconsistency the technical community has.&lt;/p&gt;
+&lt;/div&gt;
+&lt;p&gt;Anyway, so more branches will be needed. There is no &lt;code class="docutils literal notranslate"&gt;&lt;span class="pre"&gt;else&lt;/span&gt;&lt;/code&gt; in Nuitka
+package configuration. All &lt;code class="docutils literal notranslate"&gt;&lt;span class="pre"&gt;from_filenames&lt;/span&gt;&lt;/code&gt; blocks are applied if the
+&lt;code class="docutils literal notranslate"&gt;&lt;span class="pre"&gt;when&lt;/span&gt;&lt;/code&gt; matches.&lt;/p&gt;
+&lt;p&gt;And actually for data files are similar thing should be done, however,
+for the time being &lt;code class="docutils literal notranslate"&gt;&lt;span class="pre"&gt;--noinclude-data-file&lt;/span&gt;&lt;/code&gt; can be your friend there.
+You can manually exclude them.&lt;/p&gt;
+&lt;p&gt;But low and behold, the DLLs are included. The data files are. Typically
+that is enough, but it &lt;strong&gt;still&lt;/strong&gt; does not work.&lt;/p&gt;
+&lt;/section&gt;
+&lt;section id="step-3-check-the-compilation-report"&gt;
+&lt;h1&gt;Step 3 - Check the compilation report&lt;/h1&gt;
+&lt;p&gt;So after following the easy steps to take, and still not working. We can
+check the compilation report. You should always compile with
+&lt;code class="docutils literal notranslate"&gt;&lt;span class="pre"&gt;--report=compilation-report.xml&lt;/span&gt;&lt;/code&gt; which produces a very human readable
+compilation report, where you can check things easily.&lt;/p&gt;
+&lt;p&gt;It lists included DLLs and data files, and often also why it is
+included, and as of recently it learned to output also modules that were
+used by a module, and modules that were attempted to be used, but not
+found.&lt;/p&gt;
+&lt;div class="admonition note"&gt;
+&lt;p class="admonition-title"&gt;Note&lt;/p&gt;
+&lt;p&gt;This newly tracked information about failed attempts to use a module
+are the basis of largely enhanced bytecode caching (demoted e.g.
+because too large or standard library) in latest Nuitka.&lt;/p&gt;
+&lt;/div&gt;
+&lt;p&gt;Nuitka will tell use here about the issue from its perspective. So a
+module is not found at runtime, but what happened at compile time. Only
+the report can tell.&lt;/p&gt;
+&lt;p&gt;Lets quote the compilation report snippets.&lt;/p&gt;
+&lt;div class="highlight-xml notranslate"&gt;&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="nt"&gt;&amp;lt;module&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="na"&gt;name=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;__main__&amp;quot;&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="na"&gt;kind=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;PythonMainModule&amp;quot;&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="na"&gt;reason=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;Root module&amp;quot;&lt;/span&gt;&lt;span class="nt"&gt;&amp;gt;&lt;/span&gt;
+&lt;span class="w"&gt;  &lt;/span&gt;&lt;span class="nt"&gt;&amp;lt;optimization-time&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="na"&gt;pass=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;1&amp;quot;&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="na"&gt;time=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;0.25&amp;quot;&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nt"&gt;/&amp;gt;&lt;/span&gt;
+&lt;span class="w"&gt;  &lt;/span&gt;&lt;span class="nt"&gt;&amp;lt;optimization-time&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="na"&gt;pass=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;2&amp;quot;&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="na"&gt;time=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;0.01&amp;quot;&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nt"&gt;/&amp;gt;&lt;/span&gt;
+&lt;span class="w"&gt;  &lt;/span&gt;&lt;span class="nt"&gt;&amp;lt;module_usages&amp;gt;&lt;/span&gt;
+&lt;span class="w"&gt;    &lt;/span&gt;&lt;span class="nt"&gt;&amp;lt;module_usage&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="na"&gt;name=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;tkinterweb&amp;quot;&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="na"&gt;finding=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;absolute&amp;quot;&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="na"&gt;line=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;1&amp;quot;&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nt"&gt;/&amp;gt;&lt;/span&gt;
+&lt;span class="w"&gt;    &lt;/span&gt;&lt;span class="nt"&gt;&amp;lt;module_usage&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="na"&gt;name=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;tkinter&amp;quot;&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="na"&gt;finding=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;absolute&amp;quot;&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="na"&gt;line=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;4&amp;quot;&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nt"&gt;/&amp;gt;&lt;/span&gt;
+&lt;span class="w"&gt;    &lt;/span&gt;&lt;span class="nt"&gt;&amp;lt;module_usage&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="na"&gt;name=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;Tkinter&amp;quot;&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="na"&gt;finding=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;not-found&amp;quot;&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="na"&gt;line=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;6&amp;quot;&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nt"&gt;/&amp;gt;&lt;/span&gt;
+&lt;span class="w"&gt;  &lt;/span&gt;&lt;span class="nt"&gt;&amp;lt;/module_usages&amp;gt;&lt;/span&gt;
+&lt;span class="nt"&gt;&amp;lt;/module&amp;gt;&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;p&gt;This is the main module. Even without giving you the source code, you
+can see that the example code does import tkinterweb and tkinter. And
+due to this being probably very old code, the Python2/Python3 module
+name difference is present, so it imports the Python3 name successfully,
+but not the Python2 name.&lt;/p&gt;
+&lt;p&gt;How do we know this is a bug or not? The reality is, we do by context
+knowledge, there is not a single best way to decide if an import that is
+not found represents an issue in the compilation or not. But this looks
+good. I am showing it to you for educational purpose mostly.&lt;/p&gt;
+&lt;p&gt;Now lets find the module that raised the &lt;code class="docutils literal notranslate"&gt;&lt;span class="pre"&gt;ModuleNotFoundError&lt;/span&gt;&lt;/code&gt;
+exception.&lt;/p&gt;
+&lt;div class="highlight-xml notranslate"&gt;&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="nt"&gt;&amp;lt;module&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="na"&gt;name=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;tkinterweb&amp;quot;&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="na"&gt;kind=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;CompiledPythonPackage&amp;quot;&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="na"&gt;reason=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;Instructed by user to follow to all non-standard library modules.&amp;quot;&lt;/span&gt;&lt;span class="nt"&gt;&amp;gt;&lt;/span&gt;
+&lt;span class="w"&gt;  &lt;/span&gt;&lt;span class="nt"&gt;&amp;lt;plugin-influence&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="na"&gt;name=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;dll-files&amp;quot;&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="na"&gt;influence=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;condition-used&amp;quot;&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="na"&gt;condition=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;win32 and arch_x86&amp;quot;&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="na"&gt;tags_used=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;win32,arch_x86&amp;quot;&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="na"&gt;result=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;false&amp;quot;&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nt"&gt;/&amp;gt;&lt;/span&gt;
+&lt;span class="w"&gt;  &lt;/span&gt;&lt;span class="nt"&gt;&amp;lt;plugin-influence&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="na"&gt;name=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;dll-files&amp;quot;&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="na"&gt;influence=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;condition-used&amp;quot;&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="na"&gt;condition=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;win32 and arch_amd64&amp;quot;&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="na"&gt;tags_used=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;win32,arch_amd64&amp;quot;&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="na"&gt;result=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;true&amp;quot;&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nt"&gt;/&amp;gt;&lt;/span&gt;
+&lt;span class="w"&gt;  &lt;/span&gt;&lt;span class="nt"&gt;&amp;lt;optimization-time&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="na"&gt;pass=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;1&amp;quot;&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="na"&gt;time=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;0.07&amp;quot;&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nt"&gt;/&amp;gt;&lt;/span&gt;
+&lt;span class="w"&gt;  &lt;/span&gt;&lt;span class="nt"&gt;&amp;lt;optimization-time&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="na"&gt;pass=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;2&amp;quot;&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="na"&gt;time=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;0.03&amp;quot;&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nt"&gt;/&amp;gt;&lt;/span&gt;
+&lt;span class="w"&gt;  &lt;/span&gt;&lt;span class="nt"&gt;&amp;lt;module_usages&amp;gt;&lt;/span&gt;
+&lt;span class="w"&gt;    &lt;/span&gt;&lt;span class="nt"&gt;&amp;lt;module_usage&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="na"&gt;name=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;os&amp;quot;&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="na"&gt;finding=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;absolute&amp;quot;&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="na"&gt;line=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;1&amp;quot;&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nt"&gt;/&amp;gt;&lt;/span&gt;
+&lt;span class="w"&gt;    &lt;/span&gt;&lt;span class="nt"&gt;&amp;lt;module_usage&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="na"&gt;name=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;sys&amp;quot;&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="na"&gt;finding=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;built-in&amp;quot;&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="na"&gt;line=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;1&amp;quot;&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nt"&gt;/&amp;gt;&lt;/span&gt;
+&lt;span class="w"&gt;    &lt;/span&gt;&lt;span class="nt"&gt;&amp;lt;module_usage&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="na"&gt;name=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;sys&amp;quot;&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="na"&gt;finding=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;built-in&amp;quot;&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="na"&gt;line=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;27&amp;quot;&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nt"&gt;/&amp;gt;&lt;/span&gt;
+&lt;span class="w"&gt;    &lt;/span&gt;&lt;span class="nt"&gt;&amp;lt;module_usage&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="na"&gt;name=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;os&amp;quot;&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="na"&gt;finding=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;absolute&amp;quot;&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="na"&gt;line=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;27&amp;quot;&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nt"&gt;/&amp;gt;&lt;/span&gt;
+&lt;span class="w"&gt;    &lt;/span&gt;&lt;span class="nt"&gt;&amp;lt;module_usage&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="na"&gt;name=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;ntpath&amp;quot;&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="na"&gt;finding=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;absolute&amp;quot;&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="na"&gt;line=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;28&amp;quot;&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nt"&gt;/&amp;gt;&lt;/span&gt;
+&lt;span class="w"&gt;    &lt;/span&gt;&lt;span class="nt"&gt;&amp;lt;module_usage&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="na"&gt;name=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;bindings&amp;quot;&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="na"&gt;finding=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;not-found&amp;quot;&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="na"&gt;line=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;31&amp;quot;&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nt"&gt;/&amp;gt;&lt;/span&gt;
+&lt;span class="w"&gt;    &lt;/span&gt;&lt;span class="nt"&gt;&amp;lt;module_usage&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="na"&gt;name=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;htmlwidgets&amp;quot;&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="na"&gt;finding=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;not-found&amp;quot;&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="na"&gt;line=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;32&amp;quot;&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nt"&gt;/&amp;gt;&lt;/span&gt;
+&lt;span class="w"&gt;    &lt;/span&gt;&lt;span class="nt"&gt;&amp;lt;module_usage&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="na"&gt;name=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;utilities&amp;quot;&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="na"&gt;finding=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;not-found&amp;quot;&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="na"&gt;line=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;33&amp;quot;&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nt"&gt;/&amp;gt;&lt;/span&gt;
+&lt;span class="w"&gt;    &lt;/span&gt;&lt;span class="nt"&gt;&amp;lt;module_usage&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="na"&gt;name=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;traceback&amp;quot;&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="na"&gt;finding=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;absolute&amp;quot;&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="na"&gt;line=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;35&amp;quot;&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nt"&gt;/&amp;gt;&lt;/span&gt;
+&lt;span class="w"&gt;    &lt;/span&gt;&lt;span class="nt"&gt;&amp;lt;module_usage&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="na"&gt;name=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;sys&amp;quot;&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="na"&gt;finding=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;built-in&amp;quot;&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="na"&gt;line=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;41&amp;quot;&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nt"&gt;/&amp;gt;&lt;/span&gt;
+&lt;span class="w"&gt;    &lt;/span&gt;&lt;span class="nt"&gt;&amp;lt;module_usage&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="na"&gt;name=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;tkinter&amp;quot;&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="na"&gt;finding=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;absolute&amp;quot;&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="na"&gt;line=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;44&amp;quot;&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nt"&gt;/&amp;gt;&lt;/span&gt;
+&lt;span class="w"&gt;    &lt;/span&gt;&lt;span class="nt"&gt;&amp;lt;module_usage&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="na"&gt;name=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;tkinter&amp;quot;&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="na"&gt;finding=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;absolute&amp;quot;&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="na"&gt;line=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;45&amp;quot;&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nt"&gt;/&amp;gt;&lt;/span&gt;
+&lt;span class="w"&gt;    &lt;/span&gt;&lt;span class="nt"&gt;&amp;lt;module_usage&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="na"&gt;name=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;tkinter.messagebox&amp;quot;&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="na"&gt;finding=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;relative&amp;quot;&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="na"&gt;line=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;45&amp;quot;&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nt"&gt;/&amp;gt;&lt;/span&gt;
+&lt;span class="w"&gt;    &lt;/span&gt;&lt;span class="nt"&gt;&amp;lt;module_usage&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="na"&gt;name=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;Tkinter&amp;quot;&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="na"&gt;finding=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;not-found&amp;quot;&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="na"&gt;line=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;47&amp;quot;&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nt"&gt;/&amp;gt;&lt;/span&gt;
+&lt;span class="w"&gt;    &lt;/span&gt;&lt;span class="nt"&gt;&amp;lt;module_usage&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="na"&gt;name=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;tkMessageBox&amp;quot;&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="na"&gt;finding=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;not-found&amp;quot;&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="na"&gt;line=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;48&amp;quot;&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nt"&gt;/&amp;gt;&lt;/span&gt;
+&lt;span class="w"&gt;    &lt;/span&gt;&lt;span class="nt"&gt;&amp;lt;module_usage&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="na"&gt;name=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;tkinter&amp;quot;&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="na"&gt;finding=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;absolute&amp;quot;&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="na"&gt;line=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;67&amp;quot;&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nt"&gt;/&amp;gt;&lt;/span&gt;
+&lt;span class="w"&gt;    &lt;/span&gt;&lt;span class="nt"&gt;&amp;lt;module_usage&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="na"&gt;name=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;Tkinter&amp;quot;&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="na"&gt;finding=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;not-found&amp;quot;&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="na"&gt;line=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;69&amp;quot;&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nt"&gt;/&amp;gt;&lt;/span&gt;
+&lt;span class="w"&gt;  &lt;/span&gt;&lt;span class="nt"&gt;&amp;lt;/module_usages&amp;gt;&lt;/span&gt;
+&lt;span class="nt"&gt;&amp;lt;/module&amp;gt;&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;p&gt;At the top, you can see the &lt;code class="docutils literal notranslate"&gt;&lt;span class="pre"&gt;plugin-influence&lt;/span&gt;&lt;/code&gt;. This is where the
+plugin records that it influenced. It records what conditions were
+checked, and the result. Actually further down, we got this.&lt;/p&gt;
+&lt;div class="highlight-xml notranslate"&gt;&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="nt"&gt;&amp;lt;included_dll&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="na"&gt;name=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;Tkhtml30.dll&amp;quot;&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="na"&gt;dest_path=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;tkinterweb\tkhtml\Windows\64-bit\Tkhtml30.dll&amp;quot;&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="na"&gt;source_path=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;C:\Python310_64\lib\site-packages\tkinterweb\tkhtml/Windows/64-bit\Tkhtml30.dll&amp;quot;&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="na"&gt;package=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;tkinterweb&amp;quot;&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="na"&gt;ignored=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;no&amp;quot;&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="na"&gt;reason=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;Yaml config of &amp;#39;tkinterweb&amp;#39;&amp;quot;&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nt"&gt;/&amp;gt;&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;p&gt;But that is now why we are here. You can also see the imports being
+done. They are given with line numbers and the one we care about is this
+snippet.&lt;/p&gt;
+&lt;div class="highlight-xml notranslate"&gt;&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="nt"&gt;&amp;lt;module_usage&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="na"&gt;name=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;bindings&amp;quot;&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="na"&gt;finding=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;not-found&amp;quot;&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="na"&gt;line=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;31&amp;quot;&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nt"&gt;/&amp;gt;&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;p&gt;So Nuitka didn’t find it at compile time. And a quick check with Python
+on the prompt would reveal that this name is not importable. So now we
+switch to the source code of the trouble making module. There is no tool
+for that yet, typically just do this manually:&lt;/p&gt;
+&lt;div class="highlight-default notranslate"&gt;&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="gp"&gt;&amp;gt;&amp;gt;&amp;gt; &lt;/span&gt;&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;tkinterweb&lt;/span&gt;
+&lt;span class="gp"&gt;&amp;gt;&amp;gt;&amp;gt; &lt;/span&gt;&lt;span class="n"&gt;tkinterweb&lt;/span&gt;
+&lt;span class="go"&gt;&amp;lt;module &amp;#39;tkinterweb&amp;#39; from &amp;#39;C:\\Python310\\lib\\site-packages\\tkinterweb\\__init__.py&amp;#39;&amp;gt;&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;p&gt;This is a clickable link in my Visual Code terminal, and after I click
+it and go to the line, what we see is:&lt;/p&gt;
+&lt;div class="highlight-python notranslate"&gt;&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;sys&lt;/span&gt;&lt;span class="o"&gt;,&lt;/span&gt; &lt;span class="nn"&gt;os&lt;/span&gt;
+&lt;span class="n"&gt;sys&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;path&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;append&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;os&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;path&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;dirname&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;os&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;path&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;realpath&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="vm"&gt;__file__&lt;/span&gt;&lt;span class="p"&gt;)))&lt;/span&gt;
+
+&lt;span class="k"&gt;try&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+    &lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="nn"&gt;bindings&lt;/span&gt; &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="n"&gt;TkinterWeb&lt;/span&gt;
+    &lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="nn"&gt;htmlwidgets&lt;/span&gt; &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="n"&gt;HtmlFrame&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;HtmlLabel&lt;/span&gt;
+    &lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="nn"&gt;utilities&lt;/span&gt; &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="n"&gt;Notebook&lt;/span&gt;
+&lt;span class="k"&gt;except&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="ne"&gt;ImportError&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="ne"&gt;ModuleNotFoundError&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
+    &lt;span class="c1"&gt;# Useless code goes here.&lt;/span&gt;
+    &lt;span class="o"&gt;...&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;p&gt;What strikes immediately is that Visual Code agrees, and displays the
+imported names a color used for modules that it couldn’t resolve. And
+actually the first like on top there is revealing rather rare code. This
+package is extending the global import path with its package contents.
+In this way, what would be &lt;code class="docutils literal notranslate"&gt;&lt;span class="pre"&gt;tkinterweb.bindings&lt;/span&gt;&lt;/code&gt; is available as
+&lt;code class="docutils literal notranslate"&gt;&lt;span class="pre"&gt;bindings&lt;/span&gt;&lt;/code&gt; &lt;strong&gt;after&lt;/strong&gt; the module has been imported at runtime.&lt;/p&gt;
+&lt;p&gt;Expanding the &lt;code class="docutils literal notranslate"&gt;&lt;span class="pre"&gt;PYTHONPATH&lt;/span&gt;&lt;/code&gt; is therefore our next step. Since I am
+using bash, I can prefix the call to Nuitka with
+&lt;code class="docutils literal notranslate"&gt;&lt;span class="pre"&gt;PYTHONPATH='C:\\Python310_64\\lib\\site-packages\\tkinterweb'&lt;/span&gt;&lt;/code&gt; and
+low and behold, it works with this. Compilation takes longer and
+includes more modules, and the initial message is gone.&lt;/p&gt;
+&lt;p&gt;So, how to resolve this. Nuitka has gained a feature dedicated to this.
+It will be nice if this was automatically resolved at compile time,
+which is well could, note has been taken that there is value in tracking
+expanding &lt;code class="docutils literal notranslate"&gt;&lt;span class="pre"&gt;sys.path&lt;/span&gt;&lt;/code&gt; at compile time.&lt;/p&gt;
+&lt;p&gt;There is another section called &lt;code class="docutils literal notranslate"&gt;&lt;span class="pre"&gt;import-hacks&lt;/span&gt;&lt;/code&gt; and it too recently
+gained a new feature dedicated to this.&lt;/p&gt;
+&lt;div class="highlight-yaml notranslate"&gt;&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="p p-Indicator"&gt;-&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nt"&gt;module-name&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="s"&gt;&amp;#39;tkinterweb&amp;#39;&lt;/span&gt;
+&lt;span class="w"&gt;  &lt;/span&gt;&lt;span class="nt"&gt;import-hacks&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+&lt;span class="w"&gt;    &lt;/span&gt;&lt;span class="p p-Indicator"&gt;-&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nt"&gt;global-sys-path&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+&lt;span class="w"&gt;        &lt;/span&gt;&lt;span class="c1"&gt;# This package forces itself into &amp;quot;sys.path&amp;quot; and expects absolute&lt;/span&gt;
+&lt;span class="w"&gt;        &lt;/span&gt;&lt;span class="c1"&gt;# imports to be available.&lt;/span&gt;
+&lt;span class="w"&gt;        &lt;/span&gt;&lt;span class="p p-Indicator"&gt;-&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="s"&gt;&amp;#39;&amp;#39;&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;p&gt;We can here provide a list of relative paths, that are added when a
+package is imported to the search path of Nuitka. With this we can drop
+the &lt;code class="docutils literal notranslate"&gt;&lt;span class="pre"&gt;PYTHONPATH&lt;/span&gt;&lt;/code&gt; which while being a nice workaround, required using
+absolute paths of the install, never easy to handle.&lt;/p&gt;
+&lt;p&gt;With this it now works fully automatically. One issue remains. The
+compiled program does not need the &lt;code class="docutils literal notranslate"&gt;&lt;span class="pre"&gt;sys.path&lt;/span&gt;&lt;/code&gt; trick at runtime. And
+for isolation purposes, &lt;code class="docutils literal notranslate"&gt;&lt;span class="pre"&gt;sys.path&lt;/span&gt;&lt;/code&gt; ought to be empty, so what we do we
+do with this here?&lt;/p&gt;
+&lt;/section&gt;
+&lt;section id="step-4-cleanup-the-code"&gt;
+&lt;h1&gt;Step 4 - Cleanup the code&lt;/h1&gt;
+&lt;p&gt;In order to get rid of that code, we can use the &lt;code class="docutils literal notranslate"&gt;&lt;span class="pre"&gt;anti-bloat&lt;/span&gt;&lt;/code&gt;
+mechanism. It is very powerful and can do all sorts of things, but today
+we got a simple task for it.&lt;/p&gt;
+&lt;p&gt;This is the troubling line.&lt;/p&gt;
+&lt;div class="highlight-python notranslate"&gt;&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="n"&gt;sys&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;path&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;append&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;os&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;path&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;dirname&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;os&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;path&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;realpath&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="vm"&gt;__file__&lt;/span&gt;&lt;span class="p"&gt;)))&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;p&gt;There are many ways to change this, it’s always good be at less invasive
+as possible, so we do not want to append. We could prefix that line with
+&lt;code class="docutils literal notranslate"&gt;&lt;span class="pre"&gt;if&lt;/span&gt; &lt;span class="pre"&gt;False:&lt;/span&gt;&lt;/code&gt;, but that typically only works well for single liners.
+What we can do rather generally is something like this:&lt;/p&gt;
+&lt;div class="highlight-python notranslate"&gt;&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="n"&gt;sys&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;path&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;append&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;os&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;path&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;dirname&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;os&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;path&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;realpath&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="vm"&gt;__file__&lt;/span&gt;&lt;span class="p"&gt;)))&lt;/span&gt;
+&lt;span class="c1"&gt;# -&amp;gt; we want this instead:&lt;/span&gt;
+&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;os&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;path&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;dirname&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;os&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;path&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;realpath&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="vm"&gt;__file__&lt;/span&gt;&lt;span class="p"&gt;)))&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;p&gt;Notice that just not calling will be good enough and extremely likely
+robust against all kinds of formatting changes, multiple lines, etc. and
+probably also very applicable should be encounter similar ones.&lt;/p&gt;
+&lt;p&gt;So this can be expressed with the following yaml snippet.&lt;/p&gt;
+&lt;div class="highlight-yaml notranslate"&gt;&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="p p-Indicator"&gt;-&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nt"&gt;module-name&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="s"&gt;&amp;#39;tkinterweb&amp;#39;&lt;/span&gt;
+&lt;span class="w"&gt;  &lt;/span&gt;&lt;span class="nt"&gt;anti-bloat&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+&lt;span class="w"&gt;    &lt;/span&gt;&lt;span class="p p-Indicator"&gt;-&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nt"&gt;description&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="s"&gt;&amp;#39;remove&lt;/span&gt;&lt;span class="nv"&gt; &lt;/span&gt;&lt;span class="s"&gt;&amp;quot;sys.path&amp;quot;&lt;/span&gt;&lt;span class="nv"&gt; &lt;/span&gt;&lt;span class="s"&gt;hack&amp;#39;&lt;/span&gt;
+&lt;span class="w"&gt;      &lt;/span&gt;&lt;span class="nt"&gt;replacements_plain&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+&lt;span class="w"&gt;        &lt;/span&gt;&lt;span class="s"&gt;&amp;#39;sys.path.append&amp;#39;&lt;/span&gt;&lt;span class="p p-Indicator"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="s"&gt;&amp;#39;&amp;#39;&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;p&gt;And to know what effect it had and to see the wonders if anti-bloat in
+general, you can use &lt;code class="docutils literal notranslate"&gt;&lt;span class="pre"&gt;--show-source-changes&lt;/span&gt;&lt;/code&gt; and output the diffs done
+on module source changes.&lt;/p&gt;
+&lt;div class="highlight-default notranslate"&gt;&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="o"&gt;---&lt;/span&gt; &lt;span class="n"&gt;original&lt;/span&gt;
+&lt;span class="o"&gt;+++&lt;/span&gt; &lt;span class="n"&gt;modified&lt;/span&gt;
+
+&lt;span class="o"&gt;@@&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="mi"&gt;25&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;7&lt;/span&gt; &lt;span class="o"&gt;+&lt;/span&gt;&lt;span class="mi"&gt;25&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;7&lt;/span&gt; &lt;span class="o"&gt;@@&lt;/span&gt;
+
+ &lt;span class="s2"&gt;&amp;quot;&amp;quot;&amp;quot;&lt;/span&gt;
+
+&lt;span class="s2"&gt; import sys, os&lt;/span&gt;
+&lt;span class="s2"&gt;-sys.path.append(os.path.dirname(os.path.realpath(__file__)))&lt;/span&gt;
+&lt;span class="s2"&gt;+(os.path.dirname(os.path.realpath(__file__)))&lt;/span&gt;
+
+&lt;span class="s2"&gt; try:&lt;/span&gt;
+&lt;span class="s2"&gt;     from bindings import TkinterWeb&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;p&gt;So, now this is perfect. Just need to add more OS specific branches,
+maybe also for the data files include more selectively, then this is
+perfect.&lt;/p&gt;
+&lt;/section&gt;
+&lt;section id="final-remarks"&gt;
+&lt;h1&gt;Final remarks&lt;/h1&gt;
+&lt;p&gt;I am hoping you will find this very helpful information and will join
+the effort to make packaging for Python work out of the box. Adding
+support for &lt;code class="docutils literal notranslate"&gt;&lt;span class="pre"&gt;tkinterweb&lt;/span&gt;&lt;/code&gt; was a little more complex than your typical
+package. The OS specific DLLs in different places are relatively
+unusual, although it has been seen before and will be gain.&lt;/p&gt;
+&lt;p&gt;This is a simpler example, that is way less complex, with all defaults
+just working.&lt;/p&gt;
+&lt;div class="highlight-yaml notranslate"&gt;&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="p p-Indicator"&gt;-&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nt"&gt;module-name&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="s"&gt;&amp;#39;lightgbm.libpath&amp;#39;&lt;/span&gt;
+&lt;span class="w"&gt;  &lt;/span&gt;&lt;span class="nt"&gt;dlls&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+&lt;span class="w"&gt;    &lt;/span&gt;&lt;span class="p p-Indicator"&gt;-&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nt"&gt;from_filenames&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+&lt;span class="w"&gt;        &lt;/span&gt;&lt;span class="nt"&gt;prefixes&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+&lt;span class="w"&gt;          &lt;/span&gt;&lt;span class="p p-Indicator"&gt;-&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="s"&gt;&amp;#39;lib_lightgbm&amp;#39;&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;p&gt;Please review the guidelines for contributing, and esp. make sure to
+install the commit hook as described, or run
+&lt;code class="docutils literal notranslate"&gt;&lt;span class="pre"&gt;bin/autoformat-nuitka-source&lt;/span&gt; &lt;span class="pre"&gt;--yaml&lt;/span&gt;&lt;/code&gt; at least, so the CI will not
+complain about formatting and we will have consistent files.&lt;/p&gt;
+&lt;p&gt;The last hot fixes of 1.3 already have user provided packaging
+enhancements that add dependencies and anti-bloat. We might discuss
+those in the next installment.&lt;/p&gt;
+&lt;/section&gt;
+</content>
+    <link href="https://nuitka.net/posts/nuitka-package-config-kickoff.html" rel="alternate"/>
+    <summary>The term “kickoff” refers to a series of posts about the Nuitka package
+configuration. The details are here on a dedicate page on the web site
+only. Nuitka Package Configuration.</summary>
+    <category term="Nuitka" label="Nuitka"/>
+    <category term="Python" label="Python"/>
+    <category term="compiler" label="compiler"/>
+    <category term="package_config" label="package_config"/>
+    <published>2023-01-20T07:51:00+00:00</published>
+  </entry>
+</feed>

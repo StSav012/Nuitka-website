@@ -13,7 +13,7 @@
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Protect Data Files &#8212; Nuitka the Python Compiler  documentation</title>
-      <link rel="stylesheet" href="/_static/css/combined_e6840a1efaf0bb3afd9a2fd6b30cc2e9.css" type="text/css">
+      <link rel="stylesheet" href="/_static/css/combined_03f7eeec2061fd0a5acfc23d1d0bf4fb.css" type="text/css">
       <link rel="canonical" href="https://nuitka.net/doc/commercial/protect-data-files.html">
   <!--[if lt IE 9]>
     <script src="../../_static/js/html5shiv.min.js"></script>
@@ -33,37 +33,15 @@
     SHOW_SEARCH_SUMMARY: true,
     ENABLE_SEARCH_SHORTCUTS: true,
 };</script>
-        <script src="/_static/combined_1f3d291568f0d25fd5e0e83c3075a3a3.js" async=""></script>
+        <script src="/_static/combined_50b22e29ca76da059b0c14dcc606bcaa.js" async=""></script>
         <script src="../../_static/_sphinx_javascript_frameworks_compat.js" async=""></script>
+        <script src="../../_static/sphinx_highlight.js" async=""></script>
         <script src="../../_static/clipboard.min.js" async=""></script>
         <script src="../../_static/copybutton.js" async=""></script>
         <link rel="index" title="Index" href="../../genindex.html">
     <link rel="alternate" type="application/atom+xml" href="../../blog/atom.xml" title="Nuitka Blog">
- 
-<style type="text/css">
-  ul.ablog-archive {
-    list-style: none;
-    overflow: auto;
-    margin-left: 0px;
-  }
-  ul.ablog-archive li {
-    float: left;
-    margin-right: 5px;
-    font-size: 80%;
-  }
-  ul.postlist a {
-    font-style: italic;
-  }
-  ul.postlist-style-disc {
-    list-style-type: disc;
-  }
-  ul.postlist-style-none {
-    list-style-type: none;
-  }
-  ul.postlist-style-circle {
-    list-style-type: circle;
-  }
-</style>
+
+
 
 </head>
 
@@ -72,8 +50,12 @@
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search">
-            <a href="../../index.html" class="icon icon-home"> Nuitka the Python Compiler
-            <div class="logo_container"><img src="../../_static/Nuitka-Logo-Symbol.svg" class="logo" alt="Logo" width="208" height="209">
+
+          
+          
+          <a href="../../index.html" class="icon icon-home">
+            Nuitka the Python Compiler
+              <div class="logo_container"><img src="../../_static/Nuitka-Logo-Symbol.svg" class="logo" alt="Logo" width="208" height="209">
           </div></a><!-- Empty override file take the place of searchbox.html, which generates search box. -->
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
               <ul>
@@ -88,15 +70,16 @@
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Release Information</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../Changelog.html">Nuitka Release 1.2 (Draft)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../Changelog.html#nuitka-release-1-1">Nuitka Release 1.1</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../Changelog.html#nuitka-release-1-0">Nuitka Release 1.0</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Changelog.html">Nuitka Release 1.5 (Draft)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Changelog.html#nuitka-release-1-4">Nuitka Release 1.4</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Changelog.html#nuitka-release-1-3">Nuitka Release 1.3</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../Changelog.html#older-releases">Older Releases</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../roadmap.html">Roadmap</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">More documentation</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../developer-manual.html">Developer Manual</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../nuitka-package-config.html">Nuitka Package Configuration</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../api-doc.html">API doc</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../factory.html">Factory Instructions</a></li>
 </ul>
@@ -114,6 +97,7 @@
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../welcome.html">Welcome</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../pages/pyside2.html">Nuitka PySide2 support</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../pages/pyqt5.html">Nuitka PyQt5 support</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../pages/donations.html">Donations</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../pages/gsoc2019.html">Google Summer of Code 2019</a></li>
 </ul>
@@ -132,22 +116,24 @@
           <!-- Empty override file take the place of sphinx_rtd_theme/breadcrumbs.html, which generates the top nav breadcrumbs. -->
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
-              <section id="protect-data-files">
+             
+<section id="protect-data-files">
 <h1>Protect Data Files<a class="headerlink" href="#protect-data-files" title="Permalink to this heading">&#61633;</a></h1>
-<p>Your program might be using Qt and QML, or data files loaded. With
-Nuitka Commercial, you can product (even before onefile) an executable
-that contains them and then also covers it under the regular <a class="reference external" href="protect-constants-data.html">constants
-data protection</a> automatically.</p>
-<p>Your program uses standard Python mechanisms from <code class="docutils literal notranslate"><span class="pre">pkgutil</span></code>,
+<p>Your program might be using Qt and QML, or other kinds of data file
+loaded. With Nuitka Commercial, you can produce an executable that
+contains them and then also covers it under the regular <a class="reference external" href="protect-constants-data.html">constants data
+protection</a> automatically.</p>
+<p>Your program uses standard Python mechanisms from <code class="docutils literal notranslate"><span class="pre">open</span></code>, <code class="docutils literal notranslate"><span class="pre">pkgutil</span></code>,
 <code class="docutils literal notranslate"><span class="pre">pkg_resources</span></code>, <code class="docutils literal notranslate"><span class="pre">importlib.resources</span></code> or <code class="docutils literal notranslate"><span class="pre">importlib_resources</span></code>
 and generally similar packages, and these load the data as a file or a
 stream from within the binary without ever hitting the disk.</p>
-<p>All of this is happening with the same code base, i.e. you are not
-making any modification (if at all), that is incompatible with Python.
-Your code will still run directly. One thing you do have to change
-though is to not use <code class="docutils literal notranslate"><span class="pre">open</span></code> with paths created from <code class="docutils literal notranslate"><span class="pre">__file__</span></code>, but
-the above code is more elegant anyway, as it does this for you in the
-normal case, but can easily be hooked by Nuitka.</p>
+<p>All of this is happening with your original code base, i.e. you are not
+making any modification, that is incompatible with Python. Your code
+will still run directly in Python during development, and during
+deployment, the files are embedded by merely adding an option. One thing
+you do have to do, is that you should use <code class="docutils literal notranslate"><span class="pre">open</span></code> with paths created
+from <code class="docutils literal notranslate"><span class="pre">__file__</span></code> (which is correct anyway, and not e.g. rely on the
+current directory to be where your script lives).</p>
 <p>This means, e.g. rather than this program</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">PySideQmlPolarchartTest</span><span class="o">.</span><span class="n">py</span>
 <span class="n">qmlpolarchart</span><span class="o">/</span>
@@ -182,17 +168,18 @@ be on the customer disk for inspection:</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>For extension modules and DLLs used, this doesn&#8217;t affect things. This
-is about merely about data files. This is where onefile comes in and
-hides these from the view and need for deployment, but it cannot
-replace Nuitka commercial and its inclusion of data files inside the
-main binary.</p>
+is about merely about data files. This is where <code class="docutils literal notranslate"><span class="pre">--onefile</span></code> comes
+in and hides these from the view and need for deployment, but it
+cannot replace Nuitka commercial and its inclusion of data files
+inside the main binary.</p>
 </div>
 <p>Go <a class="reference external" href="/doc/commercial.html#protection-vs-reverse-engineering">back to Nuitka commercial</a> overview to
 learn about more features or to subscribe to <a class="reference external" href="/doc/commercial.html#pricing">Nuitka commercial</a>.</p>
 </section>
 
-<div class="section">
-   
+<div class="section ablog__blog_comments">
+  
+  
 </div>
 
            </div>
@@ -202,7 +189,7 @@ learn about more features or to subscribe to <a class="reference external" href=
   <hr>
 
   <div role="contentinfo">
-    <p>&#169; Copyright 2022, Kay Hayen and Nuitka Contributors.</p>
+    <p>&#169; Copyright 2023, Kay Hayen and Nuitka Contributors.</p>
   </div>
 
   
@@ -256,8 +243,8 @@ learn about more features or to subscribe to <a class="reference external" href=
             <div class="sd-summary-content sd-card-body switcher-body docutils">
                 <blockquote>
                     <div>
-                        <div><div class="line"><a class="reference external" href="/zh_CN/doc/commercial/protect-data-files.html">CN</a></div>
-                            <div class="line"><a class="reference external" href="/de_DE/doc/commercial/protect-data-files.html">DE</a></div>
+                        <div><div class="line"><a class="reference external" href="/de_DE/doc/commercial/protect-data-files.html">DE</a></div>
+                            <div class="line"><a class="reference external" href="/zh_CN/doc/commercial/protect-data-files.html">CN</a></div>
                             </div></div>
                 </blockquote>
             </div>

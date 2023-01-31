@@ -2,10 +2,10 @@
 <feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en">
   <id>https://nuitka.net</id>
   <title>Nuitka Blog - Posted in 2020</title>
-  <updated>2022-11-06T13:36:31.035360+00:00</updated>
+  <updated>2023-01-31T17:56:56.902697+00:00</updated>
   <link href="https://nuitka.net"/>
   <link href="https://nuitka.net/blog/2020/atom.xml" rel="self"/>
-  <generator uri="https://ablog.readthedocs.org/" version="0.10.29">ABlog</generator>
+  <generator uri="https://ablog.readthedocs.io/" version="0.11.0rc2">ABlog</generator>
   <entry>
     <id>https://nuitka.net/posts/nuitka-release-066.html</id>
     <title>Nuitka Release 0.6.6</title>
@@ -31,7 +31,7 @@ working and needed to be disabled for now.&lt;/p&gt;&lt;/li&gt;
 provided keyword only, and were not giving the compatible error
 message when missing.&lt;/p&gt;&lt;/li&gt;
 &lt;li&gt;&lt;p&gt;Windows: Find &lt;code class="docutils literal notranslate"&gt;&lt;span class="pre"&gt;win32com&lt;/span&gt;&lt;/code&gt; DLLs too, even if they live in sub folders
-of site-packages, and otherwise not found. They are used by other
+of &lt;code class="docutils literal notranslate"&gt;&lt;span class="pre"&gt;site-packages&lt;/span&gt;&lt;/code&gt;, and otherwise not found. They are used by other
 DLLs that are found.&lt;/p&gt;&lt;/li&gt;
 &lt;li&gt;&lt;p&gt;Standalone: Fixup for problem with standard library module in most
 recent Anaconda versions.&lt;/p&gt;&lt;/li&gt;

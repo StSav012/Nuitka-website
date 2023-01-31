@@ -13,7 +13,7 @@
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Nuitka &#36335;&#32447;&#22270; &#8212; Nuitka the Python Compiler  &#25991;&#26723;</title>
-      <link rel="stylesheet" href="/_static/css/combined_75c4adeca994d1f39650c46f57029aa4.css" type="text/css">
+      <link rel="stylesheet" href="/_static/css/combined_5ac72c15a4b37d167578f4cae27b2ada.css" type="text/css">
       <link rel="canonical" href="https://nuitka.net/doc/roadmap.html">
   <!--[if lt IE 9]>
     <script src="../_static/js/html5shiv.min.js"></script>
@@ -33,38 +33,18 @@
     SHOW_SEARCH_SUMMARY: true,
     ENABLE_SEARCH_SHORTCUTS: true,
 };</script>
-        <script src="/_static/combined_1f3d291568f0d25fd5e0e83c3075a3a3.js" async=""></script>
+        <script src="/_static/combined_50b22e29ca76da059b0c14dcc606bcaa.js" async=""></script>
         <script src="../_static/_sphinx_javascript_frameworks_compat.js" async=""></script>
+        <script src="../_static/sphinx_highlight.js" async=""></script>
         <script src="../_static/translations.js" async=""></script>
         <link rel="index" title="&#32034;&#24341;" href="../genindex.html">
     <link rel="next" title="Nuitka Commercial" href="commercial.html">
-    <link rel="prev" title="Nuitka &#29992;&#25143;&#25163;&#20876;" href="user-manual.html">   
-<link rel="alternate" type="application/atom+xml" href="../blog/atom.xml" title="Nuitka Blog">
+    <link rel="prev" title="Nuitka &#29992;&#25143;&#25163;&#20876;" href="user-manual.html">
  
-<style type="text/css">
-  ul.ablog-archive {
-    list-style: none;
-    overflow: auto;
-    margin-left: 0px;
-  }
-  ul.ablog-archive li {
-    float: left;
-    margin-right: 5px;
-    font-size: 80%;
-  }
-  ul.postlist a {
-    font-style: italic;
-  }
-  ul.postlist-style-disc {
-    list-style-type: disc;
-  }
-  ul.postlist-style-none {
-    list-style-type: none;
-  }
-  ul.postlist-style-circle {
-    list-style-type: circle;
-  }
-</style>
+
+<link rel="alternate" type="application/atom+xml" href="../blog/atom.xml" title="Nuitka Blog">
+
+
 
 </head>
 
@@ -73,10 +53,14 @@
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search">
-            <a href="../index.html" class="icon icon-home"> Nuitka the Python Compiler
-            <div class="logo_container"><img src="../_static/Nuitka-Logo-Symbol.svg" class="logo" alt="Logo" width="208" height="209">
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            Nuitka the Python Compiler
+              <div class="logo_container"><img src="../_static/Nuitka-Logo-Symbol.svg" class="logo" alt="Logo" width="208" height="209">
           </div></a><!-- Empty override file take the place of searchbox.html, which generates search box. -->
-        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="&#23548;&#33322;&#33756;&#21333;">
               <ul class="current">
 <li class="toctree-l1 current"><a class="reference internal" href="index.html">&#24555;&#36895;&#20837;&#38376;</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="download.html">&#19979;&#36733;</a></li>
@@ -84,6 +68,8 @@
 <li class="toctree-l2 current"><a class="current reference internal" href="#">&#36335;&#32447;&#22270;</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#user-extensibility">&#29992;&#25143;&#21487;&#25193;&#23637;&#24615;</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#standalone">&#21333;&#26426;&#29256;</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#onefile-speed-public">Onefile speed (public)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#python3-11">Python3.11</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#nuitka-python-public">Nuitka-Python (public)</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#performance-public">Performance (public)</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#macos-enhancements">macOS enhancements</a></li>
@@ -91,8 +77,8 @@
 <li class="toctree-l3"><a class="reference internal" href="#automatic-updates">Automatic Updates</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#complete-support-for-python-version-3-10">Complete Support for Python Version (3.10)</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#traceback-encryption-commercial">Traceback Encryption (commercial)</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#features-to-be-added-for-1-2">Features to be added for 1.2</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#features-to-be-added-for-1-3">Features to be added for 1.3</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#features-to-be-added-for-1-4">Features to be added for 1.4</a></li>
 </ul>
 </li>
 </ul>
@@ -108,7 +94,7 @@
       </div>
     </nav>
 
-    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu">
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="&#31227;&#21160;&#29256;&#23548;&#33322;&#33756;&#21333;">
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
           <a href="../index.html">Nuitka the Python Compiler</a>
       </nav>
@@ -118,7 +104,8 @@
           <!-- Empty override file take the place of sphinx_rtd_theme/breadcrumbs.html, which generates the top nav breadcrumbs. -->
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
-              <section id="nuitka-roadmap">
+             
+<section id="nuitka-roadmap">
 <h1>Nuitka &#36335;&#32447;&#22270;<a class="headerlink" href="#nuitka-roadmap" title="&#27492;&#26631;&#39064;&#30340;&#27704;&#20037;&#38142;&#25509;">&#61633;</a></h1>
 <p>&#36825;&#26159;Nuitka&#30340;&#36335;&#32447;&#22270;&#65292;&#25353;&#21151;&#33021;&#32454;&#20998;&#12290;</p>
 <section id="user-extensibility">
@@ -131,14 +118,15 @@ even supporting packages that provide their own configuration for
 compilation with Nuitka through such files.</p>
 <p>A schema was created and helps editing in Visual Code, user files can
 be provided.</p>
-<p>The next step is to document these file formats.</p>
+<p>A documentation was created, the next step is to make a series of
+postings detailing each feature further.</p>
 </li>
 </ul>
 </section>
 <section id="standalone">
 <h2>&#21333;&#26426;&#29256;<a class="headerlink" href="#standalone" title="&#27492;&#26631;&#39064;&#30340;&#27704;&#20037;&#38142;&#25509;">&#61633;</a></h2>
 <ul>
-<li><p>&#8220;&#22810;&#20998;&#24067;&#8221; &#25903;&#25345;&#65288;&#26410;&#23450;&#65289;</p>
+<li><p>&#8220;Multidist&#8221; support (public)</p>
 <p>Allow combining multiple main programs into one, called &#8220;multidist&#8221;.
 These will work with a dispatcher that decides from the binary name
 what it is. There will be one big binary with the ability to run each
@@ -163,6 +151,36 @@ multiple distributions.</p>
 DLLs and data files now.</p>
 </li>
 <li><p>Dejong Stacks: &#26356;&#24378;&#22823;&#30340;&#35299;&#26512;&#22120;&#65292;&#20801;&#35768;&#22312;&#21516;&#19968;&#25991;&#20214;&#20013;&#30340; stdout &#21644; stderr &#28151;&#21512;&#36755;&#20986;&#12290;</p></li>
+</ul>
+</section>
+<section id="onefile-speed-public">
+<h2>Onefile speed (public)<a class="headerlink" href="#onefile-speed-public" title="&#27492;&#26631;&#39064;&#30340;&#27704;&#20037;&#38142;&#25509;">&#61633;</a></h2>
+<ul class="simple">
+<li><p>Use memory mapped files on Windows and Linux for performance in
+accessing the payload.</p></li>
+<li><p>Generally use memory mapping for calculating the checksum of a file.
+This is for all OSes, and should make cached mode faster to use.</p></li>
+<li><p>Use Windows NTFS and macOS HFS extended attributes to store caching
+status of a file inside of it. It might be possible to detect
+modification of the file in this way and spare us the checksum, which
+will then be used only in case of a fallback being necessary.</p></li>
+<li><p>Restructure the payload data stream in cached mode, such that
+skipping a file content becomes easier and does not require
+decryption of the whole data.</p></li>
+<li><p>One files are compressed individually, we might be able to cache the
+result of a specific file, such that files from the Python
+installation do not have to be redone over and over.</p></li>
+</ul>
+</section>
+<section id="python3-11">
+<h2>Python3.11<a class="headerlink" href="#python3-11" title="&#27492;&#26631;&#39064;&#30340;&#27704;&#20037;&#38142;&#25509;">&#61633;</a></h2>
+<ul class="simple">
+<li><p>Basic tests appear to work mostly.</p></li>
+<li><p>There is at least a memory leak with generators,</p></li>
+<li><p>There is a lack of integration of compiled and uncompiled generators
+with each other, this needs porting still.</p></li>
+<li><p>Execute Python 3.10 test suite in a compatible way with 3.11</p></li>
+<li><p>And and execute Python 3.11 test suite in a compatible way with 3.11</p></li>
 </ul>
 </section>
 <section id="nuitka-python-public">
@@ -259,19 +277,19 @@ client name, etc. could be output in plain text, while the variable
 names and values would not be, depending on your choice!</p></li>
 </ul>
 </section>
-<section id="features-to-be-added-for-1-2">
-<h2>Features to be added for 1.2<a class="headerlink" href="#features-to-be-added-for-1-2" title="&#27492;&#26631;&#39064;&#30340;&#27704;&#20037;&#38142;&#25509;">&#61633;</a></h2>
+<section id="features-to-be-added-for-1-3">
+<h2>Features to be added for 1.3<a class="headerlink" href="#features-to-be-added-for-1-3" title="&#27492;&#26631;&#39064;&#30340;&#27704;&#20037;&#38142;&#25509;">&#61633;</a></h2>
 <p>[ ] Add download updating for standalone as well, onefile for windows works.</p>
 <p>[ ] Document commercial file embedding publicly with examples.</p>
 <p>[ ] Document commercial Windows Service usage with examples.</p>
-<p>[ ] Document Yaml format with a series of postings with examples.</p>
+<p>[x] Document Yaml format with a series of postings with examples.</p>
 <dl class="simple">
 <dt>[ ] Tuple unpacking for values that support indexing should be</dt><dd><p>optimized.</p>
 </dd>
 </dl>
 </section>
-<section id="features-to-be-added-for-1-3">
-<h2>Features to be added for 1.3<a class="headerlink" href="#features-to-be-added-for-1-3" title="&#27492;&#26631;&#39064;&#30340;&#27704;&#20037;&#38142;&#25509;">&#61633;</a></h2>
+<section id="features-to-be-added-for-1-4">
+<h2>Features to be added for 1.4<a class="headerlink" href="#features-to-be-added-for-1-4" title="&#27492;&#26631;&#39064;&#30340;&#27704;&#20037;&#38142;&#25509;">&#61633;</a></h2>
 <p>[ ] Update for MinGW64 on Windows to use gcc 12.x based on.</p>
 <p>[ ] Initial support for ctypes based direct calls of C code.</p>
 <dl class="simple">
@@ -281,8 +299,9 @@ names and values would not be, depending on your choice!</p></li>
 </section>
 </section>
 
-<div class="section">
-   
+<div class="section ablog__blog_comments">
+  
+  
 </div>
 
            </div>
@@ -292,7 +311,7 @@ names and values would not be, depending on your choice!</p></li>
   <hr>
 
   <div role="contentinfo">
-    <p>&#169; &#29256;&#26435;&#25152;&#26377; 2022, Kay Hayen and Nuitka Contributors.</p>
+    <p>&#169; &#29256;&#26435;&#25152;&#26377; 2023, Kay Hayen and Nuitka Contributors.</p>
   </div>
 
   

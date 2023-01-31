@@ -13,7 +13,7 @@
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Nuitka Release 0.6.14 &#8212; Nuitka the Python Compiler  documentation</title>
-      <link rel="stylesheet" href="/_static/css/combined_e6840a1efaf0bb3afd9a2fd6b30cc2e9.css" type="text/css">
+      <link rel="stylesheet" href="/_static/css/combined_03f7eeec2061fd0a5acfc23d1d0bf4fb.css" type="text/css">
       <link rel="canonical" href="https://nuitka.net/posts/nuitka-release-0614.html">
   <!--[if lt IE 9]>
     <script src="../_static/js/html5shiv.min.js"></script>
@@ -33,37 +33,15 @@
     SHOW_SEARCH_SUMMARY: true,
     ENABLE_SEARCH_SHORTCUTS: true,
 };</script>
-        <script src="/_static/combined_1f3d291568f0d25fd5e0e83c3075a3a3.js" async=""></script>
+        <script src="/_static/combined_50b22e29ca76da059b0c14dcc606bcaa.js" async=""></script>
         <script src="../_static/_sphinx_javascript_frameworks_compat.js" async=""></script>
+        <script src="../_static/sphinx_highlight.js" async=""></script>
         <script src="../_static/clipboard.min.js" async=""></script>
         <script src="../_static/copybutton.js" async=""></script>
         <link rel="index" title="Index" href="../genindex.html">
     <link rel="alternate" type="application/atom+xml" href="../blog/atom.xml" title="Nuitka Blog">
- 
-<style type="text/css">
-  ul.ablog-archive {
-    list-style: none;
-    overflow: auto;
-    margin-left: 0px;
-  }
-  ul.ablog-archive li {
-    float: left;
-    margin-right: 5px;
-    font-size: 80%;
-  }
-  ul.postlist a {
-    font-style: italic;
-  }
-  ul.postlist-style-disc {
-    list-style-type: disc;
-  }
-  ul.postlist-style-none {
-    list-style-type: none;
-  }
-  ul.postlist-style-circle {
-    list-style-type: circle;
-  }
-</style>
+
+
 
 </head>
 
@@ -72,8 +50,12 @@
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search">
-            <a href="../index.html" class="icon icon-home"> Nuitka the Python Compiler
-            <div class="logo_container"><img src="../_static/Nuitka-Logo-Symbol.svg" class="logo" alt="Logo" width="208" height="209">
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            Nuitka the Python Compiler
+              <div class="logo_container"><img src="../_static/Nuitka-Logo-Symbol.svg" class="logo" alt="Logo" width="208" height="209">
           </div></a><!-- Empty override file take the place of searchbox.html, which generates search box. -->
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
               <ul>
@@ -88,15 +70,16 @@
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Release Information</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../doc/Changelog.html">Nuitka Release 1.2 (Draft)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../doc/Changelog.html#nuitka-release-1-1">Nuitka Release 1.1</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../doc/Changelog.html#nuitka-release-1-0">Nuitka Release 1.0</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../doc/Changelog.html">Nuitka Release 1.5 (Draft)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../doc/Changelog.html#nuitka-release-1-4">Nuitka Release 1.4</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../doc/Changelog.html#nuitka-release-1-3">Nuitka Release 1.3</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../doc/Changelog.html#older-releases">Older Releases</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../doc/roadmap.html">Roadmap</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">More documentation</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../doc/developer-manual.html">Developer Manual</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../doc/nuitka-package-config.html">Nuitka Package Configuration</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../doc/api-doc.html">API doc</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../doc/factory.html">Factory Instructions</a></li>
 </ul>
@@ -114,6 +97,7 @@
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../doc/welcome.html">Welcome</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../pages/pyside2.html">Nuitka PySide2 support</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pages/pyqt5.html">Nuitka PyQt5 support</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../pages/donations.html">Donations</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../pages/gsoc2019.html">Google Summer of Code 2019</a></li>
 </ul>
@@ -132,7 +116,8 @@
           <!-- Empty override file take the place of sphinx_rtd_theme/breadcrumbs.html, which generates the top nav breadcrumbs. -->
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
-              <section id="nuitka-release-0-6-14">
+             
+<section id="nuitka-release-0-6-14">
 <h1>Nuitka Release 0.6.14<a class="headerlink" href="#nuitka-release-0-6-14" title="Permalink to this heading">&#61633;</a></h1>
 <p>This is to inform you about the new stable release of <a class="reference external" href="https://nuitka.net">Nuitka</a>. It is the extremely compatible Python compiler,
 <a class="reference external" href="/doc/download.html">&#8220;download now&#8221;</a>.</p>
@@ -182,7 +167,7 @@ was broken and didn&#8217;t match. Fixed in 0.6.13.1 already.</p></li>
 <p>When found in the filename provided, Nuitka will inject options to
 the commandline, such that it becomes possible to do a complex
 project with only using</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>python -m nuitka filename.py
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>python<span class="w"> </span>-m<span class="w"> </span>nuitka<span class="w"> </span>filename.py
 </pre></div>
 </div>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Compilation mode, support OS specific.</span>
@@ -340,26 +325,38 @@ code, which is of course always a good thing.</p>
 </section>
 </section>
 
-<div class="section">
-    
+<div class="section ablog__blog_comments">
+  
+  
 
-<div class="section">
-  <span style="float: left">
-     
+
+<div class="section ablog__prev-next">
+  <span class="ablog__prev">
+    
+    
     <a href="nuitka-release-0613.html">
-      <i class="fa fa-arrow-circle-left"></i> Nuitka Release 0.6.13
+      
+      <i class="fa fa-arrow-circle-left"></i>
+      
+      <span>Nuitka Release 0.6.13</span>
     </a>
     
   </span>
-  <span>&#160;</span>
-  <span style="float: right">
-     
+  <span class="ablog__spacer">&#160;</span>
+  <span class="ablog__next">
+    
+    
     <a href="nuitka-release-0615.html">
-      Nuitka Release 0.6.15 <i class="fa fa-arrow-circle-right"></i>
+      <span>Nuitka Release 0.6.15</span>
+      
+      <i class="fa fa-arrow-circle-right"></i>
+      
     </a>
     
   </span>
 </div>
+
+  
   
 </div>
 
@@ -370,7 +367,7 @@ code, which is of course always a good thing.</p>
   <hr>
 
   <div role="contentinfo">
-    <p>&#169; Copyright 2022, Kay Hayen and Nuitka Contributors.</p>
+    <p>&#169; Copyright 2023, Kay Hayen and Nuitka Contributors.</p>
   </div>
 
   
@@ -424,8 +421,8 @@ code, which is of course always a good thing.</p>
             <div class="sd-summary-content sd-card-body switcher-body docutils">
                 <blockquote>
                     <div>
-                        <div><div class="line"><a class="reference external" href="/zh_CN/posts/nuitka-release-0614.html">CN</a></div>
-                            <div class="line"><a class="reference external" href="/de_DE/posts/nuitka-release-0614.html">DE</a></div>
+                        <div><div class="line"><a class="reference external" href="/de_DE/posts/nuitka-release-0614.html">DE</a></div>
+                            <div class="line"><a class="reference external" href="/zh_CN/posts/nuitka-release-0614.html">CN</a></div>
                             </div></div>
                 </blockquote>
             </div>

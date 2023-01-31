@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en">
+<head>
+  <meta charset="utf-8"><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/">
+    <link rel="icon" href="../_static/favicon.svg" type="image/svg+xml">
+    <link rel="icon" href="../_static/favicon.png" sizes="32x32" type="image/png">
+    <link rel="icon" href="../_static/favicon.ico" sizes="32x32" type="image/x-icon">
+    <link rel="icon" href="../_static/apple-touch-icon-iphone.png" sizes="57x57" type="image/png">
+    <link rel="icon" href="../_static/apple-touch-icon-ipad.png" sizes="72x72" type="image/png">
+    <link rel="icon" href="../_static/apple-touch-icon-iphone4.png" sizes="114x114" type="image/png">
+    <link rel="icon" href="../_static/apple-touch-icon-ipad3.png" sizes="144x144" type="image/png">
+    <link rel="apple-touch-icon" href="../_static/apple-touch-icon-180x180.png" sizes="180x180" type="image/png">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>All in with Nuitka &#8212; Nuitka the Python Compiler  documentation</title>
+      <link rel="stylesheet" href="/_static/css/combined_c265894810fc31e59f2b3db7937ee66d.css" type="text/css">
+      <link rel="canonical" href="https://nuitka.net/posts/all-in-with-nuitka.html">
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script>var DOCUMENTATION_OPTIONS = {
+    URL_ROOT: '../',
+    VERSION: '',
+    LANGUAGE: 'en',
+    COLLAPSE_INDEX: false,
+    BUILDER: 'html',
+    FILE_SUFFIX: '.html',
+    LINK_SUFFIX: '.html',
+    HAS_SOURCE: false,
+    SOURCELINK_SUFFIX: '.txt',
+    NAVIGATION_WITH_KEYS: false,
+    SHOW_SEARCH_SUMMARY: true,
+    ENABLE_SEARCH_SHORTCUTS: true,
+};</script>
+        <script src="/_static/combined_50b22e29ca76da059b0c14dcc606bcaa.js" async=""></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js" async=""></script>
+        <script src="../_static/sphinx_highlight.js" async=""></script>
+        <link rel="index" title="Index" href="../genindex.html">
+    <link rel="alternate" type="application/atom+xml" href="../blog/atom.xml" title="Nuitka Blog">
+
+
+
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            Nuitka the Python Compiler
+              <div class="logo_container"><img src="../_static/Nuitka-Logo-Symbol.svg" class="logo" alt="Logo" width="208" height="209">
+          </div></a><!-- Empty override file take the place of searchbox.html, which generates search box. -->
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="../doc/download.html">Download</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../doc/user-manual.html">User Manual</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pages/support.html">Support</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Commercial Users</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../doc/commercial.html">Nuitka Commercial</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../doc/bundles.html">Nuitka Bundles</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Release Information</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../doc/Changelog.html">Nuitka Release 1.5 (Draft)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../doc/Changelog.html#nuitka-release-1-4">Nuitka Release 1.4</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../doc/Changelog.html#nuitka-release-1-3">Nuitka Release 1.3</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../doc/Changelog.html#older-releases">Older Releases</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../doc/roadmap.html">Roadmap</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">More documentation</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../doc/developer-manual.html">Developer Manual</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../doc/nuitka-package-config.html">Nuitka Package Configuration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../doc/api-doc.html">API doc</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../doc/factory.html">Factory Instructions</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Media</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../pages/Presentations.html">Presentations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pages/Streaming.html">Streaming</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Other</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../doc/Credits.html">Credits</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pages/impressum.html">Impressum</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Under construction</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../doc/welcome.html">Welcome</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pages/pyside2.html">Nuitka PySide2 support</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pages/pyqt5.html">Nuitka PyQt5 support</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pages/donations.html">Donations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pages/gsoc2019.html">Google Summer of Code 2019</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Nuitka the Python Compiler</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <!-- Empty override file take the place of sphinx_rtd_theme/breadcrumbs.html, which generates the top nav breadcrumbs. -->
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+<section id="all-in-with-nuitka">
+<h1>All in with Nuitka<a class="headerlink" href="#all-in-with-nuitka" title="Permalink to this heading">&#61633;</a></h1>
+<p>After more than 10 years of working on the Python compiler Nuitka, and
+at the age of 50, I have finally decided to take the plunge. My projects
+&#8220;Nuitka&#8221; and &#8220;Nuitka commercial&#8221; are now my <em>day job</em>, and I quit my
+work in the Air Traffic Community, after working on <a class="reference external" href="https://en.wikipedia.org/wiki/ARTAS" target="_blank">ARTAS</a> (a software to create an Air
+Situation Picture from radar and other sensors) for 20 years.</p>
+</section>
+<section id="why-now">
+<h1>Why now?<a class="headerlink" href="#why-now" title="Permalink to this heading">&#61633;</a></h1>
+<p>That is very good question. I feel I could have done this a long time
+ago, and my heart was torn for a while, and also I prepared this for a
+while now. Listing back to interviews from 4 years ago, it seems though
+as if it had not been on the radar (pun intended).</p>
+<p>So then I launched Nuitka commercial around 1.5 years ago, first as
+vapor ware, with early bird customers, and meanwhile it has matured to a
+point, where it is the obvious solution to many corporate users, with
+big guys picking it up and small business as well. From startups, big
+name technology giants, universities, mid sized companies, and from
+individuals, I have all kinds of support.</p>
+<p>I liked my old job very much, but it was getting old, and I felt like
+Nuitka needs me to fulfil my mission. And my wife needed my help with
+driving her to work, which was getting the load to high, something had
+to give. And it seems nothing related to what is called Nuitka (my wife,
+and the compiler share the name) was going to be that.</p>
+</section>
+<section id="what-will-change">
+<h1>What will change?<a class="headerlink" href="#what-will-change" title="Permalink to this heading">&#61633;</a></h1>
+<p>Already, ever since I launched Nuitka commercial, Nuitka has become way
+more of a out of the box experience. It just works, and covers more
+packages than ever before, and steps have been taken, to make it
+possible to extend this even further with your help. Sure there are
+still shortcoming.</p>
+<p>But Nuitka has become very polished, and shows this very much that I
+also love details and doing things correctly. I have conducted Nuitka
+from day one as an attempt to create a software that would be usable to
+the enterprise with a million lines of code, that they cannot check for
+unsupported language features, so Nuitka is just fully compatible, to a
+level of absurdity.</p>
+<p>Having conducted Nuitka on a level of where a corporate business can
+throw it&#8217;s code at Nuitka and have it just work, and reliably, this will
+only improve now.</p>
+<p>Naturally bugs have happened once in a while, but I was always more
+careful. You know, like if this was for safety critical software, on
+which lives might depend. Hard to not be affected by that stance.</p>
+<p>So lets talk about other ways I plan to expand.</p>
+</section>
+<section id="nuitka-package-configuration">
+<h1>Nuitka Package Configuration<a class="headerlink" href="#nuitka-package-configuration" title="Permalink to this heading">&#61633;</a></h1>
+<p>Extending Nuitka with tweaks for package has become increasingly
+simpler. Many previous plugins, e.g. for <code class="docutils literal notranslate"><span class="pre">torch</span></code>, <code class="docutils literal notranslate"><span class="pre">tensorflow</span></code>, and
+most recently <code class="docutils literal notranslate"><span class="pre">numpy</span></code>, and definitely also the Qt binding ones in the
+future, have been or will be converted to Yaml configuration applied by
+generic plugins that deal with DLLs, data-files, tweaks (called
+<code class="docutils literal notranslate"><span class="pre">anti-bloat</span></code>) etc.</p>
+<p>Adding stuff there is simple, and as of recently, there is even
+documentation for it. This is going to be explained in a series of posts
+detailing Nuitka package configuration, under the <code class="docutils literal notranslate"><span class="pre">package_config</span></code>
+tag.</p>
+<p>I must say it&#8217;s so much fun, I love working with it. But the goal is for
+this to have you join it, and PRs are indeed starting to come in more
+frequently it seems from first glance, but I need to make this more
+known.</p>
+</section>
+<section id="streaming">
+<h1>Streaming<a class="headerlink" href="#streaming" title="Permalink to this heading">&#61633;</a></h1>
+<p>I have experimented with streaming in the past, and I absolutely love
+it. Without my day job, effectively working two jobs at the same time, I
+expect to have the time to do more of them in December and then on a
+regular basis.</p>
+</section>
+<section id="python-3-11">
+<h1>Python 3.11<a class="headerlink" href="#python-3-11" title="Permalink to this heading">&#61633;</a></h1>
+<p>There will be a separate post on this issue later this week. I am
+scrambling to add support for it and it feels very far already. Many
+basic tests already work, but more debugging will be needed. I hope
+Nuitka 1.3 will add support for it, at least on the usual experimental
+level.</p>
+</section>
+<section id="how-you-can-help">
+<h1>How you can help?<a class="headerlink" href="#how-you-can-help" title="Permalink to this heading">&#61633;</a></h1>
+<p>Please become a <a class="reference external" href="https://nuitka.net/doc/commercial.html">subscriber of Nuitka commercial</a>, even if you do not
+need the IP protection features it mostly has. All essential packaging
+and performance features are free, and I have put incredible amounts of
+works in this, and I need to now make a living off it.</p>
+<p>Right now, I am far from being able to sustain my income from it, and I
+am taking a risk with this effort, hoping for support from you.</p>
+<p>Nuitka commercial makes creating a Windows Service a blast. It has a
+PySide2 that is compatible with Nuitka (I did make PySide6 compatible
+myself, and backported it to PySide2), so if you need to stay on old
+software. And for IP protection, it is just incredibly important to not
+ship bytecode at all, and with Nuitka commercial, it protects your data
+and files at runtime too.</p>
+<p>I am bad at marketing, but good at software, which is one more reason to
+purchase it. You know you love these kinds of people. Was that good
+marketing? Also, there are share buttons on this page. Please try them
+out and let people know about this.</p>
+<p>In future postings, I will make it a regular thing to ask for help with
+some of the technical tasks. Stay tuned, there might be something that
+you can help with.</p>
+</section>
+<section id="becoming-more-active">
+<h1>Becoming more active<a class="headerlink" href="#becoming-more-active" title="Permalink to this heading">&#61633;</a></h1>
+<p>I am the kind of person that would much rather do good stuff than to
+talk about it, like when it finally supports Python 3.11, normal old me
+would just mention it maybe on Twitter once, and have it in the
+changelog only.</p>
+<p>I need to get away from that. I need to resume TWN (This week in Nuitka)
+and have all plans to do it. Obviously I can get caught up in things,
+and may just always do it later when there is more or better news.</p>
+</section>
+
+<div class="section ablog__blog_comments">
+  
+  
+
+
+<div class="section ablog__prev-next">
+  <span class="ablog__prev">
+    
+    
+    <a href="nuitka-release-12.html">
+      
+      <i class="fa fa-arrow-circle-left"></i>
+      
+      <span>Nuitka Release 1.2</span>
+    </a>
+    
+  </span>
+  <span class="ablog__spacer">&#160;</span>
+  <span class="ablog__next">
+    
+    
+    <a href="python311-support.html">
+      <span>Python 3.11 and Nuitka</span>
+      
+      <i class="fa fa-arrow-circle-right"></i>
+      
+    </a>
+    
+  </span>
+</div>
+
+  
+  
+</div>
+
+           </div>
+          </div>
+          <footer>
+
+  <hr>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, Kay Hayen and Nuitka Contributors.</p>
+  </div>
+
+  
+<div class="share-button-container">
+    <div class="socialbutton-wrapper">
+
+        <a href="https://twitter.com/share?url=https://nuitka.net/posts/all-in-with-nuitka.html&amp;hashtags=nuitka" target="_blank">
+            <div class="socialbutton twitter">
+                <p class="icon">
+                    <img src="/_static/icon-twitter.png" width="24" height="24">
+                </p>
+
+                <p class="shares">share...</p>
+            </div>
+        </a>
+
+        <a href="https://www.facebook.com/sharer.php?u=https://nuitka.net/posts/all-in-with-nuitka.html&amp;hashtag=%23nuitka" target="_blank">
+            <div class="socialbutton facebook">
+                <p class="icon">
+                    <img src="/_static/icon-facebook.png" width="24" height="24">
+                </p>
+
+                <p class="shares">share...</p>
+            </div>
+        </a>
+
+        <a href="http://www.reddit.com/submit?url=https://nuitka.net/posts/all-in-with-nuitka.html" target="_blank">
+            <div class="socialbutton reddit">
+                <p class="icon">
+                    <img src="/_static/icon-reddit.png" width="24" height="24">
+                </p>
+
+                <p class="shares">share...</p>
+            </div>
+        </a>
+
+        <details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3 switcher-container">
+            <summary class="sd-summary-title sd-card-header switcher-title">EN<div class="sd-summary-down docutils">
+                    <svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-down" viewbox="0 0 24 24" aria-hidden="true">
+                        <path fill-rule="evenodd" d="M5.22 8.72a.75.75 0 000 1.06l6.25 6.25a.75.75 0 001.06 0l6.25-6.25a.75.75 0 00-1.06-1.06L12 14.44 6.28 8.72a.75.75 0 00-1.06 0z">
+                        </path>
+                    </svg>
+                </div>
+                <div class="sd-summary-up docutils">
+                    <svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-up" viewbox="0 0 24 24" aria-hidden="true">
+                        <path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z">
+                        </path>
+                    </svg>
+                </div>
+            </summary>
+            <div class="sd-summary-content sd-card-body switcher-body docutils">
+                <blockquote>
+                    <div>
+                        <div><div class="line"><a class="reference external" href="/de_DE/posts/all-in-with-nuitka.html">DE</a></div>
+                            <div class="line"><a class="reference external" href="/zh_CN/posts/all-in-with-nuitka.html">CN</a></div>
+                            </div></div>
+                </blockquote>
+            </div>
+        </details>
+    </div>
+</div>
+
+
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  </body>
+</html>

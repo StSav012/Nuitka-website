@@ -1,0 +1,617 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en">
+<head>
+  <meta charset="utf-8"><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/">
+    <link rel="icon" href="../_static/favicon.svg" type="image/svg+xml">
+    <link rel="icon" href="../_static/favicon.png" sizes="32x32" type="image/png">
+    <link rel="icon" href="../_static/favicon.ico" sizes="32x32" type="image/x-icon">
+    <link rel="icon" href="../_static/apple-touch-icon-iphone.png" sizes="57x57" type="image/png">
+    <link rel="icon" href="../_static/apple-touch-icon-ipad.png" sizes="72x72" type="image/png">
+    <link rel="icon" href="../_static/apple-touch-icon-iphone4.png" sizes="114x114" type="image/png">
+    <link rel="icon" href="../_static/apple-touch-icon-ipad3.png" sizes="144x144" type="image/png">
+    <link rel="apple-touch-icon" href="../_static/apple-touch-icon-180x180.png" sizes="180x180" type="image/png">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Nuitka Package Configuration Kickoff &#8212; Nuitka the Python Compiler  documentation</title>
+      <link rel="stylesheet" href="/_static/css/combined_03f7eeec2061fd0a5acfc23d1d0bf4fb.css" type="text/css">
+      <link rel="canonical" href="https://nuitka.net/posts/nuitka-package-config-kickoff.html">
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script>var DOCUMENTATION_OPTIONS = {
+    URL_ROOT: '../',
+    VERSION: '',
+    LANGUAGE: 'en',
+    COLLAPSE_INDEX: false,
+    BUILDER: 'html',
+    FILE_SUFFIX: '.html',
+    LINK_SUFFIX: '.html',
+    HAS_SOURCE: false,
+    SOURCELINK_SUFFIX: '.txt',
+    NAVIGATION_WITH_KEYS: false,
+    SHOW_SEARCH_SUMMARY: true,
+    ENABLE_SEARCH_SHORTCUTS: true,
+};</script>
+        <script src="/_static/combined_50b22e29ca76da059b0c14dcc606bcaa.js" async=""></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js" async=""></script>
+        <script src="../_static/sphinx_highlight.js" async=""></script>
+        <script src="../_static/clipboard.min.js" async=""></script>
+        <script src="../_static/copybutton.js" async=""></script>
+        <link rel="index" title="Index" href="../genindex.html">
+    <link rel="alternate" type="application/atom+xml" href="../blog/atom.xml" title="Nuitka Blog">
+
+
+
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            Nuitka the Python Compiler
+              <div class="logo_container"><img src="../_static/Nuitka-Logo-Symbol.svg" class="logo" alt="Logo" width="208" height="209">
+          </div></a><!-- Empty override file take the place of searchbox.html, which generates search box. -->
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="../doc/download.html">Download</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../doc/user-manual.html">User Manual</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pages/support.html">Support</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Commercial Users</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../doc/commercial.html">Nuitka Commercial</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../doc/bundles.html">Nuitka Bundles</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Release Information</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../doc/Changelog.html">Nuitka Release 1.5 (Draft)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../doc/Changelog.html#nuitka-release-1-4">Nuitka Release 1.4</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../doc/Changelog.html#nuitka-release-1-3">Nuitka Release 1.3</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../doc/Changelog.html#older-releases">Older Releases</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../doc/roadmap.html">Roadmap</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">More documentation</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../doc/developer-manual.html">Developer Manual</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../doc/nuitka-package-config.html">Nuitka Package Configuration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../doc/api-doc.html">API doc</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../doc/factory.html">Factory Instructions</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Media</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../pages/Presentations.html">Presentations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pages/Streaming.html">Streaming</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Other</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../doc/Credits.html">Credits</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pages/impressum.html">Impressum</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Under construction</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../doc/welcome.html">Welcome</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pages/pyside2.html">Nuitka PySide2 support</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pages/pyqt5.html">Nuitka PyQt5 support</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pages/donations.html">Donations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pages/gsoc2019.html">Google Summer of Code 2019</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Nuitka the Python Compiler</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <!-- Empty override file take the place of sphinx_rtd_theme/breadcrumbs.html, which generates the top nav breadcrumbs. -->
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+<section id="nuitka-package-configuration-kickoff">
+<h1>Nuitka Package Configuration Kickoff<a class="headerlink" href="#nuitka-package-configuration-kickoff" title="Permalink to this heading">&#61633;</a></h1>
+<p>The term &#8220;kickoff&#8221; refers to a series of posts about the Nuitka package
+configuration. The details are here on a dedicate page on the web site
+only. <a class="reference external" href="https://nuitka.net/doc/nuitka-package-config.html">Nuitka Package Configuration</a>.</p>
+<p>This documentation is still very rough and bare of examples, but the
+goal is to make it more complete as package of this series of posts.
+When we have an instructive example, we will make a post.</p>
+<p>This is an area of Nuitka, where help will be very easy and a wide
+variety of people will have the skills and desire to help, but the lack
+of documentation, makes it hard or impossible to channel the common
+knowledge.</p>
+</section>
+<section id="problem-package">
+<h1>Problem Package<a class="headerlink" href="#problem-package" title="Permalink to this heading">&#61633;</a></h1>
+<p>Each post will feature one package that caused a particular problem. In
+this case, we are talking about the package <code class="docutils literal notranslate"><span class="pre">tkinterweb</span></code>.</p>
+<p>Problems are typically encountered in standalone mode only. Missing data
+files and DLLs are usually only and issue there, but this one actually
+also had a problem with accelerated mode.</p>
+</section>
+<section id="initial-symptom">
+<h1>Initial Symptom<a class="headerlink" href="#initial-symptom" title="Permalink to this heading">&#61633;</a></h1>
+<p>The compiled program gave the following error:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="ne">ModuleNotFoundError</span><span class="p">:</span> <span class="n">The</span> <span class="n">files</span> <span class="n">required</span> <span class="n">to</span> <span class="n">run</span> <span class="n">TkinterWeb</span> <span class="n">could</span> <span class="ow">not</span> <span class="n">be</span> <span class="n">found</span><span class="o">.</span> <span class="n">This</span> <span class="n">usually</span> <span class="n">occurs</span> <span class="n">when</span> <span class="n">bundling</span> <span class="n">TkinterWeb</span> <span class="n">into</span> <span class="n">an</span> <span class="n">app</span> <span class="n">without</span> <span class="n">forcing</span> <span class="n">the</span> <span class="n">application</span> <span class="n">maker</span> <span class="n">to</span> <span class="n">include</span> <span class="nb">all</span> <span class="n">nessessary</span> <span class="n">files</span><span class="o">.</span> <span class="n">See</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">github</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">Andereoo</span><span class="o">/</span><span class="n">TkinterWeb</span><span class="o">/</span><span class="n">blob</span><span class="o">/</span><span class="n">main</span><span class="o">/</span><span class="n">tkinterweb</span><span class="o">/</span><span class="n">docs</span><span class="o">/</span><span class="n">FAQ</span><span class="o">.</span><span class="n">md</span> <span class="k">for</span> <span class="n">more</span> <span class="n">information</span><span class="o">.</span>
+
+<span class="n">Error</span><span class="p">:</span> <span class="n">Traceback</span> <span class="p">(</span><span class="n">most</span> <span class="n">recent</span> <span class="n">call</span> <span class="n">last</span><span class="p">):</span>
+    <span class="n">File</span> <span class="s2">"C:\...</span><span class="se">\200</span><span class="s2">~1.0</span><span class="se">\t</span><span class="s2">kinterweb\__init__.py"</span><span class="p">,</span> <span class="n">line</span> <span class="mi">32</span><span class="p">,</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span> <span class="n">tkinterweb</span><span class="o">&gt;</span>
+<span class="ne">ModuleNotFoundError</span><span class="p">:</span> <span class="n">No</span> <span class="n">module</span> <span class="n">named</span> <span class="s1">'bindings'</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The traceback has been redacted, removing user specific part and
+replacing it with <code class="docutils literal notranslate"><span class="pre">...</span></code>.</p>
+</div>
+<p>The strange looking part of the filename <code class="docutils literal notranslate"><span class="pre">200~1.0</span></code> in the traceback is
+because Nuitka on Windows is convincing the program that it runs in a
+short path. So the errors you get, are not pointing to the name of the
+binary inside the dist folder, but to a shorter path, that is however
+exactly the same folder. You wouldn&#8217;t believe how many parts of Python
+still don&#8217;t have long filenames handled properly. Actually Tcl and
+TkInter are among them.</p>
+</section>
+<section id="step-1-data-files">
+<h1>Step 1 - data files<a class="headerlink" href="#step-1-data-files" title="Permalink to this heading">&#61633;</a></h1>
+<p>So, whenever a Python module fails to import, this can be caused by
+missing data files. In Nuitka land, these are not extension modules,
+DLLs, bytecode, etc. but everything else, and it has been seen that
+these can cause issues. So what to do here. This is easy, Nuitka has
+recently gained a command dedicated to this operation, making use of its
+internal code to list data files for a package.</p>
+<p>Here we go</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>python3.10<span class="w"> </span>-m<span class="w"> </span>nuitka<span class="w"> </span>--list-package-data<span class="o">=</span>tkinterweb
+</pre></div>
+</div>
+<p>Gives output:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Nuitka</span><span class="o">-</span><span class="n">Tools</span><span class="p">:</span><span class="n">INFO</span><span class="p">:</span> <span class="n">Checking</span> <span class="n">package</span> <span class="n">directory</span> <span class="s1">'C:\Python310\lib\site-packages</span><span class="se">\t</span><span class="s1">kinterweb'</span> <span class="o">..</span>
+<span class="n">C</span><span class="p">:</span>\<span class="n">Python310</span>\<span class="n">lib</span>\<span class="n">site</span><span class="o">-</span><span class="n">packages</span>\<span class="n">tkinterweb</span>
+<span class="n">C</span><span class="p">:</span>\<span class="n">Python310</span>\<span class="n">lib</span>\<span class="n">site</span><span class="o">-</span><span class="n">packages</span>\<span class="n">tkinterweb</span>\<span class="n">tkhtml</span>\<span class="n">combobox</span><span class="o">-</span><span class="mf">2.3</span><span class="o">.</span><span class="n">tm</span>
+<span class="n">C</span><span class="p">:</span>\<span class="n">Python310</span>\<span class="n">lib</span>\<span class="n">site</span><span class="o">-</span><span class="n">packages</span>\<span class="n">tkinterweb</span>\<span class="n">tkhtml</span>\<span class="n">pkgIndex</span><span class="o">.</span><span class="n">tcl</span>
+<span class="n">C</span><span class="p">:</span>\<span class="n">Python310</span>\<span class="n">lib</span>\<span class="n">site</span><span class="o">-</span><span class="n">packages</span>\<span class="n">tkinterweb</span>\<span class="n">tkhtml</span>\<span class="n">Darwin</span>\<span class="mi">64</span><span class="o">-</span><span class="n">bit</span>\<span class="n">pkgIndex</span><span class="o">.</span><span class="n">tcl</span>
+<span class="n">C</span><span class="p">:</span>\<span class="n">Python310</span>\<span class="n">lib</span>\<span class="n">site</span><span class="o">-</span><span class="n">packages</span>\<span class="n">tkinterweb</span>\<span class="n">tkhtml</span>\<span class="n">Linux</span>\<span class="mi">32</span><span class="o">-</span><span class="n">bit</span>\<span class="n">pkgIndex</span><span class="o">.</span><span class="n">tcl</span>
+<span class="n">C</span><span class="p">:</span>\<span class="n">Python310</span>\<span class="n">lib</span>\<span class="n">site</span><span class="o">-</span><span class="n">packages</span>\<span class="n">tkinterweb</span>\<span class="n">tkhtml</span>\<span class="n">Linux</span>\<span class="mi">64</span><span class="o">-</span><span class="n">bit</span>\<span class="n">pkgIndex</span><span class="o">.</span><span class="n">tcl</span>
+<span class="n">C</span><span class="p">:</span>\<span class="n">Python310</span>\<span class="n">lib</span>\<span class="n">site</span><span class="o">-</span><span class="n">packages</span>\<span class="n">tkinterweb</span>\<span class="n">tkhtml</span>\<span class="n">Windows</span>\<span class="mi">32</span><span class="o">-</span><span class="n">bit</span>\<span class="n">pkgIndex</span><span class="o">.</span><span class="n">tcl</span>
+<span class="n">C</span><span class="p">:</span>\<span class="n">Python310</span>\<span class="n">lib</span>\<span class="n">site</span><span class="o">-</span><span class="n">packages</span>\<span class="n">tkinterweb</span>\<span class="n">tkhtml</span>\<span class="n">Windows</span>\<span class="mi">64</span><span class="o">-</span><span class="n">bit</span>\<span class="n">pkgIndex</span><span class="o">.</span><span class="n">tcl</span>
+</pre></div>
+</div>
+<p>So there are data files, great. Lets just include them, and retry. There
+appears to be need for that anyway. Now we could use
+<code class="docutils literal notranslate"><span class="pre">--include-package-data=tkinterweb</span></code> for quickly trying it out, but
+since we are in here to make it generally useful, we will start
+modification of the Yaml file right away.</p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">module-name</span><span class="p">:</span><span class="w"> </span><span class="s">'tkinterweb'</span>
+<span class="w">  </span><span class="nt">data-files</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">dirs</span><span class="p">:</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">'tkhtml'</span>
+</pre></div>
+</div>
+<p>So, we retry, and nothing changes. Not enough, but on the other hand, it
+was obviously necessary anyway.</p>
+</section>
+<section id="step-2-dll-files">
+<h1>Step 2 - DLL files<a class="headerlink" href="#step-2-dll-files" title="Permalink to this heading">&#61633;</a></h1>
+<p>The other big trouble maker, and easy to check nowadays, is missing
+DLLs. Extension modules can depend on DLLs. When they are linked
+against, this not usually and issue, and Nuitka and its plugins
+typically resolve all of those perfectly, but often DLLs are loading
+manually. Maybe this is what is going on here.</p>
+<p>Also recently, Nuitka gained a command to check for DLLs.</p>
+<p>Here we go</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>python3.10<span class="w"> </span>bin/nuitka<span class="w"> </span>--list-package-dlls<span class="o">=</span>tkinterweb
+</pre></div>
+</div>
+<p>Gives output:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Nuitka</span><span class="o">-</span><span class="n">Tools</span><span class="p">:</span><span class="n">INFO</span><span class="p">:</span> <span class="n">Checking</span> <span class="n">package</span> <span class="n">directory</span> <span class="s1">'C:\Python310\lib\site-packages</span><span class="se">\t</span><span class="s1">kinterweb'</span> <span class="o">..</span>
+<span class="n">C</span><span class="p">:</span>\<span class="n">Python310</span>\<span class="n">lib</span>\<span class="n">site</span><span class="o">-</span><span class="n">packages</span>\<span class="n">tkinterweb</span>
+<span class="n">C</span><span class="p">:</span>\<span class="n">Python310</span>\<span class="n">lib</span>\<span class="n">site</span><span class="o">-</span><span class="n">packages</span>\<span class="n">tkinterweb</span>\<span class="n">tkhtml</span>
+<span class="n">C</span><span class="p">:</span>\<span class="n">Python310</span>\<span class="n">lib</span>\<span class="n">site</span><span class="o">-</span><span class="n">packages</span>\<span class="n">tkinterweb</span>\<span class="n">tkhtml</span>\<span class="n">Darwin</span>
+<span class="n">C</span><span class="p">:</span>\<span class="n">Python310</span>\<span class="n">lib</span>\<span class="n">site</span><span class="o">-</span><span class="n">packages</span>\<span class="n">tkinterweb</span>\<span class="n">tkhtml</span>\<span class="n">Darwin</span>\<span class="mi">64</span><span class="o">-</span><span class="n">bit</span>
+<span class="n">tkhtml</span>\<span class="n">Darwin</span>\<span class="mi">64</span><span class="o">-</span><span class="n">bit</span>\<span class="n">Tkhtml30</span><span class="o">.</span><span class="n">dylib</span>
+<span class="n">C</span><span class="p">:</span>\<span class="n">Python310</span>\<span class="n">lib</span>\<span class="n">site</span><span class="o">-</span><span class="n">packages</span>\<span class="n">tkinterweb</span>\<span class="n">tkhtml</span>\<span class="n">Linux</span>
+<span class="n">C</span><span class="p">:</span>\<span class="n">Python310</span>\<span class="n">lib</span>\<span class="n">site</span><span class="o">-</span><span class="n">packages</span>\<span class="n">tkinterweb</span>\<span class="n">tkhtml</span>\<span class="n">Linux</span>\<span class="mi">32</span><span class="o">-</span><span class="n">bit</span>
+<span class="n">tkhtml</span>\<span class="n">Linux</span>\<span class="mi">32</span><span class="o">-</span><span class="n">bit</span>\<span class="n">Tkhtml30</span><span class="o">.</span><span class="n">so</span>
+<span class="n">C</span><span class="p">:</span>\<span class="n">Python310</span>\<span class="n">lib</span>\<span class="n">site</span><span class="o">-</span><span class="n">packages</span>\<span class="n">tkinterweb</span>\<span class="n">tkhtml</span>\<span class="n">Linux</span>\<span class="mi">64</span><span class="o">-</span><span class="n">bit</span>
+<span class="n">tkhtml</span>\<span class="n">Linux</span>\<span class="mi">64</span><span class="o">-</span><span class="n">bit</span>\<span class="n">Tkhtml30</span><span class="o">.</span><span class="n">so</span>
+<span class="n">C</span><span class="p">:</span>\<span class="n">Python310</span>\<span class="n">lib</span>\<span class="n">site</span><span class="o">-</span><span class="n">packages</span>\<span class="n">tkinterweb</span>\<span class="n">tkhtml</span>\<span class="n">Windows</span>
+<span class="n">C</span><span class="p">:</span>\<span class="n">Python310</span>\<span class="n">lib</span>\<span class="n">site</span><span class="o">-</span><span class="n">packages</span>\<span class="n">tkinterweb</span>\<span class="n">tkhtml</span>\<span class="n">Windows</span>\<span class="mi">32</span><span class="o">-</span><span class="n">bit</span>
+<span class="n">tkhtml</span>\<span class="n">Windows</span>\<span class="mi">32</span><span class="o">-</span><span class="n">bit</span>\<span class="n">Tkhtml30</span><span class="o">.</span><span class="n">dll</span>
+<span class="n">C</span><span class="p">:</span>\<span class="n">Python310</span>\<span class="n">lib</span>\<span class="n">site</span><span class="o">-</span><span class="n">packages</span>\<span class="n">tkinterweb</span>\<span class="n">tkhtml</span>\<span class="n">Windows</span>\<span class="mi">64</span><span class="o">-</span><span class="n">bit</span>
+<span class="n">tkhtml</span>\<span class="n">Windows</span>\<span class="mi">64</span><span class="o">-</span><span class="n">bit</span>\<span class="n">Tkhtml30</span><span class="o">.</span><span class="n">dll</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The output could be not containing folders that have no DLLs
+themselves, but well, such is life, we are going to improve that
+another time.</p>
+</div>
+<p>What this tells us, that in fact there are DLLs, and from the looks of
+it, there is no automatic anything in this. This also appears to be one
+of those PyPI packages that contain binaries for everything. Rather than
+building a wheel per architecture this contains some things, on all
+platforms. For a Python installation that is cool, but surely we do not
+want to deploy both the 32 and 64 bit DLLs where the compiled binary is
+only one of these. Do not even think of different OS, like including
+Linux DLLs on Windows.</p>
+<p>So, luckily this is easy to handle. We can select for OS and
+architecture on Windows for a while already.</p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">module-name</span><span class="p">:</span><span class="w"> </span><span class="s">'tkinterweb'</span>
+<span class="w">  </span><span class="nt">dlls</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">from_filenames</span><span class="p">:</span>
+<span class="w">        </span><span class="nt">relative_path</span><span class="p">:</span><span class="w"> </span><span class="s">'tkhtml/Windows/32-bit'</span>
+<span class="w">        </span><span class="nt">prefixes</span><span class="p">:</span>
+<span class="w">          </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">'Tkhtml'</span>
+<span class="w">      </span><span class="nt">when</span><span class="p">:</span><span class="w"> </span><span class="s">'win32</span><span class="nv"> </span><span class="s">and</span><span class="nv"> </span><span class="s">arch_x86'</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">from_filenames</span><span class="p">:</span>
+<span class="w">        </span><span class="nt">relative_path</span><span class="p">:</span><span class="w"> </span><span class="s">'tkhtml/Windows/64-bit'</span>
+<span class="w">        </span><span class="nt">prefixes</span><span class="p">:</span>
+<span class="w">          </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">'Tkhtml'</span>
+<span class="w">      </span><span class="nt">when</span><span class="p">:</span><span class="w"> </span><span class="s">'win32</span><span class="nv"> </span><span class="s">and</span><span class="nv"> </span><span class="s">arch_amd64'</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Showing this here without the data files section for clarity,
+obviously the DLLs just get added, and Nuitka prevents you from
+having two blocks referencing the same module.</p>
+</div>
+<p>So, including DLLs is fairly easy. If the package directory is not where
+the DLL lives, you specify <code class="docutils literal notranslate"><span class="pre">relative_path</span></code> which is otherwise
+optional. This also influences where it is put in the distribution
+folder. Then when specifying the DLL, we do only give the prefix of the
+DLL. Choosing here to leave out the <code class="docutils literal notranslate"><span class="pre">30</span></code> part of <code class="docutils literal notranslate"><span class="pre">Tkhtml30.dll</span></code> just
+because it&#8217;s probably going to make our life easier down the road,
+should they update that version number, it would still automatically
+work.</p>
+<p>Obviously for other platforms than Windows, the DLLs are not included
+now, but lets see if this works. And actually at the time of writing,
+this is a first. As you can see, on macOS (recognized from &#8220;Darwin&#8221;)
+only the <code class="docutils literal notranslate"><span class="pre">x86_64</span></code> will work, and maybe we should check that out. For
+Linux and 32 bit, this shows what an old package this is.</p>
+<p>So far, outside of Windows, we do not provide tags for arches.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>This is probably going to change now. At least on macOS this seems
+very much needed. Maybe also time to cleanup <code class="docutils literal notranslate"><span class="pre">amd64</span></code> vs <code class="docutils literal notranslate"><span class="pre">x86_64</span></code>
+which kind of is an inconsistency the technical community has.</p>
+</div>
+<p>Anyway, so more branches will be needed. There is no <code class="docutils literal notranslate"><span class="pre">else</span></code> in Nuitka
+package configuration. All <code class="docutils literal notranslate"><span class="pre">from_filenames</span></code> blocks are applied if the
+<code class="docutils literal notranslate"><span class="pre">when</span></code> matches.</p>
+<p>And actually for data files are similar thing should be done, however,
+for the time being <code class="docutils literal notranslate"><span class="pre">--noinclude-data-file</span></code> can be your friend there.
+You can manually exclude them.</p>
+<p>But low and behold, the DLLs are included. The data files are. Typically
+that is enough, but it <strong>still</strong> does not work.</p>
+</section>
+<section id="step-3-check-the-compilation-report">
+<h1>Step 3 - Check the compilation report<a class="headerlink" href="#step-3-check-the-compilation-report" title="Permalink to this heading">&#61633;</a></h1>
+<p>So after following the easy steps to take, and still not working. We can
+check the compilation report. You should always compile with
+<code class="docutils literal notranslate"><span class="pre">--report=compilation-report.xml</span></code> which produces a very human readable
+compilation report, where you can check things easily.</p>
+<p>It lists included DLLs and data files, and often also why it is
+included, and as of recently it learned to output also modules that were
+used by a module, and modules that were attempted to be used, but not
+found.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>This newly tracked information about failed attempts to use a module
+are the basis of largely enhanced bytecode caching (demoted e.g.
+because too large or standard library) in latest Nuitka.</p>
+</div>
+<p>Nuitka will tell use here about the issue from its perspective. So a
+module is not found at runtime, but what happened at compile time. Only
+the report can tell.</p>
+<p>Lets quote the compilation report snippets.</p>
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;module</span><span class="w"> </span><span class="na">name=</span><span class="s">"__main__"</span><span class="w"> </span><span class="na">kind=</span><span class="s">"PythonMainModule"</span><span class="w"> </span><span class="na">reason=</span><span class="s">"Root module"</span><span class="nt">&gt;</span>
+<span class="w">  </span><span class="nt">&lt;optimization-time</span><span class="w"> </span><span class="na">pass=</span><span class="s">"1"</span><span class="w"> </span><span class="na">time=</span><span class="s">"0.25"</span><span class="w"> </span><span class="nt">/&gt;</span>
+<span class="w">  </span><span class="nt">&lt;optimization-time</span><span class="w"> </span><span class="na">pass=</span><span class="s">"2"</span><span class="w"> </span><span class="na">time=</span><span class="s">"0.01"</span><span class="w"> </span><span class="nt">/&gt;</span>
+<span class="w">  </span><span class="nt">&lt;module_usages&gt;</span>
+<span class="w">    </span><span class="nt">&lt;module_usage</span><span class="w"> </span><span class="na">name=</span><span class="s">"tkinterweb"</span><span class="w"> </span><span class="na">finding=</span><span class="s">"absolute"</span><span class="w"> </span><span class="na">line=</span><span class="s">"1"</span><span class="w"> </span><span class="nt">/&gt;</span>
+<span class="w">    </span><span class="nt">&lt;module_usage</span><span class="w"> </span><span class="na">name=</span><span class="s">"tkinter"</span><span class="w"> </span><span class="na">finding=</span><span class="s">"absolute"</span><span class="w"> </span><span class="na">line=</span><span class="s">"4"</span><span class="w"> </span><span class="nt">/&gt;</span>
+<span class="w">    </span><span class="nt">&lt;module_usage</span><span class="w"> </span><span class="na">name=</span><span class="s">"Tkinter"</span><span class="w"> </span><span class="na">finding=</span><span class="s">"not-found"</span><span class="w"> </span><span class="na">line=</span><span class="s">"6"</span><span class="w"> </span><span class="nt">/&gt;</span>
+<span class="w">  </span><span class="nt">&lt;/module_usages&gt;</span>
+<span class="nt">&lt;/module&gt;</span>
+</pre></div>
+</div>
+<p>This is the main module. Even without giving you the source code, you
+can see that the example code does import tkinterweb and tkinter. And
+due to this being probably very old code, the Python2/Python3 module
+name difference is present, so it imports the Python3 name successfully,
+but not the Python2 name.</p>
+<p>How do we know this is a bug or not? The reality is, we do by context
+knowledge, there is not a single best way to decide if an import that is
+not found represents an issue in the compilation or not. But this looks
+good. I am showing it to you for educational purpose mostly.</p>
+<p>Now lets find the module that raised the <code class="docutils literal notranslate"><span class="pre">ModuleNotFoundError</span></code>
+exception.</p>
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;module</span><span class="w"> </span><span class="na">name=</span><span class="s">"tkinterweb"</span><span class="w"> </span><span class="na">kind=</span><span class="s">"CompiledPythonPackage"</span><span class="w"> </span><span class="na">reason=</span><span class="s">"Instructed by user to follow to all non-standard library modules."</span><span class="nt">&gt;</span>
+<span class="w">  </span><span class="nt">&lt;plugin-influence</span><span class="w"> </span><span class="na">name=</span><span class="s">"dll-files"</span><span class="w"> </span><span class="na">influence=</span><span class="s">"condition-used"</span><span class="w"> </span><span class="na">condition=</span><span class="s">"win32 and arch_x86"</span><span class="w"> </span><span class="na">tags_used=</span><span class="s">"win32,arch_x86"</span><span class="w"> </span><span class="na">result=</span><span class="s">"false"</span><span class="w"> </span><span class="nt">/&gt;</span>
+<span class="w">  </span><span class="nt">&lt;plugin-influence</span><span class="w"> </span><span class="na">name=</span><span class="s">"dll-files"</span><span class="w"> </span><span class="na">influence=</span><span class="s">"condition-used"</span><span class="w"> </span><span class="na">condition=</span><span class="s">"win32 and arch_amd64"</span><span class="w"> </span><span class="na">tags_used=</span><span class="s">"win32,arch_amd64"</span><span class="w"> </span><span class="na">result=</span><span class="s">"true"</span><span class="w"> </span><span class="nt">/&gt;</span>
+<span class="w">  </span><span class="nt">&lt;optimization-time</span><span class="w"> </span><span class="na">pass=</span><span class="s">"1"</span><span class="w"> </span><span class="na">time=</span><span class="s">"0.07"</span><span class="w"> </span><span class="nt">/&gt;</span>
+<span class="w">  </span><span class="nt">&lt;optimization-time</span><span class="w"> </span><span class="na">pass=</span><span class="s">"2"</span><span class="w"> </span><span class="na">time=</span><span class="s">"0.03"</span><span class="w"> </span><span class="nt">/&gt;</span>
+<span class="w">  </span><span class="nt">&lt;module_usages&gt;</span>
+<span class="w">    </span><span class="nt">&lt;module_usage</span><span class="w"> </span><span class="na">name=</span><span class="s">"os"</span><span class="w"> </span><span class="na">finding=</span><span class="s">"absolute"</span><span class="w"> </span><span class="na">line=</span><span class="s">"1"</span><span class="w"> </span><span class="nt">/&gt;</span>
+<span class="w">    </span><span class="nt">&lt;module_usage</span><span class="w"> </span><span class="na">name=</span><span class="s">"sys"</span><span class="w"> </span><span class="na">finding=</span><span class="s">"built-in"</span><span class="w"> </span><span class="na">line=</span><span class="s">"1"</span><span class="w"> </span><span class="nt">/&gt;</span>
+<span class="w">    </span><span class="nt">&lt;module_usage</span><span class="w"> </span><span class="na">name=</span><span class="s">"sys"</span><span class="w"> </span><span class="na">finding=</span><span class="s">"built-in"</span><span class="w"> </span><span class="na">line=</span><span class="s">"27"</span><span class="w"> </span><span class="nt">/&gt;</span>
+<span class="w">    </span><span class="nt">&lt;module_usage</span><span class="w"> </span><span class="na">name=</span><span class="s">"os"</span><span class="w"> </span><span class="na">finding=</span><span class="s">"absolute"</span><span class="w"> </span><span class="na">line=</span><span class="s">"27"</span><span class="w"> </span><span class="nt">/&gt;</span>
+<span class="w">    </span><span class="nt">&lt;module_usage</span><span class="w"> </span><span class="na">name=</span><span class="s">"ntpath"</span><span class="w"> </span><span class="na">finding=</span><span class="s">"absolute"</span><span class="w"> </span><span class="na">line=</span><span class="s">"28"</span><span class="w"> </span><span class="nt">/&gt;</span>
+<span class="w">    </span><span class="nt">&lt;module_usage</span><span class="w"> </span><span class="na">name=</span><span class="s">"bindings"</span><span class="w"> </span><span class="na">finding=</span><span class="s">"not-found"</span><span class="w"> </span><span class="na">line=</span><span class="s">"31"</span><span class="w"> </span><span class="nt">/&gt;</span>
+<span class="w">    </span><span class="nt">&lt;module_usage</span><span class="w"> </span><span class="na">name=</span><span class="s">"htmlwidgets"</span><span class="w"> </span><span class="na">finding=</span><span class="s">"not-found"</span><span class="w"> </span><span class="na">line=</span><span class="s">"32"</span><span class="w"> </span><span class="nt">/&gt;</span>
+<span class="w">    </span><span class="nt">&lt;module_usage</span><span class="w"> </span><span class="na">name=</span><span class="s">"utilities"</span><span class="w"> </span><span class="na">finding=</span><span class="s">"not-found"</span><span class="w"> </span><span class="na">line=</span><span class="s">"33"</span><span class="w"> </span><span class="nt">/&gt;</span>
+<span class="w">    </span><span class="nt">&lt;module_usage</span><span class="w"> </span><span class="na">name=</span><span class="s">"traceback"</span><span class="w"> </span><span class="na">finding=</span><span class="s">"absolute"</span><span class="w"> </span><span class="na">line=</span><span class="s">"35"</span><span class="w"> </span><span class="nt">/&gt;</span>
+<span class="w">    </span><span class="nt">&lt;module_usage</span><span class="w"> </span><span class="na">name=</span><span class="s">"sys"</span><span class="w"> </span><span class="na">finding=</span><span class="s">"built-in"</span><span class="w"> </span><span class="na">line=</span><span class="s">"41"</span><span class="w"> </span><span class="nt">/&gt;</span>
+<span class="w">    </span><span class="nt">&lt;module_usage</span><span class="w"> </span><span class="na">name=</span><span class="s">"tkinter"</span><span class="w"> </span><span class="na">finding=</span><span class="s">"absolute"</span><span class="w"> </span><span class="na">line=</span><span class="s">"44"</span><span class="w"> </span><span class="nt">/&gt;</span>
+<span class="w">    </span><span class="nt">&lt;module_usage</span><span class="w"> </span><span class="na">name=</span><span class="s">"tkinter"</span><span class="w"> </span><span class="na">finding=</span><span class="s">"absolute"</span><span class="w"> </span><span class="na">line=</span><span class="s">"45"</span><span class="w"> </span><span class="nt">/&gt;</span>
+<span class="w">    </span><span class="nt">&lt;module_usage</span><span class="w"> </span><span class="na">name=</span><span class="s">"tkinter.messagebox"</span><span class="w"> </span><span class="na">finding=</span><span class="s">"relative"</span><span class="w"> </span><span class="na">line=</span><span class="s">"45"</span><span class="w"> </span><span class="nt">/&gt;</span>
+<span class="w">    </span><span class="nt">&lt;module_usage</span><span class="w"> </span><span class="na">name=</span><span class="s">"Tkinter"</span><span class="w"> </span><span class="na">finding=</span><span class="s">"not-found"</span><span class="w"> </span><span class="na">line=</span><span class="s">"47"</span><span class="w"> </span><span class="nt">/&gt;</span>
+<span class="w">    </span><span class="nt">&lt;module_usage</span><span class="w"> </span><span class="na">name=</span><span class="s">"tkMessageBox"</span><span class="w"> </span><span class="na">finding=</span><span class="s">"not-found"</span><span class="w"> </span><span class="na">line=</span><span class="s">"48"</span><span class="w"> </span><span class="nt">/&gt;</span>
+<span class="w">    </span><span class="nt">&lt;module_usage</span><span class="w"> </span><span class="na">name=</span><span class="s">"tkinter"</span><span class="w"> </span><span class="na">finding=</span><span class="s">"absolute"</span><span class="w"> </span><span class="na">line=</span><span class="s">"67"</span><span class="w"> </span><span class="nt">/&gt;</span>
+<span class="w">    </span><span class="nt">&lt;module_usage</span><span class="w"> </span><span class="na">name=</span><span class="s">"Tkinter"</span><span class="w"> </span><span class="na">finding=</span><span class="s">"not-found"</span><span class="w"> </span><span class="na">line=</span><span class="s">"69"</span><span class="w"> </span><span class="nt">/&gt;</span>
+<span class="w">  </span><span class="nt">&lt;/module_usages&gt;</span>
+<span class="nt">&lt;/module&gt;</span>
+</pre></div>
+</div>
+<p>At the top, you can see the <code class="docutils literal notranslate"><span class="pre">plugin-influence</span></code>. This is where the
+plugin records that it influenced. It records what conditions were
+checked, and the result. Actually further down, we got this.</p>
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;included_dll</span><span class="w"> </span><span class="na">name=</span><span class="s">"Tkhtml30.dll"</span><span class="w"> </span><span class="na">dest_path=</span><span class="s">"tkinterweb\tkhtml\Windows\64-bit\Tkhtml30.dll"</span><span class="w"> </span><span class="na">source_path=</span><span class="s">"C:\Python310_64\lib\site-packages\tkinterweb\tkhtml/Windows/64-bit\Tkhtml30.dll"</span><span class="w"> </span><span class="na">package=</span><span class="s">"tkinterweb"</span><span class="w"> </span><span class="na">ignored=</span><span class="s">"no"</span><span class="w"> </span><span class="na">reason=</span><span class="s">"Yaml config of 'tkinterweb'"</span><span class="w"> </span><span class="nt">/&gt;</span>
+</pre></div>
+</div>
+<p>But that is now why we are here. You can also see the imports being
+done. They are given with line numbers and the one we care about is this
+snippet.</p>
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;module_usage</span><span class="w"> </span><span class="na">name=</span><span class="s">"bindings"</span><span class="w"> </span><span class="na">finding=</span><span class="s">"not-found"</span><span class="w"> </span><span class="na">line=</span><span class="s">"31"</span><span class="w"> </span><span class="nt">/&gt;</span>
+</pre></div>
+</div>
+<p>So Nuitka didn&#8217;t find it at compile time. And a quick check with Python
+on the prompt would reveal that this name is not importable. So now we
+switch to the source code of the trouble making module. There is no tool
+for that yet, typically just do this manually:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">tkinterweb</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">tkinterweb</span>
+<span class="go">&lt;module 'tkinterweb' from 'C:\\Python310\\lib\\site-packages\\tkinterweb\\__init__.py'&gt;</span>
+</pre></div>
+</div>
+<p>This is a clickable link in my Visual Code terminal, and after I click
+it and go to the line, what we see is:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">sys</span><span class="o">,</span> <span class="nn">os</span>
+<span class="n">sys</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">dirname</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">realpath</span><span class="p">(</span><span class="vm">__file__</span><span class="p">)))</span>
+
+<span class="k">try</span><span class="p">:</span>
+    <span class="kn">from</span> <span class="nn">bindings</span> <span class="kn">import</span> <span class="n">TkinterWeb</span>
+    <span class="kn">from</span> <span class="nn">htmlwidgets</span> <span class="kn">import</span> <span class="n">HtmlFrame</span><span class="p">,</span> <span class="n">HtmlLabel</span>
+    <span class="kn">from</span> <span class="nn">utilities</span> <span class="kn">import</span> <span class="n">Notebook</span>
+<span class="k">except</span> <span class="p">(</span><span class="ne">ImportError</span><span class="p">,</span> <span class="ne">ModuleNotFoundError</span><span class="p">):</span>
+    <span class="c1"># Useless code goes here.</span>
+    <span class="o">...</span>
+</pre></div>
+</div>
+<p>What strikes immediately is that Visual Code agrees, and displays the
+imported names a color used for modules that it couldn&#8217;t resolve. And
+actually the first like on top there is revealing rather rare code. This
+package is extending the global import path with its package contents.
+In this way, what would be <code class="docutils literal notranslate"><span class="pre">tkinterweb.bindings</span></code> is available as
+<code class="docutils literal notranslate"><span class="pre">bindings</span></code> <strong>after</strong> the module has been imported at runtime.</p>
+<p>Expanding the <code class="docutils literal notranslate"><span class="pre">PYTHONPATH</span></code> is therefore our next step. Since I am
+using bash, I can prefix the call to Nuitka with
+<code class="docutils literal notranslate"><span class="pre">PYTHONPATH='C:\\Python310_64\\lib\\site-packages\\tkinterweb'</span></code> and
+low and behold, it works with this. Compilation takes longer and
+includes more modules, and the initial message is gone.</p>
+<p>So, how to resolve this. Nuitka has gained a feature dedicated to this.
+It will be nice if this was automatically resolved at compile time,
+which is well could, note has been taken that there is value in tracking
+expanding <code class="docutils literal notranslate"><span class="pre">sys.path</span></code> at compile time.</p>
+<p>There is another section called <code class="docutils literal notranslate"><span class="pre">import-hacks</span></code> and it too recently
+gained a new feature dedicated to this.</p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">module-name</span><span class="p">:</span><span class="w"> </span><span class="s">'tkinterweb'</span>
+<span class="w">  </span><span class="nt">import-hacks</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">global-sys-path</span><span class="p">:</span>
+<span class="w">        </span><span class="c1"># This package forces itself into "sys.path" and expects absolute</span>
+<span class="w">        </span><span class="c1"># imports to be available.</span>
+<span class="w">        </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">''</span>
+</pre></div>
+</div>
+<p>We can here provide a list of relative paths, that are added when a
+package is imported to the search path of Nuitka. With this we can drop
+the <code class="docutils literal notranslate"><span class="pre">PYTHONPATH</span></code> which while being a nice workaround, required using
+absolute paths of the install, never easy to handle.</p>
+<p>With this it now works fully automatically. One issue remains. The
+compiled program does not need the <code class="docutils literal notranslate"><span class="pre">sys.path</span></code> trick at runtime. And
+for isolation purposes, <code class="docutils literal notranslate"><span class="pre">sys.path</span></code> ought to be empty, so what we do we
+do with this here?</p>
+</section>
+<section id="step-4-cleanup-the-code">
+<h1>Step 4 - Cleanup the code<a class="headerlink" href="#step-4-cleanup-the-code" title="Permalink to this heading">&#61633;</a></h1>
+<p>In order to get rid of that code, we can use the <code class="docutils literal notranslate"><span class="pre">anti-bloat</span></code>
+mechanism. It is very powerful and can do all sorts of things, but today
+we got a simple task for it.</p>
+<p>This is the troubling line.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">sys</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">dirname</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">realpath</span><span class="p">(</span><span class="vm">__file__</span><span class="p">)))</span>
+</pre></div>
+</div>
+<p>There are many ways to change this, it&#8217;s always good be at less invasive
+as possible, so we do not want to append. We could prefix that line with
+<code class="docutils literal notranslate"><span class="pre">if</span> <span class="pre">False:</span></code>, but that typically only works well for single liners.
+What we can do rather generally is something like this:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">sys</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">dirname</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">realpath</span><span class="p">(</span><span class="vm">__file__</span><span class="p">)))</span>
+<span class="c1"># -&gt; we want this instead:</span>
+<span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">dirname</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">realpath</span><span class="p">(</span><span class="vm">__file__</span><span class="p">)))</span>
+</pre></div>
+</div>
+<p>Notice that just not calling will be good enough and extremely likely
+robust against all kinds of formatting changes, multiple lines, etc. and
+probably also very applicable should be encounter similar ones.</p>
+<p>So this can be expressed with the following yaml snippet.</p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">module-name</span><span class="p">:</span><span class="w"> </span><span class="s">'tkinterweb'</span>
+<span class="w">  </span><span class="nt">anti-bloat</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="s">'remove</span><span class="nv"> </span><span class="s">"sys.path"</span><span class="nv"> </span><span class="s">hack'</span>
+<span class="w">      </span><span class="nt">replacements_plain</span><span class="p">:</span>
+<span class="w">        </span><span class="s">'sys.path.append'</span><span class="p p-Indicator">:</span><span class="w"> </span><span class="s">''</span>
+</pre></div>
+</div>
+<p>And to know what effect it had and to see the wonders if anti-bloat in
+general, you can use <code class="docutils literal notranslate"><span class="pre">--show-source-changes</span></code> and output the diffs done
+on module source changes.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">---</span> <span class="n">original</span>
+<span class="o">+++</span> <span class="n">modified</span>
+
+<span class="o">@@</span> <span class="o">-</span><span class="mi">25</span><span class="p">,</span><span class="mi">7</span> <span class="o">+</span><span class="mi">25</span><span class="p">,</span><span class="mi">7</span> <span class="o">@@</span>
+
+ <span class="s2">"""</span>
+
+<span class="s2"> import sys, os</span>
+<span class="s2">-sys.path.append(os.path.dirname(os.path.realpath(__file__)))</span>
+<span class="s2">+(os.path.dirname(os.path.realpath(__file__)))</span>
+
+<span class="s2"> try:</span>
+<span class="s2">     from bindings import TkinterWeb</span>
+</pre></div>
+</div>
+<p>So, now this is perfect. Just need to add more OS specific branches,
+maybe also for the data files include more selectively, then this is
+perfect.</p>
+</section>
+<section id="final-remarks">
+<h1>Final remarks<a class="headerlink" href="#final-remarks" title="Permalink to this heading">&#61633;</a></h1>
+<p>I am hoping you will find this very helpful information and will join
+the effort to make packaging for Python work out of the box. Adding
+support for <code class="docutils literal notranslate"><span class="pre">tkinterweb</span></code> was a little more complex than your typical
+package. The OS specific DLLs in different places are relatively
+unusual, although it has been seen before and will be gain.</p>
+<p>This is a simpler example, that is way less complex, with all defaults
+just working.</p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">module-name</span><span class="p">:</span><span class="w"> </span><span class="s">'lightgbm.libpath'</span>
+<span class="w">  </span><span class="nt">dlls</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">from_filenames</span><span class="p">:</span>
+<span class="w">        </span><span class="nt">prefixes</span><span class="p">:</span>
+<span class="w">          </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">'lib_lightgbm'</span>
+</pre></div>
+</div>
+<p>Please review the guidelines for contributing, and esp. make sure to
+install the commit hook as described, or run
+<code class="docutils literal notranslate"><span class="pre">bin/autoformat-nuitka-source</span> <span class="pre">--yaml</span></code> at least, so the CI will not
+complain about formatting and we will have consistent files.</p>
+<p>The last hot fixes of 1.3 already have user provided packaging
+enhancements that add dependencies and anti-bloat. We might discuss
+those in the next installment.</p>
+</section>
+
+<div class="section ablog__blog_comments">
+  
+  
+
+
+<div class="section ablog__prev-next">
+  <span class="ablog__prev">
+    
+    
+    <a href="nuitka-release-13.html">
+      
+      <i class="fa fa-arrow-circle-left"></i>
+      
+      <span>Nuitka Release 1.3</span>
+    </a>
+    
+  </span>
+  <span class="ablog__spacer">&#160;</span>
+  <span class="ablog__next">
+    
+  </span>
+</div>
+
+  
+  
+</div>
+
+           </div>
+          </div>
+          <footer>
+
+  <hr>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, Kay Hayen and Nuitka Contributors.</p>
+  </div>
+
+  
+<div class="share-button-container">
+    <div class="socialbutton-wrapper">
+
+        <a href="https://twitter.com/share?url=https://nuitka.net/posts/nuitka-package-config-kickoff.html&amp;hashtags=nuitka" target="_blank">
+            <div class="socialbutton twitter">
+                <p class="icon">
+                    <img src="/_static/icon-twitter.png" width="24" height="24">
+                </p>
+
+                <p class="shares">share...</p>
+            </div>
+        </a>
+
+        <a href="https://www.facebook.com/sharer.php?u=https://nuitka.net/posts/nuitka-package-config-kickoff.html&amp;hashtag=%23nuitka" target="_blank">
+            <div class="socialbutton facebook">
+                <p class="icon">
+                    <img src="/_static/icon-facebook.png" width="24" height="24">
+                </p>
+
+                <p class="shares">share...</p>
+            </div>
+        </a>
+
+        <a href="http://www.reddit.com/submit?url=https://nuitka.net/posts/nuitka-package-config-kickoff.html" target="_blank">
+            <div class="socialbutton reddit">
+                <p class="icon">
+                    <img src="/_static/icon-reddit.png" width="24" height="24">
+                </p>
+
+                <p class="shares">share...</p>
+            </div>
+        </a>
+
+        <details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3 switcher-container">
+            <summary class="sd-summary-title sd-card-header switcher-title">EN<div class="sd-summary-down docutils">
+                    <svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-down" viewbox="0 0 24 24" aria-hidden="true">
+                        <path fill-rule="evenodd" d="M5.22 8.72a.75.75 0 000 1.06l6.25 6.25a.75.75 0 001.06 0l6.25-6.25a.75.75 0 00-1.06-1.06L12 14.44 6.28 8.72a.75.75 0 00-1.06 0z">
+                        </path>
+                    </svg>
+                </div>
+                <div class="sd-summary-up docutils">
+                    <svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-up" viewbox="0 0 24 24" aria-hidden="true">
+                        <path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z">
+                        </path>
+                    </svg>
+                </div>
+            </summary>
+            <div class="sd-summary-content sd-card-body switcher-body docutils">
+                <blockquote>
+                    <div>
+                        <div><div class="line"><a class="reference external" href="/de_DE/posts/nuitka-package-config-kickoff.html">DE</a></div>
+                            <div class="line"><a class="reference external" href="/zh_CN/posts/nuitka-package-config-kickoff.html">CN</a></div>
+                            </div></div>
+                </blockquote>
+            </div>
+        </details>
+    </div>
+</div>
+
+
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  </body>
+</html>

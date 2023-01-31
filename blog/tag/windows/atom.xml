@@ -2,10 +2,10 @@
 <feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en">
   <id>https://nuitka.net</id>
   <title>Nuitka Blog - Posts tagged Windows</title>
-  <updated>2022-11-06T13:36:37.148138+00:00</updated>
+  <updated>2023-01-31T17:57:02.338250+00:00</updated>
   <link href="https://nuitka.net"/>
   <link href="https://nuitka.net/blog/tag/windows/atom.xml" rel="self"/>
-  <generator uri="https://ablog.readthedocs.org/" version="0.10.29">ABlog</generator>
+  <generator uri="https://ablog.readthedocs.io/" version="0.11.0rc2">ABlog</generator>
   <entry>
     <id>https://nuitka.net/posts/letting-go-of-c11.html</id>
     <title>Letting go of C++11</title>
@@ -128,7 +128,7 @@ it’s upcoming for the next release, Nuitka 0.4.3, and it’s in the
 current pre-releases.&lt;/p&gt;
 &lt;p&gt;It works by adding &lt;code class="docutils literal notranslate"&gt;&lt;span class="pre"&gt;--portable&lt;/span&gt;&lt;/code&gt; to the command line. So this should
 work for you:&lt;/p&gt;
-&lt;div class="highlight-bash notranslate"&gt;&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;nuitka-python --recurse-all --portable your-program.py
+&lt;div class="highlight-bash notranslate"&gt;&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;nuitka-python&lt;span class="w"&gt; &lt;/span&gt;--recurse-all&lt;span class="w"&gt; &lt;/span&gt;--portable&lt;span class="w"&gt; &lt;/span&gt;your-program.py
 &lt;/pre&gt;&lt;/div&gt;
 &lt;/div&gt;
 &lt;p&gt;Right now, it will create a folder “_python” with DLLs, and

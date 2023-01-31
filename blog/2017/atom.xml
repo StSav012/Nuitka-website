@@ -2,10 +2,10 @@
 <feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en">
   <id>https://nuitka.net</id>
   <title>Nuitka Blog - Posted in 2017</title>
-  <updated>2022-11-06T13:36:31.513520+00:00</updated>
+  <updated>2023-01-31T17:56:57.335291+00:00</updated>
   <link href="https://nuitka.net"/>
   <link href="https://nuitka.net/blog/2017/atom.xml" rel="self"/>
-  <generator uri="https://ablog.readthedocs.org/" version="0.10.29">ABlog</generator>
+  <generator uri="https://ablog.readthedocs.io/" version="0.11.0rc2">ABlog</generator>
   <entry>
     <id>https://nuitka.net/posts/nuitka-release-0525.html</id>
     <title>Nuitka Release 0.5.25</title>
@@ -518,7 +518,7 @@ statements of the created dictionary. Currently this never happens
 for Python3, see above for why.&lt;/p&gt;&lt;/li&gt;
 &lt;li&gt;&lt;p&gt;Python2: Selecting the metaclass is now visible in the tree and can
 be statically optimized.&lt;/p&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;For executables, we now also use a freelist for traceback objects,
+&lt;li&gt;&lt;p&gt;For executables, we now also use a free list for traceback objects,
 which also makes exception cases slightly faster.&lt;/p&gt;&lt;/li&gt;
 &lt;li&gt;&lt;p&gt;Generator expressions no longer require the use of a function call
 with a &lt;code class="docutils literal notranslate"&gt;&lt;span class="pre"&gt;.0&lt;/span&gt;&lt;/code&gt; argument value to carry the iterator value, instead
@@ -780,7 +780,7 @@ helps to generate more compact code.&lt;/p&gt;&lt;/li&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;p&gt;Experimental support for building platform dependent wheel
 distribution.&lt;/p&gt;
-&lt;div class="highlight-bash notranslate"&gt;&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;python setup.py --command-packages&lt;span class="o"&gt;=&lt;/span&gt;nuitka.distutils clean -a bdist_nuitka
+&lt;div class="highlight-bash notranslate"&gt;&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;python&lt;span class="w"&gt; &lt;/span&gt;setup.py&lt;span class="w"&gt; &lt;/span&gt;--command-packages&lt;span class="o"&gt;=&lt;/span&gt;nuitka.distutils&lt;span class="w"&gt; &lt;/span&gt;clean&lt;span class="w"&gt; &lt;/span&gt;-a&lt;span class="w"&gt; &lt;/span&gt;bdist_nuitka
 &lt;/pre&gt;&lt;/div&gt;
 &lt;/div&gt;
 &lt;p&gt;Use with caution, this is incomplete work.&lt;/p&gt;

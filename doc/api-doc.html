@@ -13,7 +13,7 @@
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>API documentation &#8212; Nuitka the Python Compiler  documentation</title>
-      <link rel="stylesheet" href="/_static/css/combined_48888c5015cd786ba30be2ae5a8ec195.css" type="text/css">
+      <link rel="stylesheet" href="/_static/css/combined_c265894810fc31e59f2b3db7937ee66d.css" type="text/css">
       <link rel="canonical" href="https://nuitka.net/doc/api-doc.html">
   <!--[if lt IE 9]>
     <script src="../_static/js/html5shiv.min.js"></script>
@@ -33,37 +33,17 @@
     SHOW_SEARCH_SUMMARY: true,
     ENABLE_SEARCH_SHORTCUTS: true,
 };</script>
-        <script src="/_static/combined_1f3d291568f0d25fd5e0e83c3075a3a3.js" async=""></script>
+        <script src="/_static/combined_50b22e29ca76da059b0c14dcc606bcaa.js" async=""></script>
         <script src="../_static/_sphinx_javascript_frameworks_compat.js" async=""></script>
+        <script src="../_static/sphinx_highlight.js" async=""></script>
         <link rel="index" title="Index" href="../genindex.html">
     <link rel="next" title="Factory Instructions" href="factory.html">
-    <link rel="prev" title="Nuitka Developer Manual" href="developer-manual.html">   
-<link rel="alternate" type="application/atom+xml" href="../blog/atom.xml" title="Nuitka Blog">
+    <link rel="prev" title="Nuitka Package Configuration" href="nuitka-package-config.html">
  
-<style type="text/css">
-  ul.ablog-archive {
-    list-style: none;
-    overflow: auto;
-    margin-left: 0px;
-  }
-  ul.ablog-archive li {
-    float: left;
-    margin-right: 5px;
-    font-size: 80%;
-  }
-  ul.postlist a {
-    font-style: italic;
-  }
-  ul.postlist-style-disc {
-    list-style-type: disc;
-  }
-  ul.postlist-style-none {
-    list-style-type: none;
-  }
-  ul.postlist-style-circle {
-    list-style-type: circle;
-  }
-</style>
+
+<link rel="alternate" type="application/atom+xml" href="../blog/atom.xml" title="Nuitka Blog">
+
+
 
 </head>
 
@@ -72,8 +52,12 @@
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search">
-            <a href="../index.html" class="icon icon-home"> Nuitka the Python Compiler
-            <div class="logo_container"><img src="../_static/Nuitka-Logo-Symbol.svg" class="logo" alt="Logo" width="208" height="209">
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            Nuitka the Python Compiler
+              <div class="logo_container"><img src="../_static/Nuitka-Logo-Symbol.svg" class="logo" alt="Logo" width="208" height="209">
           </div></a><!-- Empty override file take the place of searchbox.html, which generates search box. -->
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
               <ul>
@@ -88,16 +72,143 @@
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Release Information</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="Changelog.html">Nuitka Release 1.2 (Draft)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="Changelog.html#nuitka-release-1-1">Nuitka Release 1.1</a></li>
-<li class="toctree-l1"><a class="reference internal" href="Changelog.html#nuitka-release-1-0">Nuitka Release 1.0</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Changelog.html">Nuitka Release 1.5 (Draft)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Changelog.html#nuitka-release-1-4">Nuitka Release 1.4</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Changelog.html#nuitka-release-1-3">Nuitka Release 1.3</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Changelog.html#older-releases">Older Releases</a></li>
 <li class="toctree-l1"><a class="reference internal" href="roadmap.html">Roadmap</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">More documentation</span></p>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="developer-manual.html">Developer Manual</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">API doc</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nuitka-package-config.html">Nuitka Package Configuration</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">API doc</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#nuitka.Options.isVerbose"><code class="docutils literal notranslate"><span class="pre">isVerbose()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#nuitka.Options.shallTraceExecution"><code class="docutils literal notranslate"><span class="pre">shallTraceExecution()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#nuitka.Options.shallExecuteImmediately"><code class="docutils literal notranslate"><span class="pre">shallExecuteImmediately()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#nuitka.Options.shallRunInDebugger"><code class="docutils literal notranslate"><span class="pre">shallRunInDebugger()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#nuitka.Options.getXMLDumpOutputFilename"><code class="docutils literal notranslate"><span class="pre">getXMLDumpOutputFilename()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#nuitka.Options.shallOnlyExecCCompilerCall"><code class="docutils literal notranslate"><span class="pre">shallOnlyExecCCompilerCall()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#nuitka.Options.shallNotDoExecCCompilerCall"><code class="docutils literal notranslate"><span class="pre">shallNotDoExecCCompilerCall()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#nuitka.Options.getFileReferenceMode"><code class="docutils literal notranslate"><span class="pre">getFileReferenceMode()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#nuitka.Options.getModuleNameMode"><code class="docutils literal notranslate"><span class="pre">getModuleNameMode()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#nuitka.Options.shallMakeModule"><code class="docutils literal notranslate"><span class="pre">shallMakeModule()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#nuitka.Options.shallCreatePyiFile"><code class="docutils literal notranslate"><span class="pre">shallCreatePyiFile()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#nuitka.Options.isAllowedToReexecute"><code class="docutils literal notranslate"><span class="pre">isAllowedToReexecute()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#nuitka.Options.shallFollowStandardLibrary"><code class="docutils literal notranslate"><span class="pre">shallFollowStandardLibrary()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#nuitka.Options.shallFollowNoImports"><code class="docutils literal notranslate"><span class="pre">shallFollowNoImports()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#nuitka.Options.shallFollowAllImports"><code class="docutils literal notranslate"><span class="pre">shallFollowAllImports()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#nuitka.Options.getShallFollowInNoCase"><code class="docutils literal notranslate"><span class="pre">getShallFollowInNoCase()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#nuitka.Options.getShallFollowModules"><code class="docutils literal notranslate"><span class="pre">getShallFollowModules()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#nuitka.Options.getShallFollowExtra"><code class="docutils literal notranslate"><span class="pre">getShallFollowExtra()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#nuitka.Options.getShallFollowExtraFilePatterns"><code class="docutils literal notranslate"><span class="pre">getShallFollowExtraFilePatterns()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#nuitka.Options.getMustIncludeModules"><code class="docutils literal notranslate"><span class="pre">getMustIncludeModules()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#nuitka.Options.getMustIncludePackages"><code class="docutils literal notranslate"><span class="pre">getMustIncludePackages()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#nuitka.Options.getShallIncludePackageData"><code class="docutils literal notranslate"><span class="pre">getShallIncludePackageData()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#nuitka.Options.getShallIncludeDataFiles"><code class="docutils literal notranslate"><span class="pre">getShallIncludeDataFiles()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#nuitka.Options.getShallIncludeDataDirs"><code class="docutils literal notranslate"><span class="pre">getShallIncludeDataDirs()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#nuitka.Options.getShallNotIncludeDataFilePatterns"><code class="docutils literal notranslate"><span class="pre">getShallNotIncludeDataFilePatterns()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#nuitka.Options.getShallNotIncludeDllFilePatterns"><code class="docutils literal notranslate"><span class="pre">getShallNotIncludeDllFilePatterns()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#nuitka.Options.shallWarnImplicitRaises"><code class="docutils literal notranslate"><span class="pre">shallWarnImplicitRaises()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#nuitka.Options.shallWarnUnusualCode"><code class="docutils literal notranslate"><span class="pre">shallWarnUnusualCode()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#nuitka.Options.assumeYesForDownloads"><code class="docutils literal notranslate"><span class="pre">assumeYesForDownloads()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#nuitka.Options.shallUsePythonDebug"><code class="docutils literal notranslate"><span class="pre">shallUsePythonDebug()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#nuitka.Options.isUnstripped"><code class="docutils literal notranslate"><span class="pre">isUnstripped()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#nuitka.Options.isProfile"><code class="docutils literal notranslate"><span class="pre">isProfile()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#nuitka.Options.shallCreateGraph"><code class="docutils literal notranslate"><span class="pre">shallCreateGraph()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#nuitka.Options.getOutputFilename"><code class="docutils literal notranslate"><span class="pre">getOutputFilename()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#nuitka.Options.getOutputPath"><code class="docutils literal notranslate"><span class="pre">getOutputPath()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#nuitka.Options.getOutputDir"><code class="docutils literal notranslate"><span class="pre">getOutputDir()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#nuitka.Options.getPositionalArgs"><code class="docutils literal notranslate"><span class="pre">getPositionalArgs()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#nuitka.Options.getMainArgs"><code class="docutils literal notranslate"><span class="pre">getMainArgs()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#nuitka.Options.getMainEntryPointFilenames"><code class="docutils literal notranslate"><span class="pre">getMainEntryPointFilenames()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#nuitka.Options.shallOptimizeStringExec"><code class="docutils literal notranslate"><span class="pre">shallOptimizeStringExec()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#nuitka.Options.shallClearPythonPathEnvironment"><code class="docutils literal notranslate"><span class="pre">shallClearPythonPathEnvironment()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#nuitka.Options.shallUseStaticLibPython"><code class="docutils literal notranslate"><span class="pre">shallUseStaticLibPython()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#nuitka.Options.shallTreatUninstalledPython"><code class="docutils literal notranslate"><span class="pre">shallTreatUninstalledPython()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#nuitka.Options.shallCreateCmdFileForExecution"><code class="docutils literal notranslate"><span class="pre">shallCreateCmdFileForExecution()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#nuitka.Options.isShowScons"><code class="docutils literal notranslate"><span class="pre">isShowScons()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#nuitka.Options.getJobLimit"><code class="docutils literal notranslate"><span class="pre">getJobLimit()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#nuitka.Options.getLtoMode"><code class="docutils literal notranslate"><span class="pre">getLtoMode()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#nuitka.Options.isClang"><code class="docutils literal notranslate"><span class="pre">isClang()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#nuitka.Options.isMingw64"><code class="docutils literal notranslate"><span class="pre">isMingw64()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#nuitka.Options.getMsvcVersion"><code class="docutils literal notranslate"><span class="pre">getMsvcVersion()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#nuitka.Options.shallCleanCache"><code class="docutils literal notranslate"><span class="pre">shallCleanCache()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#nuitka.Options.shallDisableCacheUsage"><code class="docutils literal notranslate"><span class="pre">shallDisableCacheUsage()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#nuitka.Options.shallDisableCCacheUsage"><code class="docutils literal notranslate"><span class="pre">shallDisableCCacheUsage()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#nuitka.Options.shallDisableBytecodeCacheUsage"><code class="docutils literal notranslate"><span class="pre">shallDisableBytecodeCacheUsage()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#nuitka.Options.shallDisableConsoleWindow"><code class="docutils literal notranslate"><span class="pre">shallDisableConsoleWindow()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#nuitka.Options.mayDisableConsoleWindow"><code class="docutils literal notranslate"><span class="pre">mayDisableConsoleWindow()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#nuitka.Options.isShowProgress"><code class="docutils literal notranslate"><span class="pre">isShowProgress()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#nuitka.Options.isShowMemory"><code class="docutils literal notranslate"><span class="pre">isShowMemory()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#nuitka.Options.isShowInclusion"><code class="docutils literal notranslate"><span class="pre">isShowInclusion()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#nuitka.Options.isRemoveBuildDir"><code class="docutils literal notranslate"><span class="pre">isRemoveBuildDir()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#nuitka.Options.isExperimental"><code class="docutils literal notranslate"><span class="pre">isExperimental()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#nuitka.Options.getExperimentalIndications"><code class="docutils literal notranslate"><span class="pre">getExperimentalIndications()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#nuitka.Options.shallExplainImports"><code class="docutils literal notranslate"><span class="pre">shallExplainImports()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#nuitka.Options.isStandaloneMode"><code class="docutils literal notranslate"><span class="pre">isStandaloneMode()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#nuitka.Options.isOnefileMode"><code class="docutils literal notranslate"><span class="pre">isOnefileMode()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#nuitka.Options.isAcceleratedMode"><code class="docutils literal notranslate"><span class="pre">isAcceleratedMode()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#nuitka.Options.isOnefileTempDirMode"><code class="docutils literal notranslate"><span class="pre">isOnefileTempDirMode()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#nuitka.Options.isPgoMode"><code class="docutils literal notranslate"><span class="pre">isPgoMode()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#nuitka.Options.isPythonPgoMode"><code class="docutils literal notranslate"><span class="pre">isPythonPgoMode()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#nuitka.Options.getPythonPgoInput"><code class="docutils literal notranslate"><span class="pre">getPythonPgoInput()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#nuitka.Options.getPgoArgs"><code class="docutils literal notranslate"><span class="pre">getPgoArgs()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#nuitka.Options.getPgoExecutable"><code class="docutils literal notranslate"><span class="pre">getPgoExecutable()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#nuitka.Options.getPythonPgoUnseenModulePolicy"><code class="docutils literal notranslate"><span class="pre">getPythonPgoUnseenModulePolicy()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#nuitka.Options.getOnefileTempDirSpec"><code class="docutils literal notranslate"><span class="pre">getOnefileTempDirSpec()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#nuitka.Options.getOnefileChildGraceTime"><code class="docutils literal notranslate"><span class="pre">getOnefileChildGraceTime()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#nuitka.Options.getIconPaths"><code class="docutils literal notranslate"><span class="pre">getIconPaths()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#nuitka.Options.getWindowsIconExecutablePath"><code class="docutils literal notranslate"><span class="pre">getWindowsIconExecutablePath()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#nuitka.Options.shallAskForWindowsAdminRights"><code class="docutils literal notranslate"><span class="pre">shallAskForWindowsAdminRights()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#nuitka.Options.shallAskForWindowsUIAccessRights"><code class="docutils literal notranslate"><span class="pre">shallAskForWindowsUIAccessRights()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#nuitka.Options.getWindowsVersionInfoStrings"><code class="docutils literal notranslate"><span class="pre">getWindowsVersionInfoStrings()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#nuitka.Options.getProductVersion"><code class="docutils literal notranslate"><span class="pre">getProductVersion()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#nuitka.Options.getFileVersion"><code class="docutils literal notranslate"><span class="pre">getFileVersion()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#nuitka.Options.getWindowsSplashScreen"><code class="docutils literal notranslate"><span class="pre">getWindowsSplashScreen()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#nuitka.Options.getCompanyName"><code class="docutils literal notranslate"><span class="pre">getCompanyName()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#nuitka.Options.getProductName"><code class="docutils literal notranslate"><span class="pre">getProductName()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#nuitka.Options.getMacOSTargetArch"><code class="docutils literal notranslate"><span class="pre">getMacOSTargetArch()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#nuitka.Options.shallCreateAppBundle"><code class="docutils literal notranslate"><span class="pre">shallCreateAppBundle()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#nuitka.Options.getMacOSSigningIdentity"><code class="docutils literal notranslate"><span class="pre">getMacOSSigningIdentity()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#nuitka.Options.shallUseSigningForNotarization"><code class="docutils literal notranslate"><span class="pre">shallUseSigningForNotarization()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#nuitka.Options.getMacOSAppName"><code class="docutils literal notranslate"><span class="pre">getMacOSAppName()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#nuitka.Options.getMacOSSignedAppName"><code class="docutils literal notranslate"><span class="pre">getMacOSSignedAppName()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#nuitka.Options.getMacOSAppVersion"><code class="docutils literal notranslate"><span class="pre">getMacOSAppVersion()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#nuitka.Options.getMacOSAppProtectedResourcesAccesses"><code class="docutils literal notranslate"><span class="pre">getMacOSAppProtectedResourcesAccesses()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#nuitka.Options.isMacOSBackgroundApp"><code class="docutils literal notranslate"><span class="pre">isMacOSBackgroundApp()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#nuitka.Options.isMacOSUiElementApp"><code class="docutils literal notranslate"><span class="pre">isMacOSUiElementApp()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#nuitka.Options.hasPythonFlagNoSite"><code class="docutils literal notranslate"><span class="pre">hasPythonFlagNoSite()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#nuitka.Options.hasPythonFlagNoAnnotations"><code class="docutils literal notranslate"><span class="pre">hasPythonFlagNoAnnotations()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#nuitka.Options.hasPythonFlagNoAsserts"><code class="docutils literal notranslate"><span class="pre">hasPythonFlagNoAsserts()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#nuitka.Options.hasPythonFlagNoDocStrings"><code class="docutils literal notranslate"><span class="pre">hasPythonFlagNoDocStrings()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#nuitka.Options.hasPythonFlagNoWarnings"><code class="docutils literal notranslate"><span class="pre">hasPythonFlagNoWarnings()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#nuitka.Options.hasPythonFlagTraceImports"><code class="docutils literal notranslate"><span class="pre">hasPythonFlagTraceImports()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#nuitka.Options.hasPythonFlagNoRandomization"><code class="docutils literal notranslate"><span class="pre">hasPythonFlagNoRandomization()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#nuitka.Options.hasPythonFlagUnbuffered"><code class="docutils literal notranslate"><span class="pre">hasPythonFlagUnbuffered()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#nuitka.Options.hasPythonFlagPackageMode"><code class="docutils literal notranslate"><span class="pre">hasPythonFlagPackageMode()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#nuitka.Options.shallFreezeAllStdlib"><code class="docutils literal notranslate"><span class="pre">shallFreezeAllStdlib()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#nuitka.Options.shallNotUseDependsExeCachedResults"><code class="docutils literal notranslate"><span class="pre">shallNotUseDependsExeCachedResults()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#nuitka.Options.shallNotStoreDependsExeCachedResults"><code class="docutils literal notranslate"><span class="pre">shallNotStoreDependsExeCachedResults()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#nuitka.Options.getPluginNameConsideringRenames"><code class="docutils literal notranslate"><span class="pre">getPluginNameConsideringRenames()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#nuitka.Options.getPluginsEnabled"><code class="docutils literal notranslate"><span class="pre">getPluginsEnabled()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#nuitka.Options.getPluginsDisabled"><code class="docutils literal notranslate"><span class="pre">getPluginsDisabled()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#nuitka.Options.getUserPlugins"><code class="docutils literal notranslate"><span class="pre">getUserPlugins()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#nuitka.Options.shallDetectMissingPlugins"><code class="docutils literal notranslate"><span class="pre">shallDetectMissingPlugins()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#nuitka.Options.getPythonPathForScons"><code class="docutils literal notranslate"><span class="pre">getPythonPathForScons()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#nuitka.Options.shallCompileWithoutBuildDirectory"><code class="docutils literal notranslate"><span class="pre">shallCompileWithoutBuildDirectory()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#nuitka.Options.shallPreferSourceCodeOverExtensionModules"><code class="docutils literal notranslate"><span class="pre">shallPreferSourceCodeOverExtensionModules()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#nuitka.Options.shallUseProgressBar"><code class="docutils literal notranslate"><span class="pre">shallUseProgressBar()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#nuitka.Options.getForcedStdoutPath"><code class="docutils literal notranslate"><span class="pre">getForcedStdoutPath()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#nuitka.Options.getForcedStderrPath"><code class="docutils literal notranslate"><span class="pre">getForcedStderrPath()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#nuitka.Options.shallShowSourceModifications"><code class="docutils literal notranslate"><span class="pre">shallShowSourceModifications()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#nuitka.Options.isLowMemory"><code class="docutils literal notranslate"><span class="pre">isLowMemory()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#nuitka.Options.getCompilationReportFilename"><code class="docutils literal notranslate"><span class="pre">getCompilationReportFilename()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#nuitka.Options.getCompilationReportTemplates"><code class="docutils literal notranslate"><span class="pre">getCompilationReportTemplates()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#nuitka.Options.getUserProvidedYamlFiles"><code class="docutils literal notranslate"><span class="pre">getUserProvidedYamlFiles()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#nuitka.Options.shallDisplayWarningMnemonic"><code class="docutils literal notranslate"><span class="pre">shallDisplayWarningMnemonic()</span></code></a></li>
+</ul>
+</li>
 <li class="toctree-l1"><a class="reference internal" href="factory.html">Factory Instructions</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Media</span></p>
@@ -114,6 +225,7 @@
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="welcome.html">Welcome</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../pages/pyside2.html">Nuitka PySide2 support</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pages/pyqt5.html">Nuitka PyQt5 support</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../pages/donations.html">Donations</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../pages/gsoc2019.html">Google Summer of Code 2019</a></li>
 </ul>
@@ -132,7 +244,8 @@
           <!-- Empty override file take the place of sphinx_rtd_theme/breadcrumbs.html, which generates the top nav breadcrumbs. -->
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
-              <section id="module-nuitka.Options">
+             
+<section id="module-nuitka.Options">
 <span id="api-documentation"></span><h1>API documentation<a class="headerlink" href="#module-nuitka.Options" title="Permalink to this heading">&#61633;</a></h1>
 <p>Options module</p>
 <p>This exposes the choices made by the user. Defaults will be applied here, and
@@ -319,7 +432,7 @@ otherwise original is kept.</p>
 <dl class="py function">
 <dt class="sig sig-object py" id="nuitka.Options.getShallIncludePackageData">
 <span class="sig-prename descclassname"><span class="pre">nuitka.Options.</span></span><span class="sig-name descname"><span class="pre">getShallIncludePackageData</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#nuitka.Options.getShallIncludePackageData" title="Permalink to this definition">&#61633;</a></dt>
-<dd><p><em>iterable of (module pattern, filename pattern)</em>, derived from <code class="docutils literal notranslate"><span class="pre">--include-package-data=</span></code></p>
+<dd><p><em>iterable of (module name, filename pattern)</em>, derived from <code class="docutils literal notranslate"><span class="pre">--include-package-data=</span></code></p>
 <p>The filename pattern can be None if not given. Empty values give None too.</p>
 </dd></dl>
 
@@ -457,6 +570,12 @@ include symbol information.</p>
 </dd></dl>
 
 <dl class="py function">
+<dt class="sig sig-object py" id="nuitka.Options.getMainEntryPointFilenames">
+<span class="sig-prename descclassname"><span class="pre">nuitka.Options.</span></span><span class="sig-name descname"><span class="pre">getMainEntryPointFilenames</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#nuitka.Options.getMainEntryPointFilenames" title="Permalink to this definition">&#61633;</a></dt>
+<dd><p><em>tuple</em>, main programs, none, one or more</p>
+</dd></dl>
+
+<dl class="py function">
 <dt class="sig sig-object py" id="nuitka.Options.shallOptimizeStringExec">
 <span class="sig-prename descclassname"><span class="pre">nuitka.Options.</span></span><span class="sig-name descname"><span class="pre">shallOptimizeStringExec</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#nuitka.Options.shallOptimizeStringExec" title="Permalink to this definition">&#61633;</a></dt>
 <dd><p>Inactive yet</p>
@@ -562,11 +681,31 @@ make sure they find their Python DLL.</p>
 </dd></dl>
 
 <dl class="py function">
+<dt class="sig sig-object py" id="nuitka.Options.shallCleanCache">
+<span class="sig-prename descclassname"><span class="pre">nuitka.Options.</span></span><span class="sig-name descname"><span class="pre">shallCleanCache</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">cache_name</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#nuitka.Options.shallCleanCache" title="Permalink to this definition">&#61633;</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>bool derived from <code class="docutils literal notranslate"><span class="pre">--clean-cache</span></code></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="nuitka.Options.shallDisableCacheUsage">
+<span class="sig-prename descclassname"><span class="pre">nuitka.Options.</span></span><span class="sig-name descname"><span class="pre">shallDisableCacheUsage</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">cache_name</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#nuitka.Options.shallDisableCacheUsage" title="Permalink to this definition">&#61633;</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>bool derived from <code class="docutils literal notranslate"><span class="pre">--disable-cache</span></code></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
 <dt class="sig sig-object py" id="nuitka.Options.shallDisableCCacheUsage">
 <span class="sig-prename descclassname"><span class="pre">nuitka.Options.</span></span><span class="sig-name descname"><span class="pre">shallDisableCCacheUsage</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#nuitka.Options.shallDisableCCacheUsage" title="Permalink to this definition">&#61633;</a></dt>
 <dd><dl class="field-list simple">
 <dt class="field-odd">Returns</dt>
-<dd class="field-odd"><p>bool derived from <code class="docutils literal notranslate"><span class="pre">--disable-ccache</span></code></p>
+<dd class="field-odd"><p>bool derived from <code class="docutils literal notranslate"><span class="pre">--disable-ccache</span></code> or <code class="docutils literal notranslate"><span class="pre">--disable--cache=ccache</span></code></p>
 </dd>
 </dl>
 </dd></dl>
@@ -586,7 +725,7 @@ make sure they find their Python DLL.</p>
 <span class="sig-prename descclassname"><span class="pre">nuitka.Options.</span></span><span class="sig-name descname"><span class="pre">shallDisableConsoleWindow</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#nuitka.Options.shallDisableConsoleWindow" title="Permalink to this definition">&#61633;</a></dt>
 <dd><dl class="field-list simple">
 <dt class="field-odd">Returns</dt>
-<dd class="field-odd"><p>None (not given), False, or True derived from <code class="docutils literal notranslate"><span class="pre">disable-console</span> <span class="pre">or</span> <span class="pre">``--enable-console</span></code></p>
+<dd class="field-odd"><p>None (not given), False, or True derived from <code class="docutils literal notranslate"><span class="pre">--disable-console</span> <span class="pre">or</span> <span class="pre">``--enable-console</span></code></p>
 </dd>
 </dl>
 </dd></dl>
@@ -769,6 +908,12 @@ volatile things.</p>
 </dd></dl>
 
 <dl class="py function">
+<dt class="sig sig-object py" id="nuitka.Options.getOnefileChildGraceTime">
+<span class="sig-prename descclassname"><span class="pre">nuitka.Options.</span></span><span class="sig-name descname"><span class="pre">getOnefileChildGraceTime</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#nuitka.Options.getOnefileChildGraceTime" title="Permalink to this definition">&#61633;</a></dt>
+<dd><p><em>int</em> = <code class="docutils literal notranslate"><span class="pre">--onefile-child-grace-time</span></code></p>
+</dd></dl>
+
+<dl class="py function">
 <dt class="sig sig-object py" id="nuitka.Options.getIconPaths">
 <span class="sig-prename descclassname"><span class="pre">nuitka.Options.</span></span><span class="sig-name descname"><span class="pre">getIconPaths</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#nuitka.Options.getIconPaths" title="Permalink to this definition">&#61633;</a></dt>
 <dd><p><em>list of str</em>, values of <code class="docutils literal notranslate"><span class="pre">--windows-icon-from-ico</span></code> and <code class="docutils literal notranslate"><span class="pre">--linux-onefile-icon</span></code></p>
@@ -799,19 +944,19 @@ volatile things.</p>
 </dd></dl>
 
 <dl class="py function">
-<dt class="sig sig-object py" id="nuitka.Options.getWindowsProductVersion">
-<span class="sig-prename descclassname"><span class="pre">nuitka.Options.</span></span><span class="sig-name descname"><span class="pre">getWindowsProductVersion</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#nuitka.Options.getWindowsProductVersion" title="Permalink to this definition">&#61633;</a></dt>
+<dt class="sig sig-object py" id="nuitka.Options.getProductVersion">
+<span class="sig-prename descclassname"><span class="pre">nuitka.Options.</span></span><span class="sig-name descname"><span class="pre">getProductVersion</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#nuitka.Options.getProductVersion" title="Permalink to this definition">&#61633;</a></dt>
 <dd><dl class="field-list simple">
 <dt class="field-odd">Returns</dt>
-<dd class="field-odd"><p>tuple of 4 ints or None, derived from <code class="docutils literal notranslate"><span class="pre">--windows-product-version</span></code></p>
+<dd class="field-odd"><p>tuple of 4 ints or None, derived from <code class="docutils literal notranslate"><span class="pre">--product-version</span></code></p>
 </dd>
 </dl>
 </dd></dl>
 
 <dl class="py function">
-<dt class="sig sig-object py" id="nuitka.Options.getWindowsFileVersion">
-<span class="sig-prename descclassname"><span class="pre">nuitka.Options.</span></span><span class="sig-name descname"><span class="pre">getWindowsFileVersion</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#nuitka.Options.getWindowsFileVersion" title="Permalink to this definition">&#61633;</a></dt>
-<dd><p>:returns tuple of 4 ints or None, derived from <code class="docutils literal notranslate"><span class="pre">--windows-file-version</span></code></p>
+<dt class="sig sig-object py" id="nuitka.Options.getFileVersion">
+<span class="sig-prename descclassname"><span class="pre">nuitka.Options.</span></span><span class="sig-name descname"><span class="pre">getFileVersion</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#nuitka.Options.getFileVersion" title="Permalink to this definition">&#61633;</a></dt>
+<dd><p>:returns tuple of 4 ints or None, derived from <code class="docutils literal notranslate"><span class="pre">--file-version</span></code></p>
 </dd></dl>
 
 <dl class="py function">
@@ -825,14 +970,14 @@ volatile things.</p>
 </dd></dl>
 
 <dl class="py function">
-<dt class="sig sig-object py" id="nuitka.Options.getWindowsCompanyName">
-<span class="sig-prename descclassname"><span class="pre">nuitka.Options.</span></span><span class="sig-name descname"><span class="pre">getWindowsCompanyName</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#nuitka.Options.getWindowsCompanyName" title="Permalink to this definition">&#61633;</a></dt>
+<dt class="sig sig-object py" id="nuitka.Options.getCompanyName">
+<span class="sig-prename descclassname"><span class="pre">nuitka.Options.</span></span><span class="sig-name descname"><span class="pre">getCompanyName</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#nuitka.Options.getCompanyName" title="Permalink to this definition">&#61633;</a></dt>
 <dd><p><em>str</em> name of the company to use</p>
 </dd></dl>
 
 <dl class="py function">
-<dt class="sig sig-object py" id="nuitka.Options.getWindowsProductName">
-<span class="sig-prename descclassname"><span class="pre">nuitka.Options.</span></span><span class="sig-name descname"><span class="pre">getWindowsProductName</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#nuitka.Options.getWindowsProductName" title="Permalink to this definition">&#61633;</a></dt>
+<dt class="sig sig-object py" id="nuitka.Options.getProductName">
+<span class="sig-prename descclassname"><span class="pre">nuitka.Options.</span></span><span class="sig-name descname"><span class="pre">getProductName</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#nuitka.Options.getProductName" title="Permalink to this definition">&#61633;</a></dt>
 <dd><p><em>str</em> name of the product to use</p>
 </dd></dl>
 
@@ -856,6 +1001,12 @@ volatile things.</p>
 <dt class="sig sig-object py" id="nuitka.Options.getMacOSSigningIdentity">
 <span class="sig-prename descclassname"><span class="pre">nuitka.Options.</span></span><span class="sig-name descname"><span class="pre">getMacOSSigningIdentity</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#nuitka.Options.getMacOSSigningIdentity" title="Permalink to this definition">&#61633;</a></dt>
 <dd><p><em>str</em> value to use as identity for codesign, derived from <code class="docutils literal notranslate"><span class="pre">--macos-sign-identity</span></code> value</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="nuitka.Options.shallUseSigningForNotarization">
+<span class="sig-prename descclassname"><span class="pre">nuitka.Options.</span></span><span class="sig-name descname"><span class="pre">shallUseSigningForNotarization</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#nuitka.Options.shallUseSigningForNotarization" title="Permalink to this definition">&#61633;</a></dt>
+<dd><p><em>bool</em> flag to use for codesign, derived from <code class="docutils literal notranslate"><span class="pre">--macos-sign-notarization</span></code> value</p>
 </dd></dl>
 
 <dl class="py function">
@@ -883,6 +1034,18 @@ volatile things.</p>
 </dd></dl>
 
 <dl class="py function">
+<dt class="sig sig-object py" id="nuitka.Options.isMacOSBackgroundApp">
+<span class="sig-prename descclassname"><span class="pre">nuitka.Options.</span></span><span class="sig-name descname"><span class="pre">isMacOSBackgroundApp</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#nuitka.Options.isMacOSBackgroundApp" title="Permalink to this definition">&#61633;</a></dt>
+<dd><p><em>bool</em>, derived from <code class="docutils literal notranslate"><span class="pre">--macos-app-mode</span></code></p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="nuitka.Options.isMacOSUiElementApp">
+<span class="sig-prename descclassname"><span class="pre">nuitka.Options.</span></span><span class="sig-name descname"><span class="pre">isMacOSUiElementApp</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#nuitka.Options.isMacOSUiElementApp" title="Permalink to this definition">&#61633;</a></dt>
+<dd><p><em>bool</em>, derived from <code class="docutils literal notranslate"><span class="pre">--macos-app-mode</span></code></p>
+</dd></dl>
+
+<dl class="py function">
 <dt class="sig sig-object py" id="nuitka.Options.hasPythonFlagNoSite">
 <span class="sig-prename descclassname"><span class="pre">nuitka.Options.</span></span><span class="sig-name descname"><span class="pre">hasPythonFlagNoSite</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#nuitka.Options.hasPythonFlagNoSite" title="Permalink to this definition">&#61633;</a></dt>
 <dd><p><em>bool</em> = &#8220;no_site&#8221; in python flags given</p>
@@ -901,15 +1064,15 @@ volatile things.</p>
 </dd></dl>
 
 <dl class="py function">
-<dt class="sig sig-object py" id="nuitka.Options.hasPythonFlagNoDocstrings">
-<span class="sig-prename descclassname"><span class="pre">nuitka.Options.</span></span><span class="sig-name descname"><span class="pre">hasPythonFlagNoDocstrings</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#nuitka.Options.hasPythonFlagNoDocstrings" title="Permalink to this definition">&#61633;</a></dt>
+<dt class="sig sig-object py" id="nuitka.Options.hasPythonFlagNoDocStrings">
+<span class="sig-prename descclassname"><span class="pre">nuitka.Options.</span></span><span class="sig-name descname"><span class="pre">hasPythonFlagNoDocStrings</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#nuitka.Options.hasPythonFlagNoDocStrings" title="Permalink to this definition">&#61633;</a></dt>
 <dd><p><em>bool</em> = &#8220;no_docstrings&#8221; in python flags given</p>
 </dd></dl>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="nuitka.Options.hasPythonFlagNoWarnings">
 <span class="sig-prename descclassname"><span class="pre">nuitka.Options.</span></span><span class="sig-name descname"><span class="pre">hasPythonFlagNoWarnings</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#nuitka.Options.hasPythonFlagNoWarnings" title="Permalink to this definition">&#61633;</a></dt>
-<dd><p><em>bool</em> = &#8220;no_docstrings&#8221; in python flags given</p>
+<dd><p><em>bool</em> = &#8220;no_warnings&#8221; in python flags given</p>
 </dd></dl>
 
 <dl class="py function">
@@ -1047,7 +1210,7 @@ options.</p>
 <dl class="py function">
 <dt class="sig sig-object py" id="nuitka.Options.shallShowSourceModifications">
 <span class="sig-prename descclassname"><span class="pre">nuitka.Options.</span></span><span class="sig-name descname"><span class="pre">shallShowSourceModifications</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#nuitka.Options.shallShowSourceModifications" title="Permalink to this definition">&#61633;</a></dt>
-<dd><p><em>bool</em> display plugin source changes</p>
+<dd><p><em>bool</em> display plugin source changes derived from &#8211;show-source-changes</p>
 </dd></dl>
 
 <dl class="py function">
@@ -1060,6 +1223,12 @@ options.</p>
 <dt class="sig sig-object py" id="nuitka.Options.getCompilationReportFilename">
 <span class="sig-prename descclassname"><span class="pre">nuitka.Options.</span></span><span class="sig-name descname"><span class="pre">getCompilationReportFilename</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#nuitka.Options.getCompilationReportFilename" title="Permalink to this definition">&#61633;</a></dt>
 <dd><p><em>str</em> filename to write XML report of compilation to</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="nuitka.Options.getCompilationReportTemplates">
+<span class="sig-prename descclassname"><span class="pre">nuitka.Options.</span></span><span class="sig-name descname"><span class="pre">getCompilationReportTemplates</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#nuitka.Options.getCompilationReportTemplates" title="Permalink to this definition">&#61633;</a></dt>
+<dd><p><em>tuple of str,str</em> template and output filenames to write reports to</p>
 </dd></dl>
 
 <dl class="py function">
@@ -1076,8 +1245,9 @@ options.</p>
 
 </section>
 
-<div class="section">
-   
+<div class="section ablog__blog_comments">
+  
+  
 </div>
 
            </div>
@@ -1087,7 +1257,7 @@ options.</p>
   <hr>
 
   <div role="contentinfo">
-    <p>&#169; Copyright 2022, Kay Hayen and Nuitka Contributors.</p>
+    <p>&#169; Copyright 2023, Kay Hayen and Nuitka Contributors.</p>
   </div>
 
   
@@ -1141,8 +1311,8 @@ options.</p>
             <div class="sd-summary-content sd-card-body switcher-body docutils">
                 <blockquote>
                     <div>
-                        <div><div class="line"><a class="reference external" href="/zh_CN/doc/api-doc.html">CN</a></div>
-                            <div class="line"><a class="reference external" href="/de_DE/doc/api-doc.html">DE</a></div>
+                        <div><div class="line"><a class="reference external" href="/de_DE/doc/api-doc.html">DE</a></div>
+                            <div class="line"><a class="reference external" href="/zh_CN/doc/api-doc.html">CN</a></div>
                             </div></div>
                 </blockquote>
             </div>

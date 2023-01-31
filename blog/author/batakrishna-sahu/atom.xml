@@ -2,10 +2,10 @@
 <feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en">
   <id>https://nuitka.net</id>
   <title>Nuitka Blog - Posts by Batakrishna Sahu</title>
-  <updated>2022-11-06T13:36:28.548925+00:00</updated>
+  <updated>2023-01-31T17:56:54.363011+00:00</updated>
   <link href="https://nuitka.net"/>
   <link href="https://nuitka.net/blog/author/batakrishna-sahu/atom.xml" rel="self"/>
-  <generator uri="https://ablog.readthedocs.org/" version="0.10.29">ABlog</generator>
+  <generator uri="https://ablog.readthedocs.io/" version="0.11.0rc2">ABlog</generator>
   <entry>
     <id>https://nuitka.net/posts/batakrishna-sahu-intro.html</id>
     <title>Batakrishna Sahu</title>
@@ -208,14 +208,14 @@ because unlike &lt;cite&gt;zip&lt;/cite&gt; in Python 2, &lt;cite&gt;zip&lt;/cit
 test all the modules and return all the results at once. For
 example:&lt;/p&gt;&lt;/li&gt;
 &lt;/ul&gt;
-&lt;div class="highlight-bash notranslate"&gt;&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;$ ./tests/basics/run_all.py all
-   Using concrete python &lt;span class="m"&gt;2&lt;/span&gt;.7.12 on x86_64
-   Comparing output of &lt;span class="s1"&gt;&amp;#39;Asserts.py&amp;#39;&lt;/span&gt; using &lt;span class="s1"&gt;&amp;#39;/usr/bin/python&amp;#39;&lt;/span&gt; with flags silent, expect_success, remove_output,     recurse_all, original_file, cpython_cache, plugin_enable:pylint-warnings ...
-   .
-   .
-   .
-   .
-   Total &lt;span class="m"&gt;0&lt;/span&gt; error&lt;span class="o"&gt;(&lt;/span&gt;s&lt;span class="o"&gt;)&lt;/span&gt; found.
+&lt;div class="highlight-bash notranslate"&gt;&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;$&lt;span class="w"&gt; &lt;/span&gt;./tests/basics/run_all.py&lt;span class="w"&gt; &lt;/span&gt;all
+&lt;span class="w"&gt;   &lt;/span&gt;Using&lt;span class="w"&gt; &lt;/span&gt;concrete&lt;span class="w"&gt; &lt;/span&gt;python&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="m"&gt;2&lt;/span&gt;.7.12&lt;span class="w"&gt; &lt;/span&gt;on&lt;span class="w"&gt; &lt;/span&gt;x86_64
+&lt;span class="w"&gt;   &lt;/span&gt;Comparing&lt;span class="w"&gt; &lt;/span&gt;output&lt;span class="w"&gt; &lt;/span&gt;of&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;Asserts.py&amp;#39;&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;using&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;/usr/bin/python&amp;#39;&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;with&lt;span class="w"&gt; &lt;/span&gt;flags&lt;span class="w"&gt; &lt;/span&gt;silent,&lt;span class="w"&gt; &lt;/span&gt;expect_success,&lt;span class="w"&gt; &lt;/span&gt;remove_output,&lt;span class="w"&gt;     &lt;/span&gt;recurse_all,&lt;span class="w"&gt; &lt;/span&gt;original_file,&lt;span class="w"&gt; &lt;/span&gt;cpython_cache,&lt;span class="w"&gt; &lt;/span&gt;plugin_enable:pylint-warnings&lt;span class="w"&gt; &lt;/span&gt;...
+&lt;span class="w"&gt;   &lt;/span&gt;.
+&lt;span class="w"&gt;   &lt;/span&gt;.
+&lt;span class="w"&gt;   &lt;/span&gt;.
+&lt;span class="w"&gt;   &lt;/span&gt;.
+&lt;span class="w"&gt;   &lt;/span&gt;Total&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="m"&gt;0&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;error&lt;span class="o"&gt;(&lt;/span&gt;s&lt;span class="o"&gt;)&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;found.
 &lt;/pre&gt;&lt;/div&gt;
 &lt;/div&gt;
 &lt;/dd&gt;
@@ -226,15 +226,15 @@ example:&lt;/p&gt;&lt;/li&gt;
 &lt;li&gt;&lt;p&gt;Added “only” search mode to test only a single module. For
 example:&lt;/p&gt;&lt;/li&gt;
 &lt;/ul&gt;
-&lt;div class="highlight-bash notranslate"&gt;&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;$ ./tests/basics/run_all.py only BuiltinsTest.py
-   Using concrete python &lt;span class="m"&gt;2&lt;/span&gt;.7.12 on x86_64
-   Skipping Asserts.py
-   Skipping Assignments.py
-   Skipping BigConstants.py
-   Skipping Branching.py
-   Skipping BuiltinOverload.py
-   Skipping BuiltinSuper.py
-   Comparing output of &lt;span class="s1"&gt;&amp;#39;BuiltinsTest.py&amp;#39;&lt;/span&gt; using &lt;span class="s1"&gt;&amp;#39;/usr/bin/python&amp;#39;&lt;/span&gt; with flags silent, expect_success, remove_output, recurse_all, original_file, cpython_cache, plugin_enable:pylint-warnings ...
+&lt;div class="highlight-bash notranslate"&gt;&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;$&lt;span class="w"&gt; &lt;/span&gt;./tests/basics/run_all.py&lt;span class="w"&gt; &lt;/span&gt;only&lt;span class="w"&gt; &lt;/span&gt;BuiltinsTest.py
+&lt;span class="w"&gt;   &lt;/span&gt;Using&lt;span class="w"&gt; &lt;/span&gt;concrete&lt;span class="w"&gt; &lt;/span&gt;python&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="m"&gt;2&lt;/span&gt;.7.12&lt;span class="w"&gt; &lt;/span&gt;on&lt;span class="w"&gt; &lt;/span&gt;x86_64
+&lt;span class="w"&gt;   &lt;/span&gt;Skipping&lt;span class="w"&gt; &lt;/span&gt;Asserts.py
+&lt;span class="w"&gt;   &lt;/span&gt;Skipping&lt;span class="w"&gt; &lt;/span&gt;Assignments.py
+&lt;span class="w"&gt;   &lt;/span&gt;Skipping&lt;span class="w"&gt; &lt;/span&gt;BigConstants.py
+&lt;span class="w"&gt;   &lt;/span&gt;Skipping&lt;span class="w"&gt; &lt;/span&gt;Branching.py
+&lt;span class="w"&gt;   &lt;/span&gt;Skipping&lt;span class="w"&gt; &lt;/span&gt;BuiltinOverload.py
+&lt;span class="w"&gt;   &lt;/span&gt;Skipping&lt;span class="w"&gt; &lt;/span&gt;BuiltinSuper.py
+&lt;span class="w"&gt;   &lt;/span&gt;Comparing&lt;span class="w"&gt; &lt;/span&gt;output&lt;span class="w"&gt; &lt;/span&gt;of&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;BuiltinsTest.py&amp;#39;&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;using&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;/usr/bin/python&amp;#39;&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;with&lt;span class="w"&gt; &lt;/span&gt;flags&lt;span class="w"&gt; &lt;/span&gt;silent,&lt;span class="w"&gt; &lt;/span&gt;expect_success,&lt;span class="w"&gt; &lt;/span&gt;remove_output,&lt;span class="w"&gt; &lt;/span&gt;recurse_all,&lt;span class="w"&gt; &lt;/span&gt;original_file,&lt;span class="w"&gt; &lt;/span&gt;cpython_cache,&lt;span class="w"&gt; &lt;/span&gt;plugin_enable:pylint-warnings&lt;span class="w"&gt; &lt;/span&gt;...
 &lt;/pre&gt;&lt;/div&gt;
 &lt;/div&gt;
 &lt;/dd&gt;

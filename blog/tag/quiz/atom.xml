@@ -2,10 +2,10 @@
 <feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en">
   <id>https://nuitka.net</id>
   <title>Nuitka Blog - Posts tagged quiz</title>
-  <updated>2022-11-06T13:36:39.115158+00:00</updated>
+  <updated>2023-01-31T17:57:04.671010+00:00</updated>
   <link href="https://nuitka.net"/>
   <link href="https://nuitka.net/blog/tag/quiz/atom.xml" rel="self"/>
-  <generator uri="https://ablog.readthedocs.org/" version="0.10.29">ABlog</generator>
+  <generator uri="https://ablog.readthedocs.io/" version="0.11.0rc2">ABlog</generator>
   <entry>
     <id>https://nuitka.net/posts/python-scope-quiz.html</id>
     <title>Quiz Question</title>
@@ -287,7 +287,7 @@ Nuitka&lt;/a&gt; for some years now.&lt;/p&gt;
 &lt;h2&gt;Quiz Question&lt;/h2&gt;
 &lt;p&gt;Lately, when adding Python 3.4 support, this and other code changed. So
 lets do this manually:&lt;/p&gt;
-&lt;div class="highlight-bash notranslate"&gt;&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="nv"&gt;PYTHONHASHSEED&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="m"&gt;0&lt;/span&gt; python3.3
+&lt;div class="highlight-bash notranslate"&gt;&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="nv"&gt;PYTHONHASHSEED&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="m"&gt;0&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;python3.3
 &lt;/pre&gt;&lt;/div&gt;
 &lt;/div&gt;
 &lt;div class="highlight-default notranslate"&gt;&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="n"&gt;Python&lt;/span&gt; &lt;span class="mf"&gt;3.3.5&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;default&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;Mar&lt;/span&gt; &lt;span class="mi"&gt;22&lt;/span&gt; &lt;span class="mi"&gt;2014&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;13&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="mi"&gt;24&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="mi"&gt;53&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
@@ -315,7 +315,7 @@ values, but then it stays fixed. Which is pretty OK, and using a fixed
 hash value, it’s deterministic. Random hashing is not good for
 comparison testing, so I disable it for tests.&lt;/p&gt;
 &lt;p&gt;Now things get interesting, repeat with 3.4:&lt;/p&gt;
-&lt;div class="highlight-bash notranslate"&gt;&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="nv"&gt;PYTHONHASHSEED&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="m"&gt;0&lt;/span&gt; python3.4
+&lt;div class="highlight-bash notranslate"&gt;&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="nv"&gt;PYTHONHASHSEED&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="m"&gt;0&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;python3.4
 &lt;/pre&gt;&lt;/div&gt;
 &lt;/div&gt;
 &lt;div class="highlight-default notranslate"&gt;&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="n"&gt;Python&lt;/span&gt; &lt;span class="mf"&gt;3.4.1&lt;/span&gt;&lt;span class="n"&gt;rc1&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;default&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;May&lt;/span&gt;  &lt;span class="mi"&gt;5&lt;/span&gt; &lt;span class="mi"&gt;2014&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;14&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="mi"&gt;28&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="mi"&gt;34&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
@@ -408,7 +408,7 @@ installation, and &lt;code class="docutils literal notranslate"&gt;&lt;span clas
 &lt;section id="step-3-install-the-nuitka-python-compiler-package"&gt;
 &lt;h3&gt;Step 3: Install the Nuitka Python Compiler package&lt;/h3&gt;
 &lt;p&gt;Now install Nuitka with the following command.&lt;/p&gt;
-&lt;div class="highlight-bash notranslate"&gt;&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;python -m pip install nuitka
+&lt;div class="highlight-bash notranslate"&gt;&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;python&lt;span class="w"&gt; &lt;/span&gt;-m&lt;span class="w"&gt; &lt;/span&gt;pip&lt;span class="w"&gt; &lt;/span&gt;install&lt;span class="w"&gt; &lt;/span&gt;nuitka
 &lt;/pre&gt;&lt;/div&gt;
 &lt;/div&gt;
 &lt;img alt="Install Nuitka in Python" src="../../_images/Nuitka-Installation-CMD.png" /&gt;
@@ -417,7 +417,7 @@ installation, and &lt;code class="docutils literal notranslate"&gt;&lt;span clas
 &lt;h3&gt;Step 4: Run your Program&lt;/h3&gt;
 &lt;p&gt;Now run your program from the terminal. Convince yourself that
 everything is working.&lt;/p&gt;
-&lt;div class="highlight-bash notranslate"&gt;&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;python fancy-program.py
+&lt;div class="highlight-bash notranslate"&gt;&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;python&lt;span class="w"&gt; &lt;/span&gt;fancy-program.py
 &lt;/pre&gt;&lt;/div&gt;
 &lt;/div&gt;
 &lt;div class="admonition note"&gt;
@@ -428,12 +428,12 @@ going to make Python know it’s one.&lt;/p&gt;
 &lt;/section&gt;
 &lt;section id="step-5-create-the-executable-using-nuitka"&gt;
 &lt;h3&gt;Step 5: Create the Executable using Nuitka&lt;/h3&gt;
-&lt;div class="highlight-bash notranslate"&gt;&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;python -m nuitka --onefile fancy-program.py
+&lt;div class="highlight-bash notranslate"&gt;&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;python&lt;span class="w"&gt; &lt;/span&gt;-m&lt;span class="w"&gt; &lt;/span&gt;nuitka&lt;span class="w"&gt; &lt;/span&gt;--onefile&lt;span class="w"&gt; &lt;/span&gt;fancy-program.py
 &lt;/pre&gt;&lt;/div&gt;
 &lt;/div&gt;
 &lt;p&gt;In case of a terminal program, add one of many options that Nuitka has
 to adapt for platform specifics, e.g. program icon, and so on.&lt;/p&gt;
-&lt;div class="highlight-bash notranslate"&gt;&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;python -m nuitka --onefile --windows-disable-console fancy-program.py
+&lt;div class="highlight-bash notranslate"&gt;&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;python&lt;span class="w"&gt; &lt;/span&gt;-m&lt;span class="w"&gt; &lt;/span&gt;nuitka&lt;span class="w"&gt; &lt;/span&gt;--onefile&lt;span class="w"&gt; &lt;/span&gt;--windows-disable-console&lt;span class="w"&gt; &lt;/span&gt;fancy-program.py
 &lt;/pre&gt;&lt;/div&gt;
 &lt;/div&gt;
 &lt;p&gt;This will create &lt;code class="docutils literal notranslate"&gt;&lt;span class="pre"&gt;fancy-program.exe&lt;/span&gt;&lt;/code&gt;.&lt;/p&gt;

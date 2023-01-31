@@ -15,7 +15,7 @@
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Nuitka the Python Compiler &#8212; Nuitka the Python Compiler  documentation</title>
-      <link rel="stylesheet" href="/_static/css/combined_48888c5015cd786ba30be2ae5a8ec195.css" type="text/css">
+      <link rel="stylesheet" href="/_static/css/combined_c265894810fc31e59f2b3db7937ee66d.css" type="text/css">
       <link rel="canonical" href="https://nuitka.net/index.html">
   <!--[if lt IE 9]>
     <script src="_static/js/html5shiv.min.js"></script>
@@ -35,36 +35,16 @@
     SHOW_SEARCH_SUMMARY: true,
     ENABLE_SEARCH_SHORTCUTS: true,
 };</script>
-        <script src="/_static/combined_1f3d291568f0d25fd5e0e83c3075a3a3.js" async=""></script>
+        <script src="/_static/combined_50b22e29ca76da059b0c14dcc606bcaa.js" async=""></script>
         <script src="_static/_sphinx_javascript_frameworks_compat.js" async=""></script>
+        <script src="_static/sphinx_highlight.js" async=""></script>
         <link rel="index" title="Index" href="genindex.html">
-    <link rel="next" title="Nuitka Downloads" href="doc/download.html">   
-<link rel="alternate" type="application/atom+xml" href="blog/atom.xml" title="Nuitka Blog">
+    <link rel="next" title="Nuitka Downloads" href="doc/download.html">
  
-<style type="text/css">
-  ul.ablog-archive {
-    list-style: none;
-    overflow: auto;
-    margin-left: 0px;
-  }
-  ul.ablog-archive li {
-    float: left;
-    margin-right: 5px;
-    font-size: 80%;
-  }
-  ul.postlist a {
-    font-style: italic;
-  }
-  ul.postlist-style-disc {
-    list-style-type: disc;
-  }
-  ul.postlist-style-none {
-    list-style-type: none;
-  }
-  ul.postlist-style-circle {
-    list-style-type: circle;
-  }
-</style>
+
+<link rel="alternate" type="application/atom+xml" href="blog/atom.xml" title="Nuitka Blog">
+
+
 
 </head>
 
@@ -73,8 +53,12 @@
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search">
-            <a href="#" class="icon icon-home"> Nuitka the Python Compiler
-            <div class="logo_container"><img src="_static/Nuitka-Logo-Symbol.svg" class="logo" alt="Logo" width="208" height="209">
+
+          
+          
+          <a href="#" class="icon icon-home">
+            Nuitka the Python Compiler
+              <div class="logo_container"><img src="_static/Nuitka-Logo-Symbol.svg" class="logo" alt="Logo" width="208" height="209">
           </div></a><!-- Empty override file take the place of searchbox.html, which generates search box. -->
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
               <ul>
@@ -89,15 +73,16 @@
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Release Information</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="doc/Changelog.html">Nuitka Release 1.2 (Draft)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="doc/Changelog.html#nuitka-release-1-1">Nuitka Release 1.1</a></li>
-<li class="toctree-l1"><a class="reference internal" href="doc/Changelog.html#nuitka-release-1-0">Nuitka Release 1.0</a></li>
+<li class="toctree-l1"><a class="reference internal" href="doc/Changelog.html">Nuitka Release 1.5 (Draft)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="doc/Changelog.html#nuitka-release-1-4">Nuitka Release 1.4</a></li>
+<li class="toctree-l1"><a class="reference internal" href="doc/Changelog.html#nuitka-release-1-3">Nuitka Release 1.3</a></li>
 <li class="toctree-l1"><a class="reference internal" href="doc/Changelog.html#older-releases">Older Releases</a></li>
 <li class="toctree-l1"><a class="reference internal" href="doc/roadmap.html">Roadmap</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">More documentation</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="doc/developer-manual.html">Developer Manual</a></li>
+<li class="toctree-l1"><a class="reference internal" href="doc/nuitka-package-config.html">Nuitka Package Configuration</a></li>
 <li class="toctree-l1"><a class="reference internal" href="doc/api-doc.html">API doc</a></li>
 <li class="toctree-l1"><a class="reference internal" href="doc/factory.html">Factory Instructions</a></li>
 </ul>
@@ -115,6 +100,7 @@
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="doc/welcome.html">Welcome</a></li>
 <li class="toctree-l1"><a class="reference internal" href="pages/pyside2.html">Nuitka PySide2 support</a></li>
+<li class="toctree-l1"><a class="reference internal" href="pages/pyqt5.html">Nuitka PyQt5 support</a></li>
 <li class="toctree-l1"><a class="reference internal" href="pages/donations.html">Donations</a></li>
 <li class="toctree-l1"><a class="reference internal" href="pages/gsoc2019.html">Google Summer of Code 2019</a></li>
 </ul>
@@ -133,30 +119,35 @@
           <!-- Empty override file take the place of sphinx_rtd_theme/breadcrumbs.html, which generates the top nav breadcrumbs. -->
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
-              <section id="nuitka-the-python-compiler">
+             
+<section id="nuitka-the-python-compiler">
 <h1>Nuitka the Python Compiler<a class="headerlink" href="#nuitka-the-python-compiler" title="Permalink to this heading">&#61633;</a></h1>
 <section id="nuitka-blog">
 <h2>Nuitka Blog<a class="headerlink" href="#nuitka-blog" title="Permalink to this heading">&#61633;</a></h2>
 <ul class="postlist-style-none postlist">
-<li class="ablog-post"><p class="ablog-post-title">16 October - <a class="reference internal" href="posts/nuitka-release-11.html">Nuitka Release 1.1</a></p>
+<li class="ablog-post"><p class="ablog-post-title">20 January - <a class="reference internal" href="posts/nuitka-package-config-kickoff.html">Nuitka Package Configuration Kickoff</a></p>
+<p class="ablog-post-excerpt">The term &#8220;kickoff&#8221; refers to a series of posts about the Nuitka package
+configuration. The details are here on a dedicate page on the web site
+only. <a class="reference external" href="https://nuitka.net/doc/nuitka-package-config.html">Nuitka Package Configuration</a>.</p>
+</li>
+<li class="ablog-post"><p class="ablog-post-title">28 December - <a class="reference internal" href="posts/nuitka-release-13.html">Nuitka Release 1.3</a></p>
 <p class="ablog-post-excerpt">This is to inform you about the new stable release of <a class="reference external" href="https://nuitka.net">Nuitka</a>. It is the extremely compatible Python compiler,
 <a class="reference external" href="/doc/download.html">&#8220;download now&#8221;</a>.</p>
 </li>
-<li class="ablog-post"><p class="ablog-post-title">16 August - <a class="reference internal" href="posts/nuitka-release-10.html">Nuitka Release 1.0</a></p>
-<p class="ablog-post-excerpt">This is to inform you about the new stable release of <a class="reference external" href="https://nuitka.net">Nuitka</a>. It is the extremely compatible Python compiler,
-<a class="reference external" href="/doc/download.html">&#8220;download now&#8221;</a>.</p>
+<li class="ablog-post"><p class="ablog-post-title">10 December - <a class="reference internal" href="posts/python311-support.html">Python 3.11 and Nuitka</a></p>
+<p class="ablog-post-excerpt">In my <a class="reference external" href="/posts/all-in-with-nuitka.html">all in with Nuitka</a> post, I
+promised to give you an update on the current status of Python 3.11
+support and Nuitka, and this is the report on my busy bee activities
+there.</p>
 </li>
-<li class="ablog-post"><p class="ablog-post-title">02 July - <a class="reference internal" href="posts/nuitka-release-09.html">Nuitka Release 0.9</a></p>
-<p class="ablog-post-excerpt">This is to inform you about the new stable release of <a class="reference external" href="https://nuitka.net">Nuitka</a>. It is the extremely compatible Python compiler,
-<a class="reference external" href="/doc/download.html">&#8220;download now&#8221;</a>.</p>
+<li class="ablog-post"><p class="ablog-post-title">09 December - <a class="reference internal" href="posts/all-in-with-nuitka.html">All in with Nuitka</a></p>
+<p class="ablog-post-excerpt">After more than 10 years of working on the Python compiler Nuitka, and
+at the age of 50, I have finally decided to take the plunge. My projects
+&#8220;Nuitka&#8221; and &#8220;Nuitka commercial&#8221; are now my <em>day job</em>, and I quit my
+work in the Air Traffic Community, after working on <a class="reference external" href="https://en.wikipedia.org/wiki/ARTAS" target="_blank">ARTAS</a> (a software to create an Air
+Situation Picture from radar and other sensors) for 20 years.</p>
 </li>
-<li class="ablog-post"><p class="ablog-post-title">27 May - <a class="reference internal" href="posts/next-nuitka-live-stream-04-06-2022.html">Next Nuitka Live Stream</a></p>
-<p class="ablog-post-excerpt">In the coming weekend, Saturday 04.06.2022, there will be the next live
-streams of me coding on Nuitka, and talking and chatting with visitors
-in the Discord channel created specifically for this. I will go from
-10-14 CEST and potentially also one in the evening.</p>
-</li>
-<li class="ablog-post"><p class="ablog-post-title">26 May - <a class="reference internal" href="posts/nuitka-release-08.html">Nuitka Release 0.8</a></p>
+<li class="ablog-post"><p class="ablog-post-title">26 November - <a class="reference internal" href="posts/nuitka-release-12.html">Nuitka Release 1.2</a></p>
 <p class="ablog-post-excerpt">This is to inform you about the new stable release of <a class="reference external" href="https://nuitka.net">Nuitka</a>. It is the extremely compatible Python compiler,
 <a class="reference external" href="/doc/download.html">&#8220;download now&#8221;</a>.</p>
 </li>
@@ -205,8 +196,9 @@ Additionally, you can purchase priority support.</p>
 </section>
 </section>
 
-<div class="section">
-   
+<div class="section ablog__blog_comments">
+  
+  
 </div>
 
            </div>
@@ -216,7 +208,7 @@ Additionally, you can purchase priority support.</p>
   <hr>
 
   <div role="contentinfo">
-    <p>&#169; Copyright 2022, Kay Hayen and Nuitka Contributors.</p>
+    <p>&#169; Copyright 2023, Kay Hayen and Nuitka Contributors.</p>
   </div>
 
   

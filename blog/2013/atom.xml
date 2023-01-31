@@ -2,10 +2,10 @@
 <feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en">
   <id>https://nuitka.net</id>
   <title>Nuitka Blog - Posted in 2013</title>
-  <updated>2022-11-06T13:36:32.296861+00:00</updated>
+  <updated>2023-01-31T17:56:57.723286+00:00</updated>
   <link href="https://nuitka.net"/>
   <link href="https://nuitka.net/blog/2013/atom.xml" rel="self"/>
-  <generator uri="https://ablog.readthedocs.org/" version="0.10.29">ABlog</generator>
+  <generator uri="https://ablog.readthedocs.io/" version="0.11.0rc2">ABlog</generator>
   <entry>
     <id>https://nuitka.net/posts/python-3-nuitka-support-is-upcoming.html</id>
     <title>Python3 support by Nuitka is upcoming</title>
@@ -671,7 +671,7 @@ __main__.py
 
 &lt;span class="c1"&gt;# nuitka --exe directory&lt;/span&gt;
 &lt;span class="c1"&gt;# ls&lt;/span&gt;
-directory directory.exe
+directory&lt;span class="w"&gt; &lt;/span&gt;directory.exe
 &lt;/pre&gt;&lt;/div&gt;
 &lt;/div&gt;
 &lt;p&gt;This makes this usage more obvious, and fixes an older issue for this
@@ -1019,7 +1019,7 @@ it’s upcoming for the next release, Nuitka 0.4.3, and it’s in the
 current pre-releases.&lt;/p&gt;
 &lt;p&gt;It works by adding &lt;code class="docutils literal notranslate"&gt;&lt;span class="pre"&gt;--portable&lt;/span&gt;&lt;/code&gt; to the command line. So this should
 work for you:&lt;/p&gt;
-&lt;div class="highlight-bash notranslate"&gt;&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;nuitka-python --recurse-all --portable your-program.py
+&lt;div class="highlight-bash notranslate"&gt;&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;nuitka-python&lt;span class="w"&gt; &lt;/span&gt;--recurse-all&lt;span class="w"&gt; &lt;/span&gt;--portable&lt;span class="w"&gt; &lt;/span&gt;your-program.py
 &lt;/pre&gt;&lt;/div&gt;
 &lt;/div&gt;
 &lt;p&gt;Right now, it will create a folder “_python” with DLLs, and
@@ -1602,11 +1602,11 @@ esp. if there is code like this:&lt;/p&gt;
 &lt;/div&gt;
 &lt;p&gt;In module mode, Nuitka will optimize it away, and nothing will happen
 on execution. This is because the command&lt;/p&gt;
-&lt;div class="highlight-bash notranslate"&gt;&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;nuitka --execute module
+&lt;div class="highlight-bash notranslate"&gt;&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;nuitka&lt;span class="w"&gt; &lt;/span&gt;--execute&lt;span class="w"&gt; &lt;/span&gt;module
 &lt;/pre&gt;&lt;/div&gt;
 &lt;/div&gt;
 &lt;p&gt;is behavioral more like&lt;/p&gt;
-&lt;div class="highlight-bash notranslate"&gt;&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;python -c &lt;span class="s2"&gt;&amp;quot;import module&amp;quot;&lt;/span&gt;
+&lt;div class="highlight-bash notranslate"&gt;&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;python&lt;span class="w"&gt; &lt;/span&gt;-c&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;import module&amp;quot;&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 &lt;/div&gt;
 &lt;p&gt;and that was a trap for new users.&lt;/p&gt;
@@ -1669,7 +1669,7 @@ styles.&lt;/p&gt;&lt;/li&gt;
 &lt;li&gt;&lt;p&gt;Nuitka is now available on the social code platforms as well&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;p&gt;Bitbucket (since removed)&lt;/p&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;&lt;a class="reference external" href="https://github.com/kayhayen/Nuitka"&gt;GitHub&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;a class="reference external" href="https://github.com/Nuitka/Nuitka"&gt;GitHub&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
 &lt;li&gt;&lt;p&gt;Gitorious (since discontinued)&lt;/p&gt;&lt;/li&gt;
 &lt;li&gt;&lt;p&gt;Google Code (since discontinued)&lt;/p&gt;&lt;/li&gt;
 &lt;/ul&gt;

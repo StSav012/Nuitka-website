@@ -2,10 +2,10 @@
 <feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en">
   <id>https://nuitka.net</id>
   <title>Nuitka Blog - Posted in 2010</title>
-  <updated>2022-11-06T13:36:32.862997+00:00</updated>
+  <updated>2023-01-31T17:56:58.223567+00:00</updated>
   <link href="https://nuitka.net"/>
   <link href="https://nuitka.net/blog/2010/atom.xml" rel="self"/>
-  <generator uri="https://ablog.readthedocs.org/" version="0.10.29">ABlog</generator>
+  <generator uri="https://ablog.readthedocs.io/" version="0.11.0rc2">ABlog</generator>
   <entry>
     <id>https://nuitka.net/posts/starting-to-blog-who-and-why.html</id>
     <title>Starting to blog, who and why?</title>

@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en">
+<head>
+  <meta charset="utf-8"><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/">
+    <link rel="icon" href="../_static/favicon.svg" type="image/svg+xml">
+    <link rel="icon" href="../_static/favicon.png" sizes="32x32" type="image/png">
+    <link rel="icon" href="../_static/favicon.ico" sizes="32x32" type="image/x-icon">
+    <link rel="icon" href="../_static/apple-touch-icon-iphone.png" sizes="57x57" type="image/png">
+    <link rel="icon" href="../_static/apple-touch-icon-ipad.png" sizes="72x72" type="image/png">
+    <link rel="icon" href="../_static/apple-touch-icon-iphone4.png" sizes="114x114" type="image/png">
+    <link rel="icon" href="../_static/apple-touch-icon-ipad3.png" sizes="144x144" type="image/png">
+    <link rel="apple-touch-icon" href="../_static/apple-touch-icon-180x180.png" sizes="180x180" type="image/png">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Python 3.11 and Nuitka &#8212; Nuitka the Python Compiler  documentation</title>
+      <link rel="stylesheet" href="/_static/css/combined_03f7eeec2061fd0a5acfc23d1d0bf4fb.css" type="text/css">
+      <link rel="canonical" href="https://nuitka.net/posts/python311-support.html">
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script>var DOCUMENTATION_OPTIONS = {
+    URL_ROOT: '../',
+    VERSION: '',
+    LANGUAGE: 'en',
+    COLLAPSE_INDEX: false,
+    BUILDER: 'html',
+    FILE_SUFFIX: '.html',
+    LINK_SUFFIX: '.html',
+    HAS_SOURCE: false,
+    SOURCELINK_SUFFIX: '.txt',
+    NAVIGATION_WITH_KEYS: false,
+    SHOW_SEARCH_SUMMARY: true,
+    ENABLE_SEARCH_SHORTCUTS: true,
+};</script>
+        <script src="/_static/combined_50b22e29ca76da059b0c14dcc606bcaa.js" async=""></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js" async=""></script>
+        <script src="../_static/sphinx_highlight.js" async=""></script>
+        <script src="../_static/clipboard.min.js" async=""></script>
+        <script src="../_static/copybutton.js" async=""></script>
+        <link rel="index" title="Index" href="../genindex.html">
+    <link rel="alternate" type="application/atom+xml" href="../blog/atom.xml" title="Nuitka Blog">
+
+
+
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            Nuitka the Python Compiler
+              <div class="logo_container"><img src="../_static/Nuitka-Logo-Symbol.svg" class="logo" alt="Logo" width="208" height="209">
+          </div></a><!-- Empty override file take the place of searchbox.html, which generates search box. -->
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="../doc/download.html">Download</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../doc/user-manual.html">User Manual</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pages/support.html">Support</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Commercial Users</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../doc/commercial.html">Nuitka Commercial</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../doc/bundles.html">Nuitka Bundles</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Release Information</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../doc/Changelog.html">Nuitka Release 1.5 (Draft)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../doc/Changelog.html#nuitka-release-1-4">Nuitka Release 1.4</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../doc/Changelog.html#nuitka-release-1-3">Nuitka Release 1.3</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../doc/Changelog.html#older-releases">Older Releases</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../doc/roadmap.html">Roadmap</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">More documentation</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../doc/developer-manual.html">Developer Manual</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../doc/nuitka-package-config.html">Nuitka Package Configuration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../doc/api-doc.html">API doc</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../doc/factory.html">Factory Instructions</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Media</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../pages/Presentations.html">Presentations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pages/Streaming.html">Streaming</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Other</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../doc/Credits.html">Credits</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pages/impressum.html">Impressum</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Under construction</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../doc/welcome.html">Welcome</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pages/pyside2.html">Nuitka PySide2 support</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pages/pyqt5.html">Nuitka PyQt5 support</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pages/donations.html">Donations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pages/gsoc2019.html">Google Summer of Code 2019</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Nuitka the Python Compiler</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <!-- Empty override file take the place of sphinx_rtd_theme/breadcrumbs.html, which generates the top nav breadcrumbs. -->
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+<section id="python-3-11-and-nuitka">
+<h1>Python 3.11 and Nuitka<a class="headerlink" href="#python-3-11-and-nuitka" title="Permalink to this heading">&#61633;</a></h1>
+<p>In my <a class="reference external" href="/posts/all-in-with-nuitka.html">all in with Nuitka</a> post, I
+promised to give you an update on the current status of Python 3.11
+support and Nuitka, and this is the report on my busy bee activities
+there.</p>
+<section id="what-is-now">
+<h2>What is now<a class="headerlink" href="#what-is-now" title="Permalink to this heading">&#61633;</a></h2>
+<p>Current Nuitka 1.2 and likely the coming 1.3 release, will react pretty
+hefty to attempts to compile with Python3.11, so this command:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>python3.11<span class="w"> </span>-m<span class="w"> </span>nuitka<span class="w"> </span>tests/basics/Asserts.py
+</pre></div>
+</div>
+<p>Gives the following output:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Nuitka</span><span class="p">:</span><span class="n">WARNING</span><span class="p">:</span> <span class="n">The</span> <span class="n">version</span> <span class="s1">'3.11'</span> <span class="ow">is</span> <span class="ow">not</span> <span class="n">currently</span> <span class="n">supported</span><span class="o">.</span> <span class="n">Expect</span>
+<span class="n">Nuitka</span><span class="p">:</span><span class="n">WARNING</span><span class="p">:</span> <span class="n">problems</span><span class="o">.</span>
+<span class="n">FATAL</span><span class="p">:</span> <span class="n">The</span> <span class="n">Python</span> <span class="n">version</span> <span class="s1">'3.11'</span> <span class="ow">is</span> <span class="ow">not</span> <span class="n">supported</span> <span class="n">by</span> <span class="s1">'1.2.7'</span><span class="p">,</span> <span class="n">but</span> <span class="n">an</span> <span class="n">upcoming</span> <span class="n">release</span> <span class="n">will</span> <span class="n">add</span> <span class="n">it</span><span class="o">.</span>
+</pre></div>
+</div>
+</section>
+<section id="what-you-can-do">
+<h2>What you can do?<a class="headerlink" href="#what-you-can-do" title="Permalink to this heading">&#61633;</a></h2>
+<p>As a mere mortal, what you can and should do is to consider becoming a
+<a class="reference external" href="https://nuitka.net/doc/commercial.html">subscriber of Nuitka commercial</a>, even if you do not need the
+IP protection features it mostly has. All essential packaging and
+performance features are free, and I have put incredible amounts of
+works in this, and I need to now make a living off it.</p>
+<p>And working on 3.11 support, just so tings then continue to work, mostly
+on my own deserves financial support. Once a year, for weeks on end, I
+am re-implementing features that a collective of developers came up
+with.</p>
+<p>Otherwise, unless you are CPython core developer responsible for the
+changes, I am afraid, not a lot. Having to know both Nuitka and CPython
+details is a tall ask. I might be the only one to do this for a while. I
+will however strive to get more people involved each time.</p>
+<p>That is not to say this does not happen. Not too long ago, I merged
+proposed changes that will help Nuitka with 3.12 compatibility. This
+would be nice if it was more frequent, and the fact that it is not, is
+probably my fault entirely.</p>
+</section>
+<section id="what-was-done">
+<h2>What was done?<a class="headerlink" href="#what-was-done" title="Permalink to this heading">&#61633;</a></h2>
+<p>In the summer, with release candidates, there was some refactoring done
+that aimed at making Nuitka compile, at least with less errors. One of
+the changes that was addressed at the time was the reduction of
+exception state to only a value.</p>
+<p>In Python during an exception, you typically have a exception &#8220;type&#8221;,
+&#8220;value&#8221;, and a &#8220;traceback&#8221;. And these used to be sort of independent
+objects, which then through a process called &#8220;normalization&#8221; got
+aligned. E.g. when raising an exception, you would simply put a
+<code class="docutils literal notranslate"><span class="pre">ZeroDivisionError</span></code> as a type, and a string as the value, and only on
+normalization, which was attempted to be done as late as possible, the
+actual exception object was created.</p>
+<p>For 3.11 now, in some parts (but not all of course), this got reduced,
+and making Nuitka cope with that was a bigger task, and even one that
+had then introduced a regression to pre-3.11, i.e. affecting other
+versions. I had to make a hotfix because of this for the release that
+included these changes. This is of course, due to also cleaning up the
+code that was changed, to reduce e.g. duplications that were considered
+harmless in the past.</p>
+<p>Now, during the 1.3 releases cycle, many more changes have been
+addressed. The CPython core is using now &#8220;interpreter frames&#8221;, which are
+lightweight non-objects, and does only create a frame when an exception
+is needed. Nuitka on the other hand used to cache frame objects, that it
+also created only when needed. Adapting the interactions with the frame
+stack appears somewhat solved, but actually poses some bugs when dealing
+with generators that raise exceptions, and is currently being analysed.</p>
+</section>
+<section id="the-process">
+<h2>The Process<a class="headerlink" href="#the-process" title="Permalink to this heading">&#61633;</a></h2>
+<p>When the goal is getting 3.11 supported (or any later Python, this will
+repeat forever), in a first step it just doesn&#8217;t compile on the C level
+anymore. First, all kinds of changes need to be addressed that show when
+compiling on the C level. Or extra time spent to disable some things to
+migrate only later (which I tend to not do), but the unfortunate truth
+is, that at that point, running with 3.11 to find out things, is not yet
+an option.</p>
+<p>Once compiled 3.11 started being executable, it was hard crashing (worst
+case) and asserting (good case) like hell. Many assumptions made proved
+to be untrue, or things that used to be true, are no more true. That is
+pretty normal when you mingle with internal details of course.</p>
+<p>Right now reference leaks are being seen with generators, and so are
+crashes. This is probably the same issue, where some link between
+objects, some reference to an object is taken, and what is most likely,
+in other instance, it is lost, which then causes corrupted objects.
+These are among the hardest things to debug in Python, often the symptom
+only shows later. Many times development in this phase is about adding
+assertions. This is where we are now.</p>
+<p>The next phase then is to run the CPython 3.10 test suite compiled with
+3.11 and compare its results to running with plain 3.11, and expect it
+to be the same. It is normal for CPython 3.10 tests to fail with 3.11,
+and this does two things.</p>
+<p>Either the test passes where it should not, then 3.11 added extra
+checks, e.g. making it illegal to provide certain types of inputs that
+were legal in the past, or it fails where 3.11 does not, then it
+highlights a behavior change or a mistake in the migration. Another case
+of course is it crashing. Then some bug in e.g. frame handling or
+exception handling might cause that.</p>
+<p>During this phase it is esp. initially very hard to assess where we
+stand. Often one bug affects many tests with different symptoms. We we
+just look for things that are easy to analyse.</p>
+<p>In the next phase, the 3.11 test suite is used in the same way. This
+will often uncover new features, new behaviors, newly allowed things.
+For example Nuitka might reject an input, but that is correct for 3.10,
+but not for 3.11 anymore, this this will be added.</p>
+<p>This phase has not even started.</p>
+<p>One interesting case is new test coverage. Often is has happened in the
+past that something was incompatible with 3.10 already, but that has
+never been seen. Of course, in this instance, the modification will be
+backported, this is often revealed when running the 3.11 tests compiled
+with 3.11 and comparing the result with pure 3.10.</p>
+<p>And this is also not even started. Once the test suite is adapted for
+Nuitka&#8217;s needs (avoiding random outputs, to make tests comparable e.g.)
+this could be started, and would enhance 3.10 compatibility already with
+its findings.</p>
+</section>
+<section id="intermediate-results">
+<h2>Intermediate Results<a class="headerlink" href="#intermediate-results" title="Permalink to this heading">&#61633;</a></h2>
+<p>Once the Python3.11 more or less well passed the 3.10 test suite without
+big issues, experimental support for it will be added. The warning from
+above will be given, but the error will cease.</p>
+<p>But only once the CPython 3.11 test suite is completely passing, it will
+be added as supported officially. Again, not all tests have to pass
+perfectly for this, cosmetic things are not counted of course.</p>
+</section>
+<section id="when">
+<h2>When<a class="headerlink" href="#when" title="Permalink to this heading">&#61633;</a></h2>
+<p>Very hard to predict. Supporting existing Nuitka is also a side tracking
+thing, that makes it unclear how much time I will have for it. But the
+worst things with debugging is that I just never know how much time it
+will be. In past releases, the time has varied. I do not know at this
+time, what will have to be done for support of 3.11, it clearly is one
+of the harder ones. But I am hoping these core changes were the bulk of
+the work.</p>
+</section>
+<section id="benefits-for-older-python-too">
+<h2>Benefits for older Python too<a class="headerlink" href="#benefits-for-older-python-too" title="Permalink to this heading">&#61633;</a></h2>
+<p>When I noticed that the dictionary implementation had heavily changed,
+and Nuitka&#8217;s &#8220;illegal&#8221; friendship (accessing internal details of it)
+caused it to not compile, step one was to compare current details with
+3.10 and find that there are a bunch of things that were added over
+time. For example one fast branch that was added to 3.10, Nuitka now has
+it too, for 3.6 or higher. So we are also back-porting some speed
+improvements.</p>
+<p>Also the allocator of 3.11 changed, and as a result, the allocator for
+all older Python will be way faster to use, esp. with platforms that use
+DLLs.</p>
+<p>There are other benefits, e.g. 3.10 is exposing free lists (re-usable
+objects without going through allocation) it is using, allowing Nuitka
+to accelerate dictionary object creation esp. on Windows, and so on.</p>
+</section>
+<section id="expected-results">
+<h2>Expected results<a class="headerlink" href="#expected-results" title="Permalink to this heading">&#61633;</a></h2>
+<p>People tend to expect that gains from Nuitka and enhancements of CPython
+stack up. The truth of the matter is, no they do not. CPython is
+applying some tricks that Nuitka already did. Not using its bytecode
+will then become less of a benefit, but that&#8217;s OK, this is not what
+Nuitka is about.</p>
+<p>We need to get somewhere else entirely anyway, in terms of speed up. I
+will be talking about PGO and C types a lot in the coming year, that is
+at least the hope. That is where the &#8220;all in&#8221; part kicks in.</p>
+</section>
+<section id="final-words">
+<h2>Final Words<a class="headerlink" href="#final-words" title="Permalink to this heading">&#61633;</a></h2>
+<p>Look ma, I posted about something that is not complete. I am getting
+better.</p>
+</section>
+</section>
+
+<div class="section ablog__blog_comments">
+  
+  
+
+
+<div class="section ablog__prev-next">
+  <span class="ablog__prev">
+    
+    
+    <a href="all-in-with-nuitka.html">
+      
+      <i class="fa fa-arrow-circle-left"></i>
+      
+      <span>All in with Nuitka</span>
+    </a>
+    
+  </span>
+  <span class="ablog__spacer">&#160;</span>
+  <span class="ablog__next">
+    
+    
+    <a href="nuitka-release-13.html">
+      <span>Nuitka Release 1.3</span>
+      
+      <i class="fa fa-arrow-circle-right"></i>
+      
+    </a>
+    
+  </span>
+</div>
+
+  
+  
+</div>
+
+           </div>
+          </div>
+          <footer>
+
+  <hr>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, Kay Hayen and Nuitka Contributors.</p>
+  </div>
+
+  
+<div class="share-button-container">
+    <div class="socialbutton-wrapper">
+
+        <a href="https://twitter.com/share?url=https://nuitka.net/posts/python311-support.html&amp;hashtags=nuitka" target="_blank">
+            <div class="socialbutton twitter">
+                <p class="icon">
+                    <img src="/_static/icon-twitter.png" width="24" height="24">
+                </p>
+
+                <p class="shares">share...</p>
+            </div>
+        </a>
+
+        <a href="https://www.facebook.com/sharer.php?u=https://nuitka.net/posts/python311-support.html&amp;hashtag=%23nuitka" target="_blank">
+            <div class="socialbutton facebook">
+                <p class="icon">
+                    <img src="/_static/icon-facebook.png" width="24" height="24">
+                </p>
+
+                <p class="shares">share...</p>
+            </div>
+        </a>
+
+        <a href="http://www.reddit.com/submit?url=https://nuitka.net/posts/python311-support.html" target="_blank">
+            <div class="socialbutton reddit">
+                <p class="icon">
+                    <img src="/_static/icon-reddit.png" width="24" height="24">
+                </p>
+
+                <p class="shares">share...</p>
+            </div>
+        </a>
+
+        <details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3 switcher-container">
+            <summary class="sd-summary-title sd-card-header switcher-title">EN<div class="sd-summary-down docutils">
+                    <svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-down" viewbox="0 0 24 24" aria-hidden="true">
+                        <path fill-rule="evenodd" d="M5.22 8.72a.75.75 0 000 1.06l6.25 6.25a.75.75 0 001.06 0l6.25-6.25a.75.75 0 00-1.06-1.06L12 14.44 6.28 8.72a.75.75 0 00-1.06 0z">
+                        </path>
+                    </svg>
+                </div>
+                <div class="sd-summary-up docutils">
+                    <svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-up" viewbox="0 0 24 24" aria-hidden="true">
+                        <path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z">
+                        </path>
+                    </svg>
+                </div>
+            </summary>
+            <div class="sd-summary-content sd-card-body switcher-body docutils">
+                <blockquote>
+                    <div>
+                        <div><div class="line"><a class="reference external" href="/de_DE/posts/python311-support.html">DE</a></div>
+                            <div class="line"><a class="reference external" href="/zh_CN/posts/python311-support.html">CN</a></div>
+                            </div></div>
+                </blockquote>
+            </div>
+        </details>
+    </div>
+</div>
+
+
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  </body>
+</html>

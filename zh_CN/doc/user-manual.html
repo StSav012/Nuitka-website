@@ -15,7 +15,7 @@
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Nuitka &#29992;&#25143;&#25163;&#20876; &#8212; Nuitka the Python Compiler  &#25991;&#26723;</title>
-      <link rel="stylesheet" href="/_static/css/combined_ac220f112c61f4d548c2fb69e24cce15.css" type="text/css">
+      <link rel="stylesheet" href="/_static/css/combined_6cb713b7a1839500114794997e73825d.css" type="text/css">
       <link rel="canonical" href="https://nuitka.net/doc/user-manual.html">
   <!--[if lt IE 9]>
     <script src="../_static/js/html5shiv.min.js"></script>
@@ -35,40 +35,20 @@
     SHOW_SEARCH_SUMMARY: true,
     ENABLE_SEARCH_SHORTCUTS: true,
 };</script>
-        <script src="/_static/combined_1f3d291568f0d25fd5e0e83c3075a3a3.js" async=""></script>
+        <script src="/_static/combined_50b22e29ca76da059b0c14dcc606bcaa.js" async=""></script>
         <script src="../_static/_sphinx_javascript_frameworks_compat.js" async=""></script>
+        <script src="../_static/sphinx_highlight.js" async=""></script>
         <script src="../_static/clipboard.min.js" async=""></script>
         <script src="../_static/copybutton.js" async=""></script>
         <script src="../_static/translations.js" async=""></script>
         <link rel="index" title="&#32034;&#24341;" href="../genindex.html">
     <link rel="next" title="Nuitka &#36335;&#32447;&#22270;" href="roadmap.html">
-    <link rel="prev" title="&#19979;&#36733; Nuitka" href="download.html">   
-<link rel="alternate" type="application/atom+xml" href="../blog/atom.xml" title="Nuitka Blog">
+    <link rel="prev" title="&#19979;&#36733; Nuitka" href="download.html">
  
-<style type="text/css">
-  ul.ablog-archive {
-    list-style: none;
-    overflow: auto;
-    margin-left: 0px;
-  }
-  ul.ablog-archive li {
-    float: left;
-    margin-right: 5px;
-    font-size: 80%;
-  }
-  ul.postlist a {
-    font-style: italic;
-  }
-  ul.postlist-style-disc {
-    list-style-type: disc;
-  }
-  ul.postlist-style-none {
-    list-style-type: none;
-  }
-  ul.postlist-style-circle {
-    list-style-type: circle;
-  }
-</style>
+
+<link rel="alternate" type="application/atom+xml" href="../blog/atom.xml" title="Nuitka Blog">
+
+
 
 </head>
 
@@ -77,10 +57,14 @@
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search">
-            <a href="../index.html" class="icon icon-home"> Nuitka the Python Compiler
-            <div class="logo_container"><img src="../_static/Nuitka-Logo-Symbol.svg" class="logo" alt="Logo" width="208" height="209">
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            Nuitka the Python Compiler
+              <div class="logo_container"><img src="../_static/Nuitka-Logo-Symbol.svg" class="logo" alt="Logo" width="208" height="209">
           </div></a><!-- Empty override file take the place of searchbox.html, which generates search box. -->
-        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="&#23548;&#33322;&#33756;&#21333;">
               <ul class="current">
 <li class="toctree-l1 current"><a class="reference internal" href="index.html">&#24555;&#36895;&#20837;&#38376;</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="download.html">&#19979;&#36733;</a></li>
@@ -104,11 +88,15 @@
 <li class="toctree-l4"><a class="reference internal" href="#use-case-3-package-compilation">&#29992;&#20363;3&#8211;&#36719;&#20214;&#21253;&#30340;&#32534;&#35793;</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#use-case-4-program-distribution">&#29992;&#20363;4&#8211;&#31243;&#24207;&#20998;&#21457;</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#use-case-5-setuptools-wheels">&#29992;&#20363;5 - Setuptools &#36718;&#23376;</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#use-case-6-multidist">Use Case 6 - Multidist</a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="#tweaks">&#35843;&#25972;</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="#icons">&#22270;&#26631;</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#macos-entitlements">MacOS Entitlements</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#console-window">Console Window</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#splash-screen">&#38378;&#23631;</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#reports">Reports</a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="#typical-problems">&#20856;&#22411;&#38382;&#39064;</a><ul>
@@ -135,14 +123,16 @@
 <li class="toctree-l4"><a class="reference internal" href="#windows-standalone-program-redistribution">Windows standalone program redistribution</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#detecting-nuitka-at-run-time">&#22312;&#36816;&#34892;&#26102;&#26816;&#27979; Nuitka</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#providing-extra-options-to-nuitka-c-compilation">Providing extra Options to Nuitka C compilation</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#producing-a-32-bit-binary-on-a-64-bit-windows-system">Producing a 32 bit binary on a 64 bit Windows system</a></li>
 </ul>
 </li>
+<li class="toctree-l3"><a class="reference internal" href="#compilation-report">Compilation Report</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#performance">&#24615;&#33021;</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="#pystone-results">pystone &#32467;&#26524;</a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="#where-to-go-next">&#19979;&#19968;&#27493;&#35813;&#21435;&#21738;&#37324;</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#follow-me-on-twitter">&#22312; Twitter &#19978;&#20851;&#27880;&#25105;</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#follow-me-on-mastodon-and-twitter">Follow me on Mastodon and Twitter</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#report-issues-or-bugs">&#25253;&#21578;&#38382;&#39064;&#25110; bug</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#word-of-warning">&#35686;&#31034;&#35821;</a></li>
 </ul>
@@ -168,6 +158,7 @@
 <li class="toctree-l4"><a class="reference internal" href="#built-in-type-inference">Built-in Type Inference</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#quicker-function-calls">Quicker Function Calls</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#lowering-of-iterated-container-types">Lowering of iterated Container Types</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#metadata-calls-at-compile-time">Metadata calls at compile time</a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="#updates-for-this-manual">&#26356;&#26032;&#25163;&#20876;</a></li>
@@ -187,7 +178,7 @@
       </div>
     </nav>
 
-    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu">
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="&#31227;&#21160;&#29256;&#23548;&#33322;&#33756;&#21333;">
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
           <a href="../index.html">Nuitka the Python Compiler</a>
       </nav>
@@ -197,7 +188,8 @@
           <!-- Empty override file take the place of sphinx_rtd_theme/breadcrumbs.html, which generates the top nav breadcrumbs. -->
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
-              <section id="nuitka-user-manual">
+             
+<section id="nuitka-user-manual">
 <h1>Nuitka &#29992;&#25143;&#25163;&#20876;<a class="headerlink" href="#nuitka-user-manual" title="&#27492;&#26631;&#39064;&#30340;&#27704;&#20037;&#38142;&#25509;">&#61633;</a></h1>
 <section id="overview">
 <h2>&#27010;&#35272;<a class="headerlink" href="#overview" title="&#27492;&#26631;&#39064;&#30340;&#27704;&#20037;&#38142;&#25509;">&#61633;</a></h2>
@@ -287,11 +279,11 @@ the <code class="docutils literal notranslate"><span class="pre">zstandard</span
 <p>&#22914;&#26524;&#20320;&#36935;&#21040;&#19968;&#20010; <code class="docutils literal notranslate"><span class="pre">SyntaxError</span></code>&#65292;&#20320;&#32477;&#23545;&#26159;&#20026;&#20320;&#27491;&#22312;&#32534;&#35793;&#30340;&#31243;&#24207;&#36873;&#25321;&#20102;&#38169;&#35823;&#30340;&#35299;&#37322;&#22120;&#12290;</p>
 </div>
 <p>Nuitka &#26377;&#19968;&#20010; <code class="docutils literal notranslate"><span class="pre">--help</span></code> &#36873;&#39033;&#26469;&#36755;&#20986;&#23427;&#33021;&#20570;&#20160;&#20040;&#12290;</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>nuitka --help
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>nuitka<span class="w"> </span>--help
 </pre></div>
 </div>
 <p><code class="docutils literal notranslate"><span class="pre">nuitka-run</span></code> &#21629;&#20196;&#19982; <code class="docutils literal notranslate"><span class="pre">nuitka</span></code> &#30456;&#21516;&#65292;&#20294;&#26377;&#19968;&#20010;&#19981;&#21516;&#30340;&#40664;&#35748;&#20540;&#12290;&#23427;&#35797;&#22270;&#32534;&#35793;&#21644;&#30452;&#25509;&#25191;&#34892;&#19968;&#20010; Python &#33050;&#26412;&#65306;</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>nuitka-run --help
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>nuitka-run<span class="w"> </span>--help
 </pre></div>
 </div>
 <p>&#36825;&#20010;&#19981;&#21516;&#30340;&#36873;&#39033;&#26159; <code class="docutils literal notranslate"><span class="pre">--run</span></code>&#65292;&#24182;&#22312;&#31532;&#19968;&#20010;&#38750;&#36873;&#39033;&#20043;&#21518;&#21521;&#21019;&#24314;&#30340;&#20108;&#36827;&#21046;&#25991;&#20214;&#20256;&#36882;&#21442;&#25968;&#65292;&#25152;&#20197;&#23427;&#19982;&#26222;&#36890;&#30340; <code class="docutils literal notranslate"><span class="pre">python</span></code> &#20250;&#20570;&#30340;&#20107;&#24773;&#26377;&#20123;&#31867;&#20284;&#12290;</p>
@@ -363,14 +355,14 @@ recommended) or <code class="docutils literal notranslate"><span class="pre">x86
 <section id="test-your-program">
 <h4>&#27979;&#35797;&#20320;&#30340;&#31243;&#24207;<a class="headerlink" href="#test-your-program" title="&#27492;&#26631;&#39064;&#30340;&#27704;&#20037;&#38142;&#25509;">&#61633;</a></h4>
 <p>&#20687;&#24179;&#24120;&#37027;&#26679;&#20570;&#12290;&#22312;&#24037;&#20316;&#19981;&#27491;&#30830;&#30340;&#20195;&#30721;&#19978;&#36816;&#34892; Nuitka&#65292;&#24182;&#19981;&#23481;&#26131;&#35843;&#35797;&#12290;</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>python hello.py
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>python<span class="w"> </span>hello.py
 </pre></div>
 </div>
 </section>
 <hr class="docutils">
 <section id="build-it-using">
 <h4>&#37319;&#29992;&#20197;&#19979;&#26041;&#24335;&#26500;&#24314;<a class="headerlink" href="#build-it-using" title="&#27492;&#26631;&#39064;&#30340;&#27704;&#20037;&#38142;&#25509;">&#61633;</a></h4>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>python -m nuitka hello.py
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>python<span class="w"> </span>-m<span class="w"> </span>nuitka<span class="w"> </span>hello.py
 </pre></div>
 </div>
 <div class="admonition note">
@@ -394,7 +386,7 @@ recommended) or <code class="docutils literal notranslate"><span class="pre">x86
 <section id="use-case-1-program-compilation-with-all-modules-embedded">
 <h3>&#29992;&#20363; 1 - &#23884;&#20837;&#25152;&#26377;&#27169;&#22359;&#30340;&#31243;&#24207;&#32534;&#35793;<a class="headerlink" href="#use-case-1-program-compilation-with-all-modules-embedded" title="&#27492;&#26631;&#39064;&#30340;&#27704;&#20037;&#38142;&#25509;">&#61633;</a></h3>
 <p>&#22914;&#26524;&#20320;&#24819;&#36882;&#24402;&#22320;&#32534;&#35793;&#25972;&#20010;&#31243;&#24207;&#65292;&#32780;&#19981;&#26159;&#21482;&#32534;&#35793;&#20316;&#20026;&#20027;&#31243;&#24207;&#30340;&#21333;&#20010;&#25991;&#20214;&#65292;&#21487;&#20197;&#36825;&#26679;&#20570;&#65306;</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>python -m nuitka --follow-imports program.py
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>python<span class="w"> </span>-m<span class="w"> </span>nuitka<span class="w"> </span>--follow-imports<span class="w"> </span>program.py
 </pre></div>
 </div>
 <div class="admonition note">
@@ -402,7 +394,7 @@ recommended) or <code class="docutils literal notranslate"><span class="pre">x86
 <p>&#26377;&#27604; <code class="docutils literal notranslate"><span class="pre">--follow-imports</span></code>  &#26356;&#31934;&#32454;&#30340;&#25511;&#21046;&#12290;&#32771;&#34385;&#19968;&#19979; <code class="docutils literal notranslate"><span class="pre">nuitka</span> <span class="pre">--help</span></code> &#30340;&#36755;&#20986;&#12290;&#22312;&#32534;&#35793;&#20013;&#21253;&#25324;&#26356;&#23569;&#30340;&#27169;&#22359;&#65292;&#32780;&#20351;&#29992;&#27491;&#24120;&#30340; Python &#36827;&#34892;&#32534;&#35793;&#65292;&#20250;&#20351;&#32534;&#35793;&#36895;&#24230;&#26356;&#24555;&#12290;</p>
 </div>
 <p>&#22914;&#26524;&#20320;&#26377;&#19968;&#20010;&#24102;&#26377;&#21160;&#24577;&#21152;&#36733;&#25991;&#20214;&#30340;&#28304;&#30446;&#24405;&#65292;&#21363;&#36890;&#36807; <code class="docutils literal notranslate"><span class="pre">PYTHONPATH</span></code> &#27491;&#24120;&#23548;&#20837;&#35821;&#21477;&#21518;&#26080;&#27861;&#25214;&#21040;&#30340;&#30446;&#24405;&#65288;&#36825;&#23558;&#26159;&#25512;&#33616;&#30340;&#26041;&#24335;&#65289;&#65292;&#20320;&#24635;&#26159;&#21487;&#20197;&#35201;&#27714;&#19968;&#20010;&#29305;&#23450;&#30340;&#30446;&#24405;&#20063;&#24212;&#21253;&#25324;&#22312;&#21487;&#25191;&#34892;&#25991;&#20214;&#20013;&#65306;</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>python -m nuitka --follow-imports --include-plugin-directory<span class="o">=</span>plugin_dir program.py
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>python<span class="w"> </span>-m<span class="w"> </span>nuitka<span class="w"> </span>--follow-imports<span class="w"> </span>--include-plugin-directory<span class="o">=</span>plugin_dir<span class="w"> </span>program.py
 </pre></div>
 </div>
 <div class="admonition note">
@@ -423,7 +415,7 @@ recommended) or <code class="docutils literal notranslate"><span class="pre">x86
 <section id="use-case-2-extension-module-compilation">
 <h3>&#29992;&#20363;2 &#8211; &#25193;&#23637;&#27169;&#22359;&#30340;&#32534;&#35793;<a class="headerlink" href="#use-case-2-extension-module-compilation" title="&#27492;&#26631;&#39064;&#30340;&#27704;&#20037;&#38142;&#25509;">&#61633;</a></h3>
 <p>&#22914;&#26524;&#20320;&#24819;&#32534;&#35793;&#19968;&#20010;&#21333;&#19968;&#30340;&#25193;&#23637;&#27169;&#22359;&#65292;&#20320;&#25152;&#35201;&#20570;&#30340;&#23601;&#26159;&#36825;&#26679;&#65306;</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>python -m nuitka --module some_module.py
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>python<span class="w"> </span>-m<span class="w"> </span>nuitka<span class="w"> </span>--module<span class="w"> </span>some_module.py
 </pre></div>
 </div>
 <p>&#20135;&#29983;&#30340;&#25991;&#20214; <code class="docutils literal notranslate"><span class="pre">some_module.so</span></code> &#23601;&#21487;&#20197;&#20195;&#26367; <code class="docutils literal notranslate"><span class="pre">some_module.py</span></code> &#20351;&#29992;&#12290;</p>
@@ -433,7 +425,16 @@ recommended) or <code class="docutils literal notranslate"><span class="pre">x86
 </div>
 <div class="admonition note">
 <p class="admonition-title">&#22791;&#27880;</p>
-<p>&#36873;&#39033; <code class="docutils literal notranslate"><span class="pre">--follow-imports</span></code> &#21644;&#20854;&#20182;&#21464;&#20307;&#20063;&#21487;&#20197;&#24037;&#20316;&#65292;&#20294;&#25152;&#21253;&#21547;&#30340;&#27169;&#22359;&#21482;&#26377;&#22312;&#20320;&#23548;&#20837;&#20102; <code class="docutils literal notranslate"><span class="pre">some_module</span></code> &#30340;&#21517;&#23383;&#20043;&#21518;&#25165;&#20250;&#21464;&#24471;&#21487;&#20197;&#23548;&#20837;&#12290;</p>
+<p>The option <code class="docutils literal notranslate"><span class="pre">--follow-import-to</span></code> and work as well, but the included
+modules will only become importable <em>after</em> you imported the
+<code class="docutils literal notranslate"><span class="pre">some_module</span></code> name. If these kinds of imports are invisible to
+Nuitka, e.g. dynamically created, you can use <code class="docutils literal notranslate"><span class="pre">--include-module</span></code> or
+<code class="docutils literal notranslate"><span class="pre">--include-package</span></code> in that case, but for static imports it should
+not be needed.</p>
+</div>
+<p>&#8211; note:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">An</span> <span class="n">extension</span> <span class="n">module</span> <span class="n">can</span> <span class="n">never</span> <span class="n">include</span> <span class="n">other</span> <span class="n">extension</span> <span class="n">modules</span><span class="o">.</span> <span class="n">You</span> <span class="n">will</span> <span class="n">have</span> <span class="n">to</span> <span class="n">create</span> <span class="n">a</span> <span class="n">wheel</span> <span class="k">for</span> <span class="n">this</span> <span class="n">to</span> <span class="n">be</span> <span class="n">doable</span><span class="o">.</span>
+</pre></div>
 </div>
 <div class="admonition note">
 <p class="admonition-title">&#22791;&#27880;</p>
@@ -443,21 +444,35 @@ recommended) or <code class="docutils literal notranslate"><span class="pre">x86
 <section id="use-case-3-package-compilation">
 <h3>&#29992;&#20363;3&#8211;&#36719;&#20214;&#21253;&#30340;&#32534;&#35793;<a class="headerlink" href="#use-case-3-package-compilation" title="&#27492;&#26631;&#39064;&#30340;&#27704;&#20037;&#38142;&#25509;">&#61633;</a></h3>
 <p>&#22914;&#26524;&#20320;&#38656;&#35201;&#32534;&#35793;&#25972;&#20010;&#36719;&#20214;&#21253;&#24182;&#23884;&#20837;&#25152;&#26377;&#27169;&#22359;&#65292;&#37027;&#20063;&#26159;&#21487;&#34892;&#30340;&#65292;&#20687;&#36825;&#26679;&#20351;&#29992; Nuitka&#65306;</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>python -m nuitka --module some_package --include-package<span class="o">=</span>some_package
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>python<span class="w"> </span>-m<span class="w"> </span>nuitka<span class="w"> </span>--module<span class="w"> </span>some_package<span class="w"> </span>--include-package<span class="o">=</span>some_package
 </pre></div>
 </div>
 <div class="admonition note">
 <p class="admonition-title">&#22791;&#27880;</p>
-<p>&#21253;&#20869;&#23481;&#30340;&#21253;&#21547;&#38656;&#35201;&#25163;&#21160;&#25552;&#20379;&#65292;&#21542;&#21017;&#65292;&#21253;&#26159;&#31354;&#30340;&#12290;&#22914;&#26524;&#20320;&#24895;&#24847;&#65292;&#20320;&#21487;&#20197;&#26356;&#20855;&#20307;&#19968;&#20123;&#65292;&#21482;&#21253;&#25324;&#19968;&#37096;&#20998;&#12290;&#20301;&#20110;&#21253;&#20869;&#30340;&#25968;&#25454;&#25991;&#20214;&#19981;&#20250;&#34987;&#36825;&#20010;&#36807;&#31243;&#23884;&#20837;&#65292;&#20320;&#38656;&#35201;&#29992;&#36825;&#31181;&#26041;&#27861;&#33258;&#24049;&#22797;&#21046;&#23427;&#20204;&#12290;</p>
+<p>The inclusion of the package contents needs to be provided manually,
+otherwise, the package is mostly empty. You can be more specific if
+you want, and only include part of it, or exclude part of it, e.g.
+with <code class="docutils literal notranslate"><span class="pre">--nofollow-import-to='*.tests'</span></code> you would not include the
+unused test part of your code.</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">&#22791;&#27880;</p>
+<p>Data files located inside the package will not be embedded by this
+process, you need to copy them yourself with this approach.
+Alternatively you can use the <a class="reference external" href="https://nuitka.net/doc/commercial/protect-data-files.html">file embedding of Nuitka commercial</a>.</p>
 </div>
 </section>
 <section id="use-case-4-program-distribution">
 <h3>&#29992;&#20363;4&#8211;&#31243;&#24207;&#20998;&#21457;<a class="headerlink" href="#use-case-4-program-distribution" title="&#27492;&#26631;&#39064;&#30340;&#27704;&#20037;&#38142;&#25509;">&#61633;</a></h3>
 <p>&#23545;&#20110;&#20998;&#21457;&#21040;&#20854;&#20182;&#31995;&#32479;&#65292;&#26377;&#19968;&#31181;&#29420;&#31435;&#27169;&#24335;&#65292;&#23427;&#20135;&#29983;&#19968;&#20010;&#25991;&#20214;&#22841;&#65292;&#20320;&#21487;&#20197;&#25351;&#23450; <code class="docutils literal notranslate"><span class="pre">--standalone</span></code>&#12290;</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>python -m nuitka --standalone program.py
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>python<span class="w"> </span>-m<span class="w"> </span>nuitka<span class="w"> </span>--standalone<span class="w"> </span>program.py
 </pre></div>
 </div>
-<p>&#22312;&#36825;&#31181;&#27169;&#24335;&#19979;&#65292;&#8221;&#36319;&#38543;&#25152;&#26377; import&#8221; &#26159;&#40664;&#35748;&#30340;&#12290;&#20320;&#21487;&#20197;&#26377;&#36873;&#25321;&#22320;&#25490;&#38500;&#27169;&#22359;&#65292;&#29305;&#21035;&#26159;&#35828; <code class="docutils literal notranslate"><span class="pre">--nofollow-import-to</span></code>&#65292;&#20294;&#26159;&#24403;&#22312;&#31243;&#24207;&#36816;&#34892;&#26102;&#35797;&#22270;&#23548;&#20837;&#23427;&#26102;&#65292;&#20250;&#20986;&#29616; <code class="docutils literal notranslate"><span class="pre">ImportError</span></code>&#12290;</p>
+<p>Following all imports is default in this mode. You can selectively
+exclude modules by specifically saying <code class="docutils literal notranslate"><span class="pre">--nofollow-import-to</span></code>, but
+then an <code class="docutils literal notranslate"><span class="pre">ImportError</span></code> will be raised when import of it is attempted at
+program run time. This may cause different behavior, but it may also
+improve your compile time if done wisely.</p>
 <p>For data files to be included, use the option
 <code class="docutils literal notranslate"><span class="pre">--include-data-files=&lt;source&gt;=&lt;target&gt;</span></code> where the source is a file
 system path, but target has to be specified relative. For standalone you
@@ -468,32 +483,49 @@ onefile mode, there is no manual copying possible.</p>
 patterns for the files, and a subdirectory where to put them, indicated
 by the trailing slash.</p>
 <p>&#35201;&#22797;&#21046;&#25972;&#20010;&#25991;&#20214;&#22841;&#30340;&#25152;&#26377;&#25991;&#20214;&#65292;&#20320;&#21487;&#20197;&#20351;&#29992; <code class="docutils literal notranslate"><span class="pre">--include-data-dir=/path/to/images=images</span></code>&#65292;&#36825;&#23558;&#22797;&#21046;&#25152;&#26377;&#25991;&#20214;&#65292;&#21253;&#25324;&#28508;&#22312;&#30340;&#23376;&#30446;&#24405;&#32467;&#26500;&#12290;&#20320;&#19981;&#33021;&#22312;&#36825;&#37324;&#36827;&#34892;&#36807;&#28388;&#65292;&#20063;&#23601;&#26159;&#35828;&#65292;&#22914;&#26524;&#20320;&#21482;&#24819;&#35201;&#19968;&#20010;&#37096;&#20998;&#30340;&#25335;&#36125;&#65292;&#35831;&#20107;&#20808;&#21024;&#38500;&#25991;&#20214;&#12290;</p>
-<p>&#23545;&#20110;&#21253;&#30340;&#25968;&#25454;&#65292;&#26377;&#19968;&#20010;&#26356;&#22909;&#30340;&#26041;&#27861;&#65292;&#20351;&#29992; <code class="docutils literal notranslate"><span class="pre">--include-package-data</span></code>&#65292;&#23427;&#21487;&#20197;&#33258;&#21160;&#26816;&#27979;&#21253;&#30340;&#25968;&#25454;&#25991;&#20214;&#24182;&#23558;&#20854;&#22797;&#21046;&#36807;&#26469;&#12290; &#23427;&#29978;&#33267;&#21487;&#20197;&#25509;&#21463; shell &#39118;&#26684;&#30340;&#27169;&#24335;&#12290;</p>
+<p>For package data, there is a better way, using
+<code class="docutils literal notranslate"><span class="pre">--include-package-data</span></code> which detects data files of packages
+automatically and copies them over. It even accepts patterns in shell
+style. It spares you the need to find the package directory yourself and
+should be preferred whenever available.</p>
 <p>&#23545;&#20110;&#25968;&#25454;&#25991;&#20214;&#65292;&#20320;&#22312;&#24456;&#22823;&#31243;&#24230;&#19978;&#26159;&#38752;&#33258;&#24049;&#30340;&#12290;Nuitka &#35760;&#24405;&#20102;&#27969;&#34892;&#36719;&#20214;&#21253;&#25152;&#38656;&#35201;&#30340;&#25968;&#25454;&#65292;&#20294;&#23427;&#21487;&#33021;&#24182;&#19981;&#23436;&#25972;&#12290;&#22914;&#26524;&#20320;&#22312;&#36825;&#20123;&#26041;&#38754;&#36935;&#21040;&#20102;&#38382;&#39064;&#65292;&#35831;&#25552;&#20986;&#26469;&#12290;</p>
 <p>&#24403;&#36825;&#20010;&#24037;&#20316;&#23436;&#25104;&#21518;&#65292;&#22914;&#26524;&#20320;&#24895;&#24847;&#65292;&#20320;&#21487;&#20197;&#20351;&#29992; <code class="docutils literal notranslate"><span class="pre">onefile</span></code> &#27169;&#24335;&#12290;</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>python -m nuitka --onefile program.py
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>python<span class="w"> </span>-m<span class="w"> </span>nuitka<span class="w"> </span>--onefile<span class="w"> </span>program.py
 </pre></div>
 </div>
-<p>&#36825;&#23558;&#21019;&#24314;&#19968;&#20010;&#21333;&#19968;&#30340;&#20108;&#36827;&#21046;&#25991;&#20214;&#65292;&#22312; Linux &#19978;&#65292;&#23427;&#29978;&#33267;&#19981;&#20250;&#33258;&#24049;&#35299;&#21387;&#65292;&#32780;&#26159;&#23558;&#20854;&#20869;&#23481;&#20316;&#20026;&#19968;&#20010;&#25991;&#20214;&#31995;&#32479;&#24490;&#29615;&#22238;&#35013;&#65292;&#24182;&#20351;&#29992;&#35813;&#25991;&#20214;&#12290;</p>
+<p>This will create a single binary, that extracts itself on the target,
+before running the program. But notice, that accessing files relative to
+your program is impacted, make sure to read the section <a class="reference internal" href="#onefile-finding-files">Onefile:
+Finding files</a> as well.</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># Create a binary that unpacks into a temporary folder</span>
-python -m nuitka --onefile program.py
+python<span class="w"> </span>-m<span class="w"> </span>nuitka<span class="w"> </span>--onefile<span class="w"> </span>program.py
 </pre></div>
 </div>
 <div class="admonition note">
 <p class="admonition-title">&#22791;&#27880;</p>
-<p>&#36824;&#26377;&#26356;&#22810;&#30340;&#24179;&#21488;&#29305;&#23450;&#36873;&#39033;&#65292;&#20363;&#22914;&#19982;&#22270;&#26631;&#12289;&#38378;&#23631;&#21644;&#29256;&#26412;&#20449;&#24687;&#26377;&#20851;&#30340;&#36873;&#39033;&#65292;&#35831;&#32771;&#34385; <code class="docutils literal notranslate"><span class="pre">--help</span></code> &#36755;&#20986;&#20197;&#20102;&#35299;&#36825;&#20123;&#32454;&#33410;&#65292;&#24182;&#26597;&#30475; &#8220;Good Looks&#8221; &#37096;&#20998;&#12290;</p>
+<p>There are more platform specific options, e.g. related to icons,
+splash screen, and version information, consider the <code class="docutils literal notranslate"><span class="pre">--help</span></code>
+output for the details of these and check the section <cite>Tweaks_</cite>.</p>
 </div>
-<p>Again, on Windows, for the temporary file directory, by default the user
-one is used, however this can be overridden with a path specification
-given in <code class="docutils literal notranslate"><span class="pre">--windows-onefile-tempdir-spec=%TEMP%\\onefile_%PID%_%TIME%</span></code>
-which is the default and asserts that the temporary directories created
-cannot collide.</p>
+<p>For the unpacking, by default a unique user temporary path one is used,
+and then deleted, however this default
+<code class="docutils literal notranslate"><span class="pre">--onefile-tempdir-spec="%TEMP%/onefile_%PID%_%TIME%"</span></code> can be
+overridden with a path specification that is using then using a cached
+path, avoiding repeated unpacking, e.g. with
+<code class="docutils literal notranslate"><span class="pre">--onefile-tempdir-spec="%CACHE_DIR%/%COMPANY%/%PRODUCT%/%VERSION"</span></code>
+which uses version information, and user specific cache directory.</p>
+<div class="admonition note">
+<p class="admonition-title">&#22791;&#27880;</p>
+<p>Using cached paths will e.g. be relevant too, when Windows Firewall
+comes into play, because otherwise, the binary will be a different
+one to it each time it is run.</p>
+</div>
 <p>&#30446;&#21069;&#65292;&#36825;&#20123;&#25193;&#22823;&#30340; token &#21487;&#20197;&#20351;&#29992;&#12290;</p>
 <table class="docutils align-default">
 <colgroup>
-<col style="width: 11%">
-<col style="width: 61%">
-<col style="width: 28%">
+<col style="width: 12%">
+<col style="width: 56%">
+<col style="width: 32%">
 </colgroup>
 <thead>
 <tr class="row-odd"><th class="head"><p>Token</p></th>
@@ -523,15 +555,15 @@ cannot collide.</p>
 <td><p>C:UsersSomeBodyAppDataLocal</p></td>
 </tr>
 <tr class="row-odd"><td><p>%COMPANY%</p></td>
-<td><p>Value given as <code class="docutils literal notranslate"><span class="pre">--windows-company-name</span></code></p></td>
+<td><p>Value given as <code class="docutils literal notranslate"><span class="pre">--company-name</span></code></p></td>
 <td><p>YourCompanyName</p></td>
 </tr>
 <tr class="row-even"><td><p>%PRODUCT%</p></td>
-<td><p>Value given as <code class="docutils literal notranslate"><span class="pre">--windows-product-name</span></code></p></td>
+<td><p>Value given as <code class="docutils literal notranslate"><span class="pre">--product-name</span></code></p></td>
 <td><p>YourProductName</p></td>
 </tr>
 <tr class="row-odd"><td><p>%VERSION%</p></td>
-<td><p>Combination of <code class="docutils literal notranslate"><span class="pre">--windows-file-version</span></code> &amp; <code class="docutils literal notranslate"><span class="pre">--windows-product-version</span></code></p></td>
+<td><p>Combination of <code class="docutils literal notranslate"><span class="pre">--file-version</span></code> &amp; <code class="docutils literal notranslate"><span class="pre">--product-version</span></code></p></td>
 <td><p>3.0.0.0-1.0.0.0</p></td>
 </tr>
 <tr class="row-even"><td><p>%HOME%</p></td>
@@ -602,28 +634,28 @@ cannot collide.</p>
 <p>&#20026;&#20102;&#26242;&#26102;&#31105;&#27490;&#32534;&#35793;&#65292;&#20320;&#21487;&#20197;&#21024;&#38500;&#19978;&#38754;&#36825;&#19968;&#34892;&#65292;&#25110;&#32773;&#25226;&#23427;&#30340;&#20540;&#32534;&#36753;&#25104; <code class="docutils literal notranslate"><span class="pre">False</span></code>&#65292;&#25110;&#32773;&#20174;&#29615;&#22659;&#21464;&#37327;&#20013;&#21462;&#20540;&#65292;&#22914;&#26524;&#20320;&#36873;&#25321;&#30340;&#35805;&#65292;&#20363;&#22914; <code class="docutils literal notranslate"><span class="pre">bool(os.environ.get("USE_NUITKA",</span> <span class="pre">"True"))</span></code>&#12290;&#36825;&#30001;&#20320;&#20915;&#23450;&#12290;</p>
 </div>
 <p>&#25110;&#32773;&#20320;&#21487;&#20197;&#25226;&#23427;&#25918;&#22312;&#20320;&#30340; <code class="docutils literal notranslate"><span class="pre">setup.cfg</span></code> &#37324;&#12290;</p>
-<div class="highlight-toml notranslate"><div class="highlight"><pre><span></span><span class="k">[metadata]</span><span class="w"></span>
-<span class="n">build_with_nuitka</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">True</span><span class="w"></span>
+<div class="highlight-toml notranslate"><div class="highlight"><pre><span></span><span class="k">[metadata]</span>
+<span class="n">build_with_nuitka</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">True</span>
 </pre></div>
 </div>
 <p>&#26368;&#21518;&#65292;&#20294;&#19981;&#26159;&#26368;&#19981;&#37325;&#35201;&#30340;&#65292;Nuitka&#20063;&#25903;&#25345;&#26032;&#30340; <code class="docutils literal notranslate"><span class="pre">build</span></code> meta&#65292;&#25152;&#20197;&#24403;&#20320;&#24050;&#32463;&#26377;&#19968;&#20010; <code class="docutils literal notranslate"><span class="pre">pyproject.toml</span></code> &#26102;&#65292;&#31616;&#21333;&#26367;&#25442;&#25110;&#28155;&#21152;&#36825;&#20010;&#20540;&#65306;</p>
-<div class="highlight-toml notranslate"><div class="highlight"><pre><span></span><span class="k">[build-system]</span><span class="w"></span>
-<span class="n">requires</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="s">"setuptools&gt;=42"</span><span class="p">,</span><span class="w"> </span><span class="s">"wheel"</span><span class="p">,</span><span class="w"> </span><span class="s">"nuitka"</span><span class="p">,</span><span class="w"> </span><span class="s">"toml"</span><span class="p">]</span><span class="w"></span>
-<span class="n">build-backend</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">"nuitka.distutils.Build"</span><span class="w"></span>
+<div class="highlight-toml notranslate"><div class="highlight"><pre><span></span><span class="k">[build-system]</span>
+<span class="n">requires</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="s">"setuptools&gt;=42"</span><span class="p">,</span><span class="w"> </span><span class="s">"wheel"</span><span class="p">,</span><span class="w"> </span><span class="s">"nuitka"</span><span class="p">,</span><span class="w"> </span><span class="s">"toml"</span><span class="p">]</span>
+<span class="n">build-backend</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">"nuitka.distutils.Build"</span>
 
-<span class="k">[nuitka]</span><span class="w"></span>
-<span class="c1"># These are not recommended, but they make it obvious to have effect.</span><span class="w"></span>
+<span class="k">[nuitka]</span>
+<span class="c1"># These are not recommended, but they make it obvious to have effect.</span>
 
-<span class="c1"># boolean option, e.g. if you cared for C compilation commands, leading</span><span class="w"></span>
-<span class="c1"># dashes are omitted</span><span class="w"></span>
-<span class="n">show-scons</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">true</span><span class="w"></span>
+<span class="c1"># boolean option, e.g. if you cared for C compilation commands, leading</span>
+<span class="c1"># dashes are omitted</span>
+<span class="n">show-scons</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">true</span>
 
-<span class="c1"># options with single values, e.g. enable a plugin of Nuitka</span><span class="w"></span>
-<span class="n">enable-plugin</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">pyside2</span><span class="w"></span>
+<span class="c1"># options with single values, e.g. enable a plugin of Nuitka</span>
+<span class="n">enable-plugin</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">pyside2</span>
 
-<span class="c1"># options with several values, e.g. avoiding including modules, accepts</span><span class="w"></span>
-<span class="c1"># list argument.</span><span class="w"></span>
-<span class="n">nofollow-import-to</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="s">"*.tests"</span><span class="p">,</span><span class="w"> </span><span class="s">"*.distutils"</span><span class="p">]</span><span class="w"></span>
+<span class="c1"># options with several values, e.g. avoiding including modules, accepts</span>
+<span class="c1"># list argument.</span>
+<span class="n">nofollow-import-to</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="s">"*.tests"</span><span class="p">,</span><span class="w"> </span><span class="s">"*.distutils"</span><span class="p">]</span>
 </pre></div>
 </div>
 <div class="admonition note">
@@ -633,17 +665,88 @@ cannot collide.</p>
 with <em>two</em> leading slashes, e.g. <code class="docutils literal notranslate"><span class="pre">//home/.../Nuitka</span></code>.</p>
 </div>
 </section>
+<section id="use-case-6-multidist">
+<h3>Use Case 6 - Multidist<a class="headerlink" href="#use-case-6-multidist" title="&#27492;&#26631;&#39064;&#30340;&#27704;&#20037;&#38142;&#25509;">&#61633;</a></h3>
+<p>If you have multiple programs, that each should be executable, in the
+past you had to compile multiple times, and deploy all of these. With
+standalone mode, this of course meant that you were fairly wasteful, as
+sharing the folders could be done, but wasn&#8217;t really supported by
+Nuitka.</p>
+<p>Enter <code class="docutils literal notranslate"><span class="pre">Multidist</span></code>. There is an option <code class="docutils literal notranslate"><span class="pre">--main-path</span></code> that replaces or
+adds to the positional argument given. And it can be given multiple
+times. When given multiple times, Nuitka will create a binary that
+contains the code of all the programs given, but sharing modules used in
+them. They therefore do not have to be distributed multiple times.</p>
+<p>Lets call the basename of the main path, and entry point. The names of
+these must of course be different. Then the created binary can execute
+either entry point, and will react to what <code class="docutils literal notranslate"><span class="pre">sys.argv[0]</span></code> appears to
+it. So if executed in the right way (with something like <code class="docutils literal notranslate"><span class="pre">subprocess</span></code>
+or OS API you can control this name), or by renaming or copying the
+binary, or symlinking to it, you can then achieve the miracle.</p>
+<p>This allows to combine very different programs into one.</p>
+<div class="admonition note">
+<p class="admonition-title">&#22791;&#27880;</p>
+<p>This feature is still experimental. Use with care and report your
+findings should you encounter anything that is undesirable behavior</p>
+</div>
+<p>This mode works with standalone, onefile, and mere acceleration. It does
+not work with module mode.</p>
+</section>
 </section>
 <section id="tweaks">
 <h2>&#35843;&#25972;<a class="headerlink" href="#tweaks" title="&#27492;&#26631;&#39064;&#30340;&#27704;&#20037;&#38142;&#25509;">&#61633;</a></h2>
 <section id="icons">
 <h3>&#22270;&#26631;<a class="headerlink" href="#icons" title="&#27492;&#26631;&#39064;&#30340;&#27704;&#20037;&#38142;&#25509;">&#61633;</a></h3>
 <p>&#20026;&#20102;&#22909;&#30475;&#65292;&#20320;&#21487;&#20197;&#25351;&#23450;&#22270;&#26631;&#12290;&#22312; Windows &#19978;&#65292;&#20320;&#21487;&#20197;&#25552;&#20379;&#19968;&#20010;&#22270;&#26631;&#25991;&#20214;&#12289;&#19968;&#20010;&#21487;&#25191;&#34892;&#27169;&#26495;&#25110;&#19968;&#20010; PNG &#25991;&#20214;&#12290;&#25152;&#26377;&#36825;&#20123;&#37117;&#21487;&#20197;&#20351;&#29992;&#65292;&#29978;&#33267;&#21487;&#20197;&#32452;&#21512;&#20351;&#29992;&#65306;</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># These create binaries with icons:</span>
-python -m nuitka --onefile --windows-icon-from-ico<span class="o">=</span>your-icon.png program.py
-python -m nuitka --onefile --windows-icon-from-ico<span class="o">=</span>your-icon.ico program.py
-python -m nuitka --onefile --windows-icon-template-exe<span class="o">=</span>your-icon.ico program.py
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># These create binaries with icons on Windows</span>
+python<span class="w"> </span>-m<span class="w"> </span>nuitka<span class="w"> </span>--onefile<span class="w"> </span>--windows-icon-from-ico<span class="o">=</span>your-icon.png<span class="w"> </span>program.py
+python<span class="w"> </span>-m<span class="w"> </span>nuitka<span class="w"> </span>--onefile<span class="w"> </span>--windows-icon-from-ico<span class="o">=</span>your-icon.ico<span class="w"> </span>program.py
+python<span class="w"> </span>-m<span class="w"> </span>nuitka<span class="w"> </span>--onefile<span class="w"> </span>--windows-icon-template-exe<span class="o">=</span>your-icon.ico<span class="w"> </span>program.py
+
+<span class="c1"># These create application bundles with icons on macOS</span>
+python<span class="w"> </span>-m<span class="w"> </span>nuitka<span class="w"> </span>--macos-create-app-bundle<span class="w"> </span>--macos-app-icon<span class="o">=</span>your-icon.png<span class="w"> </span>program.py
+python<span class="w"> </span>-m<span class="w"> </span>nuitka<span class="w"> </span>--macos-create-app-bundle<span class="w"> </span>--macos-app-icon<span class="o">=</span>your-icon.icns<span class="w"> </span>program.py
 </pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">&#22791;&#27880;</p>
+<p>With Nuitka, you do not have to create platform specific icons, but
+instead it will convert e.g. PNG, but also other format on the fly
+during the build.</p>
+</div>
+</section>
+<section id="macos-entitlements">
+<h3>MacOS Entitlements<a class="headerlink" href="#macos-entitlements" title="&#27492;&#26631;&#39064;&#30340;&#27704;&#20037;&#38142;&#25509;">&#61633;</a></h3>
+<p>Entitlements for an macOS application bundle can be added with the
+option, <code class="docutils literal notranslate"><span class="pre">--macos-app-protected-resource</span></code>, all values are listed on
+<a class="reference external" href="https://developer.apple.com/documentation/bundleresources/information_property_list/protected_resources" target="_blank">this page from Apple</a></p>
+<p>An example value would be
+<code class="docutils literal notranslate"><span class="pre">--macos-app-protected-resource=NSMicrophoneUsageDescription:Microphone</span>
+<span class="pre">access</span></code> for requesting access to a Microphone. After the colon, the
+descriptive text is to be given.</p>
+<div class="admonition note">
+<p class="admonition-title">&#22791;&#27880;</p>
+<p>Beware that in the likely case of using spaces in the description
+part, you need to quote it for your shell to get through to Nuitka
+and not be interpreted as Nuitka arguments.</p>
+</div>
+</section>
+<section id="console-window">
+<h3>Console Window<a class="headerlink" href="#console-window" title="&#27492;&#26631;&#39064;&#30340;&#27704;&#20037;&#38142;&#25509;">&#61633;</a></h3>
+<p>On Windows, the console is opened by programs unless you say so. Nuitka
+defaults to this, effectively being only good for terminal programs, or
+programs where the output is requested to be seen. There is a difference
+in <code class="docutils literal notranslate"><span class="pre">pythonw.exe</span></code> and <code class="docutils literal notranslate"><span class="pre">python.exe</span></code> along those lines. This is
+replicated in Nuitka with the option <code class="docutils literal notranslate"><span class="pre">--disable-console</span></code>. Nuitka
+recommends you to consider this in case you are using <code class="docutils literal notranslate"><span class="pre">PySide6</span></code> e.g.
+and other GUI packages, e.g. <code class="docutils literal notranslate"><span class="pre">wx</span></code>, but it leaves the decision up to
+you. In case, you know your program is console application, just using
+<code class="docutils literal notranslate"><span class="pre">--enable-console</span></code> which will get rid of these kinds of outputs from
+Nuitka.</p>
+<div class="admonition note">
+<p class="admonition-title">&#22791;&#27880;</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">pythonw.exe</span></code> is never good to be used with Nuitka, as you
+cannot see its output.</p>
 </div>
 </section>
 <section id="splash-screen">
@@ -674,6 +777,15 @@ python -m nuitka --onefile --windows-icon-template-exe<span class="o">=</span>yo
 <span class="c1"># Rest of your program goes here.</span>
 </pre></div>
 </div>
+</section>
+<section id="reports">
+<h3>Reports<a class="headerlink" href="#reports" title="&#27492;&#26631;&#39064;&#30340;&#27704;&#20037;&#38142;&#25509;">&#61633;</a></h3>
+<p>For analysis of your program and Nuitka packaging, there is the
+<a class="reference internal" href="#compilation-report">Compilation Report</a> available. You can also make custom reports
+providing your own template, with a few of them built-in to Nuitka.
+These reports carry all the detail information, e.g. when a module was
+attempted to be imported, but not found, you can see where that happens.
+For bug reporting, it is very much recommended to provide the report.</p>
 </section>
 </section>
 <section id="typical-problems">
@@ -773,6 +885,11 @@ behaviors, e.g. a package might complain it is not the right version,
 because a <code class="docutils literal notranslate"><span class="pre">VERSION</span></code> file check defaulted to unknown. The absence of
 icon files or help texts, may raise strange errors.</p>
 <p>&#36890;&#24120;&#24773;&#20917;&#19979;&#65292;&#25991;&#20214;&#19981;&#23384;&#22312;&#30340;&#38169;&#35823;&#36335;&#24452;&#29978;&#33267;&#26159;&#38169;&#35823;&#30340;&#65292;&#20250;&#26292;&#38706;&#20986;&#32534;&#31243;&#38169;&#35823;&#65292;&#22914;&#26410;&#32465;&#23450;&#23616;&#37096;&#21464;&#37327;&#12290;&#35831;&#20180;&#32454;&#26597;&#30475;&#36825;&#20123;&#24322;&#24120;&#24773;&#20917;&#65292;&#29282;&#35760;&#36825;&#21487;&#33021;&#26159;&#21407;&#22240;&#12290;&#22914;&#26524;&#20320;&#30340;&#31243;&#24207;&#27809;&#26377;&#29420;&#31435;&#36816;&#34892;&#65292;&#26377;&#21487;&#33021;&#26159;&#25968;&#25454;&#25991;&#20214;&#30340;&#21407;&#22240;&#12290;</p>
+<p>The most common error indicating file absence is of course an uncaught
+<code class="docutils literal notranslate"><span class="pre">FileNotFoundError</span></code> with a filename. You should figure out what
+package is missing files and then use <code class="docutils literal notranslate"><span class="pre">--include-package-data</span></code>
+(preferably), or <code class="docutils literal notranslate"><span class="pre">--include-data-dir</span></code>/<code class="docutils literal notranslate"><span class="pre">--include-data-files</span></code> to
+include them.</p>
 </section>
 <section id="missing-dlls-in-standalone">
 <h3>&#21333;&#26426;&#20013;&#32570;&#23569; DLLs<a class="headerlink" href="#missing-dlls-in-standalone" title="&#27492;&#26631;&#39064;&#30340;&#27704;&#20037;&#38142;&#25509;">&#61633;</a></h3>
@@ -823,7 +940,10 @@ etc. will all fail in bad ways.</p>
 </section>
 <section id="windows-programs-without-console-give-no-errors">
 <h3>&#27809;&#26377;&#25511;&#21046;&#21488;&#30340; Windows &#31243;&#24207;&#19981;&#20250;&#20986;&#29616;&#38169;&#35823;<a class="headerlink" href="#windows-programs-without-console-give-no-errors" title="&#27492;&#26631;&#39064;&#30340;&#27704;&#20037;&#38142;&#25509;">&#61633;</a></h3>
-<p>&#20026;&#20102;&#35843;&#35797;&#30340;&#30446;&#30340;&#65292;&#31227;&#38500; <code class="docutils literal notranslate"><span class="pre">--windows-disable-console</span></code> &#25110;&#20351;&#29992;&#36873;&#39033; <code class="docutils literal notranslate"><span class="pre">--windows-force-stdout-spec</span></code> &#21644; <code class="docutils literal notranslate"><span class="pre">--windows-force-stderr-spec</span></code>&#65292;&#20854;&#36335;&#24452;&#19982;&#19978;&#36848; <code class="docutils literal notranslate"><span class="pre">--windows-onefile-tempdir-spec</span></code> &#25152;&#35760;&#36733;&#30340;&#30456;&#21516;&#12290;</p>
+<p>For debugging purposes, remove <code class="docutils literal notranslate"><span class="pre">--disable-console</span></code> or use the options
+<code class="docutils literal notranslate"><span class="pre">--windows-force-stdout-spec</span></code> and <code class="docutils literal notranslate"><span class="pre">--windows-force-stderr-spec</span></code> with
+paths as documented for <code class="docutils literal notranslate"><span class="pre">--onefile-tempdir-spec</span></code> above. These can be
+relative to the program or absolute, so you can see the outputs given.</p>
 </section>
 <section id="deep-copying-uncompiled-functions">
 <h3>Deep copying uncompiled functions<a class="headerlink" href="#deep-copying-uncompiled-functions" title="&#27492;&#26631;&#39064;&#30340;&#27704;&#20037;&#38142;&#25509;">&#61633;</a></h3>
@@ -980,7 +1100,9 @@ in CI systems where things might be non-standard.</p>
 <p>Beginning with Microsoft Windows 10, Microsoft ships <code class="docutils literal notranslate"><span class="pre">ucrt.dll</span></code>
 (Universal C Runtime libraries) which handles calls to
 <code class="docutils literal notranslate"><span class="pre">api-ms-crt-*.dll</span></code>.</p>
-<p>&#23545;&#20110;&#26089;&#26399;&#30340; Windows &#24179;&#21488;&#65288;&#21644; wine/ReactOS&#65289;&#65292;&#20320;&#24212;&#35813;&#32771;&#34385;&#22312;&#25191;&#34892; Nuitka &#29420;&#31435;&#32534;&#35793;&#31243;&#24207;&#20043;&#21069;&#23433;&#35013; Visual C Runtime &#24211;&#12290;</p>
+<p>With earlier Windows platforms (and wine/ReactOS), you should consider
+installing Visual C runtime libraries before executing a Nuitka
+standalone compiled program.</p>
 <p>&#26681;&#25454;&#25152;&#20351;&#29992;&#30340;C&#35821;&#35328;&#32534;&#35793;&#22120;&#65292;&#20320;&#38656;&#35201;&#20197;&#19979;&#30340; redist &#29256;&#26412;&#65306;</p>
 <table class="docutils align-default">
 <colgroup>
@@ -1041,7 +1163,11 @@ in CI systems where things might be non-standard.</p>
 </section>
 <section id="detecting-nuitka-at-run-time">
 <h3>&#22312;&#36816;&#34892;&#26102;&#26816;&#27979; Nuitka<a class="headerlink" href="#detecting-nuitka-at-run-time" title="&#27492;&#26631;&#39064;&#30340;&#27704;&#20037;&#38142;&#25509;">&#61633;</a></h3>
-<p>&#23427;&#19981;&#20687;&#20854;&#20182;&#24037;&#20855;&#37027;&#26679;&#35774;&#32622; <code class="docutils literal notranslate"><span class="pre">sys.frozen</span></code>&#12290;&#23545;&#20110; Nuitka&#65292;&#25105;&#20204;&#26377;&#27169;&#22359;&#23646;&#24615; <code class="docutils literal notranslate"><span class="pre">__compiled__</span></code> &#26469;&#27979;&#35797;&#29305;&#23450;&#27169;&#22359;&#26159;&#21542;&#34987;&#32534;&#35793;&#12290;</p>
+<p>Nuitka does <em>not</em> <code class="docutils literal notranslate"><span class="pre">sys.frozen</span></code> unlike other tools, because it usually
+triggers inferior code for no reason. For Nuitka, we have the module
+attribute <code class="docutils literal notranslate"><span class="pre">__compiled__</span></code> to test if a specific module was compiled,
+and the function attribute <code class="docutils literal notranslate"><span class="pre">__compiled__</span></code> to test if a specific
+function was compiled.</p>
 </section>
 <section id="providing-extra-options-to-nuitka-c-compilation">
 <h3>Providing extra Options to Nuitka C compilation<a class="headerlink" href="#providing-extra-options-to-nuitka-c-compilation" title="&#27492;&#26631;&#39064;&#30340;&#27704;&#20037;&#38142;&#25509;">&#61633;</a></h3>
@@ -1051,6 +1177,69 @@ necessary. Beware of course, that is this is only useful if you know
 what you are doing, so should this pose an issues, raise them only with
 perfect information.</p>
 </section>
+<section id="producing-a-32-bit-binary-on-a-64-bit-windows-system">
+<h3>Producing a 32 bit binary on a 64 bit Windows system<a class="headerlink" href="#producing-a-32-bit-binary-on-a-64-bit-windows-system" title="&#27492;&#26631;&#39064;&#30340;&#27704;&#20037;&#38142;&#25509;">&#61633;</a></h3>
+<p>Nuitka will automatically target the architecture of the Python you are
+using. If this is 64 bits, it will create a 64 bits binary, if it is 32
+bits, it will create a 32 bits binary. You have the option to select the
+bits when you download the Python. In the output of <code class="docutils literal notranslate"><span class="pre">python</span> <span class="pre">-m</span> <span class="pre">nuitka</span>
+<span class="pre">--version</span></code> there is a line for the architecture. It <code class="docutils literal notranslate"><span class="pre">Arch:</span> <span class="pre">x86_64</span></code>
+for 64 bits, and just <code class="docutils literal notranslate"><span class="pre">Arch:</span> <span class="pre">x86</span></code> for 32 bits.</p>
+<p>The C compiler will be picked to match that more or less automatically.
+If you specify it explicitly and it mismatches, you will get a warning
+about the mismatch and informed that you compiler choice was rejected.</p>
+</section>
+</section>
+<section id="compilation-report">
+<h2>Compilation Report<a class="headerlink" href="#compilation-report" title="&#27492;&#26631;&#39064;&#30340;&#27704;&#20037;&#38142;&#25509;">&#61633;</a></h2>
+<p>When you use <code class="docutils literal notranslate"><span class="pre">--report=compilation-report.xml</span></code> Nuitka will create an
+XML file with detailed information about the compilation and packaging
+process. This is growing in completeness with very release and exposes
+module usage attempts, timings of the compilation, plugin influences,
+data file paths, DLLs, and reasons why things are included or not.</p>
+<p>At this time, the report contains absolute paths in some places, with
+your private information. The goal is to make this blended out by
+default, because we also want to become able to compare compilation
+reports from different setups, e.g. with updated packages, and see the
+changes to Nuitka. The report is however recommended for your bug
+reporting.</p>
+<p>Also, another form is available, where the report is free form and
+according to a Jinja2 template of yours, and one that is included in
+Nuitka. The same information as used to produce the XML file is
+accessible. However, right now this is not yet documented, but we plan
+to add a table with the data. For reader of the source code that is
+familiar with Jinja2, however, it will be easy to do it now already.</p>
+<p>If you have a template, you can use it like this
+<code class="docutils literal notranslate"><span class="pre">--report-template=your_template.rst.j2:your_report.rst</span></code> and of
+course, the usage of restructured text, is only an example. You can use
+markdown, your own XML, or whatever you see fit. Nuitka will just expand
+the template with the compilation report data.</p>
+<p>Currently the follow reports are included in Nuitka. You just use the
+name as a filename, and Nuitka will pick that one instead.</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 18%">
+<col style="width: 16%">
+<col style="width: 66%">
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Report Name</p></th>
+<th class="head"><p>&#29366;&#24577;</p></th>
+<th class="head"><p>Purpose</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>LicenseReport</p></td>
+<td><p>experimental</p></td>
+<td><p>Distributions used in a compilation with license texts</p></td>
+</tr>
+</tbody>
+</table>
+<div class="admonition note">
+<p class="admonition-title">&#22791;&#27880;</p>
+<p>The community can and should contribute more report types and help
+enhancing the existing ones for good looks.</p>
+</div>
 </section>
 <section id="performance">
 <h2>&#24615;&#33021;<a class="headerlink" href="#performance" title="&#27492;&#26631;&#39064;&#30340;&#27704;&#20037;&#38142;&#25509;">&#61633;</a></h2>
@@ -1060,17 +1249,17 @@ perfect information.</p>
 <p>The results are the top value from this kind of output, running pystone
 1000 times and taking the minimal value. The idea is that the fastest
 run is most meaningful, and eliminates usage spikes.</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">echo</span> <span class="s2">"Uncompiled Python2"</span>
-<span class="k">for</span> i <span class="k">in</span> <span class="o">{</span><span class="m">1</span>..100<span class="o">}</span><span class="p">;</span> <span class="k">do</span> <span class="nv">BENCH</span><span class="o">=</span><span class="m">1</span> python2 tests/benchmarks/pystone.py <span class="p">;</span> <span class="k">done</span> <span class="p">|</span> sort -n -r <span class="p">|</span> head -n <span class="m">1</span>
-python2 -m nuitka --lto<span class="o">=</span>yes --pgo<span class="o">=</span>yes tests/benchmarks/pystone.py
-<span class="nb">echo</span> <span class="s2">"Compiled Python2"</span>
-<span class="k">for</span> i <span class="k">in</span> <span class="o">{</span><span class="m">1</span>..100<span class="o">}</span><span class="p">;</span> <span class="k">do</span> <span class="nv">BENCH</span><span class="o">=</span><span class="m">1</span> ./pystone.bin <span class="p">;</span> <span class="k">done</span> <span class="p">|</span> sort -n -r <span class="p">|</span> head -n <span class="m">1</span>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">echo</span><span class="w"> </span><span class="s2">"Uncompiled Python2"</span>
+<span class="k">for</span><span class="w"> </span>i<span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="o">{</span><span class="m">1</span>..100<span class="o">}</span><span class="p">;</span><span class="w"> </span><span class="k">do</span><span class="w"> </span><span class="nv">BENCH</span><span class="o">=</span><span class="m">1</span><span class="w"> </span>python2<span class="w"> </span>tests/benchmarks/pystone.py<span class="w"> </span><span class="p">;</span><span class="w"> </span><span class="k">done</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>sort<span class="w"> </span>-n<span class="w"> </span>-r<span class="w"> </span><span class="p">|</span><span class="w"> </span>head<span class="w"> </span>-n<span class="w"> </span><span class="m">1</span>
+python2<span class="w"> </span>-m<span class="w"> </span>nuitka<span class="w"> </span>--lto<span class="o">=</span>yes<span class="w"> </span>--pgo<span class="o">=</span>yes<span class="w"> </span>tests/benchmarks/pystone.py
+<span class="nb">echo</span><span class="w"> </span><span class="s2">"Compiled Python2"</span>
+<span class="k">for</span><span class="w"> </span>i<span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="o">{</span><span class="m">1</span>..100<span class="o">}</span><span class="p">;</span><span class="w"> </span><span class="k">do</span><span class="w"> </span><span class="nv">BENCH</span><span class="o">=</span><span class="m">1</span><span class="w"> </span>./pystone.bin<span class="w"> </span><span class="p">;</span><span class="w"> </span><span class="k">done</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>sort<span class="w"> </span>-n<span class="w"> </span>-r<span class="w"> </span><span class="p">|</span><span class="w"> </span>head<span class="w"> </span>-n<span class="w"> </span><span class="m">1</span>
 
-<span class="nb">echo</span> <span class="s2">"Uncompiled Python3"</span>
-<span class="k">for</span> i <span class="k">in</span> <span class="o">{</span><span class="m">1</span>..100<span class="o">}</span><span class="p">;</span> <span class="k">do</span> <span class="nv">BENCH</span><span class="o">=</span><span class="m">1</span> python3 tests/benchmarks/pystone3.py <span class="p">;</span> <span class="k">done</span> <span class="p">|</span> sort -n -r <span class="p">|</span> head -n <span class="m">1</span>
-python3 -m nuitka --lto<span class="o">=</span>yes --pgo<span class="o">=</span>yes tests/benchmarks/pystone3.py
-<span class="nb">echo</span> <span class="s2">"Compiled Python3"</span>
-<span class="k">for</span> i <span class="k">in</span> <span class="o">{</span><span class="m">1</span>..100<span class="o">}</span><span class="p">;</span> <span class="k">do</span> <span class="nv">BENCH</span><span class="o">=</span><span class="m">1</span> ./pystone3.bin <span class="p">;</span> <span class="k">done</span> <span class="p">|</span> sort -n -r <span class="p">|</span> head -n <span class="m">1</span>
+<span class="nb">echo</span><span class="w"> </span><span class="s2">"Uncompiled Python3"</span>
+<span class="k">for</span><span class="w"> </span>i<span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="o">{</span><span class="m">1</span>..100<span class="o">}</span><span class="p">;</span><span class="w"> </span><span class="k">do</span><span class="w"> </span><span class="nv">BENCH</span><span class="o">=</span><span class="m">1</span><span class="w"> </span>python3<span class="w"> </span>tests/benchmarks/pystone3.py<span class="w"> </span><span class="p">;</span><span class="w"> </span><span class="k">done</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>sort<span class="w"> </span>-n<span class="w"> </span>-r<span class="w"> </span><span class="p">|</span><span class="w"> </span>head<span class="w"> </span>-n<span class="w"> </span><span class="m">1</span>
+python3<span class="w"> </span>-m<span class="w"> </span>nuitka<span class="w"> </span>--lto<span class="o">=</span>yes<span class="w"> </span>--pgo<span class="o">=</span>yes<span class="w"> </span>tests/benchmarks/pystone3.py
+<span class="nb">echo</span><span class="w"> </span><span class="s2">"Compiled Python3"</span>
+<span class="k">for</span><span class="w"> </span>i<span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="o">{</span><span class="m">1</span>..100<span class="o">}</span><span class="p">;</span><span class="w"> </span><span class="k">do</span><span class="w"> </span><span class="nv">BENCH</span><span class="o">=</span><span class="m">1</span><span class="w"> </span>./pystone3.bin<span class="w"> </span><span class="p">;</span><span class="w"> </span><span class="k">done</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>sort<span class="w"> </span>-n<span class="w"> </span>-r<span class="w"> </span><span class="p">|</span><span class="w"> </span>head<span class="w"> </span>-n<span class="w"> </span><span class="m">1</span>
 </pre></div>
 </div>
 <table class="docutils align-default">
@@ -1109,18 +1298,27 @@ compatibility is insanely high, and test suite works near perfectly,
 there is still more work needed, esp. to make it do more optimization.
 Try it out, and when popular packages do not work, please make reports
 on GitHub.</p>
-<section id="follow-me-on-twitter">
-<h3>&#22312; Twitter &#19978;&#20851;&#27880;&#25105;<a class="headerlink" href="#follow-me-on-twitter" title="&#27492;&#26631;&#39064;&#30340;&#27704;&#20037;&#38142;&#25509;">&#61633;</a></h3>
-<p>Nuitka announcements and interesting stuff is pointed to on the Twitter
-account, but obviously with not too many details. <a class="reference external" href="https://twitter.com/KayHayen" target="_blank">@KayHayen</a>.</p>
+<section id="follow-me-on-mastodon-and-twitter">
+<h3>Follow me on Mastodon and Twitter<a class="headerlink" href="#follow-me-on-mastodon-and-twitter" title="&#27492;&#26631;&#39064;&#30340;&#27704;&#20037;&#38142;&#25509;">&#61633;</a></h3>
+<p>Nuitka announcements and interesting stuff is pointed to on both the
+Mastodon and Twitter accounts, but obviously with not too many details,
+usually pointing to the website, but sometimes I also ask questions
+there.</p>
+<p><a class="reference external" href="https://fosstodon.org/@kayhayen" target="_blank">@KayHayen on Mastodon</a>. <a class="reference external" href="https://twitter.com/KayHayen" target="_blank">@KayHayen
+on Twitter</a>.</p>
 </section>
 <section id="report-issues-or-bugs">
 <h3>&#25253;&#21578;&#38382;&#39064;&#25110; bug<a class="headerlink" href="#report-issues-or-bugs" title="&#27492;&#26631;&#39064;&#30340;&#27704;&#20037;&#38142;&#25509;">&#61633;</a></h3>
-<p>&#22914;&#26524;&#20320;&#36935;&#21040;&#20219;&#20309;&#38382;&#39064;&#12289;&#38169;&#35823;&#25110;&#24819;&#27861;&#65292;&#35831;&#35775;&#38382; <a class="reference external" href="https://github.com/kayhayen/Nuitka/issues" target="_blank">Nuitka &#38169;&#35823;&#36319;&#36394;&#22120;</a> &#24182;&#25253;&#21578;&#23427;&#20204;&#12290;</p>
+<p>Should you encounter any issues, bugs, or ideas, please visit the
+<a class="reference external" href="https://github.com/Nuitka/Nuitka/issues" target="_blank">Nuitka bug tracker</a> and
+report them.</p>
 <p>&#25253;&#21578; bug &#30340;&#26368;&#20339;&#20570;&#27861;&#65306;</p>
 <ul>
-<li><p>&#35831;&#22312;&#20320;&#30340;&#25253;&#21578;&#20013;&#22987;&#32456;&#21253;&#25324;&#20197;&#19979;&#20449;&#24687;&#65292;&#29992;&#20110;&#24213;&#23618;&#30340; Python &#29256;&#26412;&#12290;&#20320;&#21487;&#20197;&#24456;&#23481;&#26131;&#22320;&#25226;&#23427;&#22797;&#21046;&amp;&#31896;&#36148;&#21040;&#20320;&#30340;&#25253;&#21578;&#20013;&#12290;</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>python -m nuitka --version
+<li><p>Please always include the following information in your report, for
+the underlying Python version. You can easily copy&amp;paste this into
+your report. It does contain more information that you think. Do not
+write something manually. You may always add of course.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>python<span class="w"> </span>-m<span class="w"> </span>nuitka<span class="w"> </span>--version
 </pre></div>
 </div>
 </li>
@@ -1247,7 +1445,9 @@ support, please consider <a class="reference external" href="https://nuitka.net/
 </section>
 <section id="conditional-statement-prediction">
 <h3>&#26465;&#20214;&#24615;&#22768;&#26126;&#30340;&#39044;&#27979;<a class="headerlink" href="#conditional-statement-prediction" title="&#27492;&#26631;&#39064;&#30340;&#27704;&#20037;&#38142;&#25509;">&#61633;</a></h3>
-<p>&#23545;&#20110;&#26465;&#20214;&#24615;&#35821;&#21477;&#65292;&#26377;&#20123;&#20998;&#25903;&#21487;&#33021;&#27704;&#36828;&#19981;&#20250;&#34987;&#37319;&#32435;&#65292;&#22240;&#20026;&#26465;&#20214;&#26159;&#21487;&#20197;&#39044;&#27979;&#30340;&#12290;&#22312;&#36825;&#20123;&#24773;&#20917;&#19979;&#65292;&#19981;&#37319;&#21462;&#30340;&#20998;&#25903;&#21644;&#26465;&#20214;&#26816;&#26597;&#34987;&#21024;&#38500;&#12290;</p>
+<p>For conditional statements, some branches may not ever be taken, because
+of the condition truth value being possible to predict. In these cases,
+the branch not taken and the condition check is removed.</p>
 <p>&#36825;&#36890;&#24120;&#21487;&#20197;&#39044;&#27979;&#36825;&#26679;&#30340;&#20195;&#30721;&#65306;</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">"__main__"</span><span class="p">:</span>
     <span class="c1"># Your test code might be here</span>
@@ -1403,9 +1603,10 @@ exception while building the assignment targets.</p>
 ability to predict if an expression can raise an exception or not.</p>
 <div class="admonition-status admonition">
 <p class="admonition-title">&#29366;&#24577;</p>
-<p>Not implemented yet. Will need us to see through the unpacking of
-what is an iteration over a tuple, we created ourselves. We are not
-there yet, but we will get there.</p>
+<p>This is partially implemented. We are working on unpacking
+enhancements, that will recognize where index access is available.
+This faster access will then avoid tuples and iteration, then this
+will be perfect.</p>
 </div>
 </section>
 <section id="built-in-type-inference">
@@ -1481,6 +1682,26 @@ later, it will be non-trivial though to maintain the order of execution
 without temporary values introduced. The same thing is done for pure
 constants of these types, they change to <code class="docutils literal notranslate"><span class="pre">tuple</span></code> values when iterated.</p>
 </section>
+<section id="metadata-calls-at-compile-time">
+<h3>Metadata calls at compile time<a class="headerlink" href="#metadata-calls-at-compile-time" title="&#27492;&#26631;&#39064;&#30340;&#27704;&#20037;&#38142;&#25509;">&#61633;</a></h3>
+<p>Nuitka does not include metadata in the distribution. It&#8217;s rather large,
+and the goal is to use it at compile time. Therefore information about
+entry points, version checks, etc. are all done at compile time rather
+than at run time. Not only is that faster, it also recognized problems
+sooner.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">pkg_resources</span><span class="o">.</span><span class="n">require</span><span class="p">(</span><span class="s2">"lxml"</span><span class="p">)</span>
+<span class="n">importlib</span><span class="o">.</span><span class="n">metadata</span><span class="o">.</span><span class="n">version</span><span class="p">(</span><span class="s2">"lxml"</span><span class="p">)</span>
+<span class="o">...</span>
+</pre></div>
+</div>
+<div class="admonition-status admonition">
+<p class="admonition-title">&#29366;&#24577;</p>
+<p>This is considered complete. The coverage of the APIs is very good,
+but naturally this will always have to be code that uses compile time
+values, but that is nearly never an issue, and where it happens, we
+use &#8220;anti-bloat&#8221; patches to deal with these in 3rd party packages.</p>
+</div>
+</section>
 </section>
 <section id="updates-for-this-manual">
 <h2>&#26356;&#26032;&#25163;&#20876;<a class="headerlink" href="#updates-for-this-manual" title="&#27492;&#26631;&#39064;&#30340;&#27704;&#20037;&#38142;&#25509;">&#61633;</a></h2>
@@ -1489,8 +1710,9 @@ constants of these types, they change to <code class="docutils literal notransla
 </section>
 </section>
 
-<div class="section">
-   
+<div class="section ablog__blog_comments">
+  
+  
 </div>
 
            </div>
@@ -1500,7 +1722,7 @@ constants of these types, they change to <code class="docutils literal notransla
   <hr>
 
   <div role="contentinfo">
-    <p>&#169; &#29256;&#26435;&#25152;&#26377; 2022, Kay Hayen and Nuitka Contributors.</p>
+    <p>&#169; &#29256;&#26435;&#25152;&#26377; 2023, Kay Hayen and Nuitka Contributors.</p>
   </div>
 
   
@@ -1554,8 +1776,8 @@ constants of these types, they change to <code class="docutils literal notransla
             <div class="sd-summary-content sd-card-body switcher-body docutils">
                 <blockquote>
                     <div>
-                        <div><div class="line"><a class="reference external" href="/doc/user-manual.html">EN</a></div>
-                            <div class="line"><a class="reference external" href="/de_DE/doc/user-manual.html">DE</a></div>
+                        <div><div class="line"><a class="reference external" href="/de_DE/doc/user-manual.html">DE</a></div>
+                            <div class="line"><a class="reference external" href="/doc/user-manual.html">EN</a></div>
                             </div></div>
                 </blockquote>
             </div>

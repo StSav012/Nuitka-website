@@ -1,0 +1,317 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en">
+  <id>https://nuitka.net</id>
+  <title>Nuitka Blog - Posts tagged stream</title>
+  <updated>2023-01-31T17:57:04.732134+00:00</updated>
+  <link href="https://nuitka.net"/>
+  <link href="https://nuitka.net/blog/tag/stream/atom.xml" rel="self"/>
+  <generator uri="https://ablog.readthedocs.io/" version="0.11.0rc2">ABlog</generator>
+  <entry>
+    <id>https://nuitka.net/posts/first-nuitka-live-stream.html</id>
+    <title>First Nuitka Live Stream</title>
+    <updated>2022-01-14T00:00:00+00:00</updated>
+    <content type="html">&lt;section id="first-nuitka-live-stream"&gt;
+
+&lt;p&gt;Tomorrow, Saturday 15.01.2022, there will be not one, but two live
+stream of me coding on Nuitka, and talking and chatting with visitors in
+the Discord channel created specifically for this. I will go from 9-12
+CEST and from 17-20 CEST.&lt;/p&gt;
+&lt;p&gt;There is a &lt;a class="reference external" href="/pages/Streaming.html"&gt;dedicated page on the web site&lt;/a&gt;
+which has the details. Spoiler, it’s free and I have no plans for
+anything that involves a subscription of any kind. Of course, talking of
+subscription, do also checkout the &lt;a class="reference external" href="/doc/commercial.html"&gt;Nuitka commercial&lt;/a&gt; offering. That is a subscription with adds that
+protect your IP even more than regular Nuitka.&lt;/p&gt;
+&lt;p&gt;I want to do this on a regular basis, and I will be happy to do this
+even when nearly nobody shows up. It will be however your chance, and in
+previous GSoC and generally, I made very good experiences with joint
+sessions. So I hope you will help me pasting code snippets and Google
+results in chat, and discuss the optimization that we are going to add.&lt;/p&gt;
+&lt;p&gt;Come and join me there. &lt;a class="reference external" href="/pages/Streaming.html"&gt;Instructions&lt;/a&gt; here.
+You know you want to do it. I know I want you to do to it!&lt;/p&gt;
+&lt;div class="line-block"&gt;
+&lt;div class="line"&gt;Yours,&lt;/div&gt;
+&lt;div class="line"&gt;Kay&lt;/div&gt;
+&lt;/div&gt;
+&lt;/section&gt;
+</content>
+    <link href="https://nuitka.net/posts/first-nuitka-live-stream.html" rel="alternate"/>
+    <summary>Tomorrow, Saturday 15.01.2022, there will be not one, but two live
+stream of me coding on Nuitka, and talking and chatting with visitors in
+the Discord channel created specifically for this. I will go from 9-12
+CEST and from 17-20 CEST.</summary>
+    <category term="Nuitka" label="Nuitka"/>
+    <category term="Python" label="Python"/>
+    <category term="compiler" label="compiler"/>
+    <category term="stream" label="stream"/>
+    <published>2022-01-14T00:00:00+00:00</published>
+  </entry>
+  <entry>
+    <id>https://nuitka.net/posts/next-nuitka-live-stream-30-01-2022.html</id>
+    <title>Next Nuitka Live Stream</title>
+    <updated>2022-01-30T00:00:00+00:00</updated>
+    <content type="html">&lt;section id="next-nuitka-live-stream"&gt;
+
+&lt;p&gt;Today, Sunday 30.01.2022, there will be the third live stream of me
+coding on Nuitka, and talking and chatting with visitors in the Discord
+channel created specifically for this. I will go from 9-12 CEST and from
+18 CEST until probably at least 20 CEST, but it seems I tend to go
+overtime.&lt;/p&gt;
+&lt;/section&gt;
+&lt;section id="last-time"&gt;
+&lt;h1&gt;Last time&lt;/h1&gt;
+&lt;p&gt;So the last two streams are on my Youtube, these are around 4h videos,
+done on the same day.&lt;/p&gt;
+&lt;p&gt;In the second stream I was working on Onefile compression for all Python
+versions, by making the location of another Python that for Scons we
+sort of did already, reusable. So now, you can run Nuitka with Python2.6
+and compile your legacy code, while with say 3.6 also installed on the
+same system, you do the &lt;code class="docutils literal notranslate"&gt;&lt;span class="pre"&gt;zstandard&lt;/span&gt;&lt;/code&gt; compression. That will be used for
+other things in the future as well. This is going to be part of the next
+release and currently on develop.&lt;/p&gt;
+&lt;p&gt;In the first stream, I also did a little bit of performance plans, but
+mostly only showing people what I have there in stock, not actually went
+there and I started work on a &lt;code class="docutils literal notranslate"&gt;&lt;span class="pre"&gt;upx&lt;/span&gt;&lt;/code&gt; plugin, such that DLLs for
+standalone are compressed with that. That also required a bit of plugin
+interface changes and research. This one works mostly, but will need
+more live. Also I think I looked at reducing what is included with the
+follow standard library option, getting very minimal distributions out
+of it.&lt;/p&gt;
+&lt;/section&gt;
+&lt;section id="this-time"&gt;
+&lt;h1&gt;This time&lt;/h1&gt;
+&lt;p&gt;All around, this last stream, was a huge success. I was a bit under the
+weather last weekend, but we go on now.&lt;/p&gt;
+&lt;p&gt;Not sure yet, what to do. I might be debugging issues I have with 2.6
+and a recent optimization, that prevents factory branch from becoming
+the next pre-release, I might be looking at macOS still. And I might be
+looking at the caching of bytecode demoted modules, that is kind of
+ready to be used, but is not currently, which is a pity. And of course,
+the Python PGO may get a closer look, such that e.g. it works for
+standalone mode.&lt;/p&gt;
+&lt;/section&gt;
+&lt;section id="how-to-join"&gt;
+&lt;h1&gt;How to Join&lt;/h1&gt;
+&lt;p&gt;There is a &lt;a class="reference external" href="/pages/Streaming.html"&gt;dedicated page on the web site&lt;/a&gt;
+which has the details. Spoiler, it’s free and I have no plans for
+anything that involves a subscription of any kind. Of course, talking of
+subscription, do also checkout the &lt;a class="reference external" href="/doc/commercial.html"&gt;Nuitka commercial&lt;/a&gt; offering. That is a subscription with adds that
+protect your IP even more than regular Nuitka.&lt;/p&gt;
+&lt;/section&gt;
+&lt;section id="join-me"&gt;
+&lt;h1&gt;Join me&lt;/h1&gt;
+&lt;p&gt;Come and join me there. &lt;a class="reference external" href="/pages/Streaming.html"&gt;Instructions&lt;/a&gt; here.
+You know you want to do it. I know I want you to do to it!&lt;/p&gt;
+&lt;div class="line-block"&gt;
+&lt;div class="line"&gt;Yours,&lt;/div&gt;
+&lt;div class="line"&gt;Kay&lt;/div&gt;
+&lt;/div&gt;
+&lt;/section&gt;
+</content>
+    <link href="https://nuitka.net/posts/next-nuitka-live-stream-30-01-2022.html" rel="alternate"/>
+    <summary>Today, Sunday 30.01.2022, there will be the third live stream of me
+coding on Nuitka, and talking and chatting with visitors in the Discord
+channel created specifically for this. I will go from 9-12 CEST and from
+18 CEST until probably at least 20 CEST, but it seems I tend to go
+overtime.</summary>
+    <category term="Nuitka" label="Nuitka"/>
+    <category term="Python" label="Python"/>
+    <category term="compiler" label="compiler"/>
+    <category term="stream" label="stream"/>
+    <published>2022-01-30T00:00:00+00:00</published>
+  </entry>
+  <entry>
+    <id>https://nuitka.net/posts/next-nuitka-live-stream-04-06-2022.html</id>
+    <title>Next Nuitka Live Stream</title>
+    <updated>2022-05-27T00:00:00+00:00</updated>
+    <content type="html">&lt;section id="next-nuitka-live-stream"&gt;
+
+&lt;p&gt;In the coming weekend, Saturday 04.06.2022, there will be the next live
+streams of me coding on Nuitka, and talking and chatting with visitors
+in the Discord channel created specifically for this. I will go from
+10-14 CEST and potentially also one in the evening.&lt;/p&gt;
+&lt;/section&gt;
+&lt;section id="last-time"&gt;
+&lt;h1&gt;Last time&lt;/h1&gt;
+&lt;p&gt;It’s actually been too long for me to remember what I did, but I do know
+that it took some time to get it right. It probably was about caching,
+but there are usually several topics.&lt;/p&gt;
+&lt;p&gt;I do however think that I need to use my CI machine with more processing
+power rather than my normal desktop, or maybe even both, because the
+screen capture, compiling, VS Code, and all, may make the Video
+otherwise stutter a bit too much.&lt;/p&gt;
+&lt;/section&gt;
+&lt;section id="this-time"&gt;
+&lt;h1&gt;This time&lt;/h1&gt;
+&lt;p&gt;So, streaming is a huge success or Nuitka, however time is also scarce,
+and me starting new things, risks the release being bogged down by
+stabilization phases that are extended.&lt;/p&gt;
+&lt;p&gt;Not sure yet, what to do. I think, I want to look at adding the &lt;code class="docutils literal notranslate"&gt;&lt;span class="pre"&gt;int&lt;/span&gt;&lt;/code&gt;
+as a C type and/or specializing code for mix of &lt;code class="docutils literal notranslate"&gt;&lt;span class="pre"&gt;CLONG&lt;/span&gt;&lt;/code&gt; (C long value)
+and &lt;code class="docutils literal notranslate"&gt;&lt;span class="pre"&gt;LONG&lt;/span&gt;&lt;/code&gt; (Python3 &lt;code class="docutils literal notranslate"&gt;&lt;span class="pre"&gt;int&lt;/span&gt;&lt;/code&gt; object``) and &lt;code class="docutils literal notranslate"&gt;&lt;span class="pre"&gt;INT&lt;/span&gt;&lt;/code&gt; (Python2 &lt;code class="docutils literal notranslate"&gt;&lt;span class="pre"&gt;int&lt;/span&gt;&lt;/code&gt;
+object). Right now adding &lt;code class="docutils literal notranslate"&gt;&lt;span class="pre"&gt;1&lt;/span&gt;&lt;/code&gt; goes through a constant object, one that
+is prepared, and not time consuming to reference, but still overhead to
+use.&lt;/p&gt;
+&lt;/section&gt;
+&lt;section id="how-to-join-nuitka-live"&gt;
+&lt;h1&gt;How to Join Nuitka Live&lt;/h1&gt;
+&lt;p&gt;There is a &lt;a class="reference external" href="/pages/Streaming.html"&gt;dedicated page on the web site&lt;/a&gt;
+which has the details. Spoiler, it’s free and I have no plans for
+anything that involves a subscription of any kind. Of course, talking of
+subscription, do also checkout the &lt;a class="reference external" href="/doc/commercial.html"&gt;Nuitka commercial&lt;/a&gt; offering. That is a subscription with adds that
+protect your IP even more than regular Nuitka.&lt;/p&gt;
+&lt;/section&gt;
+&lt;section id="join-me"&gt;
+&lt;h1&gt;Join me&lt;/h1&gt;
+&lt;p&gt;Come and join me there. &lt;a class="reference external" href="/pages/Streaming.html"&gt;Instructions&lt;/a&gt; here.
+You know you want to do it. I know I want you to do to it!&lt;/p&gt;
+&lt;div class="line-block"&gt;
+&lt;div class="line"&gt;Yours,&lt;/div&gt;
+&lt;div class="line"&gt;Kay&lt;/div&gt;
+&lt;/div&gt;
+&lt;/section&gt;
+</content>
+    <link href="https://nuitka.net/posts/next-nuitka-live-stream-04-06-2022.html" rel="alternate"/>
+    <summary>In the coming weekend, Saturday 04.06.2022, there will be the next live
+streams of me coding on Nuitka, and talking and chatting with visitors
+in the Discord channel created specifically for this. I will go from
+10-14 CEST and potentially also one in the evening.</summary>
+    <category term="Nuitka" label="Nuitka"/>
+    <category term="Python" label="Python"/>
+    <category term="compiler" label="compiler"/>
+    <category term="stream" label="stream"/>
+    <published>2022-05-27T00:00:00+00:00</published>
+  </entry>
+  <entry>
+    <id>https://nuitka.net/posts/all-in-with-nuitka.html</id>
+    <title>All in with Nuitka</title>
+    <updated>2022-12-09T08:22:42+00:00</updated>
+    <author>
+      <name>Kay Hayen</name>
+    </author>
+    <content type="html">&lt;section id="all-in-with-nuitka"&gt;
+
+&lt;p&gt;After more than 10 years of working on the Python compiler Nuitka, and
+at the age of 50, I have finally decided to take the plunge. My projects
+“Nuitka” and “Nuitka commercial” are now my &lt;em&gt;day job&lt;/em&gt;, and I quit my
+work in the Air Traffic Community, after working on &lt;a class="reference external" href="https://en.wikipedia.org/wiki/ARTAS"&gt;ARTAS&lt;/a&gt; (a software to create an Air
+Situation Picture from radar and other sensors) for 20 years.&lt;/p&gt;
+&lt;/section&gt;
+&lt;section id="why-now"&gt;
+&lt;h1&gt;Why now?&lt;/h1&gt;
+&lt;p&gt;That is very good question. I feel I could have done this a long time
+ago, and my heart was torn for a while, and also I prepared this for a
+while now. Listing back to interviews from 4 years ago, it seems though
+as if it had not been on the radar (pun intended).&lt;/p&gt;
+&lt;p&gt;So then I launched Nuitka commercial around 1.5 years ago, first as
+vapor ware, with early bird customers, and meanwhile it has matured to a
+point, where it is the obvious solution to many corporate users, with
+big guys picking it up and small business as well. From startups, big
+name technology giants, universities, mid sized companies, and from
+individuals, I have all kinds of support.&lt;/p&gt;
+&lt;p&gt;I liked my old job very much, but it was getting old, and I felt like
+Nuitka needs me to fulfil my mission. And my wife needed my help with
+driving her to work, which was getting the load to high, something had
+to give. And it seems nothing related to what is called Nuitka (my wife,
+and the compiler share the name) was going to be that.&lt;/p&gt;
+&lt;/section&gt;
+&lt;section id="what-will-change"&gt;
+&lt;h1&gt;What will change?&lt;/h1&gt;
+&lt;p&gt;Already, ever since I launched Nuitka commercial, Nuitka has become way
+more of a out of the box experience. It just works, and covers more
+packages than ever before, and steps have been taken, to make it
+possible to extend this even further with your help. Sure there are
+still shortcoming.&lt;/p&gt;
+&lt;p&gt;But Nuitka has become very polished, and shows this very much that I
+also love details and doing things correctly. I have conducted Nuitka
+from day one as an attempt to create a software that would be usable to
+the enterprise with a million lines of code, that they cannot check for
+unsupported language features, so Nuitka is just fully compatible, to a
+level of absurdity.&lt;/p&gt;
+&lt;p&gt;Having conducted Nuitka on a level of where a corporate business can
+throw it’s code at Nuitka and have it just work, and reliably, this will
+only improve now.&lt;/p&gt;
+&lt;p&gt;Naturally bugs have happened once in a while, but I was always more
+careful. You know, like if this was for safety critical software, on
+which lives might depend. Hard to not be affected by that stance.&lt;/p&gt;
+&lt;p&gt;So lets talk about other ways I plan to expand.&lt;/p&gt;
+&lt;/section&gt;
+&lt;section id="nuitka-package-configuration"&gt;
+&lt;h1&gt;Nuitka Package Configuration&lt;/h1&gt;
+&lt;p&gt;Extending Nuitka with tweaks for package has become increasingly
+simpler. Many previous plugins, e.g. for &lt;code class="docutils literal notranslate"&gt;&lt;span class="pre"&gt;torch&lt;/span&gt;&lt;/code&gt;, &lt;code class="docutils literal notranslate"&gt;&lt;span class="pre"&gt;tensorflow&lt;/span&gt;&lt;/code&gt;, and
+most recently &lt;code class="docutils literal notranslate"&gt;&lt;span class="pre"&gt;numpy&lt;/span&gt;&lt;/code&gt;, and definitely also the Qt binding ones in the
+future, have been or will be converted to Yaml configuration applied by
+generic plugins that deal with DLLs, data-files, tweaks (called
+&lt;code class="docutils literal notranslate"&gt;&lt;span class="pre"&gt;anti-bloat&lt;/span&gt;&lt;/code&gt;) etc.&lt;/p&gt;
+&lt;p&gt;Adding stuff there is simple, and as of recently, there is even
+documentation for it. This is going to be explained in a series of posts
+detailing Nuitka package configuration, under the &lt;code class="docutils literal notranslate"&gt;&lt;span class="pre"&gt;package_config&lt;/span&gt;&lt;/code&gt;
+tag.&lt;/p&gt;
+&lt;p&gt;I must say it’s so much fun, I love working with it. But the goal is for
+this to have you join it, and PRs are indeed starting to come in more
+frequently it seems from first glance, but I need to make this more
+known.&lt;/p&gt;
+&lt;/section&gt;
+&lt;section id="streaming"&gt;
+&lt;h1&gt;Streaming&lt;/h1&gt;
+&lt;p&gt;I have experimented with streaming in the past, and I absolutely love
+it. Without my day job, effectively working two jobs at the same time, I
+expect to have the time to do more of them in December and then on a
+regular basis.&lt;/p&gt;
+&lt;/section&gt;
+&lt;section id="python-3-11"&gt;
+&lt;h1&gt;Python 3.11&lt;/h1&gt;
+&lt;p&gt;There will be a separate post on this issue later this week. I am
+scrambling to add support for it and it feels very far already. Many
+basic tests already work, but more debugging will be needed. I hope
+Nuitka 1.3 will add support for it, at least on the usual experimental
+level.&lt;/p&gt;
+&lt;/section&gt;
+&lt;section id="how-you-can-help"&gt;
+&lt;h1&gt;How you can help?&lt;/h1&gt;
+&lt;p&gt;Please become a &lt;a class="reference external" href="https://nuitka.net/doc/commercial.html"&gt;subscriber of Nuitka commercial&lt;/a&gt;, even if you do not
+need the IP protection features it mostly has. All essential packaging
+and performance features are free, and I have put incredible amounts of
+works in this, and I need to now make a living off it.&lt;/p&gt;
+&lt;p&gt;Right now, I am far from being able to sustain my income from it, and I
+am taking a risk with this effort, hoping for support from you.&lt;/p&gt;
+&lt;p&gt;Nuitka commercial makes creating a Windows Service a blast. It has a
+PySide2 that is compatible with Nuitka (I did make PySide6 compatible
+myself, and backported it to PySide2), so if you need to stay on old
+software. And for IP protection, it is just incredibly important to not
+ship bytecode at all, and with Nuitka commercial, it protects your data
+and files at runtime too.&lt;/p&gt;
+&lt;p&gt;I am bad at marketing, but good at software, which is one more reason to
+purchase it. You know you love these kinds of people. Was that good
+marketing? Also, there are share buttons on this page. Please try them
+out and let people know about this.&lt;/p&gt;
+&lt;p&gt;In future postings, I will make it a regular thing to ask for help with
+some of the technical tasks. Stay tuned, there might be something that
+you can help with.&lt;/p&gt;
+&lt;/section&gt;
+&lt;section id="becoming-more-active"&gt;
+&lt;h1&gt;Becoming more active&lt;/h1&gt;
+&lt;p&gt;I am the kind of person that would much rather do good stuff than to
+talk about it, like when it finally supports Python 3.11, normal old me
+would just mention it maybe on Twitter once, and have it in the
+changelog only.&lt;/p&gt;
+&lt;p&gt;I need to get away from that. I need to resume TWN (This week in Nuitka)
+and have all plans to do it. Obviously I can get caught up in things,
+and may just always do it later when there is more or better news.&lt;/p&gt;
+&lt;/section&gt;
+</content>
+    <link href="https://nuitka.net/posts/all-in-with-nuitka.html" rel="alternate"/>
+    <summary>After more than 10 years of working on the Python compiler Nuitka, and
+at the age of 50, I have finally decided to take the plunge. My projects
+“Nuitka” and “Nuitka commercial” are now my day job, and I quit my
+work in the Air Traffic Community, after working on ARTAS (a software to create an Air
+Situation Picture from radar and other sensors) for 20 years.</summary>
+    <category term="NTW" label="NTW"/>
+    <category term="Nuitka" label="Nuitka"/>
+    <category term="Python" label="Python"/>
+    <category term="compiler" label="compiler"/>
+    <category term="package_config" label="package_config"/>
+    <category term="stream" label="stream"/>
+    <published>2022-12-09T08:22:42+00:00</published>
+  </entry>
+</feed>

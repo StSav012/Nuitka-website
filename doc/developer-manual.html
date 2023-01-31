@@ -15,7 +15,7 @@
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Nuitka Developer Manual &#8212; Nuitka the Python Compiler  documentation</title>
-      <link rel="stylesheet" href="/_static/css/combined_e6840a1efaf0bb3afd9a2fd6b30cc2e9.css" type="text/css">
+      <link rel="stylesheet" href="/_static/css/combined_03f7eeec2061fd0a5acfc23d1d0bf4fb.css" type="text/css">
       <link rel="canonical" href="https://nuitka.net/doc/developer-manual.html">
   <!--[if lt IE 9]>
     <script src="../_static/js/html5shiv.min.js"></script>
@@ -35,39 +35,19 @@
     SHOW_SEARCH_SUMMARY: true,
     ENABLE_SEARCH_SHORTCUTS: true,
 };</script>
-        <script src="/_static/combined_1f3d291568f0d25fd5e0e83c3075a3a3.js" async=""></script>
+        <script src="/_static/combined_50b22e29ca76da059b0c14dcc606bcaa.js" async=""></script>
         <script src="../_static/_sphinx_javascript_frameworks_compat.js" async=""></script>
+        <script src="../_static/sphinx_highlight.js" async=""></script>
         <script src="../_static/clipboard.min.js" async=""></script>
         <script src="../_static/copybutton.js" async=""></script>
         <link rel="index" title="Index" href="../genindex.html">
-    <link rel="next" title="API documentation" href="api-doc.html">
-    <link rel="prev" title="Nuitka Roadmap" href="roadmap.html">   
-<link rel="alternate" type="application/atom+xml" href="../blog/atom.xml" title="Nuitka Blog">
+    <link rel="next" title="Nuitka Package Configuration" href="nuitka-package-config.html">
+    <link rel="prev" title="Nuitka Roadmap" href="roadmap.html">
  
-<style type="text/css">
-  ul.ablog-archive {
-    list-style: none;
-    overflow: auto;
-    margin-left: 0px;
-  }
-  ul.ablog-archive li {
-    float: left;
-    margin-right: 5px;
-    font-size: 80%;
-  }
-  ul.postlist a {
-    font-style: italic;
-  }
-  ul.postlist-style-disc {
-    list-style-type: disc;
-  }
-  ul.postlist-style-none {
-    list-style-type: none;
-  }
-  ul.postlist-style-circle {
-    list-style-type: circle;
-  }
-</style>
+
+<link rel="alternate" type="application/atom+xml" href="../blog/atom.xml" title="Nuitka Blog">
+
+
 
 </head>
 
@@ -76,8 +56,12 @@
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search">
-            <a href="../index.html" class="icon icon-home"> Nuitka the Python Compiler
-            <div class="logo_container"><img src="../_static/Nuitka-Logo-Symbol.svg" class="logo" alt="Logo" width="208" height="209">
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            Nuitka the Python Compiler
+              <div class="logo_container"><img src="../_static/Nuitka-Logo-Symbol.svg" class="logo" alt="Logo" width="208" height="209">
           </div></a><!-- Empty override file take the place of searchbox.html, which generates search box. -->
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
               <ul>
@@ -92,9 +76,9 @@
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Release Information</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="Changelog.html">Nuitka Release 1.2 (Draft)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="Changelog.html#nuitka-release-1-1">Nuitka Release 1.1</a></li>
-<li class="toctree-l1"><a class="reference internal" href="Changelog.html#nuitka-release-1-0">Nuitka Release 1.0</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Changelog.html">Nuitka Release 1.5 (Draft)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Changelog.html#nuitka-release-1-4">Nuitka Release 1.4</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Changelog.html#nuitka-release-1-3">Nuitka Release 1.3</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Changelog.html#older-releases">Older Releases</a></li>
 <li class="toctree-l1"><a class="reference internal" href="roadmap.html">Roadmap</a></li>
 </ul>
@@ -275,6 +259,7 @@
 <li class="toctree-l2"><a class="reference internal" href="#updates-for-this-manual">Updates for this Manual</a></li>
 </ul>
 </li>
+<li class="toctree-l1"><a class="reference internal" href="nuitka-package-config.html">Nuitka Package Configuration</a></li>
 <li class="toctree-l1"><a class="reference internal" href="api-doc.html">API doc</a></li>
 <li class="toctree-l1"><a class="reference internal" href="factory.html">Factory Instructions</a></li>
 </ul>
@@ -292,6 +277,7 @@
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="welcome.html">Welcome</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../pages/pyside2.html">Nuitka PySide2 support</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pages/pyqt5.html">Nuitka PyQt5 support</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../pages/donations.html">Donations</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../pages/gsoc2019.html">Google Summer of Code 2019</a></li>
 </ul>
@@ -310,7 +296,8 @@
           <!-- Empty override file take the place of sphinx_rtd_theme/breadcrumbs.html, which generates the top nav breadcrumbs. -->
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
-              <section id="nuitka-developer-manual">
+             
+<section id="nuitka-developer-manual">
 <h1>Nuitka Developer Manual<a class="headerlink" href="#nuitka-developer-manual" title="Permalink to this heading">&#61633;</a></h1>
 <p>The purpose of this Developer Manual is to present the current design of
 Nuitka, the project rules, and the motivations for choices made. It is
@@ -439,8 +426,8 @@ line.</p>
 <p>In order to set up hooks, you need to execute these commands:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># Where python is the one you use with Nuitka, this then gets all</span>
 <span class="c1"># development requirements, can be full PATH.</span>
-python -m pip install -r requirements-devel.txt
-python ./misc/install-git-hooks.py
+python<span class="w"> </span>-m<span class="w"> </span>pip<span class="w"> </span>install<span class="w"> </span>-r<span class="w"> </span>requirements-devel.txt
+python<span class="w"> </span>./misc/install-git-hooks.py
 </pre></div>
 </div>
 <p>These commands will make sure that the <code class="docutils literal notranslate"><span class="pre">autoformat-nuitka-source</span></code> is
@@ -646,16 +633,16 @@ repository &lt;<a class="reference external" href="https://github.com/Nuitka/Nui
 repository.</p>
 <p>To clone it to your local machine execute the following your git
 bash:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git clone https://github.com/your-user-name/Nuitka.git
-<span class="nb">cd</span> Nuitka
-git remote add upstream https://github.com/Nuitka/Nuitka.git
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git<span class="w"> </span>clone<span class="w"> </span>https://github.com/your-user-name/Nuitka.git
+<span class="nb">cd</span><span class="w"> </span>Nuitka
+git<span class="w"> </span>remote<span class="w"> </span>add<span class="w"> </span>upstream<span class="w"> </span>https://github.com/Nuitka/Nuitka.git
 </pre></div>
 </div>
 </li>
 <li><p>Create a Branch</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git checkout develop
-git pull --rebase upstream
-git checkout -b feature_branch
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git<span class="w"> </span>checkout<span class="w"> </span>develop
+git<span class="w"> </span>pull<span class="w"> </span>--rebase<span class="w"> </span>upstream
+git<span class="w"> </span>checkout<span class="w"> </span>-b<span class="w"> </span>feature_branch
 </pre></div>
 </div>
 <p>If you are having merge conflicts while doing the previous step, then
@@ -663,28 +650,28 @@ check out (DON&#8217;T FORGET TO SAVE YOUR CHANGES FIRST IF ANY):
 &lt;<a class="reference external" href="https://stackoverflow.com/questions/1125968/how-do-i-force-git-pull-to-overwrite-local-files" target="_blank">https://stackoverflow.com/questions/1125968/how-do-i-force-git-pull-to-overwrite-local-files</a>&gt;</p>
 </li>
 <li><p>In case you have an existing branch rebase it to develop</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git fetch upstream
-git rebase upstream/develop
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git<span class="w"> </span>fetch<span class="w"> </span>upstream
+git<span class="w"> </span>rebase<span class="w"> </span>upstream/develop
 </pre></div>
 </div>
 <p>Fix the merge conflicts if any and continue or skip commit if it is
 not your. Sometimes for important bug fixes, develop history gets
 rewritten. In that case, old and new commits will conflict during
 your rebase, and skipping is the best way to go.</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git rebase --continue
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git<span class="w"> </span>rebase<span class="w"> </span>--continue
 <span class="c1"># not your commit:</span>
-git rebase --skip
+git<span class="w"> </span>rebase<span class="w"> </span>--skip
 </pre></div>
 </div>
 <p>If anything goes wrong while rebasing:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git rebase --abort
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git<span class="w"> </span>rebase<span class="w"> </span>--abort
 </pre></div>
 </div>
 </li>
 <li><p>Making changes</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git commit -a -m <span class="s2">"Commit Message"</span>
-git push -u origin <span class="c1"># once, later always:</span>
-git push
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git<span class="w"> </span>commit<span class="w"> </span>-a<span class="w"> </span>-m<span class="w"> </span><span class="s2">"Commit Message"</span>
+git<span class="w"> </span>push<span class="w"> </span>-u<span class="w"> </span>origin<span class="w"> </span><span class="c1"># once, later always:</span>
+git<span class="w"> </span>push
 </pre></div>
 </div>
 </li>
@@ -746,7 +733,7 @@ double hash <code class="docutils literal notranslate"><span class="pre">--</spa
 </li>
 </ul>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">foo</span><span class="p">(</span><span class="n">p1</span><span class="p">,</span> <span class="n">p2</span><span class="p">,</span> <span class="n">kw1</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">kw2</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
-    <span class="sd">"""This is an example method.</span>
+<span class="w">    </span><span class="sd">"""This is an example method.</span>
 
 <span class="sd">    Notes:</span>
 <span class="sd">        It does one or the other indispensable things based on some parameters</span>
@@ -898,7 +885,7 @@ to be expanded.</p>
 <section id="basic-tests">
 <h3>Basic Tests<a class="headerlink" href="#basic-tests" title="Permalink to this heading">&#61633;</a></h3>
 <p>You can run the &#8220;basic&#8221; tests like this:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>./tests/basics/run_all.py search
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>./tests/basics/run_all.py<span class="w"> </span>search
 </pre></div>
 </div>
 <p>These tests normally give sufficient coverage to assume that a change is
@@ -921,7 +908,7 @@ expected.</p>
 <p>Using the <code class="docutils literal notranslate"><span class="pre">global</span></code> statement on a function argument is an example of
 this. These tests make sure that the errors of Nuitka and CPython are
 totally the same for this:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>./tests/syntax/run_all.py search
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>./tests/syntax/run_all.py<span class="w"> </span>search
 </pre></div>
 </div>
 </section>
@@ -930,7 +917,7 @@ totally the same for this:</p>
 <p>Then there are small &#8220;programs&#8221; tests, that e.g. exercise many kinds of
 import tricks and are designed to reveal problems with inter-module
 behavior. These can be run like this:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>./tests/programs/run_all.py search
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>./tests/programs/run_all.py<span class="w"> </span>search
 </pre></div>
 </div>
 </section>
@@ -939,7 +926,7 @@ behavior. These can be run like this:</p>
 <p>There are tests, which are generated from Jinja2 templates. They aim at
 e.g. combining at types with operations, in-place or not, or large
 constants. These can be run like this:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>./tests/generated/run_all.py search
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>./tests/generated/run_all.py<span class="w"> </span>search
 </pre></div>
 </div>
 </section>
@@ -963,8 +950,8 @@ because Nuitka uses a lot of packages and imports between them.</p>
 parts are published as <a class="reference external" href="https://nuitka.net/apidoc">Nuitka API</a> and
 arguably in a relatively bad shape as we started generating those with
 Doxygen only relatively late.</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>doxygen ./doc/Doxyfile
-xdg-open html
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>doxygen<span class="w"> </span>./doc/Doxyfile
+xdg-open<span class="w"> </span>html
 </pre></div>
 </div>
 <p>Improvements have already been implemented for plugins: The plugin base
@@ -982,60 +969,60 @@ a detailed description of how to write your own plugin.</p>
 <p>The CPython test suites are different branches of the same submodule.
 When you update your git checkout, they will frequently become detached.
 In this case, simply execute this command:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git submodule foreach <span class="s1">'git fetch &amp;&amp; git checkout $(basename $(pwd)) &amp;&amp; \</span>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git<span class="w"> </span>submodule<span class="w"> </span>foreach<span class="w"> </span><span class="s1">'git fetch &amp;&amp; git checkout $(basename $(pwd)) &amp;&amp; \</span>
 <span class="s1">git reset --hard origin/$(basename $(pwd))'</span>
 </pre></div>
 </div>
 <p>When adding a test suite, for a new version, proceed like this:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># Switch to a new branch.</span>
-git checkout CPython39
-git branch CPython310
-git checkout CPython310
+git<span class="w"> </span>checkout<span class="w"> </span>CPython39
+git<span class="w"> </span>branch<span class="w"> </span>CPython310
+git<span class="w"> </span>checkout<span class="w"> </span>CPython310
 
 <span class="c1"># Delete all but root commit</span>
-git rebase -i root
-rm -rf <span class="nb">test</span>
-cp ~/repos/Nuitka-references/final/Python-3.10.0/Lib/test <span class="nb">test</span>
-git add <span class="nb">test</span>
+git<span class="w"> </span>rebase<span class="w"> </span>-i<span class="w"> </span>root
+rm<span class="w"> </span>-rf<span class="w"> </span><span class="nb">test</span>
+cp<span class="w"> </span>~/repos/Nuitka-references/final/Python-3.10.0/Lib/test<span class="w"> </span><span class="nb">test</span>
+git<span class="w"> </span>add<span class="w"> </span><span class="nb">test</span>
 
 <span class="c1"># Update commit message to mention proper Python version.</span>
-git commit --amend
+git<span class="w"> </span>commit<span class="w"> </span>--amend
 
 <span class="c1"># Push to github, setting upstream for branch.</span>
-git push -u
+git<span class="w"> </span>push<span class="w"> </span>-u
 
 <span class="c1"># Cherry pick the removal commits from previous branches.</span>
-git log origin/CPython39 --reverse --oneline <span class="p">|</span> grep <span class="s1">' Removed'</span> <span class="p">|</span> cut -d<span class="s1">' '</span> -f1 <span class="p">|</span> xargs git cherry-pick
+git<span class="w"> </span>log<span class="w"> </span>origin/CPython39<span class="w"> </span>--reverse<span class="w"> </span>--oneline<span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span><span class="s1">' Removed'</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>cut<span class="w"> </span>-d<span class="s1">' '</span><span class="w"> </span>-f1<span class="w"> </span><span class="p">|</span><span class="w"> </span>xargs<span class="w"> </span>git<span class="w"> </span>cherry-pick
 <span class="c1"># While being prompted for merge conflicts with the deleted files:</span>
-git status <span class="p">|</span> sed -n <span class="s1">'s/deleted by them://p'</span> <span class="p">|</span> xargs git rm --ignore-unmatch x <span class="p">;</span> git cherry-pick --continue
+git<span class="w"> </span>status<span class="w"> </span><span class="p">|</span><span class="w"> </span>sed<span class="w"> </span>-n<span class="w"> </span><span class="s1">'s/deleted by them://p'</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>xargs<span class="w"> </span>git<span class="w"> </span>rm<span class="w"> </span>--ignore-unmatch<span class="w"> </span>x<span class="w"> </span><span class="p">;</span><span class="w"> </span>git<span class="w"> </span>cherry-pick<span class="w"> </span>--continue
 
 <span class="c1"># Push to github, this is useful.</span>
-git push
+git<span class="w"> </span>push
 
 <span class="c1"># Cherry pick the first commit of 'run_all.py', the copy it from the last state, and amend the commits.</span>
-git log --reverse origin/CPython39 --oneline -- run_all.py <span class="p">|</span> head -1 <span class="p">|</span> cut -d<span class="s1">' '</span> -f1 <span class="p">|</span> xargs git cherry-pick
-git checkout origin/CPython39 -- run_all.py
-chmod +x run_all.py
-sed -i -e <span class="s1">'s#python3.9#python3.10#'</span> run_all.py
-git commit --amend --no-edit run_all.py
+git<span class="w"> </span>log<span class="w"> </span>--reverse<span class="w"> </span>origin/CPython39<span class="w"> </span>--oneline<span class="w"> </span>--<span class="w"> </span>run_all.py<span class="w"> </span><span class="p">|</span><span class="w"> </span>head<span class="w"> </span>-1<span class="w"> </span><span class="p">|</span><span class="w"> </span>cut<span class="w"> </span>-d<span class="s1">' '</span><span class="w"> </span>-f1<span class="w"> </span><span class="p">|</span><span class="w"> </span>xargs<span class="w"> </span>git<span class="w"> </span>cherry-pick
+git<span class="w"> </span>checkout<span class="w"> </span>origin/CPython39<span class="w"> </span>--<span class="w"> </span>run_all.py
+chmod<span class="w"> </span>+x<span class="w"> </span>run_all.py
+sed<span class="w"> </span>-i<span class="w"> </span>-e<span class="w"> </span><span class="s1">'s#python3.9#python3.10#'</span><span class="w"> </span>run_all.py
+git<span class="w"> </span>commit<span class="w"> </span>--amend<span class="w"> </span>--no-edit<span class="w"> </span>run_all.py
 
 <span class="c1"># Same for 'update_doctest_generated.py'</span>
-git log --reverse origin/CPython39 --oneline -- update_doctest_generated.py <span class="p">|</span> head -1 <span class="p">|</span> cut -d<span class="s1">' '</span> -f1 <span class="p">|</span> xargs git cherry-pick
-git checkout origin/CPython39 -- update_doctest_generated.py
-chmod +x update_doctest_generated.py
-sed -i -e <span class="s1">'s#python3.9#python3.10#'</span> update_doctest_generated.py
-git commit --amend --no-edit update_doctest_generated.py
+git<span class="w"> </span>log<span class="w"> </span>--reverse<span class="w"> </span>origin/CPython39<span class="w"> </span>--oneline<span class="w"> </span>--<span class="w"> </span>update_doctest_generated.py<span class="w"> </span><span class="p">|</span><span class="w"> </span>head<span class="w"> </span>-1<span class="w"> </span><span class="p">|</span><span class="w"> </span>cut<span class="w"> </span>-d<span class="s1">' '</span><span class="w"> </span>-f1<span class="w"> </span><span class="p">|</span><span class="w"> </span>xargs<span class="w"> </span>git<span class="w"> </span>cherry-pick
+git<span class="w"> </span>checkout<span class="w"> </span>origin/CPython39<span class="w"> </span>--<span class="w"> </span>update_doctest_generated.py
+chmod<span class="w"> </span>+x<span class="w"> </span>update_doctest_generated.py
+sed<span class="w"> </span>-i<span class="w"> </span>-e<span class="w"> </span><span class="s1">'s#python3.9#python3.10#'</span><span class="w"> </span>update_doctest_generated.py
+git<span class="w"> </span>commit<span class="w"> </span>--amend<span class="w"> </span>--no-edit<span class="w"> </span>update_doctest_generated.py
 
 <span class="c1"># Same for .gitignore</span>
-git log --reverse origin/CPython39 --oneline -- .gitignore <span class="p">|</span> head -1 <span class="p">|</span> cut -d<span class="s1">' '</span> -f1 <span class="p">|</span> xargs git cherry-pick
-git checkout origin/CPython39 -- .gitignore
-git commit --amend --no-edit .gitignore
+git<span class="w"> </span>log<span class="w"> </span>--reverse<span class="w"> </span>origin/CPython39<span class="w"> </span>--oneline<span class="w"> </span>--<span class="w"> </span>.gitignore<span class="w"> </span><span class="p">|</span><span class="w"> </span>head<span class="w"> </span>-1<span class="w"> </span><span class="p">|</span><span class="w"> </span>cut<span class="w"> </span>-d<span class="s1">' '</span><span class="w"> </span>-f1<span class="w"> </span><span class="p">|</span><span class="w"> </span>xargs<span class="w"> </span>git<span class="w"> </span>cherry-pick
+git<span class="w"> </span>checkout<span class="w"> </span>origin/CPython39<span class="w"> </span>--<span class="w"> </span>.gitignore
+git<span class="w"> </span>commit<span class="w"> </span>--amend<span class="w"> </span>--no-edit<span class="w"> </span>.gitignore
 
 <span class="c1"># Now cherry-pick all commits of test support, these disable network, audio, GUI, random filenames and more</span>
 <span class="c1"># and are crucial for deterministic outputs and non-reliance on outside stuff.</span>
-git log --reverse origin/CPython39 --oneline -- test/support/__init__.py <span class="p">|</span> tail -n +2 <span class="p">|</span> cut -d<span class="s1">' '</span> -f1 <span class="p">|</span> xargs git cherry-pick
+git<span class="w"> </span>log<span class="w"> </span>--reverse<span class="w"> </span>origin/CPython39<span class="w"> </span>--oneline<span class="w"> </span>--<span class="w"> </span>test/support/__init__.py<span class="w"> </span><span class="p">|</span><span class="w"> </span>tail<span class="w"> </span>-n<span class="w"> </span>+2<span class="w"> </span><span class="p">|</span><span class="w"> </span>cut<span class="w"> </span>-d<span class="s1">' '</span><span class="w"> </span>-f1<span class="w"> </span><span class="p">|</span><span class="w"> </span>xargs<span class="w"> </span>git<span class="w"> </span>cherry-pick
 
-git push
+git<span class="w"> </span>push
 </pre></div>
 </div>
 </section>
@@ -1072,13 +1059,13 @@ given. It will be filled in, but not now.</p>
 <p>The exact ImageMagick commands are in
 <code class="docutils literal notranslate"><span class="pre">nuitka/tools/release/Documentation</span></code>, but are not executed each time,
 the commands are also replicated here:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>convert -background none doc/Logo/Nuitka-Logo-Symbol.svg doc/images/Nuitka-Logo-Symbol.png
-convert -background none doc/Logo/Nuitka-Logo-Vertical.svg doc/images/Nuitka-Logo-Vertical.png
-convert -background none doc/Logo/Nuitka-Logo-Horizontal.svg doc/images/Nuitka-Logo-Horizontal.png
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>convert<span class="w"> </span>-background<span class="w"> </span>none<span class="w"> </span>doc/Logo/Nuitka-Logo-Symbol.svg<span class="w"> </span>doc/images/Nuitka-Logo-Symbol.png
+convert<span class="w"> </span>-background<span class="w"> </span>none<span class="w"> </span>doc/Logo/Nuitka-Logo-Vertical.svg<span class="w"> </span>doc/images/Nuitka-Logo-Vertical.png
+convert<span class="w"> </span>-background<span class="w"> </span>none<span class="w"> </span>doc/Logo/Nuitka-Logo-Horizontal.svg<span class="w"> </span>doc/images/Nuitka-Logo-Horizontal.png
 
-optipng -o2 doc/images/Nuitka-Logo-Symbol.png
-optipng -o2 doc/images/Nuitka-Logo-Vertical.png
-optipng -o2 doc/images/Nuitka-Logo-Horizontal.png
+optipng<span class="w"> </span>-o2<span class="w"> </span>doc/images/Nuitka-Logo-Symbol.png
+optipng<span class="w"> </span>-o2<span class="w"> </span>doc/images/Nuitka-Logo-Vertical.png
+optipng<span class="w"> </span>-o2<span class="w"> </span>doc/images/Nuitka-Logo-Horizontal.png
 </pre></div>
 </div>
 </section>
@@ -1684,32 +1671,32 @@ typical know their element counts.</p>
 <p>When a slot is not optimized away at compile time however, we need to
 generate actual code for it. We figure out what this could be by looking
 at the original CPython implementation.</p>
-<div class="highlight-C notranslate"><div class="highlight"><pre><span></span><span class="n">PyObject</span><span class="w"> </span><span class="o">*</span><span class="nf">builtin_len</span><span class="p">(</span><span class="n">PyObject</span><span class="w"> </span><span class="o">*</span><span class="n">self</span><span class="p">,</span><span class="w"> </span><span class="n">PyObject</span><span class="w"> </span><span class="o">*</span><span class="n">v</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">    </span><span class="n">Py_ssize_t</span><span class="w"> </span><span class="n">res</span><span class="p">;</span><span class="w"></span>
+<div class="highlight-C notranslate"><div class="highlight"><pre><span></span><span class="n">PyObject</span><span class="w"> </span><span class="o">*</span><span class="nf">builtin_len</span><span class="p">(</span><span class="n">PyObject</span><span class="w"> </span><span class="o">*</span><span class="n">self</span><span class="p">,</span><span class="w"> </span><span class="n">PyObject</span><span class="w"> </span><span class="o">*</span><span class="n">v</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">Py_ssize_t</span><span class="w"> </span><span class="n">res</span><span class="p">;</span>
 
-<span class="w">    </span><span class="n">res</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">PyObject_Size</span><span class="p">(</span><span class="n">v</span><span class="p">);</span><span class="w"></span>
-<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">res</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">PyErr_Occurred</span><span class="p">())</span><span class="w"></span>
-<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="nb">NULL</span><span class="p">;</span><span class="w"></span>
-<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">PyInt_FromSsize_t</span><span class="p">(</span><span class="n">res</span><span class="p">);</span><span class="w"></span>
-<span class="p">}</span><span class="w"></span>
+<span class="w">    </span><span class="n">res</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">PyObject_Size</span><span class="p">(</span><span class="n">v</span><span class="p">);</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">res</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">PyErr_Occurred</span><span class="p">())</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="nb">NULL</span><span class="p">;</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">PyInt_FromSsize_t</span><span class="p">(</span><span class="n">res</span><span class="p">);</span>
+<span class="p">}</span>
 </pre></div>
 </div>
 <p>We find a pointer to <code class="docutils literal notranslate"><span class="pre">PyObject_Size</span></code> which is a generic Python C/API
 function used in the <code class="docutils literal notranslate"><span class="pre">builtin_len</span></code> implementation:</p>
-<div class="highlight-C notranslate"><div class="highlight"><pre><span></span><span class="n">Py_ssize_t</span><span class="w"> </span><span class="nf">PyObject_Size</span><span class="p">(</span><span class="n">PyObject</span><span class="w"> </span><span class="o">*</span><span class="n">o</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">    </span><span class="n">PySequenceMethods</span><span class="w"> </span><span class="o">*</span><span class="n">m</span><span class="p">;</span><span class="w"></span>
+<div class="highlight-C notranslate"><div class="highlight"><pre><span></span><span class="n">Py_ssize_t</span><span class="w"> </span><span class="nf">PyObject_Size</span><span class="p">(</span><span class="n">PyObject</span><span class="w"> </span><span class="o">*</span><span class="n">o</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">PySequenceMethods</span><span class="w"> </span><span class="o">*</span><span class="n">m</span><span class="p">;</span>
 
-<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">o</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="nb">NULL</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">        </span><span class="n">null_error</span><span class="p">();</span><span class="w"></span>
-<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="mi">-1</span><span class="p">;</span><span class="w"></span>
-<span class="w">    </span><span class="p">}</span><span class="w"></span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">o</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="nb">NULL</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">null_error</span><span class="p">();</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="mi">-1</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
 
-<span class="w">    </span><span class="n">m</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">o</span><span class="o">-&gt;</span><span class="n">ob_type</span><span class="o">-&gt;</span><span class="n">tp_as_sequence</span><span class="p">;</span><span class="w"></span>
-<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">m</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">m</span><span class="o">-&gt;</span><span class="n">sq_length</span><span class="p">)</span><span class="w"></span>
-<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">m</span><span class="o">-&gt;</span><span class="n">sq_length</span><span class="p">(</span><span class="n">o</span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="n">m</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">o</span><span class="o">-&gt;</span><span class="n">ob_type</span><span class="o">-&gt;</span><span class="n">tp_as_sequence</span><span class="p">;</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">m</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">m</span><span class="o">-&gt;</span><span class="n">sq_length</span><span class="p">)</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">m</span><span class="o">-&gt;</span><span class="n">sq_length</span><span class="p">(</span><span class="n">o</span><span class="p">);</span>
 
-<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">PyMapping_Size</span><span class="p">(</span><span class="n">o</span><span class="p">);</span><span class="w"></span>
-<span class="p">}</span><span class="w"></span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">PyMapping_Size</span><span class="p">(</span><span class="n">o</span><span class="p">);</span>
+<span class="p">}</span>
 </pre></div>
 </div>
 <p>On the C level, every Python object (the <code class="docutils literal notranslate"><span class="pre">PyObject</span> <span class="pre">*</span></code>) as a type named
@@ -1717,21 +1704,21 @@ function used in the <code class="docutils literal notranslate"><span class="pre
 group, here <code class="docutils literal notranslate"><span class="pre">tp_as_sequence</span></code> and then it may or may not contain a
 function. This one is tried in preference. Then, if that fails, next up
 the mapping size is tried.</p>
-<div class="highlight-C notranslate"><div class="highlight"><pre><span></span><span class="n">Py_ssize_t</span><span class="w"> </span><span class="nf">PyMapping_Size</span><span class="p">(</span><span class="n">PyObject</span><span class="w"> </span><span class="o">*</span><span class="n">o</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">    </span><span class="n">PyMappingMethods</span><span class="w"> </span><span class="o">*</span><span class="n">m</span><span class="p">;</span><span class="w"></span>
+<div class="highlight-C notranslate"><div class="highlight"><pre><span></span><span class="n">Py_ssize_t</span><span class="w"> </span><span class="nf">PyMapping_Size</span><span class="p">(</span><span class="n">PyObject</span><span class="w"> </span><span class="o">*</span><span class="n">o</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">PyMappingMethods</span><span class="w"> </span><span class="o">*</span><span class="n">m</span><span class="p">;</span>
 
-<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">o</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="nb">NULL</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">        </span><span class="n">null_error</span><span class="p">();</span><span class="w"></span>
-<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="mi">-1</span><span class="p">;</span><span class="w"></span>
-<span class="w">    </span><span class="p">}</span><span class="w"></span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">o</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="nb">NULL</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">null_error</span><span class="p">();</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="mi">-1</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
 
-<span class="w">    </span><span class="n">m</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">o</span><span class="o">-&gt;</span><span class="n">ob_type</span><span class="o">-&gt;</span><span class="n">tp_as_mapping</span><span class="p">;</span><span class="w"></span>
-<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">m</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">m</span><span class="o">-&gt;</span><span class="n">mp_length</span><span class="p">)</span><span class="w"></span>
-<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">m</span><span class="o">-&gt;</span><span class="n">mp_length</span><span class="p">(</span><span class="n">o</span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="n">m</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">o</span><span class="o">-&gt;</span><span class="n">ob_type</span><span class="o">-&gt;</span><span class="n">tp_as_mapping</span><span class="p">;</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">m</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">m</span><span class="o">-&gt;</span><span class="n">mp_length</span><span class="p">)</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">m</span><span class="o">-&gt;</span><span class="n">mp_length</span><span class="p">(</span><span class="n">o</span><span class="p">);</span>
 
-<span class="w">    </span><span class="n">type_error</span><span class="p">(</span><span class="s">"object of type '%.200s' has no len()"</span><span class="p">,</span><span class="w"> </span><span class="n">o</span><span class="p">);</span><span class="w"></span>
-<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="mi">-1</span><span class="p">;</span><span class="w"></span>
-<span class="p">}</span><span class="w"></span>
+<span class="w">    </span><span class="n">type_error</span><span class="p">(</span><span class="s">"object of type '%.200s' has no len()"</span><span class="p">,</span><span class="w"> </span><span class="n">o</span><span class="p">);</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="mi">-1</span><span class="p">;</span>
+<span class="p">}</span>
 </pre></div>
 </div>
 <p>This is the same principle, except with <code class="docutils literal notranslate"><span class="pre">tp_as_mapping</span></code> and
@@ -2335,7 +2322,7 @@ the following re-formulation:</p>
 
 
 <span class="k">class</span> <span class="nc">SomeClass</span><span class="p">(</span><span class="n">SomeBase</span><span class="p">,</span> <span class="n">AnotherBase</span><span class="p">):</span>
-    <span class="sd">""" This is the class documentation. """</span>
+<span class="w">    </span><span class="sd">""" This is the class documentation. """</span>
 
     <span class="n">some_member</span> <span class="o">=</span> <span class="mi">3</span>
 </pre></div>
@@ -2382,7 +2369,7 @@ below.</p>
 <span class="c1"># ...</span>
 
 <span class="k">class</span> <span class="nc">SomeClass</span><span class="p">(</span><span class="n">SomeBase</span><span class="p">,</span> <span class="n">AnotherBase</span><span class="p">,</span> <span class="n">metaclass</span> <span class="o">=</span> <span class="n">SomeMetaClass</span><span class="p">):</span>
-    <span class="sd">""" This is the class documentation. """</span>
+<span class="w">    </span><span class="sd">""" This is the class documentation. """</span>
 
     <span class="n">some_member</span> <span class="o">=</span> <span class="mi">3</span>
 </pre></div>
@@ -2635,7 +2622,7 @@ since they are transparent.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">match</span> <span class="n">something</span><span class="p">():</span>
     <span class="k">case</span> <span class="p">[</span><span class="n">x</span><span class="p">]</span> <span class="k">if</span> <span class="n">x</span><span class="p">:</span>
         <span class="n">z</span> <span class="o">=</span> <span class="mi">2</span>
-    <span class="k">case</span> <span class="k">_</span> <span class="k">as</span> <span class="n">y</span> <span class="k">if</span> <span class="n">y</span> <span class="o">==</span> <span class="n">x</span> <span class="ow">and</span> <span class="n">y</span><span class="p">:</span>
+    <span class="k">case</span><span class="w"> </span><span class="k">_</span> <span class="k">as</span> <span class="n">y</span> <span class="k">if</span> <span class="n">y</span> <span class="o">==</span> <span class="n">x</span> <span class="ow">and</span> <span class="n">y</span><span class="p">:</span>
         <span class="n">z</span> <span class="o">=</span> <span class="mi">1</span>
     <span class="k">case</span> <span class="mi">0</span><span class="p">:</span>
         <span class="n">z</span> <span class="o">=</span> <span class="mi">0</span>
@@ -3938,7 +3925,7 @@ name <code class="docutils literal notranslate"><span class="pre">jinja_generate
 <section id="command-line">
 <h3>Command Line<a class="headerlink" href="#command-line" title="Permalink to this heading">&#61633;</a></h3>
 <p>Experimental features are enabled with the command line argument</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>nuitka --experimental<span class="o">=</span>jinja_generated_add ...
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>nuitka<span class="w"> </span>--experimental<span class="o">=</span>jinja_generated_add<span class="w"> </span>...
 </pre></div>
 </div>
 </section>
@@ -3947,9 +3934,9 @@ name <code class="docutils literal notranslate"><span class="pre">jinja_generate
 <p>In Scons, all experimental features automatically are converted into C
 defines, and can be used like this:</p>
 <div class="highlight-C notranslate"><div class="highlight"><pre><span></span><span class="cp">#ifdef _NUITKA_EXPERIMENTAL_JINJA_GENERATED_ADD</span>
-<span class="cp">#include</span><span class="w"> </span><span class="cpf">"HelpersOperationGeneratedBinaryAdd.c"</span><span class="cp"></span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">"HelpersOperationGeneratedBinaryAdd.c"</span>
 <span class="cp">#else</span>
-<span class="cp">#include</span><span class="w"> </span><span class="cpf">"HelpersOperationBinaryAdd.c"</span><span class="cp"></span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">"HelpersOperationBinaryAdd.c"</span>
 <span class="cp">#endif</span>
 </pre></div>
 </div>
@@ -4258,8 +4245,9 @@ readable to human, but easily used to generate PDF or HTML documents.</p>
 </section>
 </section>
 
-<div class="section">
-   
+<div class="section ablog__blog_comments">
+  
+  
 </div>
 
            </div>
@@ -4269,7 +4257,7 @@ readable to human, but easily used to generate PDF or HTML documents.</p>
   <hr>
 
   <div role="contentinfo">
-    <p>&#169; Copyright 2022, Kay Hayen and Nuitka Contributors.</p>
+    <p>&#169; Copyright 2023, Kay Hayen and Nuitka Contributors.</p>
   </div>
 
   
@@ -4323,8 +4311,8 @@ readable to human, but easily used to generate PDF or HTML documents.</p>
             <div class="sd-summary-content sd-card-body switcher-body docutils">
                 <blockquote>
                     <div>
-                        <div><div class="line"><a class="reference external" href="/de_DE/doc/developer-manual.html">DE</a></div>
-                            <div class="line"><a class="reference external" href="/zh_CN/doc/developer-manual.html">CN</a></div>
+                        <div><div class="line"><a class="reference external" href="/zh_CN/doc/developer-manual.html">CN</a></div>
+                            <div class="line"><a class="reference external" href="/de_DE/doc/developer-manual.html">DE</a></div>
                             </div></div>
                 </blockquote>
             </div>

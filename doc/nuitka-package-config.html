@@ -1,0 +1,691 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en">
+<head>
+  <meta charset="utf-8"><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/">
+    <link rel="icon" href="../_static/favicon.svg" type="image/svg+xml">
+    <link rel="icon" href="../_static/favicon.png" sizes="32x32" type="image/png">
+    <link rel="icon" href="../_static/favicon.ico" sizes="32x32" type="image/x-icon">
+    <link rel="icon" href="../_static/apple-touch-icon-iphone.png" sizes="57x57" type="image/png">
+    <link rel="icon" href="../_static/apple-touch-icon-ipad.png" sizes="72x72" type="image/png">
+    <link rel="icon" href="../_static/apple-touch-icon-iphone4.png" sizes="114x114" type="image/png">
+    <link rel="icon" href="../_static/apple-touch-icon-ipad3.png" sizes="144x144" type="image/png">
+    <link rel="apple-touch-icon" href="../_static/apple-touch-icon-180x180.png" sizes="180x180" type="image/png">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Nuitka Package Configuration &#8212; Nuitka the Python Compiler  documentation</title>
+      <link rel="stylesheet" href="/_static/css/combined_03f7eeec2061fd0a5acfc23d1d0bf4fb.css" type="text/css">
+      <link rel="canonical" href="https://nuitka.net/doc/nuitka-package-config.html">
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script>var DOCUMENTATION_OPTIONS = {
+    URL_ROOT: '../',
+    VERSION: '',
+    LANGUAGE: 'en',
+    COLLAPSE_INDEX: false,
+    BUILDER: 'html',
+    FILE_SUFFIX: '.html',
+    LINK_SUFFIX: '.html',
+    HAS_SOURCE: false,
+    SOURCELINK_SUFFIX: '.txt',
+    NAVIGATION_WITH_KEYS: false,
+    SHOW_SEARCH_SUMMARY: true,
+    ENABLE_SEARCH_SHORTCUTS: true,
+};</script>
+        <script src="/_static/combined_50b22e29ca76da059b0c14dcc606bcaa.js" async=""></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js" async=""></script>
+        <script src="../_static/sphinx_highlight.js" async=""></script>
+        <script src="../_static/clipboard.min.js" async=""></script>
+        <script src="../_static/copybutton.js" async=""></script>
+        <link rel="index" title="Index" href="../genindex.html">
+    <link rel="next" title="API documentation" href="api-doc.html">
+    <link rel="prev" title="Nuitka Developer Manual" href="developer-manual.html">
+ 
+
+<link rel="alternate" type="application/atom+xml" href="../blog/atom.xml" title="Nuitka Blog">
+
+
+
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            Nuitka the Python Compiler
+              <div class="logo_container"><img src="../_static/Nuitka-Logo-Symbol.svg" class="logo" alt="Logo" width="208" height="209">
+          </div></a><!-- Empty override file take the place of searchbox.html, which generates search box. -->
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="download.html">Download</a></li>
+<li class="toctree-l1"><a class="reference internal" href="user-manual.html">User Manual</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pages/support.html">Support</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Commercial Users</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="commercial.html">Nuitka Commercial</a></li>
+<li class="toctree-l1"><a class="reference internal" href="bundles.html">Nuitka Bundles</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Release Information</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="Changelog.html">Nuitka Release 1.5 (Draft)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Changelog.html#nuitka-release-1-4">Nuitka Release 1.4</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Changelog.html#nuitka-release-1-3">Nuitka Release 1.3</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Changelog.html#older-releases">Older Releases</a></li>
+<li class="toctree-l1"><a class="reference internal" href="roadmap.html">Roadmap</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">More documentation</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="developer-manual.html">Developer Manual</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Nuitka Package Configuration</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#introduction">Introduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#the-yaml-configuration-file">The YAML Configuration File</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#documentation">Documentation</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#data-files">Data Files</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#features">Features</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#examples">Examples</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#dlls">DLLs</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id1">Features</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id3">Examples</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#anti-bloat">Anti-Bloat</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id4">Features</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id5">Examples</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#implicit-imports">Implicit-Imports</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id6">Features</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id7">Examples</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#options">Options</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id8">Features</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id9">Examples</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#import-hacks">Import-Hacks</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id10">Features</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id11">Examples</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#when">when</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#where-else-to-look">Where else to look</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="api-doc.html">API doc</a></li>
+<li class="toctree-l1"><a class="reference internal" href="factory.html">Factory Instructions</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Media</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../pages/Presentations.html">Presentations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pages/Streaming.html">Streaming</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Other</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="Credits.html">Credits</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pages/impressum.html">Impressum</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Under construction</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="welcome.html">Welcome</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pages/pyside2.html">Nuitka PySide2 support</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pages/pyqt5.html">Nuitka PyQt5 support</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pages/donations.html">Donations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pages/gsoc2019.html">Google Summer of Code 2019</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Nuitka the Python Compiler</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <!-- Empty override file take the place of sphinx_rtd_theme/breadcrumbs.html, which generates the top nav breadcrumbs. -->
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+<section id="nuitka-package-configuration">
+<h1>Nuitka Package Configuration<a class="headerlink" href="#nuitka-package-configuration" title="Permalink to this heading">&#61633;</a></h1>
+<section id="introduction">
+<h2>Introduction<a class="headerlink" href="#introduction" title="Permalink to this heading">&#61633;</a></h2>
+<p>For packaging, and compatibility, or some Python packages need to have
+special considerations in Nuitka. Some will not work without certain
+data files, sometimes modules depend on other modules in a hidden way,
+and for standalone DLLs might have to be included, that are loaded
+dynamically and therefore also invisible.</p>
+<p>Another are is compatibility hacks, and removing bloat from code or just
+making sure, you are not using an unsupported version or wrong options
+for a package.</p>
+<p>To make it easier to deal with missing DLLs, implicit imports, data
+files, bloat etc. Nuitka has a system with Yaml files. These ship inside
+of it and are located under <code class="docutils literal notranslate"><span class="pre">plugins/standard</span></code> and are designed to be
+easily be extended.</p>
+<p>The structure of the filename is always <code class="docutils literal notranslate"><span class="pre">*nuitka-package.config.yml</span></code>.
+The <code class="docutils literal notranslate"><span class="pre">standard</span></code> file includes all things that are not in the standard
+library (<code class="docutils literal notranslate"><span class="pre">stdlib</span></code>) of Python. In <code class="docutils literal notranslate"><span class="pre">stdlib2</span></code> and <code class="docutils literal notranslate"><span class="pre">stdlib3</span></code> there are
+entries for the standard library. In <code class="docutils literal notranslate"><span class="pre">stdlib2</span></code> there are only those
+for modules that are no longer available in Python3.</p>
+<p>If you want to use your own configuration, you can do so by passing the
+filename of your Yaml file to <code class="docutils literal notranslate"><span class="pre">--user-package-configuration-file</span></code>.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>If this could be interesting for the whole user base of Nuitka,
+please do a PR that adds it to the general files. In this way, not
+every user has to repeat what you just did, and we can collectively
+maintain it.</p>
+</div>
+</section>
+<section id="the-yaml-configuration-file">
+<h2>The YAML Configuration File<a class="headerlink" href="#the-yaml-configuration-file" title="Permalink to this heading">&#61633;</a></h2>
+<p>At the beginning of the file you will find the following lines, which
+you can ignore, they are basically only there to silence checkers about
+problems that are too hard to avoid.</p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="c1"># yamllint disable rule:line-length</span>
+<span class="c1"># yamllint disable rule:indentation</span>
+<span class="c1"># yamllint disable rule:comments-indentation</span>
+<span class="c1"># too many spelling things, spell-checker: disable</span>
+<span class="nn">---</span>
+</pre></div>
+</div>
+<p>An entry in the file look like this:</p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">module-name</span><span class="p">:</span><span class="w"> </span><span class="s">'pandas._libs'</span>
+<span class="w">  </span><span class="nt">implicit-imports</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">depends</span><span class="p">:</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">'pandas._libs.tslibs.np_datetime'</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">'pandas._libs.tslibs.nattype'</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">'pandas._libs.tslibs.base'</span>
+</pre></div>
+</div>
+<p>The <code class="docutils literal notranslate"><span class="pre">module-name</span></code> value is the name of the affected module. We will
+show and explain to you everything the other things in detail later. But
+the key principle is that a declaration always references a module by
+name.</p>
+<p>It is also important to know that you do not have to worry about
+formatting. We have programmed our own tool for this, which formats
+everything automatically. This is executed via
+<code class="docutils literal notranslate"><span class="pre">bin\autoformat-nuitka-source</span></code> and automatically when pushing with
+<code class="docutils literal notranslate"><span class="pre">git</span></code> if you install the git hook (see Developer Manual for that).</p>
+<p>There is also a Yaml schema file to check your files against and that in
+Visual Code is automatically applied to the Yaml files and that then
+supports you with auto-completion in Visual Code. So actually doing the
+change in PR form can be easier than not.</p>
+</section>
+<section id="documentation">
+<h2>Documentation<a class="headerlink" href="#documentation" title="Permalink to this heading">&#61633;</a></h2>
+<section id="data-files">
+<h3>Data Files<a class="headerlink" href="#data-files" title="Permalink to this heading">&#61633;</a></h3>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">data-files</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">dest_path</span><span class="p">:</span><span class="w"> </span><span class="s">'.'</span>
+<span class="w">  </span><span class="nt">dirs</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">'dir1'</span>
+
+<span class="w">  </span><span class="nt">patterns</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">'file1'</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">'*.dat'</span>
+
+<span class="w">  </span><span class="nt">empty_dirs</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">'empty_dir'</span>
+
+<span class="w">  </span><span class="nt">empty_dir_structures</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">'empty_dir_structure'</span>
+
+<span class="w">  </span><span class="nt">when</span><span class="p">:</span><span class="w"> </span><span class="s">'win32'</span>
+</pre></div>
+</div>
+<p>If a module needs data files, you can get Nuitka to copy them into the
+output with the following features.</p>
+<section id="features">
+<h4>Features<a class="headerlink" href="#features" title="Permalink to this heading">&#61633;</a></h4>
+<div class="line-block">
+<div class="line"><code class="docutils literal notranslate"><span class="pre">dest_path</span></code>: target directory</div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">dirs</span></code>: all directories that should be copied</div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">patterns</span></code>: all files that should be copied (filename can be a
+<a class="reference external" href="https://docs.python.org/3/library/glob.html#glob.glob" target="_blank">glob pattern</a>)</div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">empty_dirs</span></code>: all empty directories that should be copied</div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">empty_dir_structures</span></code>: all empty directory structures that should
+be copied</div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">when</span></code>: <a class="reference internal" href="#when">when</a> is documented in a separate section</div>
+</div>
+</section>
+<section id="examples">
+<h4>Examples<a class="headerlink" href="#examples" title="Permalink to this heading">&#61633;</a></h4>
+<p>This example includes a complete folder with data files in a package.</p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">module-name</span><span class="p">:</span><span class="w"> </span><span class="s">'tkinterweb'</span>
+<span class="w">  </span><span class="nt">data-files</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">dirs</span><span class="p">:</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">'tkhtml'</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The example is actually an imperfect solution, since dependent on
+architecture, files can be omitted. We are going to address this in
+an update later.</p>
+</div>
+</section>
+</section>
+<section id="dlls">
+<h3>DLLs<a class="headerlink" href="#dlls" title="Permalink to this heading">&#61633;</a></h3>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">dlls</span><span class="p">:</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">from_filenames</span><span class="p">:</span>
+<span class="w">      </span><span class="nt">relative_path</span><span class="p">:</span><span class="w"> </span><span class="s">'dlls'</span>
+<span class="w">      </span><span class="nt">prefixes</span><span class="p">:</span>
+<span class="w">        </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">'dll1'</span>
+<span class="w">        </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">'mydll*'</span>
+
+<span class="w">      </span><span class="nt">suffixes</span><span class="p">:</span>
+<span class="w">        </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">'pyd'</span>
+
+<span class="w">    </span><span class="nt">dest_path</span><span class="p">:</span><span class="w"> </span><span class="s">'output_dir'</span>
+<span class="w">    </span><span class="nt">when</span><span class="p">:</span><span class="w"> </span><span class="s">'win32'</span>
+
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">by_code</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">setup_code</span><span class="p">:</span><span class="w"> </span><span class="s">''</span>
+<span class="w">    </span><span class="nt">filename_code</span><span class="p">:</span><span class="w"> </span><span class="s">''</span>
+<span class="w">    </span><span class="nt">dest_path</span><span class="p">:</span><span class="w"> </span><span class="s">'output_dir'</span>
+<span class="w">    </span><span class="nt">when</span><span class="p">:</span><span class="w"> </span><span class="s">'linux'</span>
+</pre></div>
+</div>
+<p>If a module dynamically requires DLLs, i.e. there is not an extension
+module is not linked against them, they must be specified in this way.</p>
+<section id="id1">
+<h4>Features<a class="headerlink" href="#id1" title="Permalink to this heading">&#61633;</a></h4>
+<dl>
+<dt><code class="docutils literal notranslate"><span class="pre">from_filenames</span></code></dt><dd><div class="line-block">
+<div class="line"><code class="docutils literal notranslate"><span class="pre">relative_path</span></code>: directory where the DLLs can be found relative
+to the module</div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">prefixes</span></code>: all DLLs that should be copied (filename can be a
+<a class="reference external" href="https://docs.python.org/3/library/glob.html#glob.glob" target="_blank">glob pattern</a>)</div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">suffixes</span></code>: can be used to force the file extension</div>
+</div>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">by_code</span></code></dt><dd><div class="line-block">
+<div class="line"><code class="docutils literal notranslate"><span class="pre">setup_code</span></code>: code needed to prepare the filename_code</div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">filename_code</span></code>: code that outputs a the DLL filename from
+installation</div>
+</div>
+</dd>
+</dl>
+<div class="line-block">
+<div class="line"><code class="docutils literal notranslate"><span class="pre">dest_path</span></code>: target directory</div>
+<div class="line-block">
+<div class="line"><code class="docutils literal notranslate"><span class="pre">when</span></code>: <a class="reference internal" href="#when">when</a> is documented in a separate section</div>
+</div>
+</div>
+<p>The recommended way goes by filename. The <code class="docutils literal notranslate"><span class="pre">by_code</span></code> version is still
+in flux and depends on compile time importing code, making it vulernable
+to compile time issues in many ways.</p>
+</section>
+<section id="id3">
+<h4>Examples<a class="headerlink" href="#id3" title="Permalink to this heading">&#61633;</a></h4>
+<p>Very simple example, the normal case, include a DLL with a known prefix
+from its package directory.</p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">module-name</span><span class="p">:</span><span class="w"> </span><span class="s">'vosk'</span>
+<span class="w">  </span><span class="nt">dlls</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">from_filenames</span><span class="p">:</span>
+<span class="w">        </span><span class="nt">prefixes</span><span class="p">:</span>
+<span class="w">          </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">'libvosk'</span>
+</pre></div>
+</div>
+<p>Another more complex example, in which the DLL lives in a subfolder, and
+is even architecture dependant.</p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">module-name</span><span class="p">:</span><span class="w"> </span><span class="s">'tkinterweb'</span>
+
+<span class="w">  </span><span class="nt">dlls</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">from_filenames</span><span class="p">:</span>
+<span class="w">        </span><span class="nt">relative_path</span><span class="p">:</span><span class="w"> </span><span class="s">'tkhtml/Windows/32-bit'</span>
+<span class="w">        </span><span class="nt">prefixes</span><span class="p">:</span>
+<span class="w">          </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">'Tkhtml'</span>
+<span class="w">      </span><span class="nt">when</span><span class="p">:</span><span class="w"> </span><span class="s">'win32</span><span class="nv"> </span><span class="s">and</span><span class="nv"> </span><span class="s">arch_x86'</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">from_filenames</span><span class="p">:</span>
+<span class="w">        </span><span class="nt">relative_path</span><span class="p">:</span><span class="w"> </span><span class="s">'tkhtml/Windows/64-bit'</span>
+<span class="w">        </span><span class="nt">prefixes</span><span class="p">:</span>
+<span class="w">          </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">'Tkhtml'</span>
+<span class="w">      </span><span class="nt">when</span><span class="p">:</span><span class="w"> </span><span class="s">'win32</span><span class="nv"> </span><span class="s">and</span><span class="nv"> </span><span class="s">arch_amd64'</span>
+</pre></div>
+</div>
+</section>
+</section>
+<section id="anti-bloat">
+<h3>Anti-Bloat<a class="headerlink" href="#anti-bloat" title="Permalink to this heading">&#61633;</a></h3>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">anti-bloat</span><span class="p">:</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="s">'remove</span><span class="nv"> </span><span class="s">tests'</span>
+<span class="w">    </span><span class="nt">context</span><span class="p">:</span><span class="w"> </span><span class="s">''</span>
+<span class="w">    </span><span class="nt">module_code</span><span class="p">:</span><span class="w"> </span><span class="s">'from</span><span class="nv"> </span><span class="s">hello</span><span class="nv"> </span><span class="s">import</span><span class="nv"> </span><span class="s">world'</span>
+<span class="w">    </span><span class="nt">replacements_plain</span><span class="p">:</span><span class="w"> </span><span class="s">''</span>
+<span class="w">    </span><span class="nt">replacements_re</span><span class="p">:</span><span class="w"> </span><span class="s">''</span>
+<span class="w">    </span><span class="nt">replacements</span><span class="p">:</span><span class="w"> </span><span class="s">''</span>
+<span class="w">    </span><span class="nt">change_function</span><span class="p">:</span>
+<span class="w">       </span><span class="s">'get_extension'</span><span class="p p-Indicator">:</span><span class="w"> </span><span class="s">'un-callable'</span>
+
+<span class="w">    </span><span class="nt">append_result</span><span class="p">:</span><span class="w"> </span><span class="s">''</span>
+<span class="w">    </span><span class="nt">append_plain</span><span class="p">:</span><span class="w"> </span><span class="s">''</span>
+<span class="w">    </span><span class="nt">when</span><span class="p">:</span><span class="w"> </span><span class="s">''</span>
+</pre></div>
+</div>
+<p>If you want to replace code, for example to remove dependencies, you can
+do that here.</p>
+<section id="id4">
+<h4>Features<a class="headerlink" href="#id4" title="Permalink to this heading">&#61633;</a></h4>
+<div class="line-block">
+<div class="line"><code class="docutils literal notranslate"><span class="pre">description</span></code>: description of what this <code class="docutils literal notranslate"><span class="pre">anti-bloat</span></code> does</div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">context</span></code>:</div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">module_code</span></code>: replace the entire code of a module with it</div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">replacements_plain</span></code>: search an replace plain strings</div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">replacements_re</span></code>: search an replace regular expressions</div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">replacements</span></code>: search a plain string and replace with an
+expression result</div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">change_function</span></code>: replace the code of a function. <code class="docutils literal notranslate"><span class="pre">un-callable</span></code>
+removes the function</div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">append_result</span></code>: append the result of an expression to module code</div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">append_plain</span></code>: append plain text to the module code</div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">when</span></code>: <a class="reference internal" href="#when">when</a> is documented in a separate section</div>
+</div>
+</section>
+<section id="id5">
+<h4>Examples<a class="headerlink" href="#id5" title="Permalink to this heading">&#61633;</a></h4>
+<p>coming soon</p>
+</section>
+</section>
+<section id="implicit-imports">
+<h3>Implicit-Imports<a class="headerlink" href="#implicit-imports" title="Permalink to this heading">&#61633;</a></h3>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">implicit-imports</span><span class="p">:</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">depends</span><span class="p">:</span>
+<span class="w">     </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">'ctypes'</span>
+
+<span class="w">    </span><span class="nt">pre-import-code</span><span class="p">:</span><span class="w"> </span><span class="s">''</span>
+<span class="w">    </span><span class="nt">post-import-code</span><span class="p">:</span><span class="w"> </span><span class="s">''</span>
+<span class="w">    </span><span class="nt">when</span><span class="p">:</span><span class="w"> </span><span class="s">'version("package_name")</span><span class="nv"> </span><span class="s">&gt;=</span><span class="nv"> </span><span class="s">(1,</span><span class="nv"> </span><span class="s">2,</span><span class="nv"> </span><span class="s">1)'</span>
+</pre></div>
+</div>
+<section id="id6">
+<h4>Features<a class="headerlink" href="#id6" title="Permalink to this heading">&#61633;</a></h4>
+<div class="line-block">
+<div class="line"><code class="docutils literal notranslate"><span class="pre">depends</span></code>: modules that are required by this module</div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">pre-import-code</span></code>: code to execute before a module is imported</div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">post-import-code</span></code>: code to execute after a module is imported</div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">when</span></code>: <a class="reference internal" href="#when">when</a> is documented in a separate section</div>
+</div>
+</section>
+<section id="id7">
+<h4>Examples<a class="headerlink" href="#id7" title="Permalink to this heading">&#61633;</a></h4>
+<p>In this example, environment variables needed to resolve the path of the
+Qt plugins and the fonts directory are used. This is only needed on
+Linux and on standalone, and here is how the standard configuration does
+it. And there there more mundane implicit requirements, that come from
+the package using an extension module and on the inside <code class="docutils literal notranslate"><span class="pre">cv2</span></code>.</p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">module-name</span><span class="p">:</span><span class="w"> </span><span class="s">'cv2'</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">depends</span><span class="p">:</span>
+<span class="w">        </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">'cv2.cv2'</span>
+<span class="w">        </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">'numpy'</span>
+<span class="w">        </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">'numpy.core'</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">pre-import-code</span><span class="p">:</span>
+<span class="w">        </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="p p-Indicator">|</span>
+<span class="w">          </span><span class="no">import os</span>
+<span class="w">          </span><span class="no">os.environ['QT_QPA_PLATFORM_PLUGIN_PATH'] = os.path.join(os.path.dirname(__file__), 'qt/plugins')</span>
+<span class="w">          </span><span class="no">os.environ['QT_QPA_FONTDIR'] = os.path.join(os.path.dirname(__file__), 'qt/fonts')</span>
+<span class="w">      </span><span class="nt">when</span><span class="p">:</span><span class="w"> </span><span class="s">'linux</span><span class="nv"> </span><span class="s">and</span><span class="nv"> </span><span class="s">standalone'</span>
+</pre></div>
+</div>
+</section>
+</section>
+<section id="options">
+<h3>Options<a class="headerlink" href="#options" title="Permalink to this heading">&#61633;</a></h3>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">options</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">checks</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="s">'fix</span><span class="nv"> </span><span class="s">crash'</span>
+<span class="w">      </span><span class="nt">console</span><span class="p">:</span><span class="w"> </span><span class="s">'yes'</span>
+<span class="w">      </span><span class="nt">macos_bundle</span><span class="p">:</span><span class="w"> </span><span class="s">'yes'</span>
+<span class="w">      </span><span class="nt">macos_bundle_as_onefile</span><span class="p">:</span><span class="w"> </span><span class="s">'no'</span>
+<span class="w">      </span><span class="nt">support_info</span><span class="p">:</span><span class="w"> </span><span class="s">'warning'</span>
+<span class="w">      </span><span class="nt">when</span><span class="p">:</span><span class="w"> </span><span class="s">'macos'</span>
+</pre></div>
+</div>
+<p>If a module requires specific options, you can specify them here, to
+make sure the user is informed of them.</p>
+<section id="id8">
+<h4>Features<a class="headerlink" href="#id8" title="Permalink to this heading">&#61633;</a></h4>
+<div class="line-block">
+<div class="line"><code class="docutils literal notranslate"><span class="pre">description</span></code>: description of what this does</div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">console</span></code>: whether the console should be enabled. Choose between
+<code class="docutils literal notranslate"><span class="pre">yes</span></code>, <code class="docutils literal notranslate"><span class="pre">no</span></code>, <code class="docutils literal notranslate"><span class="pre">recommend</span></code></div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">macos_bundle</span></code>: Choose between <code class="docutils literal notranslate"><span class="pre">yes</span></code>, <code class="docutils literal notranslate"><span class="pre">no</span></code>, <code class="docutils literal notranslate"><span class="pre">recommend</span></code></div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">macos_bundle_as_onefile</span></code>: Choose between <code class="docutils literal notranslate"><span class="pre">yes</span></code>, <code class="docutils literal notranslate"><span class="pre">no</span></code></div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">support_info</span></code>: Choose between <code class="docutils literal notranslate"><span class="pre">info</span></code>, <code class="docutils literal notranslate"><span class="pre">warning</span></code>, <code class="docutils literal notranslate"><span class="pre">error</span></code></div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">when</span></code>: <a class="reference internal" href="#when">when</a> is documented in a separate section</div>
+</div>
+</section>
+<section id="id9">
+<h4>Examples<a class="headerlink" href="#id9" title="Permalink to this heading">&#61633;</a></h4>
+<p>On macOS, the popular <code class="docutils literal notranslate"><span class="pre">wx</span></code> toolkit will not work unless the
+application is a GUI program. The result is a crash without any
+information to the user. It also will not work unless it&#8217;s in a macOS
+bundle. So this configuration will make sure to warn or error out in
+case these modes are not enabled.</p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">module-name</span><span class="p">:</span><span class="w"> </span><span class="s">'wx'</span>
+<span class="w">  </span><span class="nt">options</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">checks</span><span class="p">:</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="s">'wx</span><span class="nv"> </span><span class="s">will</span><span class="nv"> </span><span class="s">crash</span><span class="nv"> </span><span class="s">in</span><span class="nv"> </span><span class="s">console</span><span class="nv"> </span><span class="s">mode</span><span class="nv"> </span><span class="s">during</span><span class="nv"> </span><span class="s">startup'</span>
+<span class="w">        </span><span class="nt">console</span><span class="p">:</span><span class="w"> </span><span class="s">'yes'</span>
+<span class="w">        </span><span class="nt">when</span><span class="p">:</span><span class="w"> </span><span class="s">'macos'</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="s">'wx</span><span class="nv"> </span><span class="s">requires</span><span class="nv"> </span><span class="s">program</span><span class="nv"> </span><span class="s">to</span><span class="nv"> </span><span class="s">be</span><span class="nv"> </span><span class="s">in</span><span class="nv"> </span><span class="s">bundle</span><span class="nv"> </span><span class="s">form'</span>
+<span class="w">        </span><span class="nt">macos_bundle</span><span class="p">:</span><span class="w"> </span><span class="s">'yes'</span>
+<span class="w">        </span><span class="nt">when</span><span class="p">:</span><span class="w"> </span><span class="s">'macos'</span>
+</pre></div>
+</div>
+</section>
+</section>
+<section id="import-hacks">
+<h3>Import-Hacks<a class="headerlink" href="#import-hacks" title="Permalink to this heading">&#61633;</a></h3>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">import-hacks</span><span class="p">:</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">package-paths</span><span class="p">:</span>
+<span class="w">     </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">'vtkmodules'</span>
+
+<span class="w">    </span><span class="nt">package-dirs</span><span class="p">:</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">'win32comext'</span>
+
+<span class="w">    </span><span class="nt">find-dlls-near-module</span><span class="p">:</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">'shiboken2'</span>
+
+<span class="w">    </span><span class="nt">when</span><span class="p">:</span><span class="w"> </span><span class="s">"True"</span>
+</pre></div>
+</div>
+<section id="id10">
+<h4>Features<a class="headerlink" href="#id10" title="Permalink to this heading">&#61633;</a></h4>
+<div class="line-block">
+<div class="line"><code class="docutils literal notranslate"><span class="pre">package-paths</span></code>:</div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">package-dirs</span></code>:</div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">find-dlls-near-module</span></code>:</div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">global-sys-path:</span></code>: for modules that manipulate <code class="docutils literal notranslate"><span class="pre">sys.path</span></code></div>
+</div>
+</section>
+<section id="id11">
+<h4>Examples<a class="headerlink" href="#id11" title="Permalink to this heading">&#61633;</a></h4>
+<p>The module <code class="docutils literal notranslate"><span class="pre">tkinterweb</span></code> contains the following code, that Nuitka
+doesn&#8217;t yet understand well enough at compile time.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">sys</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">dirname</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">realpath</span><span class="p">(</span><span class="vm">__file__</span><span class="p">)))</span>
+</pre></div>
+</div>
+<p>What this does is to add the package directory, such that Python files
+in the package directory are visible as global imports. To Nuitka these
+will not be resolvable, unless we help it.</p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">module-name</span><span class="p">:</span><span class="w"> </span><span class="s">'tkinterweb'</span>
+<span class="w">  </span><span class="nt">import-hacks</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">global-sys-path</span><span class="p">:</span>
+<span class="w">        </span><span class="c1"># This package forces itself into "sys.path" and expects absolute</span>
+<span class="w">        </span><span class="c1"># imports to be available.</span>
+<span class="w">        </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">''</span>
+</pre></div>
+</div>
+<p>This adds the relative path <code class="docutils literal notranslate"><span class="pre">''</span></code> during compile time to the import
+resolution, making it work. This makes the <code class="docutils literal notranslate"><span class="pre">sys.path</span></code> modification
+visible to Nuitka. Suffice to say that this is very unusual, thus it&#8217;s
+in the import hacks category.</p>
+</section>
+</section>
+<section id="when">
+<h3>when<a class="headerlink" href="#when" title="Permalink to this heading">&#61633;</a></h3>
+<p>If this expression matches, the entry is executed, otherwise not. This
+expression is a normal string evaluated by Python&#8217;s eval function.
+Nuitka provides variables for this.</p>
+<p>Example of an expression:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">macos</span> <span class="ow">and</span> <span class="n">python3_or_higher</span>
+</pre></div>
+</div>
+<p>These variables are currently available:</p>
+<div class="line-block">
+<div class="line"><code class="docutils literal notranslate"><span class="pre">macos</span></code>: <code class="docutils literal notranslate"><span class="pre">True</span></code> if OS is MacOS</div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">win32</span></code>: <code class="docutils literal notranslate"><span class="pre">True</span></code> if OS is Windows</div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">linux</span></code>: <code class="docutils literal notranslate"><span class="pre">True</span></code> if OS is Linux</div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">anaconda</span></code>: <code class="docutils literal notranslate"><span class="pre">True</span></code> if Anaconda Python used</div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">debian_python</span></code>: <code class="docutils literal notranslate"><span class="pre">True</span></code> if Debian Python used</div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">standalone</span></code>: <code class="docutils literal notranslate"><span class="pre">True</span></code> if standalone mode is activated</div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">module_mode</span></code>: <code class="docutils literal notranslate"><span class="pre">True</span></code> if module mode is activated</div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">before_python3</span></code>: <code class="docutils literal notranslate"><span class="pre">True</span></code> if Python 2 used</div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">python3_or_higher</span></code>: <code class="docutils literal notranslate"><span class="pre">True</span></code> if Python 3 used</div>
+</div>
+<p>There are also more Python version specific ones. For each Python
+version supported by Nuitka there are the following:</p>
+<div class="line-block">
+<div class="line"><code class="docutils literal notranslate"><span class="pre">python[major][minor]_or_higher</span></code>: e.g. <code class="docutils literal notranslate"><span class="pre">python310_or_higher</span></code></div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">before_python[major][minor]</span></code>: e.g. <code class="docutils literal notranslate"><span class="pre">before_python310</span></code></div>
+</div>
+<p>The Anti-Bloat plugin provides you with additional variables. These are
+only available in anti-bloat.</p>
+<div class="line-block">
+<div class="line"><code class="docutils literal notranslate"><span class="pre">use_setuptools</span></code>: <code class="docutils literal notranslate"><span class="pre">True</span></code> if <code class="docutils literal notranslate"><span class="pre">--noinclude-setuptools-mode</span></code> is
+not set to <code class="docutils literal notranslate"><span class="pre">nofollow</span></code> or <code class="docutils literal notranslate"><span class="pre">error</span></code></div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">use_pytest</span></code>: <code class="docutils literal notranslate"><span class="pre">True</span></code> if <code class="docutils literal notranslate"><span class="pre">--noinclude-pytest-mode</span></code> is not set to
+<code class="docutils literal notranslate"><span class="pre">nofollow</span></code> or <code class="docutils literal notranslate"><span class="pre">error</span></code></div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">use_unittest</span></code>: <code class="docutils literal notranslate"><span class="pre">True</span></code> if <code class="docutils literal notranslate"><span class="pre">--noinclude-unittest-mode</span></code> is not
+set to <code class="docutils literal notranslate"><span class="pre">nofollow</span></code> or <code class="docutils literal notranslate"><span class="pre">error</span></code></div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">use_ipython</span></code>: <code class="docutils literal notranslate"><span class="pre">True</span></code> if <code class="docutils literal notranslate"><span class="pre">--noinclude-IPython-mode</span></code> is not set
+to <code class="docutils literal notranslate"><span class="pre">nofollow</span></code> or <code class="docutils literal notranslate"><span class="pre">error</span></code></div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">use_dask</span></code>: <code class="docutils literal notranslate"><span class="pre">True</span></code> if <code class="docutils literal notranslate"><span class="pre">--noinclude-dask-mode</span></code> is not set to
+<code class="docutils literal notranslate"><span class="pre">nofollow</span></code> or <code class="docutils literal notranslate"><span class="pre">error</span></code></div>
+</div>
+<p>All these are bools.</p>
+<p>To check the version of a package there is the <code class="docutils literal notranslate"><span class="pre">version</span></code> function,
+which you simply pass the name to and you then get the version as a
+tuple. An example:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">version</span><span class="p">(</span><span class="s1">'shapely'</span><span class="p">)</span> <span class="o">&lt;</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>It returns <code class="docutils literal notranslate"><span class="pre">None</span></code> if the package isn&#8217;t installed.</p>
+<p>Also, compilation modules, like <code class="docutils literal notranslate"><span class="pre">no_asserts</span></code>, <code class="docutils literal notranslate"><span class="pre">no_docstrings</span></code>, and
+<code class="docutils literal notranslate"><span class="pre">no_annotations</span></code> are available. These are for use in <code class="docutils literal notranslate"><span class="pre">anti-bloat</span></code>
+where packages sometimes will not work unless helped somewhat.</p>
+</section>
+</section>
+<section id="where-else-to-look">
+<h2>Where else to look<a class="headerlink" href="#where-else-to-look" title="Permalink to this heading">&#61633;</a></h2>
+<p>There is a post series under the tag <code class="docutils literal notranslate"><span class="pre">package_config</span></code> found
+<a class="reference external" href="https://nuitka.net/blog/tag/package_config.html">https://nuitka.net/blog/tag/package_config.html</a> that explains some
+things in more detail and is going to cover this and expand it for some
+time.</p>
+<p>Then of course, there is also the current package configuration file, located at
+<a class="reference external" href="https://github.com/Nuitka/Nuitka/blob/develop/nuitka/plugins/standard/standard.nuitka-package.config.yml" target="_blank">https://github.com/Nuitka/Nuitka/blob/develop/nuitka/plugins/standard/standard.nuitka-package.config.yml</a>
+that is full of examples.</p>
+</section>
+</section>
+
+<div class="section ablog__blog_comments">
+  
+  
+</div>
+
+           </div>
+          </div>
+          <footer>
+
+  <hr>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, Kay Hayen and Nuitka Contributors.</p>
+  </div>
+
+  
+<div class="share-button-container">
+    <div class="socialbutton-wrapper">
+
+        <a href="https://twitter.com/share?url=https://nuitka.net/doc/nuitka-package-config.html&amp;hashtags=nuitka" target="_blank">
+            <div class="socialbutton twitter">
+                <p class="icon">
+                    <img src="/_static/icon-twitter.png" width="24" height="24">
+                </p>
+
+                <p class="shares">share...</p>
+            </div>
+        </a>
+
+        <a href="https://www.facebook.com/sharer.php?u=https://nuitka.net/doc/nuitka-package-config.html&amp;hashtag=%23nuitka" target="_blank">
+            <div class="socialbutton facebook">
+                <p class="icon">
+                    <img src="/_static/icon-facebook.png" width="24" height="24">
+                </p>
+
+                <p class="shares">share...</p>
+            </div>
+        </a>
+
+        <a href="http://www.reddit.com/submit?url=https://nuitka.net/doc/nuitka-package-config.html" target="_blank">
+            <div class="socialbutton reddit">
+                <p class="icon">
+                    <img src="/_static/icon-reddit.png" width="24" height="24">
+                </p>
+
+                <p class="shares">share...</p>
+            </div>
+        </a>
+
+        <details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3 switcher-container">
+            <summary class="sd-summary-title sd-card-header switcher-title">EN<div class="sd-summary-down docutils">
+                    <svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-down" viewbox="0 0 24 24" aria-hidden="true">
+                        <path fill-rule="evenodd" d="M5.22 8.72a.75.75 0 000 1.06l6.25 6.25a.75.75 0 001.06 0l6.25-6.25a.75.75 0 00-1.06-1.06L12 14.44 6.28 8.72a.75.75 0 00-1.06 0z">
+                        </path>
+                    </svg>
+                </div>
+                <div class="sd-summary-up docutils">
+                    <svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-up" viewbox="0 0 24 24" aria-hidden="true">
+                        <path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z">
+                        </path>
+                    </svg>
+                </div>
+            </summary>
+            <div class="sd-summary-content sd-card-body switcher-body docutils">
+                <blockquote>
+                    <div>
+                        <div><div class="line"><a class="reference external" href="/de_DE/doc/nuitka-package-config.html">DE</a></div>
+                            <div class="line"><a class="reference external" href="/zh_CN/doc/nuitka-package-config.html">CN</a></div>
+                            </div></div>
+                </blockquote>
+            </div>
+        </details>
+    </div>
+</div>
+
+
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  </body>
+</html>

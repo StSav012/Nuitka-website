@@ -2,10 +2,10 @@
 <feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en">
   <id>https://nuitka.net</id>
   <title>Nuitka Blog - Posts tagged NTW</title>
-  <updated>2022-11-06T13:36:32.986097+00:00</updated>
+  <updated>2023-01-31T17:56:58.327036+00:00</updated>
   <link href="https://nuitka.net"/>
   <link href="https://nuitka.net/blog/tag/ntw/atom.xml" rel="self"/>
-  <generator uri="https://ablog.readthedocs.org/" version="0.10.29">ABlog</generator>
+  <generator uri="https://ablog.readthedocs.io/" version="0.11.0rc2">ABlog</generator>
   <entry>
     <id>https://nuitka.net/posts/nuitka-this-week-1.html</id>
     <title>Nuitka this week #1</title>
@@ -436,40 +436,40 @@ deal with.&lt;/p&gt;
 &lt;/pre&gt;&lt;/div&gt;
 &lt;/div&gt;
 &lt;p&gt;This was some far becoming something along this lines:&lt;/p&gt;
-&lt;div class="highlight-c notranslate"&gt;&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="n"&gt;PyObject&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;*&lt;/span&gt;&lt;span class="nf"&gt;impl_g&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;NuitkaGenerator&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;*&lt;/span&gt;&lt;span class="n"&gt;generator&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
-&lt;span class="p"&gt;{&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
-&lt;span class="w"&gt;     &lt;/span&gt;&lt;span class="n"&gt;YIELD&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;const_int_1&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
-&lt;span class="w"&gt;     &lt;/span&gt;&lt;span class="n"&gt;YIELD&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;const_int_2&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
+&lt;div class="highlight-c notranslate"&gt;&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="n"&gt;PyObject&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;*&lt;/span&gt;&lt;span class="nf"&gt;impl_g&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;NuitkaGenerator&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;*&lt;/span&gt;&lt;span class="n"&gt;generator&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="p"&gt;{&lt;/span&gt;
+&lt;span class="w"&gt;     &lt;/span&gt;&lt;span class="n"&gt;YIELD&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;const_int_1&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+&lt;span class="w"&gt;     &lt;/span&gt;&lt;span class="n"&gt;YIELD&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;const_int_2&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
 
-&lt;span class="w"&gt;     &lt;/span&gt;&lt;span class="n"&gt;PyErr_SetException&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;StopIteration&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
-&lt;span class="w"&gt;     &lt;/span&gt;&lt;span class="k"&gt;return&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nb"&gt;NULL&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
-&lt;span class="p"&gt;}&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
+&lt;span class="w"&gt;     &lt;/span&gt;&lt;span class="n"&gt;PyErr_SetException&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;StopIteration&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+&lt;span class="w"&gt;     &lt;/span&gt;&lt;span class="k"&gt;return&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nb"&gt;NULL&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+&lt;span class="p"&gt;}&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 &lt;/div&gt;
 &lt;p&gt;The &lt;code class="docutils literal notranslate"&gt;&lt;span class="pre"&gt;YIELD&lt;/span&gt;&lt;/code&gt; in there was basically doing the switching of the stacks
 and for the C code, it looked like a normal function call.&lt;/p&gt;
 &lt;p&gt;In the new approach, this is done:&lt;/p&gt;
-&lt;div class="highlight-c notranslate"&gt;&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="n"&gt;PyObject&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;*&lt;/span&gt;&lt;span class="nf"&gt;impl_g&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;NuitkaGenerator&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;*&lt;/span&gt;&lt;span class="n"&gt;generator&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
-&lt;span class="p"&gt;{&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
-&lt;span class="w"&gt;     &lt;/span&gt;&lt;span class="k"&gt;switch&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;generator&lt;/span&gt;&lt;span class="o"&gt;-&amp;gt;&lt;/span&gt;&lt;span class="n"&gt;m_resume_point&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
-&lt;span class="w"&gt;     &lt;/span&gt;&lt;span class="p"&gt;{&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
-&lt;span class="w"&gt;          &lt;/span&gt;&lt;span class="k"&gt;case&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="k"&gt;goto&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;resume_1&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
-&lt;span class="w"&gt;          &lt;/span&gt;&lt;span class="k"&gt;case&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="mi"&gt;2&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="k"&gt;goto&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;resume_2&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
-&lt;span class="w"&gt;     &lt;/span&gt;&lt;span class="p"&gt;}&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
+&lt;div class="highlight-c notranslate"&gt;&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="n"&gt;PyObject&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;*&lt;/span&gt;&lt;span class="nf"&gt;impl_g&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;NuitkaGenerator&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;*&lt;/span&gt;&lt;span class="n"&gt;generator&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="p"&gt;{&lt;/span&gt;
+&lt;span class="w"&gt;     &lt;/span&gt;&lt;span class="k"&gt;switch&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;generator&lt;/span&gt;&lt;span class="o"&gt;-&amp;gt;&lt;/span&gt;&lt;span class="n"&gt;m_resume_point&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="w"&gt;     &lt;/span&gt;&lt;span class="p"&gt;{&lt;/span&gt;
+&lt;span class="w"&gt;          &lt;/span&gt;&lt;span class="k"&gt;case&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="k"&gt;goto&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;resume_1&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+&lt;span class="w"&gt;          &lt;/span&gt;&lt;span class="k"&gt;case&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="mi"&gt;2&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="k"&gt;goto&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;resume_2&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+&lt;span class="w"&gt;     &lt;/span&gt;&lt;span class="p"&gt;}&lt;/span&gt;
 
-&lt;span class="w"&gt;     &lt;/span&gt;&lt;span class="n"&gt;generator&lt;/span&gt;&lt;span class="o"&gt;-&amp;gt;&lt;/span&gt;&lt;span class="n"&gt;m_yielded&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;const_int_1&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
-&lt;span class="w"&gt;     &lt;/span&gt;&lt;span class="n"&gt;generator&lt;/span&gt;&lt;span class="o"&gt;-&amp;gt;&lt;/span&gt;&lt;span class="n"&gt;resume_point&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
-&lt;span class="w"&gt;     &lt;/span&gt;&lt;span class="k"&gt;return&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nb"&gt;NULL&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
-&lt;span class="w"&gt;     &lt;/span&gt;&lt;span class="nl"&gt;resume_1&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
+&lt;span class="w"&gt;     &lt;/span&gt;&lt;span class="n"&gt;generator&lt;/span&gt;&lt;span class="o"&gt;-&amp;gt;&lt;/span&gt;&lt;span class="n"&gt;m_yielded&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;const_int_1&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+&lt;span class="w"&gt;     &lt;/span&gt;&lt;span class="n"&gt;generator&lt;/span&gt;&lt;span class="o"&gt;-&amp;gt;&lt;/span&gt;&lt;span class="n"&gt;resume_point&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;
+&lt;span class="w"&gt;     &lt;/span&gt;&lt;span class="k"&gt;return&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nb"&gt;NULL&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+&lt;span class="w"&gt;     &lt;/span&gt;&lt;span class="nl"&gt;resume_1&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
 
-&lt;span class="w"&gt;     &lt;/span&gt;&lt;span class="n"&gt;generator&lt;/span&gt;&lt;span class="o"&gt;-&amp;gt;&lt;/span&gt;&lt;span class="n"&gt;m_yielded&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;const_int_2&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
-&lt;span class="w"&gt;     &lt;/span&gt;&lt;span class="n"&gt;generator&lt;/span&gt;&lt;span class="o"&gt;-&amp;gt;&lt;/span&gt;&lt;span class="n"&gt;resume_point&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="mi"&gt;2&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
-&lt;span class="w"&gt;     &lt;/span&gt;&lt;span class="k"&gt;return&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nb"&gt;NULL&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
-&lt;span class="w"&gt;     &lt;/span&gt;&lt;span class="nl"&gt;resume_2&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
+&lt;span class="w"&gt;     &lt;/span&gt;&lt;span class="n"&gt;generator&lt;/span&gt;&lt;span class="o"&gt;-&amp;gt;&lt;/span&gt;&lt;span class="n"&gt;m_yielded&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;const_int_2&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+&lt;span class="w"&gt;     &lt;/span&gt;&lt;span class="n"&gt;generator&lt;/span&gt;&lt;span class="o"&gt;-&amp;gt;&lt;/span&gt;&lt;span class="n"&gt;resume_point&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="mi"&gt;2&lt;/span&gt;
+&lt;span class="w"&gt;     &lt;/span&gt;&lt;span class="k"&gt;return&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nb"&gt;NULL&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+&lt;span class="w"&gt;     &lt;/span&gt;&lt;span class="nl"&gt;resume_2&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
 
-&lt;span class="w"&gt;     &lt;/span&gt;&lt;span class="n"&gt;PyErr_SetException&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;StopIteration&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
-&lt;span class="w"&gt;     &lt;/span&gt;&lt;span class="k"&gt;return&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nb"&gt;NULL&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
-&lt;span class="p"&gt;}&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
+&lt;span class="w"&gt;     &lt;/span&gt;&lt;span class="n"&gt;PyErr_SetException&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;StopIteration&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+&lt;span class="w"&gt;     &lt;/span&gt;&lt;span class="k"&gt;return&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nb"&gt;NULL&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+&lt;span class="p"&gt;}&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 &lt;/div&gt;
 &lt;p&gt;As you can see, the function has an initial dispatcher. Resume point 0
@@ -2586,5 +2586,138 @@ donate to Nuitka, and go here:&lt;/p&gt;
     <category term="Python" label="Python"/>
     <category term="compiler" label="compiler"/>
     <published>2019-05-12T11:07:00+00:00</published>
+  </entry>
+  <entry>
+    <id>https://nuitka.net/posts/all-in-with-nuitka.html</id>
+    <title>All in with Nuitka</title>
+    <updated>2022-12-09T08:22:42+00:00</updated>
+    <author>
+      <name>Kay Hayen</name>
+    </author>
+    <content type="html">&lt;section id="all-in-with-nuitka"&gt;
+
+&lt;p&gt;After more than 10 years of working on the Python compiler Nuitka, and
+at the age of 50, I have finally decided to take the plunge. My projects
+“Nuitka” and “Nuitka commercial” are now my &lt;em&gt;day job&lt;/em&gt;, and I quit my
+work in the Air Traffic Community, after working on &lt;a class="reference external" href="https://en.wikipedia.org/wiki/ARTAS"&gt;ARTAS&lt;/a&gt; (a software to create an Air
+Situation Picture from radar and other sensors) for 20 years.&lt;/p&gt;
+&lt;/section&gt;
+&lt;section id="why-now"&gt;
+&lt;h1&gt;Why now?&lt;/h1&gt;
+&lt;p&gt;That is very good question. I feel I could have done this a long time
+ago, and my heart was torn for a while, and also I prepared this for a
+while now. Listing back to interviews from 4 years ago, it seems though
+as if it had not been on the radar (pun intended).&lt;/p&gt;
+&lt;p&gt;So then I launched Nuitka commercial around 1.5 years ago, first as
+vapor ware, with early bird customers, and meanwhile it has matured to a
+point, where it is the obvious solution to many corporate users, with
+big guys picking it up and small business as well. From startups, big
+name technology giants, universities, mid sized companies, and from
+individuals, I have all kinds of support.&lt;/p&gt;
+&lt;p&gt;I liked my old job very much, but it was getting old, and I felt like
+Nuitka needs me to fulfil my mission. And my wife needed my help with
+driving her to work, which was getting the load to high, something had
+to give. And it seems nothing related to what is called Nuitka (my wife,
+and the compiler share the name) was going to be that.&lt;/p&gt;
+&lt;/section&gt;
+&lt;section id="what-will-change"&gt;
+&lt;h1&gt;What will change?&lt;/h1&gt;
+&lt;p&gt;Already, ever since I launched Nuitka commercial, Nuitka has become way
+more of a out of the box experience. It just works, and covers more
+packages than ever before, and steps have been taken, to make it
+possible to extend this even further with your help. Sure there are
+still shortcoming.&lt;/p&gt;
+&lt;p&gt;But Nuitka has become very polished, and shows this very much that I
+also love details and doing things correctly. I have conducted Nuitka
+from day one as an attempt to create a software that would be usable to
+the enterprise with a million lines of code, that they cannot check for
+unsupported language features, so Nuitka is just fully compatible, to a
+level of absurdity.&lt;/p&gt;
+&lt;p&gt;Having conducted Nuitka on a level of where a corporate business can
+throw it’s code at Nuitka and have it just work, and reliably, this will
+only improve now.&lt;/p&gt;
+&lt;p&gt;Naturally bugs have happened once in a while, but I was always more
+careful. You know, like if this was for safety critical software, on
+which lives might depend. Hard to not be affected by that stance.&lt;/p&gt;
+&lt;p&gt;So lets talk about other ways I plan to expand.&lt;/p&gt;
+&lt;/section&gt;
+&lt;section id="nuitka-package-configuration"&gt;
+&lt;h1&gt;Nuitka Package Configuration&lt;/h1&gt;
+&lt;p&gt;Extending Nuitka with tweaks for package has become increasingly
+simpler. Many previous plugins, e.g. for &lt;code class="docutils literal notranslate"&gt;&lt;span class="pre"&gt;torch&lt;/span&gt;&lt;/code&gt;, &lt;code class="docutils literal notranslate"&gt;&lt;span class="pre"&gt;tensorflow&lt;/span&gt;&lt;/code&gt;, and
+most recently &lt;code class="docutils literal notranslate"&gt;&lt;span class="pre"&gt;numpy&lt;/span&gt;&lt;/code&gt;, and definitely also the Qt binding ones in the
+future, have been or will be converted to Yaml configuration applied by
+generic plugins that deal with DLLs, data-files, tweaks (called
+&lt;code class="docutils literal notranslate"&gt;&lt;span class="pre"&gt;anti-bloat&lt;/span&gt;&lt;/code&gt;) etc.&lt;/p&gt;
+&lt;p&gt;Adding stuff there is simple, and as of recently, there is even
+documentation for it. This is going to be explained in a series of posts
+detailing Nuitka package configuration, under the &lt;code class="docutils literal notranslate"&gt;&lt;span class="pre"&gt;package_config&lt;/span&gt;&lt;/code&gt;
+tag.&lt;/p&gt;
+&lt;p&gt;I must say it’s so much fun, I love working with it. But the goal is for
+this to have you join it, and PRs are indeed starting to come in more
+frequently it seems from first glance, but I need to make this more
+known.&lt;/p&gt;
+&lt;/section&gt;
+&lt;section id="streaming"&gt;
+&lt;h1&gt;Streaming&lt;/h1&gt;
+&lt;p&gt;I have experimented with streaming in the past, and I absolutely love
+it. Without my day job, effectively working two jobs at the same time, I
+expect to have the time to do more of them in December and then on a
+regular basis.&lt;/p&gt;
+&lt;/section&gt;
+&lt;section id="python-3-11"&gt;
+&lt;h1&gt;Python 3.11&lt;/h1&gt;
+&lt;p&gt;There will be a separate post on this issue later this week. I am
+scrambling to add support for it and it feels very far already. Many
+basic tests already work, but more debugging will be needed. I hope
+Nuitka 1.3 will add support for it, at least on the usual experimental
+level.&lt;/p&gt;
+&lt;/section&gt;
+&lt;section id="how-you-can-help"&gt;
+&lt;h1&gt;How you can help?&lt;/h1&gt;
+&lt;p&gt;Please become a &lt;a class="reference external" href="https://nuitka.net/doc/commercial.html"&gt;subscriber of Nuitka commercial&lt;/a&gt;, even if you do not
+need the IP protection features it mostly has. All essential packaging
+and performance features are free, and I have put incredible amounts of
+works in this, and I need to now make a living off it.&lt;/p&gt;
+&lt;p&gt;Right now, I am far from being able to sustain my income from it, and I
+am taking a risk with this effort, hoping for support from you.&lt;/p&gt;
+&lt;p&gt;Nuitka commercial makes creating a Windows Service a blast. It has a
+PySide2 that is compatible with Nuitka (I did make PySide6 compatible
+myself, and backported it to PySide2), so if you need to stay on old
+software. And for IP protection, it is just incredibly important to not
+ship bytecode at all, and with Nuitka commercial, it protects your data
+and files at runtime too.&lt;/p&gt;
+&lt;p&gt;I am bad at marketing, but good at software, which is one more reason to
+purchase it. You know you love these kinds of people. Was that good
+marketing? Also, there are share buttons on this page. Please try them
+out and let people know about this.&lt;/p&gt;
+&lt;p&gt;In future postings, I will make it a regular thing to ask for help with
+some of the technical tasks. Stay tuned, there might be something that
+you can help with.&lt;/p&gt;
+&lt;/section&gt;
+&lt;section id="becoming-more-active"&gt;
+&lt;h1&gt;Becoming more active&lt;/h1&gt;
+&lt;p&gt;I am the kind of person that would much rather do good stuff than to
+talk about it, like when it finally supports Python 3.11, normal old me
+would just mention it maybe on Twitter once, and have it in the
+changelog only.&lt;/p&gt;
+&lt;p&gt;I need to get away from that. I need to resume TWN (This week in Nuitka)
+and have all plans to do it. Obviously I can get caught up in things,
+and may just always do it later when there is more or better news.&lt;/p&gt;
+&lt;/section&gt;
+</content>
+    <link href="https://nuitka.net/posts/all-in-with-nuitka.html" rel="alternate"/>
+    <summary>After more than 10 years of working on the Python compiler Nuitka, and
+at the age of 50, I have finally decided to take the plunge. My projects
+“Nuitka” and “Nuitka commercial” are now my day job, and I quit my
+work in the Air Traffic Community, after working on ARTAS (a software to create an Air
+Situation Picture from radar and other sensors) for 20 years.</summary>
+    <category term="NTW" label="NTW"/>
+    <category term="Nuitka" label="Nuitka"/>
+    <category term="Python" label="Python"/>
+    <category term="compiler" label="compiler"/>
+    <category term="package_config" label="package_config"/>
+    <category term="stream" label="stream"/>
+    <published>2022-12-09T08:22:42+00:00</published>
   </entry>
 </feed>
