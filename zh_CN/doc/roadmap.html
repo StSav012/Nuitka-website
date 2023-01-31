@@ -69,7 +69,7 @@
 <li class="toctree-l3"><a class="reference internal" href="#user-extensibility">&#29992;&#25143;&#21487;&#25193;&#23637;&#24615;</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#standalone">&#21333;&#26426;&#29256;</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#onefile-speed-public">Onefile speed (public)</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#python3-11">Python3.11</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#python-3-11">Python 3.11</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#nuitka-python-public">Nuitka-Python (public)</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#performance-public">Performance (public)</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#macos-enhancements">macOS enhancements</a></li>
@@ -77,8 +77,8 @@
 <li class="toctree-l3"><a class="reference internal" href="#automatic-updates">Automatic Updates</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#complete-support-for-python-version-3-10">Complete Support for Python Version (3.10)</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#traceback-encryption-commercial">Traceback Encryption (commercial)</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#features-to-be-added-for-1-3">Features to be added for 1.3</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#features-to-be-added-for-1-4">Features to be added for 1.4</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#features-to-be-added-for-1-5">Features to be added for 1.5</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#features-to-be-added-for-1-6">Features to be added for 1.6</a></li>
 </ul>
 </li>
 </ul>
@@ -113,13 +113,15 @@
 <ul>
 <li><p>Data files, implicit imports, and DLL inclusion are specified in Yaml
 files now.</p>
-<p>In this way, it is easy to extend by third parties. We could imagine
-even supporting packages that provide their own configuration for
-compilation with Nuitka through such files.</p>
-<p>A schema was created and helps editing in Visual Code, user files can
-be provided.</p>
-<p>A documentation was created, the next step is to make a series of
-postings detailing each feature further.</p>
+<p>A post series is currently going on and has been lauched at post: [Nuitka
+Package Config
+Kickoff](<a class="reference external" href="https://nuitka.net/posts/nuitka-package-config-kickoff.html">https://nuitka.net/posts/nuitka-package-config-kickoff.html</a>) and it
+will continue to become the documentation that currently lives under [Nuitka
+Package Config](<a class="reference external" href="https://nuitka.net/doc/nuitka-package-config.html">https://nuitka.net/doc/nuitka-package-config.html</a>) on the web
+site only for rapid development independent of Nuitka releases.</p>
+<p>The long term plan is to also include in the Nuitka release as part of
+the documentation, much like User Manual and Developer Manual, that are
+being maintained inside Nuitka repo.</p>
 </li>
 </ul>
 </section>
@@ -127,6 +129,13 @@ postings detailing each feature further.</p>
 <h2>&#21333;&#26426;&#29256;<a class="headerlink" href="#standalone" title="&#27492;&#26631;&#39064;&#30340;&#27704;&#20037;&#38142;&#25509;">&#61633;</a></h2>
 <ul>
 <li><p>&#8220;Multidist&#8221; support (public)</p>
+<div class="admonition note">
+<p class="admonition-title">&#22791;&#27880;</p>
+<p>This is an experimental feature and available in the 1.4 release
+series, checkout the User Manual to see how it is used. This is
+only here until the things described are also perfectly documented
+there.</p>
+</div>
 <p>Allow combining multiple main programs into one, called &#8220;multidist&#8221;.
 These will work with a dispatcher that decides from the binary name
 what it is. There will be one big binary with the ability to run each
@@ -172,11 +181,12 @@ result of a specific file, such that files from the Python
 installation do not have to be redone over and over.</p></li>
 </ul>
 </section>
-<section id="python3-11">
-<h2>Python3.11<a class="headerlink" href="#python3-11" title="&#27492;&#26631;&#39064;&#30340;&#27704;&#20037;&#38142;&#25509;">&#61633;</a></h2>
+<section id="python-3-11">
+<h2>Python 3.11<a class="headerlink" href="#python-3-11" title="&#27492;&#26631;&#39064;&#30340;&#27704;&#20037;&#38142;&#25509;">&#61633;</a></h2>
 <ul class="simple">
-<li><p>Basic tests appear to work mostly.</p></li>
-<li><p>There is at least a memory leak with generators,</p></li>
+<li><p>Basic tests appear to work mostly, but frame handling has still bugs that
+need to be resolved. The changes done for generator frames appear to not yet
+fully compatible with 3.10 therefore this is still blocked from release.</p></li>
 <li><p>There is a lack of integration of compiled and uncompiled generators
 with each other, this needs porting still.</p></li>
 <li><p>Execute Python 3.10 test suite in a compatible way with 3.11</p></li>
@@ -216,8 +226,6 @@ supported in binary operations and in-place operations, esp. for
 <li><p>Implement the <code class="docutils literal notranslate"><span class="pre">partial</span></code> built-in and make it work with compiled
 functions. It could prepare calls much better, such that they do not
 come through keyword arguments unnecessarily.</p></li>
-<li><p>Add support for <code class="docutils literal notranslate"><span class="pre">list</span></code> methods, things like <code class="docutils literal notranslate"><span class="pre">append</span></code> really
-should be optimized as well in the mostly existing operation nodes.</p></li>
 <li><p>Loop trace analysis fails to deliver <code class="docutils literal notranslate"><span class="pre">int</span></code> types shapes. We would
 need that for optimizing loops.</p></li>
 </ul>
@@ -277,25 +285,20 @@ client name, etc. could be output in plain text, while the variable
 names and values would not be, depending on your choice!</p></li>
 </ul>
 </section>
-<section id="features-to-be-added-for-1-3">
-<h2>Features to be added for 1.3<a class="headerlink" href="#features-to-be-added-for-1-3" title="&#27492;&#26631;&#39064;&#30340;&#27704;&#20037;&#38142;&#25509;">&#61633;</a></h2>
+<section id="features-to-be-added-for-1-5">
+<h2>Features to be added for 1.5<a class="headerlink" href="#features-to-be-added-for-1-5" title="&#27492;&#26631;&#39064;&#30340;&#27704;&#20037;&#38142;&#25509;">&#61633;</a></h2>
 <p>[ ] Add download updating for standalone as well, onefile for windows works.</p>
 <p>[ ] Document commercial file embedding publicly with examples.</p>
 <p>[ ] Document commercial Windows Service usage with examples.</p>
-<p>[x] Document Yaml format with a series of postings with examples.</p>
 <dl class="simple">
 <dt>[ ] Tuple unpacking for values that support indexing should be</dt><dd><p>optimized.</p>
 </dd>
 </dl>
 </section>
-<section id="features-to-be-added-for-1-4">
-<h2>Features to be added for 1.4<a class="headerlink" href="#features-to-be-added-for-1-4" title="&#27492;&#26631;&#39064;&#30340;&#27704;&#20037;&#38142;&#25509;">&#61633;</a></h2>
+<section id="features-to-be-added-for-1-6">
+<h2>Features to be added for 1.6<a class="headerlink" href="#features-to-be-added-for-1-6" title="&#27492;&#26631;&#39064;&#30340;&#27704;&#20037;&#38142;&#25509;">&#61633;</a></h2>
 <p>[ ] Update for MinGW64 on Windows to use gcc 12.x based on.</p>
 <p>[ ] Initial support for ctypes based direct calls of C code.</p>
-<dl class="simple">
-<dt>[ ] Add support for <code class="docutils literal notranslate"><span class="pre">list</span></code> methods, things like <code class="docutils literal notranslate"><span class="pre">append</span></code> really</dt><dd><p>should be optimized as well in the mostly existing operation nodes.</p>
-</dd>
-</dl>
 </section>
 </section>
 
@@ -365,8 +368,8 @@ names and values would not be, depending on your choice!</p></li>
             <div class="sd-summary-content sd-card-body switcher-body docutils">
                 <blockquote>
                     <div>
-                        <div><div class="line"><a class="reference external" href="/doc/roadmap.html">EN</a></div>
-                            <div class="line"><a class="reference external" href="/de_DE/doc/roadmap.html">DE</a></div>
+                        <div><div class="line"><a class="reference external" href="/de_DE/doc/roadmap.html">DE</a></div>
+                            <div class="line"><a class="reference external" href="/doc/roadmap.html">EN</a></div>
                             </div></div>
                 </blockquote>
             </div>

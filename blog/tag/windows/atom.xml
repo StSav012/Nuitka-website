@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en">
   <id>https://nuitka.net</id>
   <title>Nuitka Blog - Posts tagged Windows</title>
-  <updated>2023-01-31T17:57:02.338250+00:00</updated>
+  <updated>2023-01-31T18:22:59.399241+00:00</updated>
   <link href="https://nuitka.net"/>
   <link href="https://nuitka.net/blog/tag/windows/atom.xml" rel="self"/>
   <generator uri="https://ablog.readthedocs.io/" version="0.11.0rc2">ABlog</generator>
